@@ -4,3 +4,8 @@ __pycache__/
 .DS_Store
 .env
 bakeoff_out/
+
+# Cartoon pipeline: local venv, vendored repos, and model weights
+cartoon/.venv/
+cartoon/vendor/
+cartoon/models/
