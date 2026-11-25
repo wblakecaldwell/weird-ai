@@ -10,6 +10,8 @@ import argparse
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -21,35 +23,87 @@ from styles import STYLES, build_image_prompt, get_style_plan
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUT = ROOT / "data" / "roster.json"
 
-SYSTEM_PROMPT = """You are the creative director of an iconic, deeply funny high school yearbook:
+SYSTEM_PROMPT = """You are the creative director of an iconic, deadpan-hilarious high school yearbook:
 "Meme Valley High School — Class of 2025".
 
-Your job is to invent 100% ORIGINAL internet meme characters — think the wildly mixed-media,
-bizarre cast of *The Amazing World of Gumball* combined with classic internet meme iconography
-(like how Trollface, Wojak, or Stonks crystallize one hyper-specific relatable emotion).
+Your job is to invent 100% ORIGINAL, Gumball-style mixed-media characters whose faces crystallize
+specific, recognizable, funny everyday human micro-emotions.
 
-STRICT ORIGINALITY RULES:
-- NEVER copy, reference, or remix existing memes (NO Trollface, Pepe, Wojak, Doge, Shrek,
-  Skibidi, Sigma, Gigachad, Rickroll, Smurf Cat, SpongeBob, Kermit, etc.).
-- NEVER use the word "meme" inside `visual_description`. Describe pure visual geometry,
-  proportions, materials, facial expression, clothing, and tiny iconic accessories.
-- Each character MUST embody a specific, recognizable, funny micro-emotion or archetype
-  (e.g., "quietly pretending you heard what someone said after asking 'what?' twice",
-  "unearned confidence while giving wrong directions", "3 AM sudden urge to reorganize the garage").
-- Make every student's silhouette, species/object type, color palette, and expression wildly
-  distinct from the others. Mix weird sentient objects, oddball creatures, surreal humanoids,
-  and chaotic critters.
-- Names should sound hilariously plausible in a real American high school yearbook
-  (e.g. "Braxton Buffering", "Chester JPEG", "Marisol Crisp", "Gavin Glorp", "Chloe Clipping").
-- Senior quotes should feel genuinely 2025 high-school-funny (dry, chaotic, relatable, concise).
+CREATURE & VISUAL RULES:
+- Invent completely original characters—never copy or remix existing memes or pop-culture IP.
+- Follow each slot's assigned `style_id` AND `creature_type` strictly. Make every character in the
+  batch a totally different species/object, silhouette, and color palette, with different outfits.
+- `visual_description` MUST describe a HEAD-AND-SHOULDERS studio portrait ONLY: head/object/creature
+  anatomy, facial features (eyes, eyebrows, mouth, expression), surface textures/colors, and
+  upper-chest school clothes (collar, sweater, cardigan, varsity jacket, tie, glasses, braces, hat).
+- Focus strictly on the upper torso and head; keep shirts plain/patterned with zero printed words.
+- Never use the word "meme" inside `visual_description`.
+
+CHARACTER, NAME & QUOTE RULES:
+- Make each student's `archetype` and `micro_emotion` about real, funny, relatable everyday human
+  awkwardness (hallways, cafeteria, group projects, driving, texting, hobbies, small talk)—NOT
+  about their art style or becoming a school mascot.
+- Invent funny, plausible American high school names with varied, quirky everyday surnames
+  (like Turnip or Plunkett—always invent brand-new surnames instead of reusing examples). Use
+  distinct first names not already in the roster.
+- Follow each slot's assigned `quote_style` closely so every quote has a completely different tone
+  and sentence structure (dry, punchy, specific, under 90 chars).
 
 Output ONLY valid JSON matching the exact requested schema — no markdown fences, no commentary.
 """
 
+CREATURE_TYPES = [
+    "an unexpected sentient household or kitchen object (invent a fresh everyday item, not a repeat)",
+    "an absurd animal wearing high school clothes (pick an uncommon bird, bug, fish, reptile, or mammal)",
+    "a sentient food, pastry, fruit, or houseplant with an expressive face",
+    "a bizarre office, classroom, music, or sports object brought to life",
+    "an odd surreal folk-tale critter or weird geometric creature (not a generic human)",
+    "a weird vintage appliance, tool, or hardware gadget with a face",
+]
+
+QUOTE_STYLES = [
+    'start with "Do not" or "Warning:" — a cryptic one-sentence warning to incoming freshmen',
+    'start with "Shoutout to" — thank a weirdly specific inanimate object or hallway fixture',
+    'start with a rating like "3.5/5 stars:" — an oddly specific review of high school',
+    'start with "Whoever" — a petty 4-year grudge over a tiny unresolved locker or cafeteria mystery',
+    'start with "Dear" — a dramatic farewell to a favorite chair, vending machine, or parking spot',
+    'start with "Pro tip:" — a cheerful piece of objectively terrible life advice',
+    'start with "Effective immediately," — an overly formal corporate resignation from high school',
+    'start with "Still thinking about" — a baffling oddly specific memory from 10th grade',
+    'start with "Ask me about" — suspiciously proud of an absurd tiny achievement',
+    'start with "To the person who" — a weirdly specific accusation with zero context',
+    'start with "Never" — a fake inspirational proverb that falls apart halfway through',
+    'start with "Officially" — a deadpan graduation status update about a minor habit',
+]
+
+VIBE_ARENAS = [
+    "awkward hallway small talk or accidental eye contact",
+    "unearned confidence while giving terrible advice or directions",
+    "sleep-deprived 2 AM hyper-fixation on an unimportant task",
+    "cafeteria lunch-table politics or defending a weird snack",
+    "group-project delusion or last-minute presentation panic",
+    "trying to act completely normal after tripping or mispronouncing a word",
+    "stubbornly refusing to make two trips while carrying way too much stuff",
+    "pretending to know a classmate's name after knowing them for four years",
+    "unhinged pride in a bizarrely niche club or hobby",
+    "quietly panicking while nodding along in a conversation you stopped following",
+    "holding the door open for someone who is awkwardly too far away",
+    "suspiciously intense devotion to an arbitrary school rule or routine",
+]
+
+
+def find_lms_bin() -> str | None:
+    found = shutil.which("lms")
+    if found:
+        return found
+    default_bin = Path.home() / ".lmstudio" / "bin" / "lms"
+    return str(default_bin) if default_bin.exists() else None
+
 
 def extract_json(raw: str) -> dict:
-    """Robustly parse JSON even if a local LLM wraps it in markdown fences or thinking tags."""
-    cleaned = re.sub(r"<think>.*?</think>", "", raw, flags=re.DOTALL).strip()
+    """Robustly parse JSON even if a local LLM wraps it in markdown fences, ANSI codes, or thinking tags."""
+    cleaned = re.sub(r"\x1b\[[0-9;]*[A-Za-z]", "", raw)
+    cleaned = re.sub(r"<think>.*?</think>", "", cleaned, flags=re.DOTALL).strip()
     fence = re.search(r"```(?:json)?\s*(\{.*\})\s*```", cleaned, flags=re.DOTALL)
     if fence:
         cleaned = fence.group(1)
@@ -61,28 +115,38 @@ def extract_json(raw: str) -> dict:
 
 
 def generate_batch(
-    client: OpenAI,
+    client: OpenAI | None,
+    lms_bin: str | None,
     model: str,
     style_slots: list[tuple[int, str]],
     existing_names: list[str],
     existing_archetypes: list[str],
 ) -> list[dict]:
     slot_lines = []
-    for idx, style_id in style_slots:
+    for pos, (idx, style_id) in enumerate(style_slots):
         spec = STYLES[style_id]
+        creature_hint = CREATURE_TYPES[(idx - 1) % len(CREATURE_TYPES)]
+        quote_style = QUOTE_STYLES[(idx - 1) % len(QUOTE_STYLES)]
+        vibe_arena = VIBE_ARENAS[(idx - 1 + pos) % len(VIBE_ARENAS)]
         slot_lines.append(
-            f"- Slot {idx}: style_id=\"{style_id}\" ({spec.label}) -> {spec.llm_guidance}"
+            f"- Slot {idx}: style_id=\"{style_id}\" ({spec.label}) -> {spec.llm_guidance}\n"
+            f"    • creature_type: {creature_hint}\n"
+            f"    • vibe_arena: {vibe_arena}\n"
+            f"    • quote_style: {quote_style}"
         )
 
     avoid_block = ""
     if existing_names:
+        used_firsts = sorted({n.split()[0] for n in existing_names if n.strip()})
         avoid_block = (
-            f"\nAlready used names (DO NOT repeat): {', '.join(existing_names)}"
+            f"\nAlready used full names (DO NOT repeat): {', '.join(existing_names)}"
+            f"\nAlready used first names (choose DIFFERENT first names): {', '.join(used_firsts)}"
             f"\nAlready used archetypes (DO NOT repeat): {', '.join(existing_archetypes)}"
         )
 
     user_prompt = f"""Invent {len(style_slots)} completely original Class of 2025 senior students,
-one for each slot below, strictly matching each slot's assigned `style_id`:
+one for each slot below, strictly matching each slot's assigned `style_id`, `creature_type`,
+`vibe_arena`, and `quote_style`:
 
 {chr(10).join(slot_lines)}
 {avoid_block}
@@ -95,30 +159,64 @@ Return a single JSON object with this exact shape:
       "style_id": "pixel_16bit",
       "name": "First Last",
       "handle": "@short_handle",
-      "archetype": "Short catchy title of the micro-emotion/meme vibe (3-6 words)",
-      "micro_emotion": "One funny sentence describing the exact relatable moment this face represents",
-      "visual_description": "Detailed, vivid 2-3 sentence visual description of the character's head, weird anatomy/object form, exact facial expression, color palette, and high school outfit (collar, varsity jacket, hoodie, lanyard, braces, glasses, etc.). Do NOT include backdrop or camera info and do NOT use the word 'meme'.",
+      "archetype": "Short catchy 3-5 word label for their relatable vibe",
+      "micro_emotion": "One funny sentence describing the exact relatable everyday moment this face represents",
+      "visual_description": "Vivid 2-3 sentence HEAD-AND-SHOULDERS studio portrait description ONLY: exact creature/object head anatomy, weird proportions, facial expression, textures/colors, and collar/shoulders outfit (sweater, polo, cardigan, tie, glasses, braces, hat). Upper torso and head only, plain/patterned clothes with zero words, no backdrop/camera info, no word 'meme'.",
       "clubs": ["Club 1", "Club 2"],
       "superlative": "Most Likely To ...",
-      "quote": "Short funny authentic Class of 2025 senior quote (under 90 chars)"
+      "quote": "Short funny senior quote matching this slot's exact quote_style (under 90 chars)"
     }}
   ]
 }}"""
 
-    resp = client.chat.completions.create(
-        model=model,
-        temperature=0.92,
-        max_tokens=4096,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
-        ],
-    )
-    content = resp.choices[0].message.content or ""
+    if lms_bin is not None:
+        proc = subprocess.run(
+            [
+                lms_bin,
+                "chat",
+                model,
+                "--dont-fetch-catalog",
+                "-y",
+                "-s",
+                SYSTEM_PROMPT,
+                "-p",
+                user_prompt,
+            ],
+            capture_output=True,
+            text=True,
+            timeout=300,
+        )
+        if proc.returncode != 0:
+            err = (proc.stderr or proc.stdout).strip()
+            raise RuntimeError(f"lms chat failed (exit {proc.returncode}): {err[:300]}")
+        content = proc.stdout or ""
+    else:
+        assert client is not None
+        resp = client.chat.completions.create(
+            model=model,
+            temperature=0.92,
+            max_tokens=4096,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt},
+            ],
+        )
+        content = resp.choices[0].message.content or ""
     parsed = extract_json(content)
     students = parsed.get("students", [])
     if len(students) != len(style_slots):
         raise ValueError(f"Expected {len(style_slots)} students, got {len(students)}")
+    cliche_re = re.compile(r"^\s*(i['’]?m not|i am not|it['’]?s not|it is not|i didn['’]?t)\b", re.I)
+    existing_lower = {n.lower() for n in existing_names}
+    batch_names: set[str] = set()
+    for st in students:
+        q = (st.get("quote") or "").strip()
+        if cliche_re.search(q):
+            raise ValueError(f"Rejected cliché quote format: {q!r}")
+        nm = (st.get("name") or "").strip().lower()
+        if not nm or nm in existing_lower or nm in batch_names:
+            raise ValueError(f"Duplicate or empty student name: {st.get('name')!r}")
+        batch_names.add(nm)
     return students
 
 
@@ -134,47 +232,65 @@ def main() -> None:
         help="Keep existing school, principal, and students in --output and append --count new students",
     )
     parser.add_argument(
+        "--backend",
+        choices=["cli", "http"],
+        default="cli",
+        help="How to talk to LM Studio: 'cli' uses `lms chat` with no token needed (default), 'http' uses localhost:1234",
+    )
+    parser.add_argument(
         "--base-url",
         default=os.getenv("LM_STUDIO_BASE_URL", "http://localhost:1234/v1"),
-        help="LM Studio OpenAI-compatible base URL",
+        help="LM Studio OpenAI-compatible base URL (used with --backend http)",
     )
     parser.add_argument(
         "--model",
         default=os.getenv("LM_STUDIO_MODEL", "qwen3-vl-30b-a3b-instruct-mlx"),
-        help="Loaded model identifier in LM Studio",
+        help="Model identifier in LM Studio",
     )
     parser.add_argument("--output", type=Path, default=DEFAULT_OUT, help="Output JSON path")
     args = parser.parse_args()
 
-    api_key = os.getenv("LM_API_TOKEN") or os.getenv("LM_STUDIO_API_KEY") or "lm-studio"
-    client = OpenAI(base_url=args.base_url, api_key=api_key)
+    client: OpenAI | None = None
+    lms_bin: str | None = None
 
-    # Verify connection & loaded model up front with clear actionable errors
-    try:
-        models = client.models.list()
-        available = [m.id for m in models.data]
-        print(f"Connected to LM Studio at {args.base_url}")
-        if available:
-            print(f"Loaded models: {', '.join(available)}")
-            if args.model not in available:
-                print(f"Note: requested '{args.model}' not in loaded list; using '{available[0]}'")
-                args.model = available[0]
-    except AuthenticationError:
-        print(
-            "\nError: LM Studio rejected the API token.\n"
-            "Fix: Copy your API token from LM Studio -> Developer -> Server Settings into .env:\n"
-            "     LM_API_TOKEN=your_token_here\n"
-            "   (or disable 'Require Authentication' in LM Studio for localhost).",
-            file=sys.stderr,
-        )
-        sys.exit(1)
-    except APIConnectionError:
-        print(
-            f"\nError: Could not connect to LM Studio at {args.base_url}.\n"
-            "Fix: Start the local server in LM Studio (or run `lms server start` and `lms load`).",
-            file=sys.stderr,
-        )
-        sys.exit(1)
+    if args.backend == "cli":
+        lms_bin = find_lms_bin()
+        if not lms_bin:
+            print(
+                "\nError: Could not find LM Studio CLI (`lms`).\n"
+                "Fix: Enable the `lms` CLI in LM Studio, or pass `--backend http`.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        print(f"Using LM Studio CLI ({lms_bin}) with model '{args.model}' (no API token required)")
+    else:
+        api_key = os.getenv("LM_API_TOKEN") or os.getenv("LM_STUDIO_API_KEY") or "lm-studio"
+        client = OpenAI(base_url=args.base_url, api_key=api_key)
+
+        # Verify connection & loaded model up front with clear actionable errors
+        try:
+            models = client.models.list()
+            available = [m.id for m in models.data]
+            print(f"Connected to LM Studio at {args.base_url}")
+            if available:
+                print(f"Loaded models: {', '.join(available)}")
+                if args.model not in available:
+                    print(f"Note: requested '{args.model}' not in loaded list; using '{available[0]}'")
+                    args.model = available[0]
+        except AuthenticationError:
+            print(
+                "\nError: LM Studio rejected the API token.\n"
+                "Fix: Run with the default `--backend cli` (no token needed), or pass LM_API_TOKEN.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+        except APIConnectionError:
+            print(
+                f"\nError: Could not connect to LM Studio at {args.base_url}.\n"
+                "Fix: Start the local server in LM Studio (or run `lms server start` and `lms load`).",
+                file=sys.stderr,
+            )
+            sys.exit(1)
 
     existing_roster: dict = {}
     all_students: list[dict] = []
@@ -232,7 +348,7 @@ def main() -> None:
         for attempt in range(1, 4):
             try:
                 batch_result = generate_batch(
-                    client, args.model, slots, existing_names, existing_archetypes
+                    client, lms_bin, args.model, slots, existing_names, existing_archetypes
                 )
                 break
             except Exception as exc:
@@ -273,7 +389,8 @@ def main() -> None:
             existing_archetypes.append(record["archetype"])
 
         save_checkpoint()
-        print(f"  -> checkpoint saved ({len(all_students)} total students in {args.output.relative_to(ROOT)})")
+        out_disp = args.output.relative_to(ROOT) if args.output.is_relative_to(ROOT) else args.output
+        print(f"  -> checkpoint saved ({len(all_students)} total students in {out_disp})")
 
     print(f"\nDone! Saved {len(all_students)} total students to {args.output}")
 

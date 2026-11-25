@@ -142,13 +142,20 @@ STYLES: dict[str, StyleSpec] = {
 
 
 def get_style_plan(total: int = 20) -> list[str]:
-    """Return a balanced list of `total` style IDs matching the Gumball mixed-media ratio."""
+    """Return a balanced, interleaved list of `total` style IDs matching the Gumball mixed-media ratio.
+
+    Interleaves styles round-robin so every 5-student LLM batch mixes distinct mediums
+    instead of clustering 4 pixel sprites in a row.
+    """
+    remaining = {style_id: spec.count_in_20 for style_id, spec in STYLES.items()}
     base_plan: list[str] = []
-    for style_id, spec in STYLES.items():
-        base_plan.extend([style_id] * spec.count_in_20)
+    while any(remaining.values()):
+        for style_id in STYLES:
+            if remaining[style_id] > 0:
+                base_plan.append(style_id)
+                remaining[style_id] -= 1
     if total <= len(base_plan):
         return base_plan[:total]
-    # Repeat proportionally if user scales past 20
     result: list[str] = []
     while len(result) < total:
         result.extend(base_plan)
