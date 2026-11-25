@@ -2,6 +2,12 @@
 
 Local AI pipeline for generating an original **Gumball-style mixed-media Meme Yearbook** on Apple Silicon using **LM Studio** (world-building & roster) + **`mflux`** (native MLX image generation) + a print-ready **HTML Yearbook**.
 
+<p align="center">
+  <img src="./assets/yearbook-spread-a-h.png" alt="Meme Valley High School Class of 2025 — Seniors A–C & C–H Two-Page Spread" width="100%" />
+  <br />
+  <em>Sample two-page spread (Seniors A–C &amp; C–H): 10 original mixed-media meme characters generated locally with LM Studio + mflux.</em>
+</p>
+
 ## Setup
 
 1. Copy `.env.example` to `.env` and add your LM Studio API token (from **LM Studio -> Developer -> Server Settings**, or disable server auth for localhost):
