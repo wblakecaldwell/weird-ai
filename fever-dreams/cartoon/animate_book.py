@@ -18,6 +18,9 @@ from pathlib import Path
 import mlx.core as mx
 from PIL import Image, ImageDraw, ImageFilter
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from render_log import RenderLog  # noqa: E402
+
 DEFAULT_MODEL_DIR = Path(__file__).resolve().parent / "models" / "ltx-2.5-q8"
 
 
@@ -86,6 +89,24 @@ def main() -> None:
         low_memory=True,
         low_ram_streaming=args.low_ram,
     )
+    log = RenderLog(
+        cartoon_dir,
+        "animate",
+        {
+            "pipeline": "ltx_pipelines_mlx.DistilledPipeline",
+            "model": args.model.name,
+            "width": args.width,
+            "height": args.height,
+            "frames": args.frames,
+            "fps": args.fps,
+            "base_seed": args.seed,
+            "seed_rule": "base_seed + page_number * 37",
+            "low_ram": args.low_ram,
+            "only_pages": args.only_pages,
+            "overwrite": args.overwrite,
+        },
+    )
+    rendered = 0
 
     for shot in shots:
         pnum = int(shot["page_number"])
@@ -101,6 +122,7 @@ def main() -> None:
             prompt = f"{prompt} Ambient audio: {shot['sfx_cue']}."
 
         t0 = time.time()
+        seed = args.seed + pnum * 37
         print(f"\n=== Animating shot p{pnum:02d} ({shot['kind']}) ===")
         print(f"  Prompt: {prompt}")
         pipe.generate_and_save(
@@ -110,14 +132,25 @@ def main() -> None:
             width=args.width,
             num_frames=args.frames,
             frame_rate=args.fps,
-            seed=args.seed + pnum * 37,
+            seed=seed,
             image=str(cond_img),
         )
         dt = time.time() - t0
         print(f"  Done {out_mp4.name} in {dt:.1f}s")
+        log.add(
+            page_number=pnum,
+            kind=shot["kind"],
+            clip=out_mp4.relative_to(cartoon_dir).as_posix(),
+            source_image=shot["image"],
+            seed=seed,
+            prompt=prompt,
+            elapsed_s=round(dt, 1),
+        )
+        rendered += 1
         gc.collect()
         mx.clear_cache()
 
+    log.finish(clips_rendered=rendered)
     print("\nAnimation pass complete.")
 
 

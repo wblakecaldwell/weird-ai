@@ -19,6 +19,9 @@ from pathlib import Path
 import mlx.core as mx
 import numpy as np
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from render_log import RenderLog  # noqa: E402
+
 VOICE_DESIGN_MODEL = "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-8bit"
 BASE_CLONE_MODEL = "mlx-community/Qwen3-TTS-12Hz-1.7B-Base-8bit"
 KOKORO_MODEL = "mlx-community/Kokoro-82M-bf16"
@@ -252,6 +255,24 @@ def main() -> None:
 
     ref_paths = ensure_voice_refs(refs_dir, roles_needed, overwrite=args.overwrite_refs)
 
+    log = RenderLog(
+        cartoon_dir,
+        "voices",
+        {
+            "voice_design_model": VOICE_DESIGN_MODEL,
+            "clone_model": BASE_CLONE_MODEL,
+            "kokoro_model": KOKORO_MODEL,
+            "narrator_engine": args.narrator_engine,
+            "roles": {
+                r: {k: v for k, v in ROLE_PROFILES[r].items() if k in ("engine", "kokoro_voice", "speed", "seed", "ffmpeg_fx")}
+                for r in sorted(roles_needed)
+            },
+            "voice_refs": {r: f"cartoon/voice_refs/{Path(p).name}" for r, p in ref_paths.items()},
+            "overwrite": args.overwrite,
+        },
+    )
+    warnings = 0
+
     from mlx_audio.tts.utils import load_model
 
     # Split tasks by engine so we only load one TTS model at a time
@@ -280,6 +301,9 @@ def main() -> None:
                     apply_fx_and_normalize(raw_p, fx_p, prof["ffmpeg_fx"])
                     ok, info = is_sane_audio(fx_p, text)
                     print(f"  p{pnum:02d}_s{idx:02d} [{spk}]: {info} ({'OK' if ok else 'WARN'})")
+                    warnings += 0 if ok else 1
+                    log.add(page_number=pnum, segment=idx, speaker=spk, engine="kokoro", attempts=1, ok=ok, check=info,
+                            audio=fx_p.relative_to(cartoon_dir).as_posix())
             finally:
                 del k_model
                 gc.collect()
@@ -297,6 +321,7 @@ def main() -> None:
                     fx_p = fx_dir / f"p{pnum:02d}_s{idx:02d}_{spk}.wav"
                     ok = False
                     info = ""
+                    attempt = 0
                     for attempt in range(4):
                         mx.random.seed(prof["seed"] + pnum * 100 + idx * 10 + attempt)
                         audio, sr = collect_audio(
@@ -316,6 +341,10 @@ def main() -> None:
                             break
                         print(f"  p{pnum:02d}_s{idx:02d} [{spk}] retry {attempt+1}: {info}")
                     print(f"  p{pnum:02d}_s{idx:02d} [{spk}]: {info} ({'OK' if ok else 'WARN'})")
+                    warnings += 0 if ok else 1
+                    log.add(page_number=pnum, segment=idx, speaker=spk, engine="qwen_clone", attempts=attempt + 1,
+                            seed=prof["seed"] + pnum * 100 + idx * 10 + attempt, temperature=round(0.72 + attempt * 0.05, 2),
+                            ok=ok, check=info, audio=fx_p.relative_to(cartoon_dir).as_posix())
             finally:
                 del c_model
                 gc.collect()
@@ -333,6 +362,7 @@ def main() -> None:
 
     voiced_path = cartoon_dir / "script_voiced.json"
     voiced_path.write_text(json.dumps(script, indent=2) + "\n", encoding="utf-8")
+    log.finish(lines_rendered=len(log.run["items"]), warnings=warnings)
     print(f"Saved voiced script -> {voiced_path}")
 
 

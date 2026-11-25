@@ -9,6 +9,11 @@ Turns a finished Little Fever Dream Book (`books/<slug>/story.json` + `art/`) in
 | 3 | `animate_book.py` | Animates each page illustration with LTX-2.5 image-to-video (DistilledPipeline) |
 | 4 | `assemble_cartoon.py` | Assembles clips, Ken Burns extensions, voices, page-turn chimes, subtitles, and credits into a 24fps MP4 |
 
+Steps 2–4 append a run to `books/<slug>/cartoon/render_log.json` (via `render_log.py`) recording models, settings, seeds, per-line / per-clip / per-shot results, and timings. It is saved after every item, so interrupted runs are recorded too.
+
+> [!NOTE]
+> Book 03's cartoon was rendered before logging existed, so its `render_log.json` only covers runs made after this change. Its `script.json`, `script_voiced.json`, and `.srt` are the record of that render.
+
 ## Setup
 
 > [!NOTE]

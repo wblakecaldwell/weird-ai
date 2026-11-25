@@ -91,3 +91,18 @@ Inside any book, press **← / →** (or click pages) to flip spreads, click the
 ```bash
 uv run python scripts/make_book.py --cast chester marisol winston --pages 12 --model flux2-klein-4b --sheets
 ```
+
+## Make It a Cartoon
+
+A finished book can be turned into a narrated, voiced, partially animated 1950s read-along cartoon (Gemma 31B voice script → Qwen3-TTS/Kokoro character voices → LTX-2.5 image-to-video → ffmpeg assembly with page-turn chimes and subtitles). Setup and usage live in [cartoon/README.md](cartoon/README.md).
+
+Per book, `books/<slug>/cartoon/` keeps the record of how its cartoon was made, and these files are committed:
+
+| File | What it records |
+|---|---|
+| `script.json` | Every narrator and character line, delivery notes, motion prompts, and SFX cues |
+| `script_voiced.json` | The same, plus rendered audio paths and line durations |
+| `<slug>.srt` | Subtitles with final timings |
+| `render_log.json` | Append-only log of every voices / animate / assemble run: models, settings, seeds, per-line and per-clip results, timings |
+
+The rendered media (`*.mp4`, `clips/`, `cond_frames/`, `build/`, `voices/`) stays local and is git-ignored; finished cartoons are published to YouTube.

@@ -12,11 +12,15 @@ import argparse
 import json
 import math
 import subprocess
+import sys
 import wave
 from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from render_log import RenderLog  # noqa: E402
 
 FPS = 24
 W = 896
@@ -355,6 +359,12 @@ def main() -> None:
     shots_out = build_dir / "shots"
     shots_out.mkdir(parents=True, exist_ok=True)
     chime_wav = make_page_chime(build_dir / "page_chime.wav")
+    log = RenderLog(
+        cartoon_dir,
+        "assemble",
+        {"fps": FPS, "width": W, "height": H, "subtitles": not args.no_subtitles, "video_codec": "libx264 crf 16",
+         "audio": "aac 192k, LTX ambient ducked to 0.08"},
+    )
 
     shot_mp4s: list[Path] = []
     global_subs: list[tuple[float, float, str, str]] = []
@@ -373,6 +383,7 @@ def main() -> None:
 
         if anim_clip.exists():
             clip_dur = probe_duration(anim_clip)
+            mode = "animated" if clip_dur >= target_dur - 0.1 else "animated+ken_burns"
             if clip_dur >= target_dur - 0.1:
                 # Trim/pad animated clip cleanly to target_dur
                 run_ffmpeg(
@@ -407,6 +418,8 @@ def main() -> None:
                     f"xfade p{pnum:02d}",
                 )
         else:
+            clip_dur = 0.0
+            mode = "ken_burns"
             make_ken_burns_extension(still_img, shot_video, target_dur, pnum)
 
         # Overlay per-segment Pillow RGBA caption strips cleanly onto shot_video
@@ -485,6 +498,8 @@ def main() -> None:
         timeline_t += actual_dur
         shot_mp4s.append(final_shot)
         print(f"  Built {final_shot.name} ({actual_dur:.2f}s)")
+        log.add(page_number=pnum, kind=shot["kind"], mode=mode, clip_s=round(clip_dur, 2),
+                voice_s=round(target_dur, 2), shot_s=round(actual_dur, 2), captions=len(local_subs))
 
     end_mp4 = shots_out / "shot_99_end.mp4"
     build_endcard(story, end_mp4)
@@ -504,6 +519,7 @@ def main() -> None:
     write_srt(srt_path, global_subs)
 
     total_dur = probe_duration(out_mp4)
+    log.finish(output=out_mp4.name, subtitles=srt_path.name, duration_s=round(total_dur, 1))
     print(f"\nCartoon ready! {out_mp4} ({total_dur:.1f}s / {total_dur/60:.1f} min)")
     print(f"Subtitles (.srt): {srt_path}")
 
