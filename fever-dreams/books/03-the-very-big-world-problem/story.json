@@ -1,0 +1,1072 @@
+{
+  "schema_version": 2,
+  "series_name": "A Little Fever Dream Book",
+  "series_number": 3,
+  "slug": "03-the-very-big-world-problem",
+  "price": "25\u00a2",
+  "title": "The Very Big World Problem",
+  "subtitle": "A Helpful Guide to Classroom Geography",
+  "dedication": "To all the students who try their very best, even when they are not entirely sure what is happening.",
+  "back_cover_blurb": "Chester, Marisol, and Winston are the very best of friends! Join them as they learn a valuable lesson about geography, cooperation, and the importance of reading the fine print on a custom order.",
+  "moral": "It is always better to have a map than to be lost, unless the map is large enough to flatten the mayor's podium.",
+  "premise_seed": "The gang breaks a classroom globe and decides to replace it before anyone notices, instead of just saying sorry.",
+  "cover_palette": {
+    "name": "harvest-mustard",
+    "bg": "#c89027",
+    "accent": "#fff4d6",
+    "ink": "#251c10"
+  },
+  "generated_by_llm": "gemma-4-31b-it",
+  "created_at": "2026-11-25T08:53:58+00:00",
+  "cast": [
+    {
+      "id": "01-chester-antialiased",
+      "name": "Chester Antialiased",
+      "handle": "@chester_16bit",
+      "grade": "Senior",
+      "title": null,
+      "style_id": "pixel_16bit",
+      "style_label": "16-Bit Pixel Sprite",
+      "archetype": "Quietly Pretending He Heard You",
+      "micro_emotion": "Nodding politely with wide frozen eyes after asking 'what?' twice and still not catching a word.",
+      "visual_description": "A lanky green-skinned pixel-art goblin-boy with an oversized blocky chin, one raised eyebrow, giant nervously wide square eyes, crooked metal braces, and messy spiky teal pixel hair, wearing a burgundy high school polo shirt with a crooked yellow lanyard",
+      "clubs": [
+        "AV Squad",
+        "Retro Gaming Club"
+      ],
+      "superlative": "Most Likely To Nod Along In Silence",
+      "quote": "Haha yeah totally (I did not hear a single syllable).",
+      "portrait_raw": "../meme-yearbook/portraits/raw/01-chester-antialiased_v0.png",
+      "portrait_final": "../meme-yearbook/portraits/final/01-chester-antialiased.webp",
+      "portrait_thumb": "../meme-yearbook/portraits/thumb/01-chester-antialiased.webp"
+    },
+    {
+      "id": "03-marisol-brittle",
+      "name": "Marisol Brittle",
+      "handle": "@marisol_clay",
+      "grade": "Senior",
+      "title": null,
+      "style_id": "claymation",
+      "style_label": "Stop-Motion Clay",
+      "archetype": "3 AM Sudden Life-Reorganization Energy",
+      "micro_emotion": "Wide-eyed determined exhaustion after alphabetizing her spice rack instead of studying for finals.",
+      "visual_description": "A slightly lopsided terracotta-and-lavender plasticine clay owl-humanoid figurine with visible fingerprint smudges, giant mismatched sculpted eyes with tiny dark bags underneath, and crooked wire spectacles, wearing a miniature hand-knit mustard varsity cardigan",
+      "clubs": [
+        "Debate Club",
+        "Late Night Ceramics"
+      ],
+      "superlative": "Most Likely To Start A Hobby At 2 AM",
+      "quote": "Sleep is temporary, color-coded Google Docs are forever.",
+      "portrait_raw": "../meme-yearbook/portraits/raw/03-marisol-brittle_v0.png",
+      "portrait_final": "../meme-yearbook/portraits/final/03-marisol-brittle.webp",
+      "portrait_thumb": "../meme-yearbook/portraits/thumb/03-marisol-brittle.webp"
+    },
+    {
+      "id": "06-winston-crumb",
+      "name": "Winston Crumb",
+      "handle": "@winston_felt",
+      "grade": "Senior",
+      "title": null,
+      "style_id": "felt_puppet",
+      "style_label": "Fuzzy Felt Puppet",
+      "archetype": "Mildly Alarmed By Everyday Noises",
+      "micro_emotion": "The thousand-yard stare of someone who just heard the microwave beep two seconds before they reached it.",
+      "visual_description": "A fuzzy chartreuse fleece puppet creature with a long cylindrical snout, oversized asymmetrical plastic googly eyes pointing slightly outward, wild tufts of orange yarn hair, and a tiny stitched 'o' mouth, wearing a crisp baby-blue Oxford shirt and navy sweater vest",
+      "clubs": [
+        "Marching Band (Triangle)",
+        "Chess Club"
+      ],
+      "superlative": "Most Likely To Jump At The Bell",
+      "quote": "I was promised this hallway would be quieter.",
+      "portrait_raw": "../meme-yearbook/portraits/raw/06-winston-crumb_v0.png",
+      "portrait_final": "../meme-yearbook/portraits/final/06-winston-crumb.webp",
+      "portrait_thumb": "../meme-yearbook/portraits/thumb/06-winston-crumb.webp"
+    }
+  ],
+  "sheets": {},
+  "cover": {
+    "cast_ids": [
+      "01-chester-antialiased",
+      "03-marisol-brittle",
+      "06-winston-crumb"
+    ],
+    "camera_angle": "Heroic slightly low-angle three-quarter composition",
+    "scene_description": "Chester Antialiased, Marisol Brittle, and Winston Crumb stand shoulder-to-shoulder in front of a massive, slightly lopsided globe. Chester looks nervous with wide eyes, Marisol holds a tiny ruler with an air of authority, and Winston looks bewildered. The background is a soft-focus 1950s classroom with gouache painted wooden floors.",
+    "lighting_mood": "Warm sunlit 1950s picture-book afternoon glow",
+    "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Classic Little Golden Book front cover hero illustration: leave clean uncluttered painted sky or backdrop breathing room along the top 22% of the frame for a printed book title banner, center the characters dynamically in the lower two-thirds, absolutely NO letters, NO title text, and NO border frame baked into the artwork. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Image 2 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 3 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 3 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Heroic slightly low-angle three-quarter composition. Scene action: Chester Antialiased, Marisol Brittle, and Winston Crumb stand shoulder-to-shoulder in front of a massive, slightly lopsided globe. Chester looks nervous with wide eyes, Marisol holds a tiny ruler with an air of authority, and Winston looks bewildered. The background is a soft-focus 1950s classroom with gouache painted wooden floors. Lighting and mood: Warm sunlit 1950s picture-book afternoon glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+    "seed": 335271,
+    "image": "art/cover.png",
+    "render_meta": {
+      "model": "flux2-klein-4b",
+      "seed": 335271,
+      "steps": 4,
+      "refs": [
+        "01-chester-antialiased_v0.png",
+        "03-marisol-brittle_v0.png",
+        "06-winston-crumb_v0.png"
+      ],
+      "elapsed_s": 24.3
+    }
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "layout": "framed-classic",
+      "cast_ids": [
+        "01-chester-antialiased"
+      ],
+      "text": "Chester Antialiased liked to look at things very closely. He leaned in to see if the world was rendered in 16-bit, but his blocky chin made a very analog impact. A tiny crack appeared right in the middle of the Atlantic Ocean. It was a very budget-friendly globe, which meant the continents were mostly suggestions. It also smelled faintly of old pennies.",
+      "beat": "Chester leans in to inspect the classroom globe's resolution and accidentally bumps it, causing a hairline fracture on the Atlantic Ocean.",
+      "connector": "START",
+      "camera_angle": "Extreme close-up",
+      "scene_description": "Chester Antialiased's blocky, pixelated chin is pressed firmly against a cheap, glossy plastic globe. A jagged, physical crack spider-webs across the blue painted ocean where his chin has made impact.",
+      "lighting_mood": "Bright, sterile classroom fluorescent light",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Extreme close-up. Scene action: Chester Antialiased's blocky, pixelated chin is pressed firmly against a cheap, glossy plastic globe. A jagged, physical crack spider-webs across the blue painted ocean where his chin has made impact. Lighting and mood: Bright, sterile classroom fluorescent light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 335368,
+      "image": "art/page_01.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 335368,
+        "steps": 4,
+        "refs": [
+          "01-chester-antialiased_v0.png"
+        ],
+        "elapsed_s": 10.5
+      }
+    },
+    {
+      "page_number": 2,
+      "layout": "full-bleed-caption",
+      "cast_ids": [
+        "03-marisol-brittle",
+        "06-winston-crumb"
+      ],
+      "text": "Marisol and Winston saw the crack too. They decided to be seen cooperating, as it was the most socially acceptable way to spend a Tuesday. \"We must replace it before the next bell rings!\" said Marisol. They decided to work together, as it is the most efficient way to ensure no one person takes all the blame. They were very happy to be seen together.",
+      "beat": "The group is too terrified of the teacher's reaction to report it, so they decide to replace the globe before the next period.",
+      "connector": "BUT",
+      "camera_angle": "Wide establishing shot",
+      "scene_description": "Marisol Brittle and Winston Crumb stand side-by-side, staring at the cracked globe on a wooden desk. Marisol has her clay wings folded primly; Winston's googly eyes are skewed in opposite directions. They both wear expressions of forced, polite cooperation.",
+      "lighting_mood": "Soft pastel morning light",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Wide establishing shot. Scene action: Marisol Brittle and Winston Crumb stand side-by-side, staring at the cracked globe on a wooden desk. Marisol has her clay wings folded primly; Winston's googly eyes are skewed in opposite directions. They both wear expressions of forced, polite cooperation. Lighting and mood: Soft pastel morning light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 335465,
+      "image": "art/page_02.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 335465,
+        "steps": 4,
+        "refs": [
+          "03-marisol-brittle_v0.png",
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 16.9
+      }
+    },
+    {
+      "page_number": 3,
+      "layout": "vignette",
+      "cast_ids": [
+        "03-marisol-brittle",
+        "06-winston-crumb"
+      ],
+      "text": "Marisol decided that since she was the only one with a ruler, she should be in charge of the vision. She spent an hour making a list of requirements for a new globe. \"Winston, I have found a task suited to your particular temperament: alphabetizing these footnotes,\" said Marisol. The list included three separate categories for the specific shade of beige used in the Sahara.",
+      "beat": "Driven by a sudden burst of reorganization energy, Marisol decides they cannot just buy any globe; it must be the most accurate, high-fidelity model in existence.",
+      "connector": "THEREFORE",
+      "camera_angle": "High-angle bird's-eye",
+      "scene_description": "Marisol Brittle stands atop a stack of textbooks, pointing a tiny wooden ruler at a massive, handwritten list on a blank piece of parchment. Winston Crumb is hunched over a tiny desk, meticulously organizing small slips of paper into neat piles.",
+      "lighting_mood": "Focused desk-lamp glow",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: High-angle bird's-eye. Scene action: Marisol Brittle stands atop a stack of textbooks, pointing a tiny wooden ruler at a massive, handwritten list on a blank piece of parchment. Winston Crumb is hunched over a tiny desk, meticulously organizing small slips of paper into neat piles. Lighting and mood: Focused desk-lamp glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 335562,
+      "image": "art/page_03.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 335562,
+        "steps": 4,
+        "refs": [
+          "03-marisol-brittle_v0.png",
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 17.0
+      }
+    },
+    {
+      "page_number": 4,
+      "layout": "top-art",
+      "cast_ids": [
+        "06-winston-crumb"
+      ],
+      "text": "The local hobby shop was filled with many wonderful things. However, a small wind-chime by the door made a very loud tinkling sound. \"Goodness, it is positively deafening in here!\" said Winston. He found the noise quite intrusive. He wondered if the shop offered a silent-shopping experience, or perhaps a small, soundproof box to sit in.",
+      "beat": "The local hobby shop is too noisy for Winston, who becomes overwhelmed by the sound of a nearby wind-chime and accidentally knocks over a display of miniature globes.",
+      "connector": "BUT",
+      "camera_angle": "Low-angle worm's-eye",
+      "scene_description": "Winston Crumb is cowering in the corner of a cluttered 1950s hobby shop, his fuzzy hands covering his oversized plastic eyes. A small, silver wind-chime hangs precariously above him, vibrating with visible sound lines.",
+      "lighting_mood": "Dusty, warm amber shop lighting",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Low-angle worm's-eye. Scene action: Winston Crumb is cowering in the corner of a cluttered 1950s hobby shop, his fuzzy hands covering his oversized plastic eyes. A small, silver wind-chime hangs precariously above him, vibrating with visible sound lines. Lighting and mood: Dusty, warm amber shop lighting. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 335659,
+      "image": "art/page_04.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 335659,
+        "steps": 4,
+        "refs": [
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 10.7
+      }
+    },
+    {
+      "page_number": 5,
+      "layout": "framed-classic",
+      "cast_ids": [
+        "03-marisol-brittle",
+        "06-winston-crumb"
+      ],
+      "text": "Marisol decided a store-bought globe was too common. She suggested they contact the professional cartography guild for a custom model. \"The guild's office is in a quiet basement, which will prevent Winston from making those distressing little noises,\" said Marisol. Winston agreed, as he found Marisol's insistence on total control to be very comforting.",
+      "beat": "To make up for the mess, Marisol convinces Winston to help her commission a custom-made, professional-grade globe from the city's cartography guild.",
+      "connector": "THEREFORE",
+      "camera_angle": "Side-profile action",
+      "scene_description": "Marisol Brittle leads Winston Crumb down a narrow, concrete basement staircase. Marisol marches forward with determination; Winston follows closely behind, looking relieved to be in the dim, quiet shadows.",
+      "lighting_mood": "Cool, damp basement blue",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Side-profile action. Scene action: Marisol Brittle leads Winston Crumb down a narrow, concrete basement staircase. Marisol marches forward with determination; Winston follows closely behind, looking relieved to be in the dim, quiet shadows. Lighting and mood: Cool, damp basement blue. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 335756,
+      "image": "art/page_05.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 335756,
+        "steps": 4,
+        "refs": [
+          "03-marisol-brittle_v0.png",
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 17.2
+      }
+    },
+    {
+      "page_number": 6,
+      "layout": "full-bleed-caption",
+      "cast_ids": [
+        "03-marisol-brittle",
+        "01-chester-antialiased"
+      ],
+      "text": "Marisol spent ten minutes explaining the exact scale and longitude requirements to Chester. She used many big words and a very complex chart. \"Do you understand the importance of the ratio, Chester?\" said Marisol. Chester nodded politely. He was currently wondering if he could fit a whole slice of pizza into his inventory slot.",
+      "beat": "Marisol gives Chester complex instructions on the specific scale required, but Chester just nods politely without hearing a word.",
+      "connector": "BUT",
+      "camera_angle": "Over-the-shoulder",
+      "scene_description": "Looking over Marisol Brittle's shoulder at a complex, nonsensical chart filled with geometric shapes and arrows. Chester Antialiased stands opposite her, nodding blankly while a thought bubble above his head shows a single, pixelated slice of pepperoni pizza.",
+      "lighting_mood": "Bright office lighting",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Over-the-shoulder. Scene action: Looking over Marisol Brittle's shoulder at a complex, nonsensical chart filled with geometric shapes and arrows. Chester Antialiased stands opposite her, nodding blankly while a thought bubble above his head shows a single, pixelated slice of pepperoni pizza. Lighting and mood: Bright office lighting. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 335853,
+      "image": "art/page_06.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 335853,
+        "steps": 4,
+        "refs": [
+          "03-marisol-brittle_v0.png",
+          "01-chester-antialiased_v0.png"
+        ],
+        "elapsed_s": 17.1
+      }
+    },
+    {
+      "page_number": 7,
+      "layout": "vignette",
+      "cast_ids": [
+        "01-chester-antialiased"
+      ],
+      "text": "Chester visited the guild to place the order. He tried to repeat Marisol's complex ratio, but he forgot the word for globe halfway through. \"I suppose 'The Big One' will do,\" Chester said. The guild members admired his bold minimalism. They had never been asked to build a map that required its own zoning permit.",
+      "beat": "Thinking the 'bigger is better' vibe of the conversation, Chester tells the guild they want a globe that is 'as large as possible' to ensure accuracy.",
+      "connector": "THEREFORE",
+      "camera_angle": "Dutch angle",
+      "scene_description": "Chester Antialiased stands at a heavy oak counter in the cartography guild, looking small and pixelated. He is gesturing vaguely with his hands to indicate something enormous, while a group of elderly map-makers in tweed vests look on with impressed expressions.",
+      "lighting_mood": "Warm, mahogany-toned library light",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Dutch angle. Scene action: Chester Antialiased stands at a heavy oak counter in the cartography guild, looking small and pixelated. He is gesturing vaguely with his hands to indicate something enormous, while a group of elderly map-makers in tweed vests look on with impressed expressions. Lighting and mood: Warm, mahogany-toned library light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 335950,
+      "image": "art/page_07.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 335950,
+        "steps": 4,
+        "refs": [
+          "01-chester-antialiased_v0.png"
+        ],
+        "elapsed_s": 10.9
+      }
+    },
+    {
+      "page_number": 8,
+      "layout": "top-art",
+      "cast_ids": [
+        "06-winston-crumb",
+        "01-chester-antialiased"
+      ],
+      "text": "While the globe was being built, Winston found a new hobby. He mapped the quietest zones of the school for their collective safety. \"The library is quite peaceful, provided one ignores the sound of people breathing,\" said Winston. He found that the most peaceful place was wherever Chester happened to be standing, as Chester rarely spoke.",
+      "beat": "While waiting for the globe, Winston becomes obsessed with a B-plot: he discovers the school's hallway acoustics are 'off' and begins mapping the quietest zones of the building.",
+      "connector": "BUT",
+      "camera_angle": "Wide shot",
+      "scene_description": "Winston Crumb is sneaking through a quiet school hallway, holding a hand-drawn map of 'Quiet Zones'. He is hiding behind a pillar, peering at Chester Antialiased who is standing perfectly still and silent in the middle of the corridor.",
+      "lighting_mood": "Hazy, afternoon school light",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Image 2 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Wide shot. Scene action: Winston Crumb is sneaking through a quiet school hallway, holding a hand-drawn map of 'Quiet Zones'. He is hiding behind a pillar, peering at Chester Antialiased who is standing perfectly still and silent in the middle of the corridor. Lighting and mood: Hazy, afternoon school light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336047,
+      "image": "art/page_08.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336047,
+        "steps": 4,
+        "refs": [
+          "06-winston-crumb_v0.png",
+          "01-chester-antialiased_v0.png"
+        ],
+        "elapsed_s": 17.5
+      }
+    },
+    {
+      "page_number": 9,
+      "layout": "framed-classic",
+      "cast_ids": [
+        "03-marisol-brittle"
+      ],
+      "text": "Marisol decided the geography section of the classroom needed a complete makeover. She spent her evening color-coding textbooks to match the prestige of their upcoming globe. \"Everything must be in its proper place,\" said Marisol. It is amazing how much one can achieve when one views sleep as a personal failure.",
+      "beat": "Marisol decides that since they are getting a professional globe, they must also reorganize the entire classroom's geography section to match its prestige.",
+      "connector": "THEREFORE",
+      "camera_angle": "Tight reaction close-up",
+      "scene_description": "Marisol Brittle is surrounded by stacks of textbooks. She is meticulously applying small, colored adhesive dots to the spines of the books. Her mismatched eyes are wide and manic; a single coffee cup sits nearby.",
+      "lighting_mood": "Late-night lamp light with deep shadows",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Camera angle and framing: Tight reaction close-up. Scene action: Marisol Brittle is surrounded by stacks of textbooks. She is meticulously applying small, colored adhesive dots to the spines of the books. Her mismatched eyes are wide and manic; a single coffee cup sits nearby. Lighting and mood: Late-night lamp light with deep shadows. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336144,
+      "image": "art/page_09.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336144,
+        "steps": 4,
+        "refs": [
+          "03-marisol-brittle_v0.png"
+        ],
+        "elapsed_s": 11.0
+      }
+    },
+    {
+      "page_number": 10,
+      "layout": "full-bleed-caption",
+      "cast_ids": [
+        "06-winston-crumb"
+      ],
+      "text": "The delivery day finally arrived. A very large truck pulled up to the school, followed by a heavy-duty crane. The globe was so large it had its own weather system. It was a very impressive piece of geography, though the South Pacific was currently experiencing a mild drizzle. \"My, it is a bit larger than I imagined,\" said Winston.",
+      "beat": "The cartography guild delivers the globe, but it is ten feet tall and requires a heavy-duty crane to move.",
+      "connector": "BUT",
+      "camera_angle": "Extreme wide shot",
+      "scene_description": "A colossal, house-sized globe is being lowered by a massive yellow crane toward the school. A small, realistic rain cloud is hovering specifically over the South Pacific section of the globe, sprinkling water. Winston Crumb stands at the bottom, looking like a tiny speck of chartreuse fleece.",
+      "lighting_mood": "Overcast, grey daylight",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Extreme wide shot. Scene action: A colossal, house-sized globe is being lowered by a massive yellow crane toward the school. A small, realistic rain cloud is hovering specifically over the South Pacific section of the globe, sprinkling water. Winston Crumb stands at the bottom, looking like a tiny speck of chartreuse fleece. Lighting and mood: Overcast, grey daylight. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336241,
+      "image": "art/page_10.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336241,
+        "steps": 4,
+        "refs": [
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 11.2
+      }
+    },
+    {
+      "page_number": 11,
+      "layout": "vignette",
+      "cast_ids": [
+        "03-marisol-brittle",
+        "06-winston-crumb"
+      ],
+      "text": "The trio tried to sneak the globe through a side window. \"Winston, your unique proportions make you the perfect tool for this task!\" said Marisol. She admired how Winston's small frame made him an excellent human wedge. She gave him a very firm push, as she enjoyed seeing how much pressure the glass could take.",
+      "beat": "The trio attempts to sneak the massive globe into the school through a side window, but it gets stuck halfway in.",
+      "connector": "THEREFORE",
+      "camera_angle": "Side-profile action",
+      "scene_description": "Marisol Brittle is using both clay hands to shove Winston Crumb into the narrow gap between a giant globe and a school window frame. Winston is squashed flat like a pancake, his googly eyes bulging.",
+      "lighting_mood": "Bright outdoor sunlight",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Side-profile action. Scene action: Marisol Brittle is using both clay hands to shove Winston Crumb into the narrow gap between a giant globe and a school window frame. Winston is squashed flat like a pancake, his googly eyes bulging. Lighting and mood: Bright outdoor sunlight. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336338,
+      "image": "art/page_11.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336338,
+        "steps": 4,
+        "refs": [
+          "03-marisol-brittle_v0.png",
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 17.9
+      }
+    },
+    {
+      "page_number": 12,
+      "layout": "top-art",
+      "cast_ids": [
+        "06-winston-crumb"
+      ],
+      "text": "The crane driver started his engine to help push the globe. The roar of the motor sounded like a thunderstorm to Winston. In his fright, he accidentally triggered the school-wide lockdown alarm. \"Mercy!\" cried Winston. He found the alarm to be a very loud way of reminding him that he was still alive.",
+      "beat": "The sound of the crane's engine startles Winston, causing him to accidentally trigger the school's emergency alarm system.",
+      "connector": "BUT",
+      "camera_angle": "Low-angle worm's-eye",
+      "scene_description": "Winston Crumb is leaping into the air in terror, his orange yarn hair standing on end. In the background, a massive crane engine is emitting a huge cloud of black smoke and visible vibration lines. A red alarm bell on the wall is ringing violently.",
+      "lighting_mood": "Hectic, flashing red alarm light",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Low-angle worm's-eye. Scene action: Winston Crumb is leaping into the air in terror, his orange yarn hair standing on end. In the background, a massive crane engine is emitting a huge cloud of black smoke and visible vibration lines. A red alarm bell on the wall is ringing violently. Lighting and mood: Hectic, flashing red alarm light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336435,
+      "image": "art/page_12.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336435,
+        "steps": 4,
+        "refs": [
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 11.0
+      }
+    },
+    {
+      "page_number": 13,
+      "layout": "framed-classic",
+      "cast_ids": [
+        "01-chester-antialiased",
+        "03-marisol-brittle"
+      ],
+      "text": "The alarm rang loudly through the whole school. All the students and teachers stood in a circle, staring up at the giant globe stuck in the window. \"What a curious decoration,\" said one of the teachers. It was a very public mistake, which is the most expensive kind of mistake. The teacher noted that the globe's placement really opened up the room.",
+      "beat": "The alarm triggers a mandatory school-wide safety assembly in the courtyard, where everyone is now watching the giant globe stuck in the window.",
+      "connector": "THEREFORE",
+      "camera_angle": "Wide shot",
+      "scene_description": "A group of 1950s students and a teacher in a pencil skirt stand in a semi-circle, looking up at the giant globe which is wedged firmly into the school's side window, half-in and half-out. The teacher has a hand on her chin, looking thoughtful.",
+      "lighting_mood": "Bright, midday sun",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Image 2 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Camera angle and framing: Wide shot. Scene action: A group of 1950s students and a teacher in a pencil skirt stand in a semi-circle, looking up at the giant globe which is wedged firmly into the school's side window, half-in and half-out. The teacher has a hand on her chin, looking thoughtful. Lighting and mood: Bright, midday sun. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336532,
+      "image": "art/page_13.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336532,
+        "steps": 4,
+        "refs": [
+          "01-chester-antialiased_v0.png",
+          "03-marisol-brittle_v0.png"
+        ],
+        "elapsed_s": 17.3
+      }
+    },
+    {
+      "page_number": 14,
+      "layout": "full-bleed-caption",
+      "cast_ids": [
+        "01-chester-antialiased"
+      ],
+      "text": "The Principal walked up to the globe and beamed with pride. He thought the students had organized a surprise donation for the school. \"This shall be the centerpiece of our new Global Initiative!\" said the Principal. Chester nodded politely, though he was currently trying to remember if the world was actually round or just a very large pancake.",
+      "beat": "The Principal mistakes the giant globe for a surprise educational donation and declares it the new centerpiece of the school's 'Global Initiative'.",
+      "connector": "BUT",
+      "camera_angle": "Medium shot",
+      "scene_description": "A portly Principal in a brown suit is beaming with pride, gesturing toward the giant globe. Chester Antialiased stands beside him, looking confused, with a thought bubble showing a large, flat pancake with syrup on it.",
+      "lighting_mood": "Warm, celebratory glow",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Medium shot. Scene action: A portly Principal in a brown suit is beaming with pride, gesturing toward the giant globe. Chester Antialiased stands beside him, looking confused, with a thought bubble showing a large, flat pancake with syrup on it. Lighting and mood: Warm, celebratory glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336629,
+      "image": "art/page_14.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336629,
+        "steps": 4,
+        "refs": [
+          "01-chester-antialiased_v0.png"
+        ],
+        "elapsed_s": 10.9
+      }
+    },
+    {
+      "page_number": 15,
+      "layout": "vignette",
+      "cast_ids": [
+        "03-marisol-brittle"
+      ],
+      "text": "Marisol did not want anyone to know she had not planned this. She quickly volunteered to lead a neighborhood association committee for urban planning. \"I shall redraw the street layout, as it lacks a certain direction,\" said Marisol. Several residents now believed their driveways were actually public parks, but the maps looked very tidy.",
+      "beat": "Not wanting to admit she didn't plan this, Marisol volunteers to lead a city-wide committee to integrate the giant globe into the town's urban planning.",
+      "connector": "THEREFORE",
+      "camera_angle": "High-angle bird's-eye",
+      "scene_description": "Marisol Brittle is hunched over a large town map, aggressively drawing new, winding roads with a red marker. The original straight lines are crossed out, and the new paths lead in nonsensical loops.",
+      "lighting_mood": "Bright, focused studio light",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Camera angle and framing: High-angle bird's-eye. Scene action: Marisol Brittle is hunched over a large town map, aggressively drawing new, winding roads with a red marker. The original straight lines are crossed out, and the new paths lead in nonsensical loops. Lighting and mood: Bright, focused studio light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336726,
+      "image": "art/page_15.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336726,
+        "steps": 4,
+        "refs": [
+          "03-marisol-brittle_v0.png"
+        ],
+        "elapsed_s": 11.1
+      }
+    },
+    {
+      "page_number": 16,
+      "layout": "top-art",
+      "cast_ids": [
+        "03-marisol-brittle",
+        "06-winston-crumb"
+      ],
+      "text": "Winston suggested the globe be moved to the town square. He felt this was the maximum distance he could possibly be from Marisol while still being seen to participate. \"It will be a sanctuary of peace,\" said Winston. Marisol agreed, as long as she could choose the color of the pedestal.",
+      "beat": "Winston's quest for silence leads him to suggest the globe be moved to the town square, where he believes the wind will mask the noise of the students.",
+      "connector": "BUT",
+      "camera_angle": "Wide shot",
+      "scene_description": "Winston Crumb is standing as far to the left of the frame as possible, while Marisol Brittle is on the far right. They are both looking at a sketch of a pedestal in the center of a town square, though they are not looking at each other.",
+      "lighting_mood": "Soft afternoon light",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Wide shot. Scene action: Winston Crumb is standing as far to the left of the frame as possible, while Marisol Brittle is on the far right. They are both looking at a sketch of a pedestal in the center of a town square, though they are not looking at each other. Lighting and mood: Soft afternoon light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336823,
+      "image": "art/page_16.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336823,
+        "steps": 4,
+        "refs": [
+          "03-marisol-brittle_v0.png",
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 17.2
+      }
+    },
+    {
+      "page_number": 17,
+      "layout": "framed-classic",
+      "cast_ids": [
+        "01-chester-antialiased",
+        "03-marisol-brittle",
+        "06-winston-crumb"
+      ],
+      "text": "The town held a grand parade to move the globe. They were a most compatible group, in the way that three different types of mismatched luggage are all compatible with the same overhead bin. They walked in a very orderly line, with exactly three feet of safety between each person.",
+      "beat": "The town holds a massive public parade to move the globe to the square, with the trio leading the procession in a state of high anxiety.",
+      "connector": "THEREFORE",
+      "camera_angle": "Side-profile action",
+      "scene_description": "The trio is marching in a perfectly straight, rigid line down a 1950s main street. They are spaced exactly three feet apart, wearing matching expressions of solemn determination.",
+      "lighting_mood": "Bright, festive parade lighting",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Image 2 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 3 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 3 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Side-profile action. Scene action: The trio is marching in a perfectly straight, rigid line down a 1950s main street. They are spaced exactly three feet apart, wearing matching expressions of solemn determination. Lighting and mood: Bright, festive parade lighting. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336920,
+      "image": "art/page_17.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 336920,
+        "steps": 4,
+        "refs": [
+          "01-chester-antialiased_v0.png",
+          "03-marisol-brittle_v0.png",
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 24.7
+      }
+    },
+    {
+      "page_number": 18,
+      "layout": "full-bleed-caption",
+      "cast_ids": [
+        "01-chester-antialiased"
+      ],
+      "text": "At the unveiling, Chester noticed a small smudge on the map. He leaned in too close to inspect it and accidentally pushed a precarious support beam with his blocky chin. Chester tried to resize the smudge, but he found himself completely off-axis. The structure groaned and rolled away, flattening the mayor's podium and a cheese stall.",
+      "beat": "At the climax, as they unveil the globe to the mayor, Chester tries to 'fix' a smudge on the map; he pushes too hard and the entire massive structure collapses, flattening the town's ceremonial podium.",
+      "connector": "BUT",
+      "camera_angle": "Extreme close-up",
+      "scene_description": "Chester Antialiased's blocky chin is colliding with a thin wooden support beam. The beam is snapping, and the massive globe behind it is beginning to tilt precariously toward a table covered in wheels of cheese.",
+      "lighting_mood": "Hectic, bright daylight",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Extreme close-up. Scene action: Chester Antialiased's blocky chin is colliding with a thin wooden support beam. The beam is snapping, and the massive globe behind it is beginning to tilt precariously toward a table covered in wheels of cheese. Lighting and mood: Hectic, bright daylight. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 337017,
+      "image": "art/page_18.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 337017,
+        "steps": 4,
+        "refs": [
+          "01-chester-antialiased_v0.png"
+        ],
+        "elapsed_s": 11.0
+      }
+    },
+    {
+      "page_number": 19,
+      "layout": "vignette",
+      "cast_ids": [
+        "06-winston-crumb"
+      ],
+      "text": "The giant globe rolled down the main street and crashed through the school gates, smashing into the classroom wall. This created a brand new window that revealed the original broken globe. It had only one tiny crack, which was now the most accurate part of the map. \"Look! It is still here,\" said Winston.",
+      "beat": "In the wreckage, they find the original small globe which had been accidentally swept into the giant one's packaging on page 1; it is still sitting there, barely cracked.",
+      "connector": "THEREFORE",
+      "camera_angle": "Wide shot",
+      "scene_description": "The giant globe has crashed through the school wall, creating a jagged hole. Through this new hole, the original small, cracked globe is visible on its desk. Winston Crumb is pointing at the small globe with a look of genuine surprise.",
+      "lighting_mood": "Dusty, debris-filled sunlight",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Wide shot. Scene action: The giant globe has crashed through the school wall, creating a jagged hole. Through this new hole, the original small, cracked globe is visible on its desk. Winston Crumb is pointing at the small globe with a look of genuine surprise. Lighting and mood: Dusty, debris-filled sunlight. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 337114,
+      "image": "art/page_19.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 337114,
+        "steps": 4,
+        "refs": [
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 11.0
+      }
+    },
+    {
+      "page_number": 20,
+      "layout": "framed-classic",
+      "cast_ids": [
+        "01-chester-antialiased",
+        "03-marisol-brittle",
+        "06-winston-crumb"
+      ],
+      "text": "The teacher smiled and asked them to put a piece of tape over the crack. The three friends walked away together, each cherishing the wonderful silence that comes when one has finally run out of things to say to another person. They were perfectly aligned, much like two tectonic plates just before a catastrophic shift.",
+      "beat": "The teacher simply tells them to put a piece of clear tape over the crack, and they all walk away happily, relieved that they no longer have to spend time together.",
+      "connector": "BUT",
+      "camera_angle": "Wide shot, receding",
+      "scene_description": "Chester Antialiased, Marisol Brittle, and Winston Crumb are walking away from the viewer toward a sunset. A single piece of clear tape is visible over the crack of the small globe on the desk in the foreground. They are walking in a neat, silent row.",
+      "lighting_mood": "Deep orange and purple sunset glow",
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Image 2 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 3 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 3 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Wide shot, receding. Scene action: Chester Antialiased, Marisol Brittle, and Winston Crumb are walking away from the viewer toward a sunset. A single piece of clear tape is visible over the crack of the small globe on the desk in the foreground. They are walking in a neat, silent row. Lighting and mood: Deep orange and purple sunset glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 337211,
+      "image": "art/page_20.png",
+      "render_meta": {
+        "model": "flux2-klein-4b",
+        "seed": 337211,
+        "steps": 4,
+        "refs": [
+          "01-chester-antialiased_v0.png",
+          "03-marisol-brittle_v0.png",
+          "06-winston-crumb_v0.png"
+        ],
+        "elapsed_s": 24.9
+      }
+    }
+  ],
+  "logline": "After accidentally breaking a classroom globe, three mismatched students attempt to replace it with an increasingly massive replica, leading to a city-wide cartographic crisis.",
+  "running_gag": "Chester nodding politely while completely missing instructions, leading others to believe he has a master plan.",
+  "inciting_mistake": "Chester accidentally knocks over the classroom globe while trying to see if it's 'anti-aliased', causing a small crack in the plastic.",
+  "writers_room": {
+    "writer_model": "gemma-4-31b-it",
+    "tone": "SECRET SUBTEXT: None of these three actually like each other very much, but they are far too oblivious to realize it. They genuinely believe they are best friends.\n\nHow to deliver it (all of it SLIGHT and SUBTLE, never stated outright, never mean-spirited):\n- Backhanded compliments the speaker thinks are sincere (\"You're so brave to wear that sweater vest, Winston.\").\n- Characters \"helping\" each other in ways that are really about themselves, and nobody notices.\n- Tiny moments of polite avoidance: someone volunteers for the job that happens to be furthest from the others; someone gives a gift that is clearly re-gifted.\n- They talk past each other and each walks away certain the conversation went great.\n- The cheerful 1950s narrator is ever so faintly sarcastic, reporting their \"friendship\" with a deadpan straight face (e.g. \"They were the very best of friends, which is to say they had all been assigned to the same table.\").\n- Sprinkle a few clever, quiet puns (on globes, the world, maps, spinning, axes, \"falling out\", etc.) that an adult catches and a child would miss. At most one pun per page, and never on consecutive pages. No groaners, no winking at the reader.\n- The ending should reaffirm their \"friendship\" in a way that makes it clear (to the reader only) that they'd all happily never see each other again.",
+    "pitches": [
+      {
+        "title": "The Very Big World Problem",
+        "logline": "After accidentally breaking a classroom globe, three mismatched students attempt to replace it with an increasingly massive replica, leading to a city-wide cartographic crisis."
+      },
+      {
+        "title": "The Very Big World of Small Mistakes",
+        "logline": "After breaking a classroom globe, three students attempt to replace it with an identical vintage model, leading to a city-wide antique auction war and a municipal zoning crisis."
+      },
+      {
+        "title": "The Very Big World of Small Mistakes",
+        "logline": "After breaking a classroom globe, three students attempt to replace it with an identical model, leading to a city-wide cartographic crisis involving the town's official zoning maps."
+      }
+    ],
+    "exec": {
+      "scores": [
+        {
+          "pitch": 1,
+          "score": 8,
+          "why": "Strongest escalation from a classroom mistake to urban planning and the most concrete visual payoff with the giant globe."
+        },
+        {
+          "pitch": 2,
+          "score": 5,
+          "why": "The auction plot is a detour that slows the momentum and feels disconnected from the school setting."
+        },
+        {
+          "pitch": 3,
+          "score": 6,
+          "why": "The zoning map idea is clever but the ventilation shaft sequence kills the visual scale of the 'Big World' theme."
+        }
+      ],
+      "winner": 1,
+      "notes_for_writers": [
+        "Lean into the 'visual medium' clash: when Chester (pixel) tries to fix the smudge on the giant globe, have him try to 'delete' it by clicking his finger like a mouse or moving in 4-pixel increments for a specific comedic beat.",
+        "Sharpen the 'friendship' subtext: on Page 11, when sneaking the globe in, have them 'help' each other by pushing the other person toward the danger first, framed as 'giving them the honor of leading'.",
+        "Escalate the urban planning on Page 15: instead of just a committee, have Marisol actually redraw the town's street layout to be 'more efficient,' causing citizens to drive their cars into fountains because the globe's scale was off.",
+        "Add a subtle map pun on Page 17 during the parade, such as the narrator noting that the trio's friendship was 'reaching its axis,' or describing their coordination as 'completely off-center'.",
+        "The climax on Page 18 needs more visual chaos: the giant globe shouldn't just collapse, it should roll through the town square like a boulder from Indiana Jones, flattening specific civic landmarks (the 'World's Largest Yarn Ball', etc.) before hitting the podium."
+      ]
+    },
+    "review_rounds": [
+      {
+        "round": 1,
+        "avg_score": 4.0,
+        "reviews": {
+          "comedy-editor": {
+            "score": 4.0,
+            "biggest_problem": "The draft is too sincere. It reads like a genuine children's book rather than a deadpan parody of one. The 'secret subtext' of mutual dislike is completely absent, and the jokes are reporting events rather than punching them.",
+            "keep": [
+              "Chester's 'nodding along' running gag",
+              "The visual contrast of the three mediums (pixel, clay, felt)",
+              "The escalation from a small crack to a city-wide crisis"
+            ],
+            "page_notes": [
+              {
+                "page_number": 1,
+                "note": "Generic reporting. The 'leak' joke is too cute. Replace with a mundane detail about the globe's quality. Suggestion: 'It was a very budget-friendly globe, which meant the continents were mostly suggestions.'"
+              },
+              {
+                "page_number": 2,
+                "note": "Missing the secret subtext. 'Best friends' is too sincere. Suggestion: 'They decided to work together, as people who have no other options often do.'"
+              },
+              {
+                "page_number": 3,
+                "note": "Weak escalation. 'Exciting way to spend a Tuesday' is filler. Suggestion: End on the absurdity of her list. 'The list included three separate categories for the specific shade of beige used in the Sahara.'"
+              },
+              {
+                "page_number": 4,
+                "note": "Winston's reaction is too cartoonish. Needs to be more deadpan. Suggestion: 'Winston found the noise quite intrusive. He wondered if the shop offered a silent-shopping experience.'"
+              },
+              {
+                "page_number": 5,
+                "note": "Missing the 'helping' subtext. Suggestion: Marisol should suggest the basement not for Winston's comfort, but because she wants to be in charge of a dark room. 'Marisol suggested the basement, as it was the only place where Winston's nervous twitching wouldn't distract her.'"
+              },
+              {
+                "page_number": 6,
+                "note": "Good setup for Chester's gag, but the punchline is too descriptive. Suggestion: 'Chester nodded politely. He was currently wondering if he had left his oven on, despite not owning an oven.'"
+              },
+              {
+                "page_number": 7,
+                "note": "Chester's line is too active. He should be accidentally vague. Suggestion: 'I suppose bigger is better,' Chester said, mostly because he had forgotten the word for \"globe.\" The guild members admired his bold minimalism."
+              },
+              {
+                "page_number": 8,
+                "note": "This page is a detour with no punchline. Suggestion: Connect it to the globe. 'He mapped the quietest zones, noting that the library was peaceful, provided one ignored the sound of people breathing.'"
+              },
+              {
+                "page_number": 9,
+                "note": "Too sincere. Suggestion: 'Marisol felt very productive. It is amazing how much one can achieve when they completely ignore the concept of REM sleep.'"
+              },
+              {
+                "page_number": 10,
+                "note": "The 'zip code' joke is a bit generic. Suggestion: 'The globe was so large it had its own weather system, including a small, localized drizzle over the South Pacific.'"
+              },
+              {
+                "page_number": 11,
+                "note": "Missing the backhanded compliment. Suggestion: 'I give you the honor of leading the way!' said Marisol, admiring how Winston's small frame made him an excellent human wedge."
+              },
+              {
+                "page_number": 12,
+                "note": "Too much action, not enough deadpan. Suggestion: 'Winston pressed the emergency alarm. He found the sudden, piercing noise to be a refreshing change from the engine's roar.'"
+              },
+              {
+                "page_number": 13,
+                "note": "Generic reporting. Suggestion: 'It was a very public mistake, which is the most expensive kind of mistake.'"
+              },
+              {
+                "page_number": 14,
+                "note": "Chester's thought is too random. Suggestion: 'Chester nodded politely, though he was trying to remember if he had ever actually seen a globe in person before this week.'"
+              },
+              {
+                "page_number": 15,
+                "note": "The 'driving into fountains' is too slapstick. Suggestion: 'Some citizens found the new maps confusing, but Marisol noted that their confusion was simply a lack of vision.'"
+              },
+              {
+                "page_number": 16,
+                "note": "Missing the 'avoidance' subtext. Suggestion: 'Winston suggested the town square, as it was the maximum distance he could possibly be from Marisol while still being seen to participate.'"
+              },
+              {
+                "page_number": 17,
+                "note": "Too sincere. Suggestion: 'We are such a wonderful team,' said Marisol, who enjoyed the feeling of being the only one who knew what was happening."
+              },
+              {
+                "page_number": 18,
+                "note": "The 'yarn ball' is a random detail. Suggestion: Focus on the absurdity of the destruction. 'The globe rolled away, flattening the mayor's podium and a very expensive artisanal cheese stall. It was a most efficient way to clear the street.'"
+              },
+              {
+                "page_number": 19,
+                "note": "The resolution is too neat. Suggestion: 'The little globe had only one tiny crack, which was now the most accurate part of the map.'"
+              },
+              {
+                "page_number": 20,
+                "note": "The ending is too happy. Needs the 'never see each other again' vibe. Suggestion: 'They walked away together, each secretly calculating how many years they could go without speaking to the others. It was a very successful friendship.'"
+              }
+            ],
+            "moral_critique": "The moral is a 'groaner' pun. Replace with something that reflects the characters' dysfunction. Suggestion: 'It is always better to be helpful, provided you can do so from a safe distance.'"
+          },
+          "story-editor": {
+            "score": 4.0,
+            "biggest_problem": "The plot is a series of disconnected events rather than a causal chain, and the ending is a 'deus ex machina' cop-out where the original globe magically reappears in the wreckage of the giant one.",
+            "keep": [
+              "Chester's 'nodding along' gag",
+              "The visual contrast between the three mediums (pixel, clay, felt)",
+              "The escalation from a small crack to a city-wide crisis"
+            ],
+            "page_notes": [
+              {
+                "page_number": 1,
+                "note": "The 'pixel' joke is a bit on the nose. Change to: 'Chester leaned in to see if the world was rendered in 16-bit, but his blocky chin made a very analog impact.'"
+              },
+              {
+                "page_number": 2,
+                "note": "The 'best friends' line is too sincere. Change to: 'They decided to work together, as people who share a designated seating chart often do.'"
+              },
+              {
+                "page_number": 3,
+                "note": "Marisol's motivation is too generic. Make her 'help' Winston by assigning him the most tedious task of the list."
+              },
+              {
+                "page_number": 5,
+                "note": "The transition to the Cartography Guild is abrupt. Establish that they are trying to hide the evidence, and a 'custom' globe is the only way to match the original exactly (which leads to Chester's mistake)."
+              },
+              {
+                "page_number": 7,
+                "note": "Chester's order is the catalyst. Instead of 'as large as possible,' have him try to repeat Marisol's complex ratio, fail, and just say 'The Big One.' The Guild should interpret this as a request for a 1:1 scale of the town."
+              },
+              {
+                "page_number": 8,
+                "note": "This is a filler page. Winston's mapping of quiet zones should actually contribute to the plot\u2014perhaps he accidentally guides the delivery truck into a 'quiet' alley that is too narrow."
+              },
+              {
+                "page_number": 10,
+                "note": "The scale jump is too fast. The globe shouldn't just be 10 feet; it should be an absurd size that makes the 'side window' plan on Page 11 physically impossible."
+              },
+              {
+                "page_number": 12,
+                "note": "The alarm button is a clich\u00e9. Have Winston's reaction to the noise cause him to accidentally trigger a 'School-Wide Lockdown' or 'Fire Drill,' forcing the evacuation."
+              },
+              {
+                "page_number": 15,
+                "note": "The 'driving into fountains' bit is too chaotic for the tone. Change to: 'Marisol redrew the maps to be more aesthetically pleasing, which meant several residents now believed their driveways were actually public parks.'"
+              },
+              {
+                "page_number": 18,
+                "note": "Chester 'clicking' the plaster is a great visual. The collapse should be caused by him trying to 'resize' the globe, leading to a structural failure."
+              },
+              {
+                "page_number": 19,
+                "note": "MAJOR PLOT HOLE: The original globe cannot be 'inside' the giant one. Fix: The giant globe crashes *into* the original classroom, knocking over the cabinet where the broken globe was hidden. The 'callback' is that the giant disaster actually reveals the small mistake."
+              },
+              {
+                "page_number": 20,
+                "note": "The resolution is too sweet. End with a subtle hint of their mutual avoidance: 'They walked away together, each carefully maintaining a three-foot buffer of personal space.'"
+              }
+            ]
+          },
+          "character-editor": {
+            "score": 4.0,
+            "biggest_problem": "The characters are acting as a cohesive team rather than three socially awkward strangers who happen to be in the same room. The 'secret subtext' of mutual obliviousness and slight distaste is entirely missing, making the plot a standard children's story instead of a deadpan parody.",
+            "keep": [
+              "Chester's 'pixel-clicking' interaction with the plaster globe",
+              "The 1950s narrator's earnest tone ('It was a most sensible plan')",
+              "The absurdity of the globe having its own zip code",
+              "Chester's specific brand of non-listening"
+            ],
+            "page_notes": [
+              {
+                "page_number": 2,
+                "note": "Too friendly. Change 'They decided to work together, as best friends do' to something more detached: 'They decided to cooperate, which is what one does when there are no other options available.'"
+              },
+              {
+                "page_number": 3,
+                "note": "Marisol's 'wonderful idea' should be framed as her ignoring the others. Suggest: 'Marisol decided that since she was the only one with a ruler, she should be the one in charge of the vision.'"
+              },
+              {
+                "page_number": 6,
+                "note": "Chester's nod is good, but Marisol's reaction should be a backhanded compliment. Suggest: 'Chester is so wonderfully quiet,' Marisol thought, 'it almost makes him seem like he's listening.'"
+              },
+              {
+                "page_number": 11,
+                "note": "Marisol pushing Winston is a great start. Lean into the 'helping' that is actually an inconvenience. Suggest: 'Marisol helped Winston by giving him a very firm push toward the glass, ensuring he would be the first to discover if the window was locked.'"
+              },
+              {
+                "page_number": 15,
+                "note": "The urban planning bit is funny but needs a map pun. Suggest: 'Marisol decided to redraw the town's street layout, as she felt the current map lacked a certain... direction.'"
+              },
+              {
+                "page_number": 17,
+                "note": "The 'wonderful team' line is too sincere. Suggest: 'We are such a compatible group,' Marisol beamed, while Winston wondered if he could walk slightly faster to create a gap of several feet between them."
+              },
+              {
+                "page_number": 20,
+                "note": "The ending is too heartwarming. It needs to reaffirm their desire for distance. Suggest: 'They walked away together, each secretly calculating exactly how many days it would be until they didn't have to speak to one another again. It was a very happy ending indeed.'"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "round": 2,
+        "avg_score": 5.33,
+        "reviews": {
+          "comedy-editor": {
+            "score": 4.0,
+            "biggest_problem": "The draft is reporting events rather than landing jokes. It reads like a standard children's story with 'quirky' characters, rather than a deadpan parody of one. The secret subtext of mutual dislike is almost entirely absent, and the escalation of the globe's size happens too quickly without enough mundane friction.",
+            "keep": [
+              "Chester's 'nodding along' running gag",
+              "The visual contrast of the three mediums (pixel, clay, felt)",
+              "The concept of a 1:1 scale map causing city-wide chaos"
+            ],
+            "page_notes": [
+              {
+                "page_number": 1,
+                "note": "Too much exposition. The 'budget-friendly' line is okay, but the punchline should be more mundane. Suggest: 'It was a very budget-friendly globe, which meant the continents were mostly suggestions. It also smelled faintly of old pennies.'"
+              },
+              {
+                "page_number": 2,
+                "note": "Generic reporting. The 'no other options' line is a start, but needs more passive-aggressive friendship. Suggest: 'They decided to cooperate, as it is the polite thing to do when one has no other choice. They were very happy to be seen together.'"
+              },
+              {
+                "page_number": 3,
+                "note": "Weak escalation. The beige categories are a bit too 'random' and not enough 'deadpan'. Suggest: 'The list included three separate categories for the specific shade of beige used in the Sahara. Marisol enjoyed being in charge, and Winston enjoyed being told exactly where to stand.'"
+              },
+              {
+                "page_number": 4,
+                "note": "Too much internal monologue for Winston. The joke should be the narrator's observation of his fragility. Suggest: 'Winston found the noise quite intrusive. He wondered if the shop offered a silent-shopping experience, or perhaps a small, soundproof box to sit in.'"
+              },
+              {
+                "page_number": 5,
+                "note": "Plot moves too fast. We need a beat of them pretending to like each other's ideas. Suggest: 'Marisol suggested they contact the professional cartography guild. Winston agreed, as he found Marisol's insistence on total control to be very comforting.'"
+              },
+              {
+                "page_number": 6,
+                "note": "The 'oven' joke is a generic non-sequitur. Needs to be more about Chester's specific void of understanding. Suggest: 'Chester nodded politely. He was currently wondering if the word \"ratio\" was a type of pasta.'"
+              },
+              {
+                "page_number": 7,
+                "note": "The jump to 1:1 scale is a huge event handled too casually. Needs an absurd detail about the guild's reaction. Suggest: 'The guild members admired his bold minimalism. They had never been asked to build a map that required its own zoning permit.'"
+              },
+              {
+                "page_number": 8,
+                "note": "Filler page. No joke. Suggest: 'Winston mapped the quietest zones of the school. He found that the most peaceful place was wherever Chester happened to be standing, as Chester rarely spoke.'"
+              },
+              {
+                "page_number": 9,
+                "note": "The REM sleep joke is a bit too 'modern' for the 1950s parody tone. Suggest: 'It is amazing how much one can achieve when one views sleep as a personal failure.'"
+              },
+              {
+                "page_number": 10,
+                "note": "The weather system is a good visual, but the punchline is weak. Suggest: 'The globe was so large it had its own weather system. It was a very impressive piece of geography, though the South Pacific was currently experiencing a mild drizzle.'"
+              },
+              {
+                "page_number": 11,
+                "note": "The 'human wedge' is a good start. Lean into the lack of empathy. Suggest: 'Marisol admired how Winston's small frame made him an excellent human wedge. She gave him a very firm push, as she enjoyed seeing how much pressure the glass could take.'"
+              },
+              {
+                "page_number": 12,
+                "note": "The 'refreshing change' line is a bit too sincere. Suggest: 'He found the sudden, piercing noise to be quite refreshing, as it finally drowned out the sound of Marisol's breathing.'"
+              },
+              {
+                "page_number": 13,
+                "note": "Generic reporting. Needs a deadpan observation about the school's reaction. Suggest: 'It was a very public mistake, which is the most expensive kind of mistake. The teacher noted that the globe's placement really opened up the room.'"
+              },
+              {
+                "page_number": 14,
+                "note": "Chester's line is too similar to Page 6. Suggest: 'Chester nodded politely, though he was currently trying to remember if the world was actually round or just a very large pancake.'"
+              },
+              {
+                "page_number": 15,
+                "note": "The 'public parks' joke is the strongest in the draft. Keep, but sharpen the narrator's tone. Suggest: 'Several residents now believed their driveways were actually public parks, but the maps looked very tidy. The residents were very polite about their new lack of parking.'"
+              },
+              {
+                "page_number": 16,
+                "note": "The 'maximum distance' joke is great. Keep and amplify. Suggest: 'Winston suggested the globe be moved to the town square, which was the maximum distance he could possibly be from Marisol while still being seen to participate.'"
+              },
+              {
+                "page_number": 17,
+                "note": "Too much internal monologue. Let the narrator report the 'friendship'. Suggest: 'They were a very compatible group, which is to say they had all been assigned to the same project. They walked in a very orderly line, with exactly three feet of safety between each person.'"
+              },
+              {
+                "page_number": 18,
+                "note": "The 'efficient way to clear the street' is a good deadpan punchline. Keep."
+              },
+              {
+                "page_number": 19,
+                "note": "The 'most accurate part' joke is a great pun/observation. Keep."
+              },
+              {
+                "page_number": 20,
+                "note": "The ending is too sincere. Needs to be more about their mutual relief at the separation. Suggest: 'They maintained a very polite three-foot buffer of personal space. It was a very happy ending, as they all realized they no longer had any reason to speak to one another.'"
+              }
+            ]
+          },
+          "story-editor": {
+            "score": 6.0,
+            "biggest_problem": "The climax is a 'random transformation' cop-out; Chester clicking the globe in 'pixel increments' to make it roll is a logic break that ignores the physical scale established, and the globe's return to the classroom is a convenient teleportation rather than a causal sequence.",
+            "keep": [
+              "The character dynamics (Marisol's manic energy, Winston's anxiety, Chester's void)",
+              "The '1:1 scale' misunderstanding",
+              "The dry, detached narrator voice"
+            ],
+            "page_notes": [
+              {
+                "page_number": 2,
+                "note": "The 'no other options' line is good, but lean harder into the secret subtext. Change 'decided to cooperate' to 'decided to be seen cooperating, as it was the most socially acceptable way to spend a Tuesday.'"
+              },
+              {
+                "page_number": 6,
+                "note": "Chester's internal monologue about the oven is a bit generic. Make it more 'pixel-brained'. Fix: 'Chester nodded politely, wondering if he could actually taste the color teal.'"
+              },
+              {
+                "page_number": 11,
+                "note": "The transition from 'leading the way' to being used as a 'human wedge' is abrupt. Add a line where Marisol compliments Winston's 'sturdy, felt-like density' before pushing him."
+              },
+              {
+                "page_number": 12,
+                "note": "Winston finding the alarm 'refreshing' contradicts his character archetype of being alarmed by noise. Fix: He should trigger the alarm in a panic to drown out the engine, then immediately regret it."
+              },
+              {
+                "page_number": 15,
+                "note": "The jump to 'city-wide committee' is a massive leap in stakes that isn't earned. Scale it back to the school board or a neighborhood association to keep the comedy grounded."
+              },
+              {
+                "page_number": 18,
+                "note": "Logic hole: Chester cannot 'click' a physical object to resize it. Fix: Have him lean in too close (callback to Page 1) and accidentally trigger a release lever or push a precarious support beam with his blocky chin."
+              },
+              {
+                "page_number": 19,
+                "note": "The globe 'crashing directly into the classroom' from the town square is a physical impossibility. Fix: The globe should roll down the main street, through the school gates, and smash into the classroom wall, creating a 'new window' that reveals the original globe."
+              },
+              {
+                "page_number": 20,
+                "note": "The resolution is a bit soft. Add a subtle map pun to the moral or final line. Example: 'They were perfectly aligned, much like two tectonic plates just before a catastrophic shift.'"
+              }
+            ]
+          },
+          "character-editor": {
+            "score": 6.0,
+            "biggest_problem": "The characters are acting as a cohesive team rather than three socially incompatible strangers who happen to be in the same room. The 'secret subtext' of mutual dislike is missing; they are currently too helpful and cooperative.",
+            "keep": [
+              "The 1950s narrator's earnest, deadpan voice",
+              "Chester's '16-bit' physical comedy (the chin impact)",
+              "The escalating absurdity of the globe size",
+              "Winston's sensory overload as a character driver"
+            ],
+            "page_notes": [
+              {
+                "page_number": 2,
+                "note": "Too cooperative. Change 'decided to cooperate' to something that highlights their lack of bond. Suggestion: 'They decided to work together, as it is the most efficient way to ensure no one person takes all the blame.'"
+              },
+              {
+                "page_number": 3,
+                "note": "Marisol is too helpful. Make her 'vision' more about her own obsession. Suggestion: Change 'Winston, you may help' to 'Winston, I have found a task suited to your particular temperament: alphabetizing these footnotes.'"
+              },
+              {
+                "page_number": 5,
+                "note": "Marisol's consideration of Winston is too genuine. Suggestion: 'The guild's office is in a quiet basement, which will prevent Winston from making those distressing little noises.'"
+              },
+              {
+                "page_number": 6,
+                "note": "Chester's internal monologue is a bit generic. Lean into the pixel-art nature of his brain. Suggestion: 'Chester nodded politely. He was currently wondering if he could fit a whole slice of pizza into his inventory slot.'"
+              },
+              {
+                "page_number": 11,
+                "note": "The 'human wedge' joke is good, but make it more a backhanded compliment. Suggestion: 'Winston, your unique proportions make you the perfect tool for this task!' Marisol beamed, ignoring how Winston looked like he was contemplating a sudden exit from the physical plane."
+              },
+              {
+                "page_number": 12,
+                "note": "Winston's reaction to the alarm is too positive ('refreshing change'). He should be terrified but polite. Suggestion: 'Mercy!' cried Winston. He found the alarm to be a very loud way of reminding him that he was still alive."
+              },
+              {
+                "page_number": 17,
+                "note": "The 'compatible group' line is close, but needs more 1950s narrator irony. Suggestion: 'They were a most compatible group, in the way that three different types of mismatched luggage are all compatible with the same overhead bin.'"
+              },
+              {
+                "page_number": 18,
+                "note": "Chester's 'resizing' is a great visual gag. Add a subtle map pun here. Suggestion: 'Chester tried to resize the smudge, but he found himself completely off-axis.'"
+              },
+              {
+                "page_number": 20,
+                "note": "The ending is the strongest part of the draft, but could be punchier. Suggestion: 'They walked away together, each cherishing the wonderful silence that comes when one has finally run out of things to say to another person.'"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

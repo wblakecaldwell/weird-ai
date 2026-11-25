@@ -1,0 +1,1591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Very Big World Problem — A Little Fever Dream Book No. 03</title>
+<style>
+  :root {
+    --cover-bg: #c89027;
+    --cover-accent: #fff4d6;
+    --cover-ink: #251c10;
+    --paper: #f6eedb;
+    --paper-edge: #e4d6b7;
+    --ink: #241c15;
+    --muted: #6c5b48;
+    --gold-1: #7d5b10;
+    --gold-2: #e7c667;
+    --gold-3: #fff2b2;
+    --gold-4: #b98b24;
+    --desk: #271f19;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 50% 25%, #3c3026 0%, #241c16 62%, #18120e 100%);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* Top Vintage Reader Toolbar */
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 20px;
+    background: rgba(18, 14, 11, 0.82);
+    border-bottom: 1px solid rgba(243, 211, 122, 0.22);
+    color: #f3e8d2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 13px;
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+  .tb-left, .tb-center, .tb-right { display: flex; align-items: center; gap: 10px; }
+  .tb-link {
+    color: #f3d37a;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(243, 211, 122, 0.3);
+  }
+  .tb-link:hover { background: rgba(243, 211, 122, 0.14); }
+  .tb-title { font-family: Georgia, serif; font-size: 14px; color: #f6eedb; opacity: 0.9; }
+  .tb-btn {
+    background: #2f261e;
+    color: #f6eedb;
+    border: 1px solid #574636;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .tb-btn:hover:not(:disabled) { background: #433528; border-color: #f3d37a; }
+  .tb-btn:disabled { opacity: 0.35; cursor: default; }
+  .tb-btn.active { background: #b98b24; color: #1a1207; border-color: #f3d37a; }
+  .tb-status { min-width: 112px; text-align: center; font-variant-numeric: tabular-nums; color: #e2d1b3; }
+
+  /* Stage */
+  .stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 18px 18px;
+    perspective: 2200px;
+  }
+
+  .book-viewport {
+    position: relative;
+    width: min(1140px, 96vw);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .spread {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    transform-origin: center center;
+  }
+  .spread.active {
+    display: flex;
+    animation: spreadFade 0.28s ease-out;
+  }
+  .spread.flip-next { animation: flipInNext 0.42s cubic-bezier(0.22, 0.82, 0.32, 1); }
+  .spread.flip-prev { animation: flipInPrev 0.42s cubic-bezier(0.22, 0.82, 0.32, 1); }
+
+  @keyframes spreadFade {
+    from { opacity: 0; transform: scale(0.985); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes flipInNext {
+    0% { opacity: 0.25; transform: rotateY(14deg) scale(0.98); }
+    100% { opacity: 1; transform: rotateY(0deg) scale(1); }
+  }
+  @keyframes flipInPrev {
+    0% { opacity: 0.25; transform: rotateY(-14deg) scale(0.98); }
+    100% { opacity: 1; transform: rotateY(0deg) scale(1); }
+  }
+
+  /* Iconic Gold-Foil Little Golden Book Tape Spine */
+  .gold-spine {
+    width: 56px;
+    flex-shrink: 0;
+    position: relative;
+    background-color: #c89b2c;
+    background-image:
+      linear-gradient(90deg,
+        rgba(85, 56, 6, 0.55) 0%,
+        rgba(255, 243, 180, 0.42) 18%,
+        rgba(176, 127, 22, 0.25) 45%,
+        rgba(255, 248, 200, 0.52) 72%,
+        rgba(92, 62, 10, 0.55) 100%
+      ),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 1 L23 12 L12 23 L1 12 Z' fill='none' stroke='%235f4108' stroke-opacity='0.34' stroke-width='1.3'/%3E%3Ccircle cx='12' cy='12' r='2.3' fill='%23fff2b2' fill-opacity='0.45'/%3E%3Cpath d='M0 0 L6 6 M24 0 L18 6 M0 24 L6 18 M24 24 L18 18' stroke='%235f4108' stroke-opacity='0.28' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 100% 100%, 24px 24px;
+  }
+  .spine-left {
+    border-right: 3px solid rgba(55, 36, 4, 0.55);
+    box-shadow: inset -6px 0 10px rgba(45, 28, 3, 0.35), 2px 0 6px rgba(0,0,0,0.22);
+  }
+  .spine-right {
+    border-left: 3px solid rgba(55, 36, 4, 0.55);
+    box-shadow: inset 6px 0 10px rgba(45, 28, 3, 0.35), -2px 0 6px rgba(0,0,0,0.22);
+  }
+
+  /* Hard Cardboard Front & Back Covers */
+  .hardboard-cover {
+    position: relative;
+    width: min(560px, 92vw);
+    min-height: min(720px, 80vh);
+    display: flex;
+    border-radius: 6px 14px 14px 6px;
+    overflow: hidden;
+    background: var(--cover-bg);
+    cursor: pointer;
+    box-shadow:
+      0 26px 55px rgba(0, 0, 0, 0.62),
+      0 4px 0 #d9cbb0,
+      0 7px 0 #b8a586,
+      inset 0 0 0 2px rgba(255, 245, 215, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .back-cover { border-radius: 14px 6px 6px 14px; }
+  .hardboard-cover:hover { transform: translateY(-2px); }
+
+  /* Subtle vintage cardboard paper patina */
+  .cover-face::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(255, 248, 224, 0.14), transparent 55%),
+      radial-gradient(circle at 85% 90%, rgba(20, 12, 5, 0.22), transparent 60%);
+    mix-blend-mode: soft-light;
+  }
+
+  .cover-face {
+    position: relative;
+    flex: 1;
+    padding: 20px 24px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: #fff8e7;
+  }
+
+  .cover-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .golden-emblem {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f6eedb;
+    color: var(--cover-ink);
+    border: 2px solid #2b2016;
+    outline: 2px solid var(--cover-accent);
+    padding: 5px 11px 4px;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    line-height: 1.05;
+  }
+  .emblem-top { font-family: -apple-system, sans-serif; font-size: 9px; letter-spacing: 0.18em; font-weight: 800; }
+  .emblem-main { font-size: 13px; font-weight: 900; letter-spacing: 0.06em; color: #8c2c1c; }
+  .emblem-sub { font-family: -apple-system, sans-serif; font-size: 9px; letter-spacing: 0.14em; font-weight: 700; opacity: 0.85; }
+
+  .price-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--cover-accent);
+    color: var(--cover-ink);
+    border: 2px dashed rgba(32, 23, 18, 0.5);
+    display: grid;
+    place-items: center;
+    font-family: -apple-system, sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    transform: rotate(7deg);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  .cover-title-block { text-align: center; padding: 2px 6px; }
+  .cover-title {
+    margin: 0;
+    font-size: clamp(26px, 3.6vw, 36px);
+    line-height: 1.06;
+    color: #fffaf0;
+    text-shadow: 0 2px 0 rgba(26, 17, 10, 0.55);
+    letter-spacing: -0.01em;
+  }
+  .cover-subtitle {
+    margin: 6px 0 0;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--cover-accent);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+  }
+
+  .cover-art-frame {
+    flex: 1;
+    background: #f6eedb;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid rgba(36, 25, 16, 0.45);
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.18), 0 8px 18px rgba(0,0,0,0.28);
+    display: flex;
+    overflow: hidden;
+    min-height: 320px;
+  }
+  .cover-art-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+  }
+
+  .cover-footer {
+    text-align: center;
+    font-family: -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    color: rgba(255, 247, 226, 0.88);
+    padding-top: 2px;
+  }
+
+  .open-hint {
+    position: absolute;
+    right: 16px;
+    bottom: 12px;
+    background: rgba(20, 14, 10, 0.72);
+    color: #f3d37a;
+    font-family: -apple-system, sans-serif;
+    font-size: 11px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* Open Two-Page Storybook Spread */
+  .open-book-shell {
+    width: 100%;
+    min-height: min(700px, 78vh);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--cover-bg);
+    padding: 10px 12px;
+    border-radius: 10px;
+    box-shadow:
+      0 28px 60px rgba(0, 0, 0, 0.65),
+      inset 0 0 0 2px rgba(243, 211, 122, 0.22);
+    position: relative;
+  }
+
+  .book-page {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-left {
+    border-radius: 4px 0 0 4px;
+    box-shadow:
+      inset -24px 0 26px -18px rgba(40, 26, 12, 0.38),
+      inset 2px 0 0 rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(90, 66, 40, 0.25);
+  }
+  .page-right {
+    border-radius: 0 4px 4px 0;
+    box-shadow:
+      inset 24px 0 26px -18px rgba(40, 26, 12, 0.34),
+      inset -2px 0 0 rgba(255,255,255,0.45);
+  }
+
+  /* Subtle antique paper grain */
+  .book-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(110, 82, 46, 0.06) 1px, transparent 0);
+    background-size: 14px 14px;
+    opacity: 0.55;
+  }
+
+  .page-inner {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 26px 28px 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  /* Story Page Layouts */
+  .art-slot { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 290px; }
+  .art-mat {
+    width: 100%;
+    height: 100%;
+    max-height: 410px;
+    background: #fffdf7;
+    padding: 7px;
+    border: 1px solid #d2c19f;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(44, 30, 16, 0.14);
+    display: flex;
+    overflow: hidden;
+  }
+  .illus-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .layout-vignette .art-mat {
+    border-radius: 18px;
+    border: 2px solid #c5b08a;
+    max-width: 92%;
+    margin: 0 auto;
+  }
+  .layout-full-bleed-caption .art-mat {
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    max-height: 440px;
+  }
+  .layout-top-art .story-copy { padding-top: 4px; }
+
+  .story-copy {
+    padding: 4px 8px 6px;
+  }
+  .story-text {
+    margin: 0;
+    font-size: clamp(16px, 1.55vw, 19px);
+    line-height: 1.54;
+    color: #261d14;
+    letter-spacing: 0.005em;
+  }
+  .story-text.has-dropcap::first-letter {
+    float: left;
+    font-size: 3.1em;
+    line-height: 0.84;
+    padding-right: 8px;
+    padding-top: 4px;
+    font-weight: 700;
+    color: var(--cover-bg);
+  }
+
+  .the-end-block {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed #c8b490;
+    text-align: center;
+  }
+  .the-end-ornament {
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    color: var(--cover-bg);
+  }
+  .moral-line {
+    margin: 6px 0 0;
+    font-size: 13.5px;
+    font-style: italic;
+    color: #4d3e2e;
+  }
+
+  .page-folio {
+    position: absolute;
+    bottom: 11px;
+    font-size: 12px;
+    color: #847056;
+    font-variant-numeric: tabular-nums;
+  }
+  .page-left .page-folio { left: 22px; }
+  .page-right .page-folio { right: 22px; }
+
+  /* Placeholder before mflux renders */
+  .art-placeholder {
+    width: 100%;
+    min-height: 280px;
+    background:
+      repeating-linear-gradient(45deg, #f0e4ca, #f0e4ca 12px, #e8d9b8 12px, #e8d9b8 24px);
+    border: 2px dashed #b99e70;
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    color: #5b4832;
+  }
+  .art-ph-badge {
+    font-family: -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    font-weight: 800;
+    background: #5b4832;
+    color: #f6eedb;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .art-ph-title { font-weight: 700; font-size: 15px; }
+  .art-ph-hint { font-size: 12px; opacity: 0.85; max-width: 340px; line-height: 1.4; }
+
+  /* Inside Front Cover Endpaper + Bookplate */
+  .endpaper-page {
+    background: #efe3c6;
+  }
+  .endpaper-pattern {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='2' fill='%23b29258' fill-opacity='0.34'/%3E%3Cpath d='M28 10 L31 18 L39 21 L31 24 L28 32 L25 24 L17 21 L25 18 Z' fill='none' stroke='%23b29258' stroke-opacity='0.26' stroke-width='1'/%3E%3C/svg%3E");
+  }
+  .bookplate {
+    width: 100%;
+    max-width: 360px;
+    background: #faf3e3;
+    border: 3px double #8a6c37;
+    outline: 5px solid #faf3e3;
+    box-shadow: 0 10px 24px rgba(48, 32, 12, 0.18);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .bookplate-ribbon {
+    font-family: -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    font-weight: 800;
+    color: var(--cover-bg);
+    margin-bottom: 10px;
+  }
+  .bookplate-heading {
+    font-size: 21px;
+    font-weight: 700;
+    color: #2b2016;
+    margin-bottom: 18px;
+  }
+  .bookplate-line {
+    min-height: 34px;
+    border-bottom: 2px solid #5c4932;
+    font-family: "Bradley Hand", "Segoe Script", Georgia, cursive;
+    font-size: 22px;
+    color: #2d4c66;
+    padding: 2px 6px;
+    outline: none;
+  }
+  .bookplate-line:focus { background: rgba(243, 211, 122, 0.25); }
+  .bookplate-note { font-family: -apple-system, sans-serif; font-size: 11px; color: #8c775c; margin-top: 8px; }
+  .bookplate-seal {
+    margin-top: 22px;
+    font-family: -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: #7d6439;
+    font-weight: 700;
+  }
+
+  /* Title & Cast Page */
+  .title-page-inner { text-align: center; justify-content: flex-start; gap: 10px; }
+  .tp-series {
+    font-family: -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    color: var(--cover-bg);
+  }
+  .tp-title { margin: 4px 0 0; font-size: 28px; line-height: 1.12; color: #241911; }
+  .tp-sub { margin: 4px 0 0; font-size: 15px; font-style: italic; color: #5b4935; }
+  .tp-rule { color: #b98b24; font-size: 13px; letter-spacing: 0.3em; margin: 4px 0; }
+  .tp-dedication { margin: 0 0 8px; font-size: 13.5px; color: #5f4d3b; }
+
+  .cast-section {
+    text-align: left;
+    background: rgba(226, 209, 173, 0.38);
+    border: 1px solid #d8c7a3;
+    border-radius: 6px;
+    padding: 12px 14px;
+    flex: 1;
+  }
+  .cast-heading {
+    text-align: center;
+    font-family: -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #6b553b;
+    margin-bottom: 10px;
+  }
+  .cast-list { display: flex; flex-direction: column; gap: 9px; }
+  .cast-chip { display: flex; gap: 10px; align-items: center; }
+  .cast-avatar {
+    width: 48px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #b8a37c;
+    background: #e9dec4;
+  }
+  .cast-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cast-name { font-weight: 700; font-size: 14px; color: #241911; }
+  .cast-meta { font-family: -apple-system, sans-serif; font-size: 10.5px; color: var(--cover-bg); font-weight: 700; }
+  .cast-quote { font-size: 11.5px; font-style: italic; color: #5b4935; line-height: 1.25; }
+  .tp-imprint {
+    font-family: -apple-system, sans-serif;
+    font-size: 10.5px;
+    color: #7d6a52;
+    line-height: 1.4;
+    padding-top: 4px;
+  }
+
+  /* Colophon / Odd Final Page */
+  .colophon-page { align-items: center; justify-content: center; text-align: center; }
+  .colophon-card {
+    max-width: 340px;
+    padding: 26px 22px;
+    border: 2px solid #c9b48d;
+    border-radius: 8px;
+    background: #fbf5e7;
+  }
+  .colophon-star { font-size: 26px; color: var(--cover-bg); }
+  .colophon-card h3 { margin: 6px 0 10px; font-size: 20px; }
+  .colophon-moral { font-size: 16px; font-style: italic; line-height: 1.45; }
+  .colophon-small { font-family: -apple-system, sans-serif; font-size: 11.5px; color: #746048; line-height: 1.5; }
+
+  /* Back Cover */
+  .back-face { justify-content: space-between; }
+  .back-banner {
+    font-family: -apple-system, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    font-weight: 800;
+    color: var(--cover-accent);
+    text-align: center;
+  }
+  .back-title { margin: 4px 0 0; text-align: center; font-size: 24px; color: #fffaf0; }
+  .back-blurb {
+    margin: 4px auto 0;
+    max-width: 380px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff6df;
+  }
+  .collect-box {
+    background: #f6eedb;
+    color: #241c15;
+    border-radius: 8px;
+    padding: 16px 18px;
+    border: 2px solid rgba(36, 25, 16, 0.45);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  }
+  .collect-head {
+    font-family: -apple-system, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    font-weight: 800;
+    color: var(--cover-bg);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .collect-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; }
+  .collect-list a { color: #241c15; text-decoration: none; }
+  .collect-list a:hover { text-decoration: underline; color: var(--cover-bg); }
+  .collect-list li.upcoming { opacity: 0.6; font-style: italic; }
+  .cb-mark { color: var(--cover-bg); font-weight: 700; margin-right: 4px; }
+  .back-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .back-seal {
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    color: rgba(255, 246, 223, 0.85);
+  }
+  .shelf-btn {
+    background: var(--cover-accent);
+    color: var(--cover-ink);
+    text-decoration: none;
+    font-family: -apple-system, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 8px 14px;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  }
+
+  /* Scrubber Dots */
+  .scrubber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(243, 211, 122, 0.55);
+    background: rgba(243, 211, 122, 0.18);
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.15s, background 0.15s;
+  }
+  .dot.active { background: #f3d37a; transform: scale(1.28); }
+
+  /* Director / Tinkering Mode Overlay */
+  .director-panel {
+    display: none;
+    margin-top: 8px;
+    background: #1d1814;
+    color: #efe3c8;
+    border: 1px solid #6b5535;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 11px;
+    line-height: 1.4;
+    text-align: left;
+  }
+  body.director-mode .director-panel { display: block; }
+  .dir-head { display: flex; justify-content: space-between; gap: 8px; color: #f3d37a; margin-bottom: 4px; }
+  .dir-row { opacity: 0.9; }
+  .dir-prompt { margin-top: 5px; }
+  .dir-prompt summary { cursor: pointer; color: #f3d37a; font-weight: 600; }
+  .dir-prompt p { margin: 6px 0; font-size: 10.5px; opacity: 0.85; }
+  .dir-prompt code {
+    display: block;
+    background: #110e0b;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    word-break: break-all;
+    color: #9be0a8;
+  }
+
+  @media (max-width: 860px) {
+    .open-book-shell { grid-template-columns: 1fr; gap: 10px; }
+    .page-left, .page-right { border-radius: 4px; box-shadow: none; border-right: none; }
+    .tb-title { display: none; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .toolbar, .scrubber, .open-hint, .director-panel { display: none !important; }
+    .stage { padding: 0; display: block; }
+    .book-viewport { width: 100%; display: block; }
+    .spread { display: flex !important; page-break-after: always; break-after: page; margin-bottom: 12mm; }
+    .hardboard-cover, .open-book-shell { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+  <nav class="toolbar">
+    <div class="tb-left">
+      <a class="tb-link" href="../../index.html">Bookshelf</a>
+      <span class="tb-title">No. 03 &bull; The Very Big World Problem</span>
+    </div>
+    <div class="tb-center">
+      <button class="tb-btn" id="btnPrev" onclick="prevSpread()">← Prev</button>
+      <span class="tb-status" id="spreadStatus">Front Cover</span>
+      <button class="tb-btn" id="btnNext" onclick="nextSpread()">Next →</button>
+    </div>
+    <div class="tb-right">
+      <button class="tb-btn" id="btnDirector" onclick="toggleDirector()" title="Show seeds, refs, prompts & re-roll commands (D)">Director Mode</button>
+      <button class="tb-btn" onclick="window.print()">Print / PDF</button>
+    </div>
+  </nav>
+
+  <main class="stage">
+    <div class="book-viewport" id="bookViewport">
+      
+    <section class="spread spread-cover active" data-spread="0" data-label="Front Cover">
+      <div class="hardboard-cover front-cover" onclick="nextSpread(event)">
+        <div class="gold-spine spine-left" aria-hidden="true"></div>
+        <div class="cover-face">
+          <header class="cover-header">
+            <div class="golden-emblem">
+              <span class="emblem-top">A LITTLE</span>
+              <span class="emblem-main">FEVER DREAM</span>
+              <span class="emblem-sub">BOOK &bull; No. 03</span>
+            </div>
+            <div class="price-circle">25¢</div>
+          </header>
+
+          <div class="cover-title-block">
+            <h1 class="cover-title">The Very Big World Problem</h1>
+            <p class="cover-subtitle">A Helpful Guide to Classroom Geography</p>
+          </div>
+
+          <div class="cover-art-frame">
+            <img class="illus-img cover-art-img" src="art/cover.png" alt="Chester Antialiased, Marisol Brittle, and Winston Crumb stand shoulder-to-shoulder in front of a massive, slightly lopsided globe. Chester looks nervous with wide eyes, Marisol holds a tiny ruler with an air of authority, and Winston looks bewildered. The background is a soft-focus 1950s classroom with gouache painted wooden floors." loading="lazy">
+          </div>
+
+          <footer class="cover-footer">
+            <span>STARRING THE CLASS OF 2025 &bull; MEME VALLEY HIGH SCHOOL</span>
+          </footer>
+          
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Front Cover</strong>
+        <span>flux2-klein-4b • seed 335271 • 24.3s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Chester Antialiased, Marisol Brittle, Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Heroic slightly low-angle three-quarter composition</div>
+      <div class="dir-row"><b>Refs:</b> 01-chester-antialiased_v0.png, 03-marisol-brittle_v0.png, 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Classic Little Golden Book front cover hero illustration: leave clean uncluttered painted sky or backdrop breathing room along the top 22% of the frame for a printed book title banner, center the characters dynamically in the lower two-thirds, absolutely NO letters, NO title text, and NO border frame baked into the artwork. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Image 2 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 3 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 3 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Heroic slightly low-angle three-quarter composition. Scene action: Chester Antialiased, Marisol Brittle, and Winston Crumb stand shoulder-to-shoulder in front of a massive, slightly lopsided globe. Chester looks nervous with wide eyes, Marisol holds a tiny ruler with an air of authority, and Winston looks bewildered. The background is a soft-focus 1950s classroom with gouache painted wooden floors. Lighting and mood: Warm sunlit 1950s picture-book afternoon glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-cover --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+        </div>
+        <div class="open-hint">Click cover or press → to open</div>
+      </div>
+    </section>
+    <section class="spread spread-open" data-spread="1" data-label="Title &amp; Cast">
+      <div class="open-book-shell">
+        <div class="book-page page-left endpaper-page" onclick="prevSpread(event)">
+          <div class="endpaper-pattern">
+            <div class="bookplate">
+              <div class="bookplate-ribbon">A LITTLE FEVER DREAM BOOK</div>
+              <div class="bookplate-heading">This Fever Dream Belongs To</div>
+              <div class="bookplate-line" contenteditable="true" spellcheck="false" data-bookplate="03-the-very-big-world-problem" onclick="event.stopPropagation()"></div>
+              <div class="bookplate-note">(Click line above to write your name)</div>
+              <div class="bookplate-seal">★ MEME VALLEY PRESS &bull; EST. 1955 ★</div>
+            </div>
+          </div>
+        </div>
+        <div class="book-page page-right title-page" onclick="nextSpread(event)">
+          <div class="page-inner title-page-inner">
+            <div class="tp-series">A LITTLE FEVER DREAM BOOK &bull; No. 03</div>
+            <h2 class="tp-title">The Very Big World Problem</h2>
+            <p class="tp-sub">A Helpful Guide to Classroom Geography</p>
+            <div class="tp-rule">✦ ✦ ✦</div>
+            <p class="tp-dedication"><em>To all the students who try their very best, even when they are not entirely sure what is happening.</em></p>
+            <div class="cast-section">
+              <div class="cast-heading">Starring From The Class of 2025</div>
+              <div class="cast-list">
+                
+            <div class="cast-chip">
+              <div class="cast-avatar"><img src="cast/01-chester-antialiased.webp" alt="Chester Antialiased"></div>
+              <div class="cast-info">
+                <div class="cast-name">Chester Antialiased</div>
+                <div class="cast-meta">16-Bit Pixel Sprite</div>
+                <div class="cast-quote">“Haha yeah totally (I did not hear a single syllable).”</div>
+              </div>
+            </div>
+            <div class="cast-chip">
+              <div class="cast-avatar"><img src="cast/03-marisol-brittle.webp" alt="Marisol Brittle"></div>
+              <div class="cast-info">
+                <div class="cast-name">Marisol Brittle</div>
+                <div class="cast-meta">Stop-Motion Clay</div>
+                <div class="cast-quote">“Sleep is temporary, color-coded Google Docs are forever.”</div>
+              </div>
+            </div>
+            <div class="cast-chip">
+              <div class="cast-avatar"><img src="cast/06-winston-crumb.webp" alt="Winston Crumb"></div>
+              <div class="cast-info">
+                <div class="cast-name">Winston Crumb</div>
+                <div class="cast-meta">Fuzzy Felt Puppet</div>
+                <div class="cast-quote">“I was promised this hallway would be quieter.”</div>
+              </div>
+            </div>
+              </div>
+            </div>
+            <div class="tp-imprint">
+              Written &amp; Illustrated 100% Locally on Apple Silicon<br>
+              Meme Valley High School Publishing Co.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="spread spread-open" data-spread="2" data-label="Pages 1–2">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-framed-classic">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_01.png" alt="Chester Antialiased&#x27;s blocky, pixelated chin is pressed firmly against a cheap, glossy plastic globe. A jagged, physical crack spider-webs across the blue painted ocean where his chin has made impact." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text has-dropcap">Chester Antialiased liked to look at things very closely. He leaned in to see if the world was rendered in 16-bit, but his blocky chin made a very analog impact. A tiny crack appeared right in the middle of the Atlantic Ocean. It was a very budget-friendly globe, which meant the continents were mostly suggestions. It also smelled faintly of old pennies.</p>
+        
+      </div>
+      <div class="page-folio">1</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 01</strong>
+        <span>flux2-klein-4b • seed 335368 • 10.5s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Chester Antialiased</div>
+      <div class="dir-row"><b>Angle:</b> Extreme close-up</div>
+      <div class="dir-row"><b>Refs:</b> 01-chester-antialiased_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Extreme close-up. Scene action: Chester Antialiased&#x27;s blocky, pixelated chin is pressed firmly against a cheap, glossy plastic globe. A jagged, physical crack spider-webs across the blue painted ocean where his chin has made impact. Lighting and mood: Bright, sterile classroom fluorescent light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 1 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-full-bleed-caption">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_02.png" alt="Marisol Brittle and Winston Crumb stand side-by-side, staring at the cracked globe on a wooden desk. Marisol has her clay wings folded primly; Winston&#x27;s googly eyes are skewed in opposite directions. They both wear expressions of forced, polite cooperation." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">Marisol and Winston saw the crack too. They decided to be seen cooperating, as it was the most socially acceptable way to spend a Tuesday. &quot;We must replace it before the next bell rings!&quot; said Marisol. They decided to work together, as it is the most efficient way to ensure no one person takes all the blame. They were very happy to be seen together.</p>
+        
+      </div>
+      <div class="page-folio">2</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 02</strong>
+        <span>flux2-klein-4b • seed 335465 • 16.9s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Marisol Brittle, Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Wide establishing shot</div>
+      <div class="dir-row"><b>Refs:</b> 03-marisol-brittle_v0.png, 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Wide establishing shot. Scene action: Marisol Brittle and Winston Crumb stand side-by-side, staring at the cracked globe on a wooden desk. Marisol has her clay wings folded primly; Winston&#x27;s googly eyes are skewed in opposite directions. They both wear expressions of forced, polite cooperation. Lighting and mood: Soft pastel morning light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 2 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="3" data-label="Pages 3–4">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-vignette">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_03.png" alt="Marisol Brittle stands atop a stack of textbooks, pointing a tiny wooden ruler at a massive, handwritten list on a blank piece of parchment. Winston Crumb is hunched over a tiny desk, meticulously organizing small slips of paper into neat piles." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">Marisol decided that since she was the only one with a ruler, she should be in charge of the vision. She spent an hour making a list of requirements for a new globe. &quot;Winston, I have found a task suited to your particular temperament: alphabetizing these footnotes,&quot; said Marisol. The list included three separate categories for the specific shade of beige used in the Sahara.</p>
+        
+      </div>
+      <div class="page-folio">3</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 03</strong>
+        <span>flux2-klein-4b • seed 335562 • 17.0s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Marisol Brittle, Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> High-angle bird&#x27;s-eye</div>
+      <div class="dir-row"><b>Refs:</b> 03-marisol-brittle_v0.png, 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: High-angle bird&#x27;s-eye. Scene action: Marisol Brittle stands atop a stack of textbooks, pointing a tiny wooden ruler at a massive, handwritten list on a blank piece of parchment. Winston Crumb is hunched over a tiny desk, meticulously organizing small slips of paper into neat piles. Lighting and mood: Focused desk-lamp glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 3 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-top-art">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_04.png" alt="Winston Crumb is cowering in the corner of a cluttered 1950s hobby shop, his fuzzy hands covering his oversized plastic eyes. A small, silver wind-chime hangs precariously above him, vibrating with visible sound lines." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The local hobby shop was filled with many wonderful things. However, a small wind-chime by the door made a very loud tinkling sound. &quot;Goodness, it is positively deafening in here!&quot; said Winston. He found the noise quite intrusive. He wondered if the shop offered a silent-shopping experience, or perhaps a small, soundproof box to sit in.</p>
+        
+      </div>
+      <div class="page-folio">4</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 04</strong>
+        <span>flux2-klein-4b • seed 335659 • 10.7s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Low-angle worm&#x27;s-eye</div>
+      <div class="dir-row"><b>Refs:</b> 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Low-angle worm&#x27;s-eye. Scene action: Winston Crumb is cowering in the corner of a cluttered 1950s hobby shop, his fuzzy hands covering his oversized plastic eyes. A small, silver wind-chime hangs precariously above him, vibrating with visible sound lines. Lighting and mood: Dusty, warm amber shop lighting. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 4 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="4" data-label="Pages 5–6">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-framed-classic">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_05.png" alt="Marisol Brittle leads Winston Crumb down a narrow, concrete basement staircase. Marisol marches forward with determination; Winston follows closely behind, looking relieved to be in the dim, quiet shadows." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">Marisol decided a store-bought globe was too common. She suggested they contact the professional cartography guild for a custom model. &quot;The guild&#x27;s office is in a quiet basement, which will prevent Winston from making those distressing little noises,&quot; said Marisol. Winston agreed, as he found Marisol&#x27;s insistence on total control to be very comforting.</p>
+        
+      </div>
+      <div class="page-folio">5</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 05</strong>
+        <span>flux2-klein-4b • seed 335756 • 17.2s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Marisol Brittle, Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Side-profile action</div>
+      <div class="dir-row"><b>Refs:</b> 03-marisol-brittle_v0.png, 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Side-profile action. Scene action: Marisol Brittle leads Winston Crumb down a narrow, concrete basement staircase. Marisol marches forward with determination; Winston follows closely behind, looking relieved to be in the dim, quiet shadows. Lighting and mood: Cool, damp basement blue. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 5 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-full-bleed-caption">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_06.png" alt="Looking over Marisol Brittle&#x27;s shoulder at a complex, nonsensical chart filled with geometric shapes and arrows. Chester Antialiased stands opposite her, nodding blankly while a thought bubble above his head shows a single, pixelated slice of pepperoni pizza." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">Marisol spent ten minutes explaining the exact scale and longitude requirements to Chester. She used many big words and a very complex chart. &quot;Do you understand the importance of the ratio, Chester?&quot; said Marisol. Chester nodded politely. He was currently wondering if he could fit a whole slice of pizza into his inventory slot.</p>
+        
+      </div>
+      <div class="page-folio">6</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 06</strong>
+        <span>flux2-klein-4b • seed 335853 • 17.1s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Marisol Brittle, Chester Antialiased</div>
+      <div class="dir-row"><b>Angle:</b> Over-the-shoulder</div>
+      <div class="dir-row"><b>Refs:</b> 03-marisol-brittle_v0.png, 01-chester-antialiased_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Over-the-shoulder. Scene action: Looking over Marisol Brittle&#x27;s shoulder at a complex, nonsensical chart filled with geometric shapes and arrows. Chester Antialiased stands opposite her, nodding blankly while a thought bubble above his head shows a single, pixelated slice of pepperoni pizza. Lighting and mood: Bright office lighting. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 6 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="5" data-label="Pages 7–8">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-vignette">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_07.png" alt="Chester Antialiased stands at a heavy oak counter in the cartography guild, looking small and pixelated. He is gesturing vaguely with his hands to indicate something enormous, while a group of elderly map-makers in tweed vests look on with impressed expressions." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">Chester visited the guild to place the order. He tried to repeat Marisol&#x27;s complex ratio, but he forgot the word for globe halfway through. &quot;I suppose &#x27;The Big One&#x27; will do,&quot; Chester said. The guild members admired his bold minimalism. They had never been asked to build a map that required its own zoning permit.</p>
+        
+      </div>
+      <div class="page-folio">7</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 07</strong>
+        <span>flux2-klein-4b • seed 335950 • 10.9s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Chester Antialiased</div>
+      <div class="dir-row"><b>Angle:</b> Dutch angle</div>
+      <div class="dir-row"><b>Refs:</b> 01-chester-antialiased_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Dutch angle. Scene action: Chester Antialiased stands at a heavy oak counter in the cartography guild, looking small and pixelated. He is gesturing vaguely with his hands to indicate something enormous, while a group of elderly map-makers in tweed vests look on with impressed expressions. Lighting and mood: Warm, mahogany-toned library light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 7 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-top-art">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_08.png" alt="Winston Crumb is sneaking through a quiet school hallway, holding a hand-drawn map of &#x27;Quiet Zones&#x27;. He is hiding behind a pillar, peering at Chester Antialiased who is standing perfectly still and silent in the middle of the corridor." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">While the globe was being built, Winston found a new hobby. He mapped the quietest zones of the school for their collective safety. &quot;The library is quite peaceful, provided one ignores the sound of people breathing,&quot; said Winston. He found that the most peaceful place was wherever Chester happened to be standing, as Chester rarely spoke.</p>
+        
+      </div>
+      <div class="page-folio">8</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 08</strong>
+        <span>flux2-klein-4b • seed 336047 • 17.5s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Winston Crumb, Chester Antialiased</div>
+      <div class="dir-row"><b>Angle:</b> Wide shot</div>
+      <div class="dir-row"><b>Refs:</b> 06-winston-crumb_v0.png, 01-chester-antialiased_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Image 2 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Wide shot. Scene action: Winston Crumb is sneaking through a quiet school hallway, holding a hand-drawn map of &#x27;Quiet Zones&#x27;. He is hiding behind a pillar, peering at Chester Antialiased who is standing perfectly still and silent in the middle of the corridor. Lighting and mood: Hazy, afternoon school light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 8 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="6" data-label="Pages 9–10">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-framed-classic">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_09.png" alt="Marisol Brittle is surrounded by stacks of textbooks. She is meticulously applying small, colored adhesive dots to the spines of the books. Her mismatched eyes are wide and manic; a single coffee cup sits nearby." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">Marisol decided the geography section of the classroom needed a complete makeover. She spent her evening color-coding textbooks to match the prestige of their upcoming globe. &quot;Everything must be in its proper place,&quot; said Marisol. It is amazing how much one can achieve when one views sleep as a personal failure.</p>
+        
+      </div>
+      <div class="page-folio">9</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 09</strong>
+        <span>flux2-klein-4b • seed 336144 • 11.0s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Marisol Brittle</div>
+      <div class="dir-row"><b>Angle:</b> Tight reaction close-up</div>
+      <div class="dir-row"><b>Refs:</b> 03-marisol-brittle_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Camera angle and framing: Tight reaction close-up. Scene action: Marisol Brittle is surrounded by stacks of textbooks. She is meticulously applying small, colored adhesive dots to the spines of the books. Her mismatched eyes are wide and manic; a single coffee cup sits nearby. Lighting and mood: Late-night lamp light with deep shadows. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 9 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-full-bleed-caption">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_10.png" alt="A colossal, house-sized globe is being lowered by a massive yellow crane toward the school. A small, realistic rain cloud is hovering specifically over the South Pacific section of the globe, sprinkling water. Winston Crumb stands at the bottom, looking like a tiny speck of chartreuse fleece." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The delivery day finally arrived. A very large truck pulled up to the school, followed by a heavy-duty crane. The globe was so large it had its own weather system. It was a very impressive piece of geography, though the South Pacific was currently experiencing a mild drizzle. &quot;My, it is a bit larger than I imagined,&quot; said Winston.</p>
+        
+      </div>
+      <div class="page-folio">10</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 10</strong>
+        <span>flux2-klein-4b • seed 336241 • 11.2s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Extreme wide shot</div>
+      <div class="dir-row"><b>Refs:</b> 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Extreme wide shot. Scene action: A colossal, house-sized globe is being lowered by a massive yellow crane toward the school. A small, realistic rain cloud is hovering specifically over the South Pacific section of the globe, sprinkling water. Winston Crumb stands at the bottom, looking like a tiny speck of chartreuse fleece. Lighting and mood: Overcast, grey daylight. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 10 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="7" data-label="Pages 11–12">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-vignette">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_11.png" alt="Marisol Brittle is using both clay hands to shove Winston Crumb into the narrow gap between a giant globe and a school window frame. Winston is squashed flat like a pancake, his googly eyes bulging." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The trio tried to sneak the globe through a side window. &quot;Winston, your unique proportions make you the perfect tool for this task!&quot; said Marisol. She admired how Winston&#x27;s small frame made him an excellent human wedge. She gave him a very firm push, as she enjoyed seeing how much pressure the glass could take.</p>
+        
+      </div>
+      <div class="page-folio">11</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 11</strong>
+        <span>flux2-klein-4b • seed 336338 • 17.9s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Marisol Brittle, Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Side-profile action</div>
+      <div class="dir-row"><b>Refs:</b> 03-marisol-brittle_v0.png, 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Side-profile action. Scene action: Marisol Brittle is using both clay hands to shove Winston Crumb into the narrow gap between a giant globe and a school window frame. Winston is squashed flat like a pancake, his googly eyes bulging. Lighting and mood: Bright outdoor sunlight. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 11 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-top-art">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_12.png" alt="Winston Crumb is leaping into the air in terror, his orange yarn hair standing on end. In the background, a massive crane engine is emitting a huge cloud of black smoke and visible vibration lines. A red alarm bell on the wall is ringing violently." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The crane driver started his engine to help push the globe. The roar of the motor sounded like a thunderstorm to Winston. In his fright, he accidentally triggered the school-wide lockdown alarm. &quot;Mercy!&quot; cried Winston. He found the alarm to be a very loud way of reminding him that he was still alive.</p>
+        
+      </div>
+      <div class="page-folio">12</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 12</strong>
+        <span>flux2-klein-4b • seed 336435 • 11.0s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Low-angle worm&#x27;s-eye</div>
+      <div class="dir-row"><b>Refs:</b> 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Low-angle worm&#x27;s-eye. Scene action: Winston Crumb is leaping into the air in terror, his orange yarn hair standing on end. In the background, a massive crane engine is emitting a huge cloud of black smoke and visible vibration lines. A red alarm bell on the wall is ringing violently. Lighting and mood: Hectic, flashing red alarm light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 12 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="8" data-label="Pages 13–14">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-framed-classic">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_13.png" alt="A group of 1950s students and a teacher in a pencil skirt stand in a semi-circle, looking up at the giant globe which is wedged firmly into the school&#x27;s side window, half-in and half-out. The teacher has a hand on her chin, looking thoughtful." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The alarm rang loudly through the whole school. All the students and teachers stood in a circle, staring up at the giant globe stuck in the window. &quot;What a curious decoration,&quot; said one of the teachers. It was a very public mistake, which is the most expensive kind of mistake. The teacher noted that the globe&#x27;s placement really opened up the room.</p>
+        
+      </div>
+      <div class="page-folio">13</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 13</strong>
+        <span>flux2-klein-4b • seed 336532 • 17.3s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Chester Antialiased, Marisol Brittle</div>
+      <div class="dir-row"><b>Angle:</b> Wide shot</div>
+      <div class="dir-row"><b>Refs:</b> 01-chester-antialiased_v0.png, 03-marisol-brittle_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Image 2 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Camera angle and framing: Wide shot. Scene action: A group of 1950s students and a teacher in a pencil skirt stand in a semi-circle, looking up at the giant globe which is wedged firmly into the school&#x27;s side window, half-in and half-out. The teacher has a hand on her chin, looking thoughtful. Lighting and mood: Bright, midday sun. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 13 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-full-bleed-caption">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_14.png" alt="A portly Principal in a brown suit is beaming with pride, gesturing toward the giant globe. Chester Antialiased stands beside him, looking confused, with a thought bubble showing a large, flat pancake with syrup on it." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The Principal walked up to the globe and beamed with pride. He thought the students had organized a surprise donation for the school. &quot;This shall be the centerpiece of our new Global Initiative!&quot; said the Principal. Chester nodded politely, though he was currently trying to remember if the world was actually round or just a very large pancake.</p>
+        
+      </div>
+      <div class="page-folio">14</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 14</strong>
+        <span>flux2-klein-4b • seed 336629 • 10.9s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Chester Antialiased</div>
+      <div class="dir-row"><b>Angle:</b> Medium shot</div>
+      <div class="dir-row"><b>Refs:</b> 01-chester-antialiased_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Medium shot. Scene action: A portly Principal in a brown suit is beaming with pride, gesturing toward the giant globe. Chester Antialiased stands beside him, looking confused, with a thought bubble showing a large, flat pancake with syrup on it. Lighting and mood: Warm, celebratory glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 14 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="9" data-label="Pages 15–16">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-vignette">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_15.png" alt="Marisol Brittle is hunched over a large town map, aggressively drawing new, winding roads with a red marker. The original straight lines are crossed out, and the new paths lead in nonsensical loops." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">Marisol did not want anyone to know she had not planned this. She quickly volunteered to lead a neighborhood association committee for urban planning. &quot;I shall redraw the street layout, as it lacks a certain direction,&quot; said Marisol. Several residents now believed their driveways were actually public parks, but the maps looked very tidy.</p>
+        
+      </div>
+      <div class="page-folio">15</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 15</strong>
+        <span>flux2-klein-4b • seed 336726 • 11.1s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Marisol Brittle</div>
+      <div class="dir-row"><b>Angle:</b> High-angle bird&#x27;s-eye</div>
+      <div class="dir-row"><b>Refs:</b> 03-marisol-brittle_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Camera angle and framing: High-angle bird&#x27;s-eye. Scene action: Marisol Brittle is hunched over a large town map, aggressively drawing new, winding roads with a red marker. The original straight lines are crossed out, and the new paths lead in nonsensical loops. Lighting and mood: Bright, focused studio light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 15 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-top-art">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_16.png" alt="Winston Crumb is standing as far to the left of the frame as possible, while Marisol Brittle is on the far right. They are both looking at a sketch of a pedestal in the center of a town square, though they are not looking at each other." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">Winston suggested the globe be moved to the town square. He felt this was the maximum distance he could possibly be from Marisol while still being seen to participate. &quot;It will be a sanctuary of peace,&quot; said Winston. Marisol agreed, as long as she could choose the color of the pedestal.</p>
+        
+      </div>
+      <div class="page-folio">16</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 16</strong>
+        <span>flux2-klein-4b • seed 336823 • 17.2s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Marisol Brittle, Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Wide shot</div>
+      <div class="dir-row"><b>Refs:</b> 03-marisol-brittle_v0.png, 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 2 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Wide shot. Scene action: Winston Crumb is standing as far to the left of the frame as possible, while Marisol Brittle is on the far right. They are both looking at a sketch of a pedestal in the center of a town square, though they are not looking at each other. Lighting and mood: Soft afternoon light. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 16 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="10" data-label="Pages 17–18">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-framed-classic">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_17.png" alt="The trio is marching in a perfectly straight, rigid line down a 1950s main street. They are spaced exactly three feet apart, wearing matching expressions of solemn determination." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The town held a grand parade to move the globe. They were a most compatible group, in the way that three different types of mismatched luggage are all compatible with the same overhead bin. They walked in a very orderly line, with exactly three feet of safety between each person.</p>
+        
+      </div>
+      <div class="page-folio">17</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 17</strong>
+        <span>flux2-klein-4b • seed 336920 • 24.7s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Chester Antialiased, Marisol Brittle, Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Side-profile action</div>
+      <div class="dir-row"><b>Refs:</b> 01-chester-antialiased_v0.png, 03-marisol-brittle_v0.png, 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Image 2 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 3 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 3 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Side-profile action. Scene action: The trio is marching in a perfectly straight, rigid line down a 1950s main street. They are spaced exactly three feet apart, wearing matching expressions of solemn determination. Lighting and mood: Bright, festive parade lighting. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 17 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-full-bleed-caption">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_18.png" alt="Chester Antialiased&#x27;s blocky chin is colliding with a thin wooden support beam. The beam is snapping, and the massive globe behind it is beginning to tilt precariously toward a table covered in wheels of cheese." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">At the unveiling, Chester noticed a small smudge on the map. He leaned in too close to inspect it and accidentally pushed a precarious support beam with his blocky chin. Chester tried to resize the smudge, but he found himself completely off-axis. The structure groaned and rolled away, flattening the mayor&#x27;s podium and a cheese stall.</p>
+        
+      </div>
+      <div class="page-folio">18</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 18</strong>
+        <span>flux2-klein-4b • seed 337017 • 11.0s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Chester Antialiased</div>
+      <div class="dir-row"><b>Angle:</b> Extreme close-up</div>
+      <div class="dir-row"><b>Refs:</b> 01-chester-antialiased_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Extreme close-up. Scene action: Chester Antialiased&#x27;s blocky chin is colliding with a thin wooden support beam. The beam is snapping, and the massive globe behind it is beginning to tilt precariously toward a table covered in wheels of cheese. Lighting and mood: Hectic, bright daylight. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 18 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+        <section class="spread spread-open" data-spread="11" data-label="Pages 19–20">
+          <div class="open-book-shell">
+            <div class="book-page page-left" onclick="prevSpread(event)">
+              
+    <div class="page-inner story-layout layout-vignette">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_19.png" alt="The giant globe has crashed through the school wall, creating a jagged hole. Through this new hole, the original small, cracked globe is visible on its desk. Winston Crumb is pointing at the small globe with a look of genuine surprise." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The giant globe rolled down the main street and crashed through the school gates, smashing into the classroom wall. This created a brand new window that revealed the original broken globe. It had only one tiny crack, which was now the most accurate part of the map. &quot;Look! It is still here,&quot; said Winston.</p>
+        
+      </div>
+      <div class="page-folio">19</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 19</strong>
+        <span>flux2-klein-4b • seed 337114 • 11.0s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Wide shot</div>
+      <div class="dir-row"><b>Refs:</b> 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Wide shot. Scene action: The giant globe has crashed through the school wall, creating a jagged hole. Through this new hole, the original small, cracked globe is visible on its desk. Winston Crumb is pointing at the small globe with a look of genuine surprise. Lighting and mood: Dusty, debris-filled sunlight. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 19 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+            <div class="book-page page-right" onclick="nextSpread(event)">
+              
+    <div class="page-inner story-layout layout-framed-classic">
+      <div class="art-slot">
+        <div class="art-mat">
+          <img class="illus-img " src="art/page_20.png" alt="Chester Antialiased, Marisol Brittle, and Winston Crumb are walking away from the viewer toward a sunset. A single piece of clear tape is visible over the crack of the small globe on the desk in the foreground. They are walking in a neat, silent row." loading="lazy">
+        </div>
+      </div>
+      <div class="story-copy">
+        <p class="story-text">The teacher smiled and asked them to put a piece of tape over the crack. The three friends walked away together, each cherishing the wonderful silence that comes when one has finally run out of things to say to another person. They were perfectly aligned, much like two tectonic plates just before a catastrophic shift.</p>
+        
+        <div class="the-end-block">
+          <div class="the-end-ornament">❦ &nbsp; THE END &nbsp; ❦</div>
+          <p class="moral-line"><strong>A Little Lesson:</strong> It is always better to have a map than to be lost, unless the map is large enough to flatten the mayor&#x27;s podium.</p>
+        </div>
+      </div>
+      <div class="page-folio">20</div>
+      
+    <aside class="director-panel" aria-label="Director metadata">
+      <div class="dir-head">
+        <strong>Page 20</strong>
+        <span>flux2-klein-4b • seed 337211 • 24.9s</span>
+      </div>
+      <div class="dir-row"><b>Cast:</b> Chester Antialiased, Marisol Brittle, Winston Crumb</div>
+      <div class="dir-row"><b>Angle:</b> Wide shot, receding</div>
+      <div class="dir-row"><b>Refs:</b> 01-chester-antialiased_v0.png, 03-marisol-brittle_v0.png, 06-winston-crumb_v0.png</div>
+      <details class="dir-prompt">
+        <summary>Prompt &amp; Re-roll Command</summary>
+        <p>1950s Little Golden Book mid-century children&#x27;s storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Image 2 is Marisol Brittle (Stop-Motion Clay), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a lumpy handmade stop-motion plasticine clay figurine with visible thumbprints and sculpted matte clay texture. Image 3 is Winston Crumb (Fuzzy Felt Puppet), who MUST keep their exact face, silhouette, colors, and outfit from Image 3 and remains a tangible handmade fuzzy felt and fleece puppet with visible fabric fibers, stitched seams, yarn hair, and button or plastic eyes. Camera angle and framing: Wide shot, receding. Scene action: Chester Antialiased, Marisol Brittle, and Winston Crumb are walking away from the viewer toward a sunset. A single piece of clear tape is visible over the crack of the small globe on the desk in the foreground. They are walking in a neat, silent row. Lighting and mood: Deep orange and purple sunset glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.</p>
+        <code>uv run python scripts/generate_illustrations.py books/03-the-very-big-world-problem/story.json --only-page 20 --seed-offset 1 --overwrite</code>
+      </details>
+    </aside>
+    </div>
+            </div>
+          </div>
+        </section>
+    <section class="spread spread-cover" data-spread="12" data-label="Back Cover">
+      <div class="hardboard-cover back-cover" onclick="prevSpread(event)">
+        <div class="cover-face back-face">
+          <div class="back-banner">A LITTLE FEVER DREAM BOOK</div>
+          <h2 class="back-title">The Very Big World Problem</h2>
+          <p class="back-blurb">Chester, Marisol, and Winston are the very best of friends! Join them as they learn a valuable lesson about geography, cooperation, and the importance of reading the fine print on a custom order.</p>
+
+          <div class="collect-box">
+            <div class="collect-head">COLLECT THE WHOLE SERIES!</div>
+            <ul class="collect-list">
+              <li><a href="../01-the-water-tower-fiasco/index.html" onclick="event.stopPropagation()"><span class="cb-mark">□</span> <strong>No. 01:</strong> The Water Tower Fiasco</a></li><li><a href="../02-the-cracked-globe-caper/index.html" onclick="event.stopPropagation()"><span class="cb-mark">□</span> <strong>No. 02:</strong> The Cracked Globe Caper</a></li><li><a href="../03-the-very-big-world-problem/index.html" onclick="event.stopPropagation()"><span class="cb-mark">★</span> <strong>No. 03:</strong> The Very Big World Problem</a></li><li class="upcoming"><span class="cb-mark">□</span> Coming Soon: The Great Cafeteria Tray Accord</li>
+            </ul>
+          </div>
+
+          <div class="back-bottom">
+            <div class="back-seal">
+              <span>PRINTED LOCALLY</span>
+              <strong>100% MLX &amp; LM STUDIO</strong>
+            </div>
+            <a class="shelf-btn" href="../../index.html" onclick="event.stopPropagation()">← Back to Bookshelf</a>
+          </div>
+        </div>
+        <div class="gold-spine spine-right" aria-hidden="true"></div>
+      </div>
+    </section>
+    </div>
+    <div class="scrubber" id="scrubber"><button class="dot active" data-goto="0" title="Cover" onclick="goToSpread(0)"></button><button class="dot" data-goto="1" title="Title &amp; Cast" onclick="goToSpread(1)"></button><button class="dot" data-goto="2" title="Pages 1–2" onclick="goToSpread(2)"></button><button class="dot" data-goto="3" title="Pages 3–4" onclick="goToSpread(3)"></button><button class="dot" data-goto="4" title="Pages 5–6" onclick="goToSpread(4)"></button><button class="dot" data-goto="5" title="Pages 7–8" onclick="goToSpread(5)"></button><button class="dot" data-goto="6" title="Pages 9–10" onclick="goToSpread(6)"></button><button class="dot" data-goto="7" title="Pages 11–12" onclick="goToSpread(7)"></button><button class="dot" data-goto="8" title="Pages 13–14" onclick="goToSpread(8)"></button><button class="dot" data-goto="9" title="Pages 15–16" onclick="goToSpread(9)"></button><button class="dot" data-goto="10" title="Pages 17–18" onclick="goToSpread(10)"></button><button class="dot" data-goto="11" title="Pages 19–20" onclick="goToSpread(11)"></button><button class="dot" data-goto="12" title="Back Cover" onclick="goToSpread(12)"></button></div>
+  </main>
+
+<script>
+  const spreads = Array.from(document.querySelectorAll('.spread'));
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  const statusEl = document.getElementById('spreadStatus');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const btnDirector = document.getElementById('btnDirector');
+  let current = 0;
+
+  function updateUI(direction) {
+    spreads.forEach((el, idx) => {
+      el.classList.remove('active', 'flip-next', 'flip-prev');
+      if (idx === current) {
+        el.classList.add('active');
+        if (direction === 1) el.classList.add('flip-next');
+        if (direction === -1) el.classList.add('flip-prev');
+      }
+    });
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+    statusEl.textContent = spreads[current]?.dataset.label || '';
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current === spreads.length - 1;
+  }
+
+  function goToSpread(idx) {
+    const clamped = Math.max(0, Math.min(spreads.length - 1, idx));
+    if (clamped === current) return;
+    const dir = clamped > current ? 1 : -1;
+    current = clamped;
+    updateUI(dir);
+  }
+
+  function nextSpread(ev) {
+    if (ev && ev.target.closest('a, button, details, summary, code, [contenteditable]')) return;
+    goToSpread(current + 1);
+  }
+
+  function prevSpread(ev) {
+    if (ev && ev.target.closest('a, button, details, summary, code, [contenteditable]')) return;
+    goToSpread(current - 1);
+  }
+
+  function toggleDirector() {
+    const on = document.body.classList.toggle('director-mode');
+    btnDirector.classList.toggle('active', on);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (document.activeElement && document.activeElement.isContentEditable) return;
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSpread(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prevSpread(); }
+    if (e.key === 'd' || e.key === 'D') { toggleDirector(); }
+  });
+
+  // Persist "This Fever Dream Belongs To" bookplate locally
+  const bp = document.querySelector('[data-bookplate]');
+  if (bp) {
+    const key = 'fever-dreams-owner-' + bp.dataset.bookplate;
+    bp.textContent = localStorage.getItem(key) || '';
+    bp.addEventListener('input', () => localStorage.setItem(key, bp.textContent));
+  }
+
+  // Basic touch swipe
+  let touchX = null;
+  document.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (dx < -45) nextSpread();
+    if (dx > 45) prevSpread();
+    touchX = null;
+  });
+
+  updateUI(0);
+</script>
+</body>
+</html>

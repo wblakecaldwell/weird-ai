@@ -9,3 +9,6 @@ bakeoff_out/
 cartoon/.venv/
 cartoon/vendor/
 cartoon/models/
+
+# Generated cartoon renders (clips, frames, voices) are large, local outputs
+books/*/cartoon/
