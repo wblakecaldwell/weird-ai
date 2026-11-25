@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ROSTER = ROOT / "data" / "roster.json"
 RAW_DIR = ROOT / "portraits" / "raw"
 FINAL_DIR = ROOT / "portraits" / "final"
+THUMB_DIR = ROOT / "portraits" / "thumb"
 
 
 def apply_pixel_snap(img: Image.Image, grid_width: int) -> Image.Image:
@@ -64,7 +65,17 @@ def apply_yearbook_finish(img: Image.Image, seed: int, is_pixel: bool = False) -
     return Image.fromarray(arr, mode="RGB")
 
 
-def process_portrait(raw_path: Path, out_path: Path, style_id: str, seed: int, width: int, height: int) -> None:
+def process_portrait(
+    raw_path: Path,
+    out_path: Path,
+    thumb_path: Path,
+    style_id: str,
+    seed: int,
+    width: int,
+    height: int,
+    thumb_width: int = 480,
+    thumb_height: int = 600,
+) -> None:
     spec = STYLES.get(style_id)
     img = Image.open(raw_path).convert("RGB")
     img = ImageOps.fit(img, (width, height), method=Image.Resampling.LANCZOS, centering=(0.5, 0.42))
@@ -75,7 +86,19 @@ def process_portrait(raw_path: Path, out_path: Path, style_id: str, seed: int, w
 
     img = apply_yearbook_finish(img, seed=seed, is_pixel=is_pixel)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    img.save(out_path, format="PNG", optimize=True)
+    if is_pixel:
+        img.save(out_path, format="WEBP", lossless=True, quality=100)
+    else:
+        img.save(out_path, format="WEBP", quality=90, method=6)
+
+    # Fast 2x-Retina WebP thumbnail for yearbook page grids (full 800x1000 WebP opens in the modal)
+    thumb_resample = Image.Resampling.NEAREST if is_pixel else Image.Resampling.LANCZOS
+    thumb = img.resize((thumb_width, thumb_height), resample=thumb_resample)
+    thumb_path.parent.mkdir(parents=True, exist_ok=True)
+    if is_pixel:
+        thumb.save(thumb_path, format="WEBP", lossless=True, quality=100)
+    else:
+        thumb.save(thumb_path, format="WEBP", quality=88, method=6)
 
 
 def main() -> None:
@@ -83,6 +106,9 @@ def main() -> None:
     parser.add_argument("--roster", type=Path, default=DEFAULT_ROSTER)
     parser.add_argument("--width", type=int, default=800)
     parser.add_argument("--height", type=int, default=1000)
+    parser.add_argument("--thumb-width", type=int, default=480)
+    parser.add_argument("--thumb-height", type=int, default=600)
+    parser.add_argument("--overwrite", action="store_true", help="Re-normalize even if outputs are already up to date")
     args = parser.parse_args()
 
     if not args.roster.exists():
@@ -94,6 +120,7 @@ def main() -> None:
     if roster.get("principal"):
         subjects.insert(0, roster["principal"])
     count = 0
+    skipped = 0
 
     for student in subjects:
         variant = int(student.get("selected_variant", 0))
@@ -106,19 +133,34 @@ def main() -> None:
             else:
                 continue
 
-        out_path = FINAL_DIR / f"{student['id']}.png"
+        out_path = FINAL_DIR / f"{student['id']}.webp"
+        thumb_path = THUMB_DIR / f"{student['id']}.webp"
+        raw_mtime = raw_path.stat().st_mtime
+        if (
+            not args.overwrite
+            and out_path.exists()
+            and thumb_path.exists()
+            and out_path.stat().st_mtime >= raw_mtime
+            and thumb_path.stat().st_mtime >= raw_mtime
+        ):
+            skipped += 1
+            continue
+
         process_portrait(
             raw_path=raw_path,
             out_path=out_path,
+            thumb_path=thumb_path,
             style_id=student["style_id"],
             seed=int(student.get("seed", 2025)),
             width=args.width,
             height=args.height,
+            thumb_width=args.thumb_width,
+            thumb_height=args.thumb_height,
         )
         count += 1
-        print(f"Normalized {student['name']} -> {out_path.relative_to(ROOT)}")
+        print(f"Normalized {student['name']} -> {out_path.relative_to(ROOT)} + {thumb_path.relative_to(ROOT)}")
 
-    print(f"\nNormalized {count} portrait(s).")
+    print(f"\nNormalized {count} portrait(s) ({skipped} already up to date).")
 
 
 if __name__ == "__main__":

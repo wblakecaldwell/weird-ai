@@ -126,8 +126,13 @@ def main() -> None:
     load_dotenv(ROOT / ".env")
 
     parser = argparse.ArgumentParser(description="Generate Class of 2025 meme roster via LM Studio.")
-    parser.add_argument("--count", type=int, default=20, help="Number of students to generate (default: 20)")
+    parser.add_argument("--count", type=int, default=20, help="Number of new students to generate (default: 20)")
     parser.add_argument("--batch-size", type=int, default=5, help="Students per LM Studio call (default: 5)")
+    parser.add_argument(
+        "--append",
+        action="store_true",
+        help="Keep existing school, principal, and students in --output and append --count new students",
+    )
     parser.add_argument(
         "--base-url",
         default=os.getenv("LM_STUDIO_BASE_URL", "http://localhost:1234/v1"),
@@ -171,15 +176,57 @@ def main() -> None:
         )
         sys.exit(1)
 
-    style_plan = get_style_plan(args.count)
+    existing_roster: dict = {}
     all_students: list[dict] = []
-    existing_names: list[str] = []
-    existing_archetypes: list[str] = []
+    if args.append and args.output.exists():
+        existing_roster = json.loads(args.output.read_text(encoding="utf-8"))
+        all_students = list(existing_roster.get("students", []))
+        print(f"Append mode: keeping {len(all_students)} existing student(s) from {args.output}")
+
+    existing_names: list[str] = [s["name"] for s in all_students]
+    existing_archetypes: list[str] = [s["archetype"] for s in all_students]
+    existing_ids: set[str] = {s["id"] for s in all_students}
+    start_slot = max((int(s.get("slot", 0)) for s in all_students), default=0)
+
+    style_plan = get_style_plan(args.count)
+
+    def save_checkpoint() -> None:
+        sorted_students = sorted(
+            all_students,
+            key=lambda s: (s["name"].split()[-1].lower(), s["name"].lower()),
+        )
+        school = dict(
+            existing_roster.get(
+                "school",
+                {
+                    "name": "Meme Valley High School",
+                    "mascot": "The Fighting Glitches",
+                    "class_year": 2025,
+                    "motto": "Ctrl + Alt + Graduate",
+                },
+            )
+        )
+        total_now = len(sorted_students)
+        school["edition"] = (
+            f"Vol. 42 — Full Class Edition ({total_now} Seniors)"
+            if total_now > 20
+            else f"Vol. 42 — Demo Edition ({total_now} Seniors)"
+        )
+        roster_out: dict = {"school": school}
+        if existing_roster.get("principal"):
+            roster_out["principal"] = existing_roster["principal"]
+        roster_out["generated_by"] = args.model
+        roster_out["students"] = sorted_students
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps(roster_out, indent=2) + "\n", encoding="utf-8")
 
     for start in range(0, args.count, args.batch_size):
         end = min(start + args.batch_size, args.count)
-        slots = [(i + 1, style_plan[i]) for i in range(start, end)]
-        print(f"Generating students {start + 1}–{end} of {args.count} via {args.model}...")
+        slots = [(start_slot + i + 1, style_plan[i]) for i in range(start, end)]
+        print(
+            f"Generating new students {start + 1}–{end} of {args.count} "
+            f"(slots {slots[0][0]}–{slots[-1][0]}) via {args.model}..."
+        )
 
         batch_result = None
         for attempt in range(1, 4):
@@ -191,13 +238,18 @@ def main() -> None:
             except Exception as exc:
                 print(f"  Attempt {attempt} failed ({exc}); retrying...")
         if batch_result is None:
-            print("Failed to generate batch after 3 attempts.", file=sys.stderr)
+            print("Failed to generate batch after 3 attempts (prior batches saved).", file=sys.stderr)
             sys.exit(1)
 
         for (slot_num, expected_style), item in zip(slots, batch_result):
             style_id = expected_style
-            slug = re.sub(r"[^a-z0-9]+", "-", item["name"].lower()).strip("-")
+            slug = re.sub(r"[^a-z0-9]+", "-", item["name"].lower()).strip("-") or f"student-{slot_num}"
             student_id = f"{slot_num:02d}-{slug}"
+            suffix = 2
+            while student_id in existing_ids:
+                student_id = f"{slot_num:02d}-{slug}-{suffix}"
+                suffix += 1
+            existing_ids.add(student_id)
             record = {
                 "id": student_id,
                 "slot": slot_num,
@@ -220,24 +272,10 @@ def main() -> None:
             existing_names.append(record["name"])
             existing_archetypes.append(record["archetype"])
 
-    # Sort alphabetically by last name like a real high school yearbook!
-    all_students.sort(key=lambda s: (s["name"].split()[-1].lower(), s["name"].lower()))
+        save_checkpoint()
+        print(f"  -> checkpoint saved ({len(all_students)} total students in {args.output.relative_to(ROOT)})")
 
-    roster = {
-        "school": {
-            "name": "Meme Valley High School",
-            "mascot": "The Fighting Glitches",
-            "class_year": 2025,
-            "motto": "Ctrl + Alt + Graduate",
-            "edition": "Vol. 42 — Demo Edition (20 Seniors)",
-        },
-        "generated_by": args.model,
-        "students": all_students,
-    }
-
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(roster, indent=2) + "\n", encoding="utf-8")
-    print(f"\nSaved {len(all_students)} students to {args.output}")
+    print(f"\nDone! Saved {len(all_students)} total students to {args.output}")
 
 
 if __name__ == "__main__":

@@ -17,6 +17,7 @@ from styles import build_image_prompt
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ROSTER = ROOT / "data" / "roster.json"
 FINAL_DIR = ROOT / "portraits" / "final"
+THUMB_DIR = ROOT / "portraits" / "thumb"
 RAW_DIR = ROOT / "portraits" / "raw"
 SITE_OUT = ROOT / "index.html"
 
@@ -26,8 +27,11 @@ def esc(val: str) -> str:
 
 
 def portrait_rel_src(student_id: str) -> str | None:
-    final_path = FINAL_DIR / f"{student_id}.png"
-    if final_path.exists():
+    final_webp = FINAL_DIR / f"{student_id}.webp"
+    if final_webp.exists():
+        return f"portraits/final/{student_id}.webp"
+    final_png = FINAL_DIR / f"{student_id}.png"
+    if final_png.exists():
         return f"portraits/final/{student_id}.png"
     raw_path = RAW_DIR / f"{student_id}_v0.png"
     if raw_path.exists():
@@ -35,8 +39,15 @@ def portrait_rel_src(student_id: str) -> str | None:
     return None
 
 
+def portrait_thumb_src(student_id: str) -> str | None:
+    thumb_path = THUMB_DIR / f"{student_id}.webp"
+    if thumb_path.exists():
+        return f"portraits/thumb/{student_id}.webp"
+    return portrait_rel_src(student_id)
+
+
 def render_portrait_card(student: dict, index: int) -> str:
-    src = portrait_rel_src(student["id"])
+    src = portrait_thumb_src(student["id"])
     clubs_str = " • ".join(student.get("clubs", []))
     if src:
         media_html = f'<img src="{esc(src)}" alt="{esc(student["name"])}" loading="lazy">'
@@ -130,9 +141,9 @@ def build_html(roster: dict) -> str:
     )[:6]
     sup_cards = []
     for idx, st in sup_candidates:
-        src = portrait_rel_src(st["id"])
+        src = portrait_thumb_src(st["id"])
         img_tag = (
-            f'<img src="{esc(src)}" alt="{esc(st["name"])}">'
+            f'<img src="{esc(src)}" alt="{esc(st["name"])}" loading="lazy">'
             if src
             else '<div class="makeup-placeholder small"><span class="makeup-badge">TBA</span></div>'
         )
@@ -146,22 +157,125 @@ def build_html(roster: dict) -> str:
             </div>"""
         )
 
-    # Index list sorted alphabetically
-    index_rows = "".join(
-        f'<li><span class="idx-name">{esc(st["name"])}</span><span class="idx-dots"></span><span class="idx-pg">{4 + (i // per_page):02d}</span></li>'
+    # Index list sorted alphabetically (clickable to open student modal; scales cleanly to 120+ seniors)
+    index_items = [
+        f'<li onclick="openModal({i})"><span class="idx-name">{esc(st["name"])}</span><span class="idx-dots"></span><span class="idx-pg">{4 + (i // per_page):02d}</span></li>'
         for i, st in enumerate(students)
-    )
+    ]
+
+    # Build back-of-book spreads (Superlatives + paginated Senior Directory Index)
+    back_spreads_html: list[str] = []
+    sponsor_html = """
+        <div class="sponsor-ad">
+          <h4>Congratulations Class of 2025!</h4>
+          <p>Sponsored by Dave’s Low-Poly Auto Body &amp; The Copy Room Toner Fund — Proud Supporters of Meme Valley High.</p>
+        </div>"""
+    superlatives_page = f"""
+      <section class="book-page page-left">
+        <header class="page-header">
+          <span class="running-section">SENIOR SUPERLATIVES</span>
+          <span class="running-alpha">BEST OF '25</span>
+        </header>
+        <div class="sup-grid">
+          {''.join(sup_cards)}
+        </div>
+        <footer class="page-footer">
+          <span class="school-foot">{esc(school['name'].upper())}</span>
+          <span class="page-number">{page_num:02d}</span>
+        </footer>
+      </section>"""
+
+    if len(index_items) <= 24:
+        back_spreads_html.append(
+            f"""
+    <div class="spread spread-back">
+      {superlatives_page}
+      <div class="gutter"></div>
+      <section class="book-page page-right">
+        <header class="page-header">
+          <span class="running-section">SENIOR DIRECTORY</span>
+          <span class="running-alpha">INDEX</span>
+        </header>
+        <ul class="index-list">
+          {''.join(index_items)}
+        </ul>
+        {sponsor_html}
+        <footer class="page-footer">
+          <span class="school-foot">{esc(school['name'].upper())}</span>
+          <span class="page-number">{page_num + 1:02d}</span>
+        </footer>
+      </section>
+    </div>"""
+        )
+    else:
+        # 2-column compact index pages (~56 seniors per page) so 120+ seniors stay cleanly paginated
+        idx_per_page = 56
+        idx_chunks = [index_items[i : i + idx_per_page] for i in range(0, len(index_items), idx_per_page)]
+        back_pages: list[str] = [superlatives_page]
+        cur_pg = page_num + 1
+        for c_idx, chunk in enumerate(idx_chunks):
+            is_last = c_idx == len(idx_chunks) - 1
+            side = "right" if len(back_pages) % 2 == 1 else "left"
+            alpha_tag = f"INDEX {c_idx + 1}/{len(idx_chunks)}" if len(idx_chunks) > 1 else "INDEX"
+            back_pages.append(
+                f"""
+      <section class="book-page page-{side}">
+        <header class="page-header">
+          <span class="running-section">SENIOR DIRECTORY</span>
+          <span class="running-alpha">{alpha_tag}</span>
+        </header>
+        <ul class="index-list two-col">
+          {''.join(chunk)}
+        </ul>
+        {sponsor_html if is_last else ''}
+        <footer class="page-footer">
+          <span class="school-foot">{esc(school['name'].upper())}</span>
+          <span class="page-number">{cur_pg:02d}</span>
+        </footer>
+      </section>"""
+            )
+            cur_pg += 1
+        if len(back_pages) % 2 == 1:
+            back_pages.append(
+                f"""
+      <section class="book-page page-right">
+        <header class="page-header">
+          <span class="running-section">AUTOGRAPHS • CLASS OF {esc(school['class_year'])}</span>
+          <span class="running-alpha">NOTES</span>
+        </header>
+        <div class="autographs-box">
+          <h3>Autographs &amp; Doodles</h3>
+          <p>Have a great summer! Stay weird. Don't change.</p>
+        </div>
+        <footer class="page-footer">
+          <span class="school-foot">{esc(school['name'].upper())}</span>
+          <span class="page-number">{cur_pg:02d}</span>
+        </footer>
+      </section>"""
+            )
+        for b_i in range(0, len(back_pages), 2):
+            back_spreads_html.append(
+                f"""
+    <div class="spread spread-back">
+      {back_pages[b_i]}
+      <div class="gutter"></div>
+      {back_pages[b_i + 1]}
+    </div>"""
+            )
 
     generated_count = sum(1 for st in students if portrait_rel_src(st["id"]) is not None)
+    style_count = len({st["style_id"] for st in students})
+    pixel_count = sum(1 for st in students if st["style_id"] == "pixel_16bit")
     principal = roster.get("principal")
-    principal_src = portrait_rel_src(principal["id"]) if principal else None
+    principal_full_src = portrait_rel_src(principal["id"]) if principal else None
+    principal_thumb = portrait_thumb_src(principal["id"]) if principal else None
     principal_name = principal["name"] if principal else "Dr. Arthur Raster"
     principal_title = principal.get("title") if principal else f"Principal, {school['name']}"
     principal_photo_html = (
         f'<div class="principal-portrait" onclick="openModal(\'principal\')" title="Click to inspect Principal portrait">'
-        f'<img src="{esc(principal_src)}" alt="{esc(principal_name)}">'
+        f'<img src="{esc(principal_thumb)}" alt="{esc(principal_name)}">'
         f"</div>"
-        if principal_src
+        if principal_thumb
         else ""
     )
     principal_json = (
@@ -170,7 +284,7 @@ def build_html(roster: dict) -> str:
                 **principal,
                 "prompt": principal.get("prompt")
                 or build_image_prompt(principal["style_id"], principal["visual_description"]),
-                "portrait_src": principal_src,
+                "portrait_src": principal_full_src,
             }
         ).replace("</", "<\\/")
         if principal
@@ -762,10 +876,19 @@ def build_html(roster: dict) -> str:
       gap: 6px;
       font-size: 12.5px;
     }}
+    .index-list.two-col {{
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 18px;
+      font-size: 11px;
+    }}
     .index-list li {{
       display: flex;
       align-items: baseline;
       gap: 6px;
+      cursor: pointer;
+    }}
+    .index-list li:hover .idx-name {{
+      text-decoration: underline;
     }}
     .idx-name {{ font-weight: 600; color: var(--navy); }}
     .idx-dots {{ flex: 1; border-bottom: 1px dotted #bdb4a2; }}
@@ -875,6 +998,11 @@ def build_html(roster: dict) -> str:
       height: 100%;
       min-height: 425px;
       overflow: hidden;
+    }}
+    .modal-photo a {{
+      display: block;
+      width: 100%;
+      height: 100%;
     }}
     .modal-photo img {{
       width: 100%;
@@ -1069,11 +1197,11 @@ def build_html(roster: dict) -> str:
             <div class="stat-label">Original Seniors</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">8</div>
+            <div class="stat-num">{style_count}</div>
             <div class="stat-label">Mixed-Media Styles</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">4</div>
+            <div class="stat-num">{pixel_count}</div>
             <div class="stat-label">16-Bit Pixel Students</div>
           </div>
           <div class="stat-card">
@@ -1099,40 +1227,8 @@ def build_html(roster: dict) -> str:
     <!-- SENIOR PORTRAIT SPREADS -->
     {''.join(spreads_html)}
 
-    <!-- SUPERLATIVES & INDEX SPREAD -->
-    <div class="spread spread-back">
-      <section class="book-page page-left">
-        <header class="page-header">
-          <span class="running-section">SENIOR SUPERLATIVES</span>
-          <span class="running-alpha">BEST OF '25</span>
-        </header>
-        <div class="sup-grid">
-          {''.join(sup_cards)}
-        </div>
-        <footer class="page-footer">
-          <span class="school-foot">{esc(school['name'].upper())}</span>
-          <span class="page-number">{page_num:02d}</span>
-        </footer>
-      </section>
-      <div class="gutter"></div>
-      <section class="book-page page-right">
-        <header class="page-header">
-          <span class="running-section">SENIOR DIRECTORY</span>
-          <span class="running-alpha">INDEX</span>
-        </header>
-        <ul class="index-list">
-          {index_rows}
-        </ul>
-        <div class="sponsor-ad">
-          <h4>Congratulations Class of 2025!</h4>
-          <p>Sponsored by Dave’s Low-Poly Auto Body &amp; The Copy Room Toner Fund — Proud Supporters of Meme Valley High.</p>
-        </div>
-        <footer class="page-footer">
-          <span class="school-foot">{esc(school['name'].upper())}</span>
-          <span class="page-number">{page_num + 1:02d}</span>
-        </footer>
-      </section>
-    </div>
+    <!-- SUPERLATIVES & INDEX SPREADS -->
+    {''.join(back_spreads_html)}
   </main>
 
   <!-- STUDENT INSPECTOR MODAL -->
@@ -1178,7 +1274,7 @@ def build_html(roster: dict) -> str:
       const photoEl = document.getElementById('modalPhoto');
       if (s.portrait_src) {{
         const pxStyle = s.style_id === 'pixel_16bit' ? 'style="image-rendering: pixelated;"' : '';
-        photoEl.innerHTML = `<img src="${{s.portrait_src}}" alt="${{s.name}}" ${{pxStyle}}>`;
+        photoEl.innerHTML = `<a href="${{s.portrait_src}}" target="_blank" rel="noopener noreferrer" title="Open full-resolution portrait"><img src="${{s.portrait_src}}" alt="${{s.name}}" ${{pxStyle}}></a>`;
       }} else {{
         photoEl.innerHTML = `<div class="makeup-placeholder"><span class="makeup-badge">MAKE-UP DAY</span><span class="makeup-style">${{s.style_label}}</span></div>`;
       }}
