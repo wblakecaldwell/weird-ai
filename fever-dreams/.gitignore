@@ -10,5 +10,10 @@ cartoon/.venv/
 cartoon/vendor/
 cartoon/models/
 
-# Generated cartoon renders (clips, frames, voices) are large, local outputs
-books/*/cartoon/
+# Generated cartoon media stays local (final movies go to YouTube); the cartoon
+# scripts, subtitles, and render_log.json in books/*/cartoon/ ARE committed
+books/*/cartoon/*.mp4
+books/*/cartoon/clips/
+books/*/cartoon/cond_frames/
+books/*/cartoon/build/
+books/*/cartoon/voices/
