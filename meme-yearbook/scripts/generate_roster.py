@@ -114,6 +114,9 @@ def extract_json(raw: str) -> dict:
     return json.loads(cleaned)
 
 
+FIRST_INITIALS = list("ABCDEFGHJKLMNPRSTUVWZ")
+
+
 def generate_batch(
     client: OpenAI | None,
     lms_bin: str | None,
@@ -121,6 +124,7 @@ def generate_batch(
     style_slots: list[tuple[int, str]],
     existing_names: list[str],
     existing_archetypes: list[str],
+    retry_note: str = "",
 ) -> list[dict]:
     slot_lines = []
     for pos, (idx, style_id) in enumerate(style_slots):
@@ -128,8 +132,11 @@ def generate_batch(
         creature_hint = CREATURE_TYPES[(idx - 1) % len(CREATURE_TYPES)]
         quote_style = QUOTE_STYLES[(idx - 1) % len(QUOTE_STYLES)]
         vibe_arena = VIBE_ARENAS[(idx - 1 + pos) % len(VIBE_ARENAS)]
+        first_letter = FIRST_INITIALS[(idx * 5 + pos * 3) % len(FIRST_INITIALS)]
+        last_letter = FIRST_INITIALS[(idx * 7 + pos * 11 + 4) % len(FIRST_INITIALS)]
         slot_lines.append(
             f"- Slot {idx}: style_id=\"{style_id}\" ({spec.label}) -> {spec.llm_guidance}\n"
+            f"    • name_initials: First name starts with '{first_letter}', last name starts with '{last_letter}'\n"
             f"    • creature_type: {creature_hint}\n"
             f"    • vibe_arena: {vibe_arena}\n"
             f"    • quote_style: {quote_style}"
@@ -143,6 +150,8 @@ def generate_batch(
             f"\nAlready used first names (choose DIFFERENT first names): {', '.join(used_firsts)}"
             f"\nAlready used archetypes (DO NOT repeat): {', '.join(existing_archetypes)}"
         )
+    if retry_note:
+        avoid_block += f"\n\nRETRY INSTRUCTION: {retry_note}"
 
     user_prompt = f"""Invent {len(style_slots)} completely original Class of 2025 senior students,
 one for each slot below, strictly matching each slot's assigned `style_id`, `creature_type`,
@@ -345,16 +354,27 @@ def main() -> None:
         )
 
         batch_result = None
-        for attempt in range(1, 4):
+        retry_note = ""
+        for attempt in range(1, 6):
             try:
                 batch_result = generate_batch(
-                    client, lms_bin, args.model, slots, existing_names, existing_archetypes
+                    client,
+                    lms_bin,
+                    args.model,
+                    slots,
+                    existing_names,
+                    existing_archetypes,
+                    retry_note=retry_note,
                 )
                 break
             except Exception as exc:
                 print(f"  Attempt {attempt} failed ({exc}); retrying...")
+                retry_note = (
+                    f"Attempt {attempt} was rejected because: {exc}. "
+                    f"Invent completely different brand-new names and quotes on attempt {attempt + 1}!"
+                )
         if batch_result is None:
-            print("Failed to generate batch after 3 attempts (prior batches saved).", file=sys.stderr)
+            print("Failed to generate batch after 5 attempts (prior batches saved).", file=sys.stderr)
             sys.exit(1)
 
         for (slot_num, expected_style), item in zip(slots, batch_result):

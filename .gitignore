@@ -12,3 +12,6 @@ wheels/
 # Secrets & OS files
 .env
 .DS_Store
+
+# Raw intermediate MLX portrait PNGs (keep local; final WebP Q90 + thumbs are committed)
+meme-yearbook/portraits/raw/
