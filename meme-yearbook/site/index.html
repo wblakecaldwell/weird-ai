@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meme Valley High School — Class of 2025 Yearbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #14213d;
+      --navy-deep: #0b1326;
+      --gold: #c9a227;
+      --gold-soft: #e6cf84;
+      --paper: #f8f5ee;
+      --paper-edge: #e9e2d2;
+      --ink: #1e222b;
+      --muted: #5f6675;
+      --desk: #272320;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, #3a332d 0%, #221e1b 55%, #171412 100%);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 76px 24px 64px;
+    }
+
+    /* Floating Studio Toolbar (hidden in print) */
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: rgba(15, 21, 36, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+      color: #f3f1eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 100;
+      gap: 12px;
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .toolbar-brand .pill {
+      background: rgba(201, 162, 39, 0.18);
+      color: var(--gold-soft);
+      border: 1px solid rgba(201, 162, 39, 0.4);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tb-btn {
+      background: rgba(255,255,255,0.08);
+      color: #f4f2ec;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 6px;
+      padding: 6px 11px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .tb-btn:hover { background: rgba(255,255,255,0.16); }
+    .tb-btn.active {
+      background: var(--gold);
+      color: var(--navy-deep);
+      border-color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* Book Container */
+    .yearbook-stack {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    /* Hardcover Cover */
+    .cover-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hardcover {
+      width: 560px;
+      max-width: 100%;
+      aspect-ratio: 8.5 / 11;
+      background:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 4px),
+        linear-gradient(135deg, #1a2b50 0%, #101b33 60%, #091020 100%);
+      border-radius: 4px 12px 12px 4px;
+      box-shadow:
+        -10px 0 0 #0a1020,
+        0 28px 65px rgba(0, 0, 0, 0.65),
+        inset 14px 0 24px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(230, 207, 132, 0.25);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      color: var(--gold-soft);
+      position: relative;
+    }
+
+    .hardcover::before {
+      content: "";
+      position: absolute;
+      inset: 18px 18px 18px 26px;
+      border: 2px solid rgba(201, 162, 39, 0.55);
+      pointer-events: none;
+    }
+    .hardcover::after {
+      content: "";
+      position: absolute;
+      inset: 24px 24px 24px 32px;
+      border: 1px solid rgba(201, 162, 39, 0.28);
+      pointer-events: none;
+    }
+
+    .cover-kicker {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(230, 207, 132, 0.8);
+      margin-top: 16px;
+    }
+
+    .crest {
+      width: 96px;
+      height: 110px;
+      border: 2px solid var(--gold);
+      border-radius: 8px 8px 48px 48px;
+      display: grid;
+      place-items: center;
+      background: rgba(201, 162, 39, 0.08);
+      box-shadow: inset 0 0 18px rgba(201, 162, 39, 0.2);
+      margin: 12px auto;
+    }
+    .crest span {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+    }
+
+    .cover-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 40px;
+      line-height: 1.08;
+      margin: 8px 0 6px;
+      color: #f3dfb0;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    .cover-year {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 62px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin: 10px 0;
+      line-height: 1;
+    }
+
+    .cover-motto {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 20px;
+      color: rgba(243, 223, 176, 0.88);
+    }
+
+    .cover-edition {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.72;
+      margin-bottom: 12px;
+    }
+
+    /* Open 2-Page Spread */
+    .spread {
+      display: grid;
+      grid-template-columns: 1fr 2px 1fr;
+      background: var(--paper);
+      border-radius: 6px;
+      box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.55),
+        0 2px 0 #d6cebc,
+        0 5px 0 #c6bda8;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gutter {
+      background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.16),
+        rgba(0,0,0,0.28),
+        rgba(0,0,0,0.12)
+      );
+    }
+
+    .book-page {
+      padding: 28px 30px 22px;
+      min-height: 760px;
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      position: relative;
+    }
+
+    .page-left {
+      box-shadow: inset -22px 0 26px -22px rgba(25, 20, 12, 0.32);
+    }
+    .page-right {
+      box-shadow: inset 22px 0 26px -22px rgba(25, 20, 12, 0.32);
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+
+    .running-section {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--navy);
+    }
+
+    .running-alpha {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .page-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--paper-edge);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .page-left .page-footer {
+      flex-direction: row-reverse;
+    }
+
+    .page-number {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* Senior Portrait Grid (5 per page: 2 featured on top, 3 below — classic senior layout!) */
+    .senior-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px 14px;
+      align-content: start;
+    }
+
+    .senior-card {
+      grid-column: span 2;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.14s ease;
+    }
+
+    /* Top two portraits on each senior page sit slightly wider like classic senior panels */
+    .senior-card:nth-child(1),
+    .senior-card:nth-child(2) {
+      grid-column: span 3;
+    }
+
+    .senior-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(160deg, #5d7491 0%, #3d5169 100%);
+      border: 3px solid #ffffff;
+      box-shadow:
+        0 0 0 1px rgba(20, 33, 61, 0.22),
+        0 4px 10px rgba(20, 24, 34, 0.16);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .senior-card[data-style="pixel_16bit"] .photo-frame img {
+      image-rendering: pixelated;
+    }
+
+    .debug-badge {
+      display: none;
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      background: rgba(11, 19, 38, 0.85);
+      color: var(--gold-soft);
+      font-size: 9.5px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+    }
+    body.show-debug .debug-badge {
+      display: inline-block;
+    }
+
+    .makeup-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.88);
+      text-align: center;
+      padding: 12px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(255,255,255,0.14), transparent 60%),
+        linear-gradient(160deg, #5c738f, #394b63);
+    }
+    .makeup-badge {
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 2px 8px;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+    }
+    .makeup-style {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 13px;
+    }
+    .makeup-hint {
+      font-size: 10px;
+      opacity: 0.7;
+    }
+
+    .senior-meta {
+      padding-top: 7px;
+      text-align: center;
+    }
+
+    .senior-name {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 3px;
+      line-height: 1.15;
+    }
+
+    .senior-quote {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      line-height: 1.22;
+      color: #2b313e;
+      margin: 0 0 4px;
+    }
+
+    .senior-clubs {
+      font-size: 9.5px;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    /* Opening Spread (Principal Letter + Class Overview) */
+    .editorial-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 30px;
+      color: var(--navy);
+      margin: 4px 0 12px;
+      line-height: 1.1;
+    }
+    .gold-rule {
+      width: 56px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 18px;
+    }
+    .letter-body {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 18px;
+      line-height: 1.55;
+      color: #262b36;
+    }
+    .letter-body p { margin: 0 0 12px; }
+    .signature {
+      margin-top: 22px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--navy);
+    }
+    .signature small {
+      display: block;
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stat-card {
+      border: 1px solid var(--paper-edge);
+      background: rgba(255,255,255,0.6);
+      padding: 14px;
+      border-radius: 4px;
+    }
+    .stat-num {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Superlatives & Index Back Spread */
+    .sup-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .sup-card {
+      background: #fff;
+      border: 1px solid var(--paper-edge);
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .sup-ribbon {
+      background: var(--navy);
+      color: var(--gold-soft);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 6px;
+      margin-bottom: 8px;
+    }
+    .sup-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 150px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .sup-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .sup-name {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .sup-archetype {
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .index-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      font-size: 12.5px;
+    }
+    .index-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .idx-name { font-weight: 600; color: var(--navy); }
+    .idx-dots { flex: 1; border-bottom: 1px dotted #bdb4a2; }
+    .idx-pg { font-family: "Playfair Display", Georgia, serif; font-weight: 700; color: var(--muted); }
+
+    .sponsor-ad {
+      margin-top: 24px;
+      border: 2px dashed var(--navy);
+      padding: 14px 16px;
+      background: rgba(201, 162, 39, 0.08);
+      text-align: center;
+    }
+    .sponsor-ad h4 {
+      font-family: "Playfair Display", Georgia, serif;
+      margin: 0 0 4px;
+      font-size: 16px;
+      color: var(--navy);
+    }
+    .sponsor-ad p {
+      margin: 0;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+
+    /* Flat Gallery View Mode */
+    body.view-gallery .cover-wrap,
+    body.view-gallery .spread-opening,
+    body.view-gallery .spread-back {
+      display: none;
+    }
+    body.view-gallery .spread {
+      display: block;
+      background: transparent;
+      box-shadow: none;
+    }
+    body.view-gallery .gutter,
+    body.view-gallery .page-header,
+    body.view-gallery .page-footer {
+      display: none;
+    }
+    body.view-gallery .book-page {
+      background: transparent;
+      box-shadow: none;
+      min-height: 0;
+      padding: 0;
+    }
+    body.view-gallery .senior-grid {
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    body.view-gallery .senior-card,
+    body.view-gallery .senior-card:nth-child(1),
+    body.view-gallery .senior-card:nth-child(2) {
+      grid-column: span 1;
+      background: var(--paper);
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+    }
+
+    /* Modal Lightbox */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 12, 22, 0.8);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 200;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-card {
+      background: var(--paper);
+      max-width: 860px;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.65);
+      border: 1px solid rgba(201,162,39,0.4);
+    }
+    .modal-photo {
+      background: #2c3c52;
+      width: 100%;
+      height: 100%;
+      min-height: 425px;
+      overflow: hidden;
+    }
+    .modal-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .modal-body {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      min-width: 0;
+      background: var(--paper);
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .modal-style-tag {
+      align-self: flex-start;
+      background: var(--navy);
+      color: var(--gold-soft);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 3px;
+    }
+    .modal-name {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+      margin: 0;
+      color: var(--navy);
+    }
+    .modal-handle { font-size: 13px; color: var(--muted); margin-top: -6px; }
+    .modal-quote {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--ink);
+      border-left: 3px solid var(--gold);
+      padding-left: 12px;
+      margin: 4px 0;
+    }
+    .modal-kv { font-size: 13px; line-height: 1.45; }
+    .modal-kv strong { color: var(--navy); }
+    .modal-prompt {
+      margin-top: auto;
+      background: #ece7db;
+      border: 1px solid #d7cfbe;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      line-height: 1.45;
+      color: #363c48;
+      max-height: 132px;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 900px) {
+      .spread { grid-template-columns: 1fr; }
+      .gutter { display: none; }
+      .modal-card { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
+      .modal-photo { aspect-ratio: 4 / 5; min-height: 0; height: auto; }
+    }
+
+    /* Print-Ready PDF Export */
+    @media print {
+      @page { size: letter portrait; margin: 0.35in; }
+      body { background: #fff; padding: 0; }
+      .toolbar, .modal-backdrop, .debug-badge { display: none !important; }
+      .yearbook-stack { gap: 0; max-width: none; }
+      .cover-wrap { page-break-after: always; }
+      .hardcover { width: 100%; box-shadow: none; }
+      .spread { display: block; box-shadow: none; background: #fff; }
+      .gutter { display: none; }
+      .book-page {
+        page-break-after: always;
+        box-shadow: none;
+        min-height: 9.8in;
+        border: 1px solid #e5dfd2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar">
+    <div class="toolbar-brand">
+      <span>Meme Valley High School</span>
+      <span class="pill">Class of 2025</span>
+      <span class="pill">20/20 Portraits Rendered</span>
+    </div>
+    <div class="toolbar-actions">
+      <button class="tb-btn active" id="btnBook" onclick="setView('book')">Open Book</button>
+      <button class="tb-btn" id="btnGallery" onclick="setView('gallery')">Gallery Grid</button>
+      <button class="tb-btn" id="btnDebug" onclick="toggleDebug()">Style Tags</button>
+      <button class="tb-btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </nav>
+
+  <main class="yearbook-stack">
+    <!-- HARDCOVER -->
+    <div class="cover-wrap">
+      <section class="hardcover">
+        <div class="cover-kicker">The Fighting Glitches</div>
+        <div>
+          <div class="crest"><span>MV</span></div>
+          <h1 class="cover-title">Meme Valley High School</h1>
+          <div class="cover-year">2025</div>
+          <div class="cover-motto">“Ctrl + Alt + Graduate”</div>
+        </div>
+        <div class="cover-edition">Vol. 42 — Demo Edition (20 Seniors)</div>
+      </section>
+    </div>
+
+    <!-- OPENING SPREAD -->
+    <div class="spread spread-opening">
+      <section class="book-page page-left">
+        <header class="page-header">
+          <span class="running-section">OPENING • FOREWORD</span>
+          <span class="running-alpha">2025</span>
+        </header>
+        <h2 class="editorial-title">A Note From the Principal</h2>
+        <div class="gold-rule"></div>
+        <div class="letter-body">
+          <p>Dear Class of 2025,</p>
+          <p>
+            When you first walked—or clipped through the drywall—into Meme Valley High four years ago,
+            nobody knew how a student body made of 16-bit sprites, shaky MS Paint doodles, early-2000s
+            CGI renders, and at least two sentient household objects could ever share one cafeteria.
+          </p>
+          <p>
+            Yet here you are: weird, unbothered, and somehow still passing AP Physics. Whether you are
+            heading to college, going straight into a group chat reaction folder, or remaining permanently
+            at 96×120 resolution, never forget who you were on Picture Day.
+          </p>
+          <p>Congratulations, Seniors. Remember to save your work.</p>
+          <div class="signature">
+            Dr. Arthur Raster
+            <small>Principal, Meme Valley High School</small>
+          </div>
+        </div>
+        <footer class="page-footer">
+          <span class="school-foot">MEME VALLEY HIGH SCHOOL</span>
+          <span class="page-number">02</span>
+        </footer>
+      </section>
+      <div class="gutter"></div>
+      <section class="book-page page-right">
+        <header class="page-header">
+          <span class="running-section">YEAR IN NUMBERS</span>
+          <span class="running-alpha">STATS</span>
+        </header>
+        <h2 class="editorial-title">Class of 2025 At A Glance</h2>
+        <div class="gold-rule"></div>
+        <div class="letter-body">
+          <p>
+            Every student on the following pages is a 100% original character invented locally and
+            photographed on Picture Day under the exact same mottled slate-blue studio canvas.
+          </p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-num">20</div>
+            <div class="stat-label">Original Seniors</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">8</div>
+            <div class="stat-label">Mixed-Media Styles</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">4</div>
+            <div class="stat-label">16-Bit Pixel Students</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">0</div>
+            <div class="stat-label">Recycled Memes</div>
+          </div>
+        </div>
+        <div class="sponsor-ad">
+          <h4>Click Any Senior Portrait</h4>
+          <p>Inspect their full meme archetype, relatable micro-emotion, clubs, superlative, and generation prompt.</p>
+        </div>
+        <footer class="page-footer">
+          <span class="school-foot">MEME VALLEY HIGH SCHOOL</span>
+          <span class="page-number">03</span>
+        </footer>
+      </section>
+    </div>
+
+    <!-- SENIOR PORTRAIT SPREADS -->
+    
+            <div class="spread" data-spread-label="Seniors (04–05)">
+              
+            <section class="book-page page-left">
+              <header class="page-header">
+                <span class="running-section">SENIORS • CLASS OF 2025</span>
+                <span class="running-alpha">A–C</span>
+              </header>
+              <div class="senior-grid">
+    <article class="senior-card" data-index="0" data-style="pixel_16bit" onclick="openModal(0)">
+      <div class="photo-frame">
+        <img src="../portraits/final/01-chester-antialiased.png" alt="Chester Antialiased" loading="lazy">
+        <span class="debug-badge">16-Bit Pixel Sprite</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Chester Antialiased</h3>
+        <p class="senior-quote">“Haha yeah totally (I did not hear a single syllable).”</p>
+        <p class="senior-clubs">AV Squad • Retro Gaming Club</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="1" data-style="cursed_3d_2002" onclick="openModal(1)">
+      <div class="photo-frame">
+        <img src="../portraits/final/02-gavin-bloatware.png" alt="Gavin Bloatware" loading="lazy">
+        <span class="debug-badge">Early-2000s 3D CGI</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Gavin Bloatware</h3>
+        <p class="senior-quote">“Have you tried deleting System32? Worked on my cousin&#x27;s Dell.”</p>
+        <p class="senior-clubs">IT Helpdesk (Unofficial) • Bowling Team</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="2" data-style="claymation" onclick="openModal(2)">
+      <div class="photo-frame">
+        <img src="../portraits/final/03-marisol-brittle.png" alt="Marisol Brittle" loading="lazy">
+        <span class="debug-badge">Stop-Motion Clay</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Marisol Brittle</h3>
+        <p class="senior-quote">“Sleep is temporary, color-coded Google Docs are forever.”</p>
+        <p class="senior-clubs">Debate Club • Late Night Ceramics</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="3" data-style="cutout_collage" onclick="openModal(3)">
+      <div class="photo-frame">
+        <img src="../portraits/final/04-chloe-clipping.png" alt="Chloe Clipping" loading="lazy">
+        <span class="debug-badge">Paper Cutout Collage</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Chloe Clipping</h3>
+        <p class="senior-quote">“Nobody touch slide 7, it is load-bearing.”</p>
+        <p class="senior-clubs">Yearbook Editor • Zine Collective</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="4" data-style="ms_paint_doodle" onclick="openModal(4)">
+      <div class="photo-frame">
+        <img src="../portraits/final/05-braxton-crinkle.png" alt="Braxton Crinkle" loading="lazy">
+        <span class="debug-badge">MS Paint Ink Cryptid</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Braxton Crinkle</h3>
+        <p class="senior-quote">“Read paragraph 4 subsection B of the handbook and weep.”</p>
+        <p class="senior-clubs">Model UN • Hall Monitor Emeritus</p>
+      </div>
+    </article></div>
+              <footer class="page-footer">
+                <span class="school-foot">MEME VALLEY HIGH SCHOOL</span>
+                <span class="page-number">04</span>
+              </footer>
+            </section>
+              <div class="gutter"></div>
+              
+            <section class="book-page page-right">
+              <header class="page-header">
+                <span class="running-section">SENIORS • CLASS OF 2025</span>
+                <span class="running-alpha">C–H</span>
+              </header>
+              <div class="senior-grid">
+    <article class="senior-card" data-index="5" data-style="felt_puppet" onclick="openModal(5)">
+      <div class="photo-frame">
+        <img src="../portraits/final/06-winston-crumb.png" alt="Winston Crumb" loading="lazy">
+        <span class="debug-badge">Fuzzy Felt Puppet</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Winston Crumb</h3>
+        <p class="senior-quote">“I was promised this hallway would be quieter.”</p>
+        <p class="senior-clubs">Marching Band (Triangle) • Chess Club</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="6" data-style="pixel_16bit" onclick="openModal(6)">
+      <div class="photo-frame">
+        <img src="../portraits/final/07-nadia-dither.png" alt="Nadia Dither" loading="lazy">
+        <span class="debug-badge">16-Bit Pixel Sprite</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Nadia Dither</h3>
+        <p class="senior-quote">“Three stars. The tater tots carried this entire semester.”</p>
+        <p class="senior-clubs">Culinary Club • Student Newspaper</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="7" data-style="thick_cartoon_2d" onclick="openModal(7)">
+      <div class="photo-frame">
+        <img src="../portraits/final/08-kevin-esophagus.png" alt="Kevin Flatpack" loading="lazy">
+        <span class="debug-badge">Flat 2D Cartoon</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Kevin Flatpack</h3>
+        <p class="senior-quote">“Wait, there&#x27;s a second floor?!”</p>
+        <p class="senior-clubs">Cross Country (Got Lost) • Pep Squad</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="8" data-style="uncanny_photo_creature" onclick="openModal(8)">
+      <div class="photo-frame">
+        <img src="../portraits/final/09-beverly-glorp.png" alt="Beverly Glorp" loading="lazy">
+        <span class="debug-badge">Photorealistic Absurd</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Beverly Glorp</h3>
+        <p class="senior-quote">“Do not ask where the prom budget went. Just enjoy the breadcrumbs.”</p>
+        <p class="senior-clubs">Student Council Treasurer • Honor Society</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="9" data-style="cursed_3d_2002" onclick="openModal(9)">
+      <div class="photo-frame">
+        <img src="../portraits/final/10-derek-hoverstate.png" alt="Derek Hoverstate" loading="lazy">
+        <span class="debug-badge">Early-2000s 3D CGI</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Derek Hoverstate</h3>
+        <p class="senior-quote">“He said &#x27;one, two&#x27; and took it on &#x27;two.&#x27;”</p>
+        <p class="senior-clubs">Robotics Club • Science Olympiad</p>
+      </div>
+    </article></div>
+              <footer class="page-footer">
+                <span class="school-foot">MEME VALLEY HIGH SCHOOL</span>
+                <span class="page-number">05</span>
+              </footer>
+            </section>
+            </div>
+            <div class="spread" data-spread-label="Seniors (06–07)">
+              
+            <section class="book-page page-left">
+              <header class="page-header">
+                <span class="running-section">SENIORS • CLASS OF 2025</span>
+                <span class="running-alpha">J–P</span>
+              </header>
+              <div class="senior-grid">
+    <article class="senior-card" data-index="10" data-style="ms_paint_doodle" onclick="openModal(10)">
+      <div class="photo-frame">
+        <img src="../portraits/final/11-skyler-jagged.png" alt="Skyler Jagged" loading="lazy">
+        <span class="debug-badge">MS Paint Ink Cryptid</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Skyler Jagged</h3>
+        <p class="senior-quote">“Everything is fine (it is 2019 in my head forever).”</p>
+        <p class="senior-clubs">Philosophy Club • Indie Film Society</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="11" data-style="pixel_16bit" onclick="openModal(11)">
+      <div class="photo-frame">
+        <img src="../portraits/final/12-oscar-kilobyte.png" alt="Oscar Kilobyte" loading="lazy">
+        <span class="debug-badge">16-Bit Pixel Sprite</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Oscar Kilobyte</h3>
+        <p class="senior-quote">“My brain has 47 tabs open and three of them are playing music.”</p>
+        <p class="senior-clubs">AP Computer Science • Track &amp; Field</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="12" data-style="felt_puppet" onclick="openModal(12)">
+      <div class="photo-frame">
+        <img src="../portraits/final/13-penelope-lint.png" alt="Penelope Lint" loading="lazy">
+        <span class="debug-badge">Fuzzy Felt Puppet</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Penelope Lint</h3>
+        <p class="senior-quote">“I brought extra pencils AND emotional support brownies!!”</p>
+        <p class="senior-clubs">Key Club President • Choir • Drama</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="13" data-style="claymation" onclick="openModal(13)">
+      <div class="photo-frame">
+        <img src="../portraits/final/14-trent-marshmallow.png" alt="Trent Marshmallow" loading="lazy">
+        <span class="debug-badge">Stop-Motion Clay</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Trent Marshmallow</h3>
+        <p class="senior-quote">“Due tomorrow? Sounds like a tomorrow problem.”</p>
+        <p class="senior-clubs">Hammock Club • Jazz Band</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="14" data-style="cutout_collage" onclick="openModal(14)">
+      <div class="photo-frame">
+        <img src="../portraits/final/15-zoe-nonexistent.png" alt="Zoe Paperclip" loading="lazy">
+        <span class="debug-badge">Paper Cutout Collage</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Zoe Paperclip</h3>
+        <p class="senior-quote">“Not naming names, just citing primary sources.”</p>
+        <p class="senior-clubs">School Podcast • Mock Trial</p>
+      </div>
+    </article></div>
+              <footer class="page-footer">
+                <span class="school-foot">MEME VALLEY HIGH SCHOOL</span>
+                <span class="page-number">06</span>
+              </footer>
+            </section>
+              <div class="gutter"></div>
+              
+            <section class="book-page page-right">
+              <header class="page-header">
+                <span class="running-section">SENIORS • CLASS OF 2025</span>
+                <span class="running-alpha">P–V</span>
+              </header>
+              <div class="senior-grid">
+    <article class="senior-card" data-index="15" data-style="cursed_3d_2002" onclick="openModal(15)">
+      <div class="photo-frame">
+        <img src="../portraits/final/16-barry-polygon.png" alt="Barry Polygon" loading="lazy">
+        <span class="debug-badge">Early-2000s 3D CGI</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Barry Polygon</h3>
+        <p class="senior-quote">“If you aren&#x27;t diving onto hardwood for a foam ball, why show up?”</p>
+        <p class="senior-clubs">Varsity Dodgeball • Weightlifting</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="16" data-style="uncanny_photo_creature" onclick="openModal(16)">
+      <div class="photo-frame">
+        <img src="../portraits/final/17-harold-soggy.png" alt="Harold Soggy" loading="lazy">
+        <span class="debug-badge">Photorealistic Absurd</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Harold Soggy</h3>
+        <p class="senior-quote">“Keep your roots deep and your GPA above a 3.2.”</p>
+        <p class="senior-clubs">AP History • Gardening Club</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="17" data-style="pixel_16bit" onclick="openModal(17)">
+      <div class="photo-frame">
+        <img src="../portraits/final/18-riley-sprite.png" alt="Riley Sprite" loading="lazy">
+        <span class="debug-badge">16-Bit Pixel Sprite</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Riley Sprite</h3>
+        <p class="senior-quote">“You wouldn&#x27;t understand my lore (it&#x27;s a 14-minute YouTube essay).”</p>
+        <p class="senior-clubs">Theater Tech • Creative Writing</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="18" data-style="ms_paint_doodle" onclick="openModal(18)">
+      <div class="photo-frame">
+        <img src="../portraits/final/19-milo-squiggle.png" alt="Milo Squiggle" loading="lazy">
+        <span class="debug-badge">MS Paint Ink Cryptid</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Milo Squiggle</h3>
+        <p class="senior-quote">“Do NOT look at me during the SAT or we are both getting voided.”</p>
+        <p class="senior-clubs">Improv Troupe • Detention Regular</p>
+      </div>
+    </article>
+    <article class="senior-card" data-index="19" data-style="thick_cartoon_2d" onclick="openModal(19)">
+      <div class="photo-frame">
+        <img src="../portraits/final/20-tessa-vector.png" alt="Tessa Vector" loading="lazy">
+        <span class="debug-badge">Flat 2D Cartoon</span>
+      </div>
+      <div class="senior-meta">
+        <h3 class="senior-name">Tessa Vector</h3>
+        <p class="senior-quote">“Idk I threw it together during homeroom.”</p>
+        <p class="senior-clubs">AP Studio Art • Photography Club</p>
+      </div>
+    </article></div>
+              <footer class="page-footer">
+                <span class="school-foot">MEME VALLEY HIGH SCHOOL</span>
+                <span class="page-number">07</span>
+              </footer>
+            </section>
+            </div>
+
+    <!-- SUPERLATIVES & INDEX SPREAD -->
+    <div class="spread spread-back">
+      <section class="book-page page-left">
+        <header class="page-header">
+          <span class="running-section">SENIOR SUPERLATIVES</span>
+          <span class="running-alpha">BEST OF '25</span>
+        </header>
+        <div class="sup-grid">
+          
+            <div class="sup-card" onclick="openModal(0)">
+              <div class="sup-ribbon">Most Likely To Nod Along In Silence</div>
+              <div class="sup-photo"><img src="../portraits/final/01-chester-antialiased.png" alt="Chester Antialiased"></div>
+              <div class="sup-name">Chester Antialiased</div>
+              <div class="sup-archetype">Quietly Pretending He Heard You</div>
+            </div>
+            <div class="sup-card" onclick="openModal(1)">
+              <div class="sup-ribbon">Most Likely To Break Your Wi-Fi</div>
+              <div class="sup-photo"><img src="../portraits/final/02-gavin-bloatware.png" alt="Gavin Bloatware"></div>
+              <div class="sup-name">Gavin Bloatware</div>
+              <div class="sup-archetype">Unearned Tech-Support Confidence</div>
+            </div>
+            <div class="sup-card" onclick="openModal(2)">
+              <div class="sup-ribbon">Most Likely To Start A Hobby At 2 AM</div>
+              <div class="sup-photo"><img src="../portraits/final/03-marisol-brittle.png" alt="Marisol Brittle"></div>
+              <div class="sup-name">Marisol Brittle</div>
+              <div class="sup-archetype">3 AM Sudden Life-Reorganization Energy</div>
+            </div>
+            <div class="sup-card" onclick="openModal(3)">
+              <div class="sup-ribbon">Most Likely To Submit At 11:59 PM</div>
+              <div class="sup-photo"><img src="../portraits/final/04-chloe-clipping.png" alt="Chloe Clipping"></div>
+              <div class="sup-name">Chloe Clipping</div>
+              <div class="sup-archetype">Chaotic Group-Project Mastermind</div>
+            </div>
+            <div class="sup-card" onclick="openModal(4)">
+              <div class="sup-ribbon">Most Likely To Cite A Loophole</div>
+              <div class="sup-photo"><img src="../portraits/final/05-braxton-crinkle.png" alt="Braxton Crinkle"></div>
+              <div class="sup-name">Braxton Crinkle</div>
+              <div class="sup-archetype">Petty Rules-Lawyer Smugness</div>
+            </div>
+            <div class="sup-card" onclick="openModal(5)">
+              <div class="sup-ribbon">Most Likely To Jump At The Bell</div>
+              <div class="sup-photo"><img src="../portraits/final/06-winston-crumb.png" alt="Winston Crumb"></div>
+              <div class="sup-name">Winston Crumb</div>
+              <div class="sup-archetype">Mildly Alarmed By Everyday Noises</div>
+            </div>
+        </div>
+        <footer class="page-footer">
+          <span class="school-foot">MEME VALLEY HIGH SCHOOL</span>
+          <span class="page-number">08</span>
+        </footer>
+      </section>
+      <div class="gutter"></div>
+      <section class="book-page page-right">
+        <header class="page-header">
+          <span class="running-section">SENIOR DIRECTORY</span>
+          <span class="running-alpha">INDEX</span>
+        </header>
+        <ul class="index-list">
+          <li><span class="idx-name">Chester Antialiased</span><span class="idx-dots"></span><span class="idx-pg">04</span></li><li><span class="idx-name">Gavin Bloatware</span><span class="idx-dots"></span><span class="idx-pg">04</span></li><li><span class="idx-name">Marisol Brittle</span><span class="idx-dots"></span><span class="idx-pg">04</span></li><li><span class="idx-name">Chloe Clipping</span><span class="idx-dots"></span><span class="idx-pg">04</span></li><li><span class="idx-name">Braxton Crinkle</span><span class="idx-dots"></span><span class="idx-pg">04</span></li><li><span class="idx-name">Winston Crumb</span><span class="idx-dots"></span><span class="idx-pg">05</span></li><li><span class="idx-name">Nadia Dither</span><span class="idx-dots"></span><span class="idx-pg">05</span></li><li><span class="idx-name">Kevin Flatpack</span><span class="idx-dots"></span><span class="idx-pg">05</span></li><li><span class="idx-name">Beverly Glorp</span><span class="idx-dots"></span><span class="idx-pg">05</span></li><li><span class="idx-name">Derek Hoverstate</span><span class="idx-dots"></span><span class="idx-pg">05</span></li><li><span class="idx-name">Skyler Jagged</span><span class="idx-dots"></span><span class="idx-pg">06</span></li><li><span class="idx-name">Oscar Kilobyte</span><span class="idx-dots"></span><span class="idx-pg">06</span></li><li><span class="idx-name">Penelope Lint</span><span class="idx-dots"></span><span class="idx-pg">06</span></li><li><span class="idx-name">Trent Marshmallow</span><span class="idx-dots"></span><span class="idx-pg">06</span></li><li><span class="idx-name">Zoe Paperclip</span><span class="idx-dots"></span><span class="idx-pg">06</span></li><li><span class="idx-name">Barry Polygon</span><span class="idx-dots"></span><span class="idx-pg">07</span></li><li><span class="idx-name">Harold Soggy</span><span class="idx-dots"></span><span class="idx-pg">07</span></li><li><span class="idx-name">Riley Sprite</span><span class="idx-dots"></span><span class="idx-pg">07</span></li><li><span class="idx-name">Milo Squiggle</span><span class="idx-dots"></span><span class="idx-pg">07</span></li><li><span class="idx-name">Tessa Vector</span><span class="idx-dots"></span><span class="idx-pg">07</span></li>
+        </ul>
+        <div class="sponsor-ad">
+          <h4>Congratulations Class of 2025!</h4>
+          <p>Sponsored by Dave’s Low-Poly Auto Body &amp; The Copy Room Toner Fund — Proud Supporters of Meme Valley High.</p>
+        </div>
+        <footer class="page-footer">
+          <span class="school-foot">MEME VALLEY HIGH SCHOOL</span>
+          <span class="page-number">09</span>
+        </footer>
+      </section>
+    </div>
+  </main>
+
+  <!-- STUDENT INSPECTOR MODAL -->
+  <div class="modal-backdrop" id="modal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-card">
+      <div class="modal-photo" id="modalPhoto"></div>
+      <div class="modal-body">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+        <span class="modal-style-tag" id="modalStyle"></span>
+        <h2 class="modal-name" id="modalName"></h2>
+        <div class="modal-handle" id="modalHandle"></div>
+        <blockquote class="modal-quote" id="modalQuote"></blockquote>
+        <div class="modal-kv"><strong>Archetype:</strong> <span id="modalArchetype"></span></div>
+        <div class="modal-kv"><strong>The Vibe:</strong> <span id="modalEmotion"></span></div>
+        <div class="modal-kv"><strong>Superlative:</strong> <span id="modalSuperlative"></span></div>
+        <div class="modal-kv"><strong>Activities:</strong> <span id="modalClubs"></span></div>
+        <div class="modal-prompt" id="modalPrompt"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STUDENTS = [{"id": "01-chester-antialiased", "slot": 1, "name": "Chester Antialiased", "handle": "@chester_16bit", "grade": "Senior", "style_id": "pixel_16bit", "style_label": "16-Bit Pixel Sprite", "archetype": "Quietly Pretending He Heard You", "micro_emotion": "Nodding politely with wide frozen eyes after asking 'what?' twice and still not catching a word.", "visual_description": "A lanky green-skinned pixel-art goblin-boy with an oversized blocky chin, one raised eyebrow, giant nervously wide square eyes, crooked metal braces, and messy spiky teal pixel hair, wearing a burgundy high school polo shirt with a crooked yellow lanyard", "clubs": ["AV Squad", "Retro Gaming Club"], "superlative": "Most Likely To Nod Along In Silence", "quote": "Haha yeah totally (I did not hear a single syllable).", "seed": 202517, "selected_variant": 0, "prompt": "pixel art portrait, 16-bit retro video game sprite character, crisp chunky pixels, bold dark pixel outlines, A lanky green-skinned pixel-art goblin-boy with an oversized blocky chin, one raised eyebrow, giant nervously wide square eyes, crooked metal braces, and messy spiky teal pixel hair, wearing a burgundy high school polo shirt with a crooked yellow lanyard, wearing high school attire, centered head-and-shoulders yearbook portrait framing, solid mottled blue-gray retro studio gradient backdrop, clean pixel art aesthetic, no text, no watermark", "portrait_src": "../portraits/final/01-chester-antialiased.png"}, {"id": "02-gavin-bloatware", "slot": 2, "name": "Gavin Bloatware", "handle": "@gav_3d", "grade": "Senior", "style_id": "cursed_3d_2002", "style_label": "Early-2000s 3D CGI", "archetype": "Unearned Tech-Support Confidence", "micro_emotion": "Giving wildly incorrect computer advice while beaming like a proud bowling-alley strike animation.", "visual_description": "A shiny chrome-and-cobalt low-poly 3D anthropomorphic thumb-shaped humanoid with tiny round wire glasses, an overly glossy smug toothy grin, and floating 2002 CGI eyebrows, wearing a stiff collared plaid button-up shirt and clip-on tie", "clubs": ["IT Helpdesk (Unofficial)", "Bowling Team"], "superlative": "Most Likely To Break Your Wi-Fi", "quote": "Have you tried deleting System32? Worked on my cousin's Dell.", "seed": 202534, "selected_variant": 0, "prompt": "early-2000s glossy 3D CGI rendered character with shiny plastic shaders and goofy low-poly charm, A shiny chrome-and-cobalt low-poly 3D anthropomorphic thumb-shaped humanoid with tiny round wire glasses, an overly glossy smug toothy grin, and floating 2002 CGI eyebrows, wearing a stiff collared plaid button-up shirt and clip-on tie, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/02-gavin-bloatware.png"}, {"id": "03-marisol-brittle", "slot": 3, "name": "Marisol Brittle", "handle": "@marisol_clay", "grade": "Senior", "style_id": "claymation", "style_label": "Stop-Motion Clay", "archetype": "3 AM Sudden Life-Reorganization Energy", "micro_emotion": "Wide-eyed determined exhaustion after alphabetizing her spice rack instead of studying for finals.", "visual_description": "A slightly lopsided terracotta-and-lavender plasticine clay owl-humanoid figurine with visible fingerprint smudges, giant mismatched sculpted eyes with tiny dark bags underneath, and crooked wire spectacles, wearing a miniature hand-knit mustard varsity cardigan", "clubs": ["Debate Club", "Late Night Ceramics"], "superlative": "Most Likely To Start A Hobby At 2 AM", "quote": "Sleep is temporary, color-coded Google Docs are forever.", "seed": 202551, "selected_variant": 0, "prompt": "studio macro photograph of a handmade stop-motion plasticine clay character figurine with visible clay texture and thumbprints, sculpted expressive face, A slightly lopsided terracotta-and-lavender plasticine clay owl-humanoid figurine with visible fingerprint smudges, giant mismatched sculpted eyes with tiny dark bags underneath, and crooked wire spectacles, wearing a miniature hand-knit mustard varsity cardigan, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/03-marisol-brittle.png"}, {"id": "04-chloe-clipping", "slot": 4, "name": "Chloe Clipping", "handle": "@chloe_cutout", "grade": "Senior", "style_id": "cutout_collage", "style_label": "Paper Cutout Collage", "archetype": "Chaotic Group-Project Mastermind", "micro_emotion": "Holding the entire slide deck together at 11:58 PM with masking tape and sheer audacity.", "visual_description": "A surreal cardboard-head teenager made of layered glossy magazine cutouts, one giant halftone black-and-white photo eye and one tiny drawn comic eye, a pasted-on crooked smirk held by translucent Scotch tape, wearing a real denim jacket with enamel pins", "clubs": ["Yearbook Editor", "Zine Collective"], "superlative": "Most Likely To Submit At 11:59 PM", "quote": "Nobody touch slide 7, it is load-bearing.", "seed": 202568, "selected_variant": 0, "prompt": "studio photograph of a quirky handmade cardboard and paper-cutout collage character with layered torn paper edges, taped-on expressive eyes and mouth, A surreal cardboard-head teenager made of layered glossy magazine cutouts, one giant halftone black-and-white photo eye and one tiny drawn comic eye, a pasted-on crooked smirk held by translucent Scotch tape, wearing a real denim jacket with enamel pins, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/04-chloe-clipping.png"}, {"id": "05-braxton-crinkle", "slot": 5, "name": "Braxton Crinkle", "handle": "@brax_ink", "grade": "Senior", "style_id": "ms_paint_doodle", "style_label": "MS Paint Ink Cryptid", "archetype": "Petty Rules-Lawyer Smugness", "micro_emotion": "That exact twisted grin right before saying 'technically the syllabus never banned bringing a toaster.'", "visual_description": "An absurd hand-drawn black-ink stick-creature with a huge pear-shaped wobbly head, microscopically tiny squinty triumphant eyes, an impossibly wide jagged serrated grin stretching ear-to-ear, and three frantic scribble hairs on top, wearing a crudely sketched varsity letterman jacket", "clubs": ["Model UN", "Hall Monitor Emeritus"], "superlative": "Most Likely To Cite A Loophole", "quote": "Read paragraph 4 subsection B of the handbook and weep.", "seed": 202585, "selected_variant": 0, "prompt": "mixed-media yearbook photo of a bizarre hand-drawn black-ink MS Paint doodle character with thick wobbly black marker lines, stark white paper fill, absurd exaggerated comic facial features, An absurd hand-drawn black-ink stick-creature with a huge pear-shaped wobbly head, microscopically tiny squinty triumphant eyes, an impossibly wide jagged serrated grin stretching ear-to-ear, and three frantic scribble hairs on top, wearing a crudely sketched varsity letterman jacket, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/05-braxton-crinkle.png"}, {"id": "06-winston-crumb", "slot": 6, "name": "Winston Crumb", "handle": "@winston_felt", "grade": "Senior", "style_id": "felt_puppet", "style_label": "Fuzzy Felt Puppet", "archetype": "Mildly Alarmed By Everyday Noises", "micro_emotion": "The thousand-yard stare of someone who just heard the microwave beep two seconds before they reached it.", "visual_description": "A fuzzy chartreuse fleece puppet creature with a long cylindrical snout, oversized asymmetrical plastic googly eyes pointing slightly outward, wild tufts of orange yarn hair, and a tiny stitched 'o' mouth, wearing a crisp baby-blue Oxford shirt and navy sweater vest", "clubs": ["Marching Band (Triangle)", "Chess Club"], "superlative": "Most Likely To Jump At The Bell", "quote": "I was promised this hallway would be quieter.", "seed": 202602, "selected_variant": 0, "prompt": "real studio photograph of a handmade fuzzy felt and fleece puppet character with visible fabric fibers, button or plastic eyes, quirky stitched mouth, A fuzzy chartreuse fleece puppet creature with a long cylindrical snout, oversized asymmetrical plastic googly eyes pointing slightly outward, wild tufts of orange yarn hair, and a tiny stitched 'o' mouth, wearing a crisp baby-blue Oxford shirt and navy sweater vest, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/06-winston-crumb.png"}, {"id": "07-nadia-dither", "slot": 7, "name": "Nadia Dither", "handle": "@nadia_px", "grade": "Senior", "style_id": "pixel_16bit", "style_label": "16-Bit Pixel Sprite", "archetype": "Unimpressed Cafeteria Food Critic", "micro_emotion": "Judging the rectangular pizza with the quiet devastation of a 16-bit RPG shopkeeper.", "visual_description": "A cool deadpan pixel-art sentient purple toaster-girl with sleek half-lidded pixel eyes, tiny chrome bunny-ear levers sticking out of her head, a tiny smug side-mouth, wearing a black-and-white striped long-sleeve shirt and chunky silver headphones around her neck", "clubs": ["Culinary Club", "Student Newspaper"], "superlative": "Best Side-Eye", "quote": "Three stars. The tater tots carried this entire semester.", "seed": 202619, "selected_variant": 0, "prompt": "pixel art portrait, 16-bit retro video game sprite character, crisp chunky pixels, bold dark pixel outlines, A cool deadpan pixel-art sentient purple toaster-girl with sleek half-lidded pixel eyes, tiny chrome bunny-ear levers sticking out of her head, a tiny smug side-mouth, wearing a black-and-white striped long-sleeve shirt and chunky silver headphones around her neck, wearing high school attire, centered head-and-shoulders yearbook portrait framing, solid mottled blue-gray retro studio gradient backdrop, clean pixel art aesthetic, no text, no watermark", "portrait_src": "../portraits/final/07-nadia-dither.png"}, {"id": "08-kevin-esophagus", "slot": 8, "name": "Kevin Flatpack", "handle": "@kev_2d", "grade": "Senior", "style_id": "thick_cartoon_2d", "style_label": "Flat 2D Cartoon", "archetype": "Enthusiastically Lost In His Own School", "micro_emotion": "Four years at the same high school and still proudly walking into the janitor's closet on the way to Algebra.", "visual_description": "A bright safety-orange flat-2D cartoon traffic cone with thick black ink outlines, huge lopsided cheerful cartoon eyes, a goofy buck-toothed grin, and a crooked tiny graduation tassel taped to his tip, wearing an oversized forest-green zip hoodie", "clubs": ["Cross Country (Got Lost)", "Pep Squad"], "superlative": "Most Likely To Still Need A Hall Map", "quote": "Wait, there's a second floor?!", "seed": 202636, "selected_variant": 0, "prompt": "mixed-media yearbook portrait of a flat-shaded 2D animated cartoon character with bold black ink outlines and vivid saturated flat colors, composited seamlessly into a real photograph, A bright safety-orange flat-2D cartoon traffic cone with thick black ink outlines, huge lopsided cheerful cartoon eyes, a goofy buck-toothed grin, and a crooked tiny graduation tassel taped to his tip, wearing an oversized forest-green zip hoodie, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/08-kevin-esophagus.png"}, {"id": "09-beverly-glorp", "slot": 9, "name": "Beverly Glorp", "handle": "@bev_real", "grade": "Senior", "style_id": "uncanny_photo_creature", "style_label": "Photorealistic Absurd", "archetype": "Suspiciously Formal Local Pigeon", "micro_emotion": "Acting completely normal in AP Government while hoping nobody notices she is literally an overly dressed pigeon.", "visual_description": "An ultra-realistic photorealistic city pigeon with iridescent neck feathers, dead-serious narrowed amber eyes, tiny wire-frame reading glasses perched on her beak, wearing a tailored burgundy tweed blazer, crisp white collared blouse, and pearl necklace", "clubs": ["Student Council Treasurer", "Honor Society"], "superlative": "Most Likely To Run For Mayor", "quote": "Do not ask where the prom budget went. Just enjoy the breadcrumbs.", "seed": 202653, "selected_variant": 0, "prompt": "ultra-realistic DSLR studio photograph of a bizarre surreal sentient creature or living object with deadpan human-like personality, real fabric textures, An ultra-realistic photorealistic city pigeon with iridescent neck feathers, dead-serious narrowed amber eyes, tiny wire-frame reading glasses perched on her beak, wearing a tailored burgundy tweed blazer, crisp white collared blouse, and pearl necklace, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/09-beverly-glorp.png"}, {"id": "10-derek-hoverstate", "slot": 10, "name": "Derek Hoverstate", "handle": "@derek_cgi", "grade": "Senior", "style_id": "cursed_3d_2002", "style_label": "Early-2000s 3D CGI", "archetype": "Frozen Mid-Sneeze Awkwardness", "micro_emotion": "Caught at the exact millisecond the school photographer snapped while a sneeze vanished into the void.", "visual_description": "A glossy early-2000s 3D rendered lime-green pear-creature with shiny plastic skin, squinting asymmetric cartoon eyes, flared nose, and an awkward half-open mouth mid-sneeze, wearing a tucked-in sky-blue polo shirt with a shiny plastic pocket protector", "clubs": ["Robotics Club", "Science Olympiad"], "superlative": "Most Memorable Picture Day", "quote": "He said 'one, two' and took it on 'two.'", "seed": 202670, "selected_variant": 0, "prompt": "early-2000s glossy 3D CGI rendered character with shiny plastic shaders and goofy low-poly charm, A glossy early-2000s 3D rendered lime-green pear-creature with shiny plastic skin, squinting asymmetric cartoon eyes, flared nose, and an awkward half-open mouth mid-sneeze, wearing a tucked-in sky-blue polo shirt with a shiny plastic pocket protector, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/10-derek-hoverstate.png"}, {"id": "11-skyler-jagged", "slot": 11, "name": "Skyler Jagged", "handle": "@sky_scribble", "grade": "Senior", "style_id": "ms_paint_doodle", "style_label": "MS Paint Ink Cryptid", "archetype": "Silent Existential Realization At Lunch", "micro_emotion": "Suddenly remembering an embarrassing sentence you said in 7th grade while staring straight through the camera.", "visual_description": "A chaotic hand-drawn MS Paint black-ink bean-shaped creature with razor-thin trembling spiral eyes, completely flat deadpan horizontal line mouth, sweat drops drawn as jagged blue scribbles, wearing a hastily scribbled black hoodie with drawn drawstrings", "clubs": ["Philosophy Club", "Indie Film Society"], "superlative": "Most Likely To Stare Into The Void", "quote": "Everything is fine (it is 2019 in my head forever).", "seed": 202687, "selected_variant": 0, "prompt": "mixed-media yearbook photo of a bizarre hand-drawn black-ink MS Paint doodle character with thick wobbly black marker lines, stark white paper fill, absurd exaggerated comic facial features, A chaotic hand-drawn MS Paint black-ink bean-shaped creature with razor-thin trembling spiral eyes, completely flat deadpan horizontal line mouth, sweat drops drawn as jagged blue scribbles, wearing a hastily scribbled black hoodie with drawn drawstrings, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/11-skyler-jagged.png"}, {"id": "12-oscar-kilobyte", "slot": 12, "name": "Oscar Kilobyte", "handle": "@oscar_kb", "grade": "Senior", "style_id": "pixel_16bit", "style_label": "16-Bit Pixel Sprite", "archetype": "Over-Caffeinated Exam Survivor", "micro_emotion": "Vibrating slightly at 60 FPS after four iced coffees and zero notes.", "visual_description": "A hyper-alert 16-bit pixel-art beige CRT monitor-headed student whose pixelated green screen displays huge jittery caffeine-wide eyes and a jagged nervous grin, with tiny pixel antenna ears, wearing a retro navy-and-gold varsity jacket", "clubs": ["AP Computer Science", "Track & Field"], "superlative": "Most Likely To Still Be Awake", "quote": "My brain has 47 tabs open and three of them are playing music.", "seed": 202704, "selected_variant": 0, "prompt": "pixel art portrait, 16-bit retro video game sprite character, crisp chunky pixels, bold dark pixel outlines, A hyper-alert 16-bit pixel-art beige CRT monitor-headed student whose pixelated green screen displays huge jittery caffeine-wide eyes and a jagged nervous grin, with tiny pixel antenna ears, wearing a retro navy-and-gold varsity jacket, wearing high school attire, centered head-and-shoulders yearbook portrait framing, solid mottled blue-gray retro studio gradient backdrop, clean pixel art aesthetic, no text, no watermark", "portrait_src": "../portraits/final/12-oscar-kilobyte.png"}, {"id": "13-penelope-lint", "slot": 13, "name": "Penelope Lint", "handle": "@penny_puppet", "grade": "Senior", "style_id": "felt_puppet", "style_label": "Fuzzy Felt Puppet", "archetype": "Aggressively Wholesome Overachiever", "micro_emotion": "Radiating relentless supportive energy while carrying six binders and baked goods for the whole homeroom.", "visual_description": "A cheerful hot-pink shaggy plush puppet monster with shiny black button eyes, big knitted lavender eyebrows, a huge enthusiastic felt smile with one tiny crooked felt tooth, wearing a yellow cardigan with a 'CLASS OF 2025' pin", "clubs": ["Key Club President", "Choir", "Drama"], "superlative": "Most Likely To Brighten A Monday", "quote": "I brought extra pencils AND emotional support brownies!!", "seed": 202721, "selected_variant": 0, "prompt": "real studio photograph of a handmade fuzzy felt and fleece puppet character with visible fabric fibers, button or plastic eyes, quirky stitched mouth, A cheerful hot-pink shaggy plush puppet monster with shiny black button eyes, big knitted lavender eyebrows, a huge enthusiastic felt smile with one tiny crooked felt tooth, wearing a yellow cardigan with a 'CLASS OF 2025' pin, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/13-penelope-lint.png"}, {"id": "14-trent-marshmallow", "slot": 14, "name": "Trent Marshmallow", "handle": "@trent_clay", "grade": "Senior", "style_id": "claymation", "style_label": "Stop-Motion Clay", "archetype": "Unbothered Back-Row Philosopher", "micro_emotion": "Deeply calm, slightly melted, and entirely immune to pop quizzes.", "visual_description": "A chunky off-white stop-motion clay cloud-goblin with droopy half-closed sleepy clay eyelids, a tiny lopsided peaceful smile, visible thumbprint texture across his forehead, wearing a cozy oversized maroon crewneck sweatshirt", "clubs": ["Hammock Club", "Jazz Band"], "superlative": "Most Likely To Nap Through Fire Drills", "quote": "Due tomorrow? Sounds like a tomorrow problem.", "seed": 202738, "selected_variant": 0, "prompt": "studio macro photograph of a handmade stop-motion plasticine clay character figurine with visible clay texture and thumbprints, sculpted expressive face, A chunky off-white stop-motion clay cloud-goblin with droopy half-closed sleepy clay eyelids, a tiny lopsided peaceful smile, visible thumbprint texture across his forehead, wearing a cozy oversized maroon crewneck sweatshirt, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/14-trent-marshmallow.png"}, {"id": "15-zoe-nonexistent", "slot": 15, "name": "Zoe Paperclip", "handle": "@zoe_collage", "grade": "Senior", "style_id": "cutout_collage", "style_label": "Paper Cutout Collage", "archetype": "Mysteriously Knows All School Gossip", "micro_emotion": "Saying 'I don't really get involved in drama' while holding an entire color-coded corkboard of receipts.", "visual_description": "A witty handmade paper-collage character made from vintage graph paper and torn pastel newspaper scraps, oversized sideways-glancing magazine cutout eyes, tiny red paper lips in a knowing smirk, wearing a real plaid school blazer with a silver paperclip brooch", "clubs": ["School Podcast", "Mock Trial"], "superlative": "Most Likely To Know Before The Principal", "quote": "Not naming names, just citing primary sources.", "seed": 202755, "selected_variant": 0, "prompt": "studio photograph of a quirky handmade cardboard and paper-cutout collage character with layered torn paper edges, taped-on expressive eyes and mouth, A witty handmade paper-collage character made from vintage graph paper and torn pastel newspaper scraps, oversized sideways-glancing magazine cutout eyes, tiny red paper lips in a knowing smirk, wearing a real plaid school blazer with a silver paperclip brooch, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/15-zoe-nonexistent.png"}, {"id": "16-barry-polygon", "slot": 16, "name": "Barry Polygon", "handle": "@barry_render", "grade": "Senior", "style_id": "cursed_3d_2002", "style_label": "Early-2000s 3D CGI", "archetype": "Unstoppable Gym-Class Tryhard", "micro_emotion": "Treating third-period dodgeball like Game 7 of the World Finals.", "visual_description": "A blocky glossy early-2000s 3D rendered cobalt-blue geometric cube-man with fierce determined red 3D eyebrows, shiny specular highlights, a tiny red sweatband wrapped around his square forehead, wearing a crimson-and-white mesh athletic jersey", "clubs": ["Varsity Dodgeball", "Weightlifting"], "superlative": "Most Intense During PE", "quote": "If you aren't diving onto hardwood for a foam ball, why show up?", "seed": 202772, "selected_variant": 0, "prompt": "early-2000s glossy 3D CGI rendered character with shiny plastic shaders and goofy low-poly charm, A blocky glossy early-2000s 3D rendered cobalt-blue geometric cube-man with fierce determined red 3D eyebrows, shiny specular highlights, a tiny red sweatband wrapped around his square forehead, wearing a crimson-and-white mesh athletic jersey, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/16-barry-polygon.png"}, {"id": "17-harold-soggy", "slot": 17, "name": "Harold Soggy", "handle": "@harold_photo", "grade": "Senior", "style_id": "uncanny_photo_creature", "style_label": "Photorealistic Absurd", "archetype": "Stoic Grocery-Store Potato", "micro_emotion": "Exuding quiet, dignified gravitas despite having no discernible facial structure beyond sheer determination.", "visual_description": "An ultra-realistic DSLR studio photograph of a dignified russet potato with two tiny realistic expressive squinting human eyes and a subtle determined frown, wearing a perfectly fitted navy graduation suit jacket, crisp white dress shirt, and striped red silk tie", "clubs": ["AP History", "Gardening Club"], "superlative": "Most Likely To Become A CEO", "quote": "Keep your roots deep and your GPA above a 3.2.", "seed": 202789, "selected_variant": 0, "prompt": "ultra-realistic DSLR studio photograph of a bizarre surreal sentient creature or living object with deadpan human-like personality, real fabric textures, An ultra-realistic DSLR studio photograph of a dignified russet potato with two tiny realistic expressive squinting human eyes and a subtle determined frown, wearing a perfectly fitted navy graduation suit jacket, crisp white dress shirt, and striped red silk tie, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/17-harold-soggy.png"}, {"id": "18-riley-sprite", "slot": 18, "name": "Riley Sprite", "handle": "@riley_8x8", "grade": "Senior", "style_id": "pixel_16bit", "style_label": "16-Bit Pixel Sprite", "archetype": "Dramatic Main-Character Monologue", "micro_emotion": "Staring intensely out the bus window in the rain while listening to chiptune breakup songs.", "visual_description": "A melodramatic 16-bit pixel-art spiky-haired blue cat-wizard teen with dramatic shaded pixel bangs covering one eye, a single tiny sparkling pixel tear of intensity, wearing a dark turtleneck under a high-collared school windbreaker", "clubs": ["Theater Tech", "Creative Writing"], "superlative": "Most Likely To Have A Theme Song", "quote": "You wouldn't understand my lore (it's a 14-minute YouTube essay).", "seed": 202806, "selected_variant": 0, "prompt": "pixel art portrait, 16-bit retro video game sprite character, crisp chunky pixels, bold dark pixel outlines, A melodramatic 16-bit pixel-art spiky-haired blue cat-wizard teen with dramatic shaded pixel bangs covering one eye, a single tiny sparkling pixel tear of intensity, wearing a dark turtleneck under a high-collared school windbreaker, wearing high school attire, centered head-and-shoulders yearbook portrait framing, solid mottled blue-gray retro studio gradient backdrop, clean pixel art aesthetic, no text, no watermark", "portrait_src": "../portraits/final/18-riley-sprite.png"}, {"id": "19-milo-squiggle", "slot": 19, "name": "Milo Squiggle", "handle": "@milo_paint", "grade": "Senior", "style_id": "ms_paint_doodle", "style_label": "MS Paint Ink Cryptid", "archetype": "Chaotic Class-Clown Whisperer", "micro_emotion": "Trying desperately not to laugh during a dead-silent standardized test after locking eyes with his friend.", "visual_description": "An unhinged hand-drawn black-marker doodle goblin with puffed-out trembling cheeks holding back explosive laughter, bulging lopsided oval eyes, shaky motion lines around his head, wearing a crudely drawn checkered collared shirt", "clubs": ["Improv Troupe", "Detention Regular"], "superlative": "Most Likely To Ruin A Quiet Room", "quote": "Do NOT look at me during the SAT or we are both getting voided.", "seed": 202823, "selected_variant": 0, "prompt": "mixed-media yearbook photo of a bizarre hand-drawn black-ink MS Paint doodle character with thick wobbly black marker lines, stark white paper fill, absurd exaggerated comic facial features, An unhinged hand-drawn black-marker doodle goblin with puffed-out trembling cheeks holding back explosive laughter, bulging lopsided oval eyes, shaky motion lines around his head, wearing a crudely drawn checkered collared shirt, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/19-milo-squiggle.png"}, {"id": "20-tessa-vector", "slot": 20, "name": "Tessa Vector", "handle": "@tessa_flat", "grade": "Senior", "style_id": "thick_cartoon_2d", "style_label": "Flat 2D Cartoon", "archetype": "Suspiciously Calm Art-Room Genius", "micro_emotion": "Casually turning in a museum-grade masterpiece five minutes before the bell while claiming she 'just messed around.'", "visual_description": "A sleek flat-2D cartoon mint-green crescent-moon-headed teenager with bold black ink outlines, sharp winged eyeliner, cool half-smiling expression, tiny gold star earrings, wearing a black beret and paint-splattered charcoal overalls over a white tee", "clubs": ["AP Studio Art", "Photography Club"], "superlative": "Most Artistic", "quote": "Idk I threw it together during homeroom.", "seed": 202840, "selected_variant": 0, "prompt": "mixed-media yearbook portrait of a flat-shaded 2D animated cartoon character with bold black ink outlines and vivid saturated flat colors, composited seamlessly into a real photograph, A sleek flat-2D cartoon mint-green crescent-moon-headed teenager with bold black ink outlines, sharp winged eyeliner, cool half-smiling expression, tiny gold star earrings, wearing a black beret and paint-splattered charcoal overalls over a white tee, centered head-and-shoulders high school senior yearbook portrait photograph, facing slightly angled toward camera, looking directly into the lens, classic mottled slate-blue and gray Lifetouch photography studio canvas backdrop, soft front key light with subtle catchlight, crisp focus, high quality, no text, no watermark", "portrait_src": "../portraits/final/20-tessa-vector.png"}];
+
+    function setView(mode) {
+      document.body.classList.toggle('view-gallery', mode === 'gallery');
+      document.getElementById('btnBook').classList.toggle('active', mode === 'book');
+      document.getElementById('btnGallery').classList.toggle('active', mode === 'gallery');
+    }
+
+    function toggleDebug() {
+      const on = document.body.classList.toggle('show-debug');
+      document.getElementById('btnDebug').classList.toggle('active', on);
+    }
+
+    function openModal(idx) {
+      const s = STUDENTS[idx];
+      if (!s) return;
+      const photoEl = document.getElementById('modalPhoto');
+      if (s.portrait_src) {
+        const pxStyle = s.style_id === 'pixel_16bit' ? 'style="image-rendering: pixelated;"' : '';
+        photoEl.innerHTML = `<img src="${s.portrait_src}" alt="${s.name}" ${pxStyle}>`;
+      } else {
+        photoEl.innerHTML = `<div class="makeup-placeholder"><span class="makeup-badge">MAKE-UP DAY</span><span class="makeup-style">${s.style_label}</span></div>`;
+      }
+      document.getElementById('modalStyle').textContent = s.style_label;
+      document.getElementById('modalName').textContent = s.name;
+      document.getElementById('modalHandle').textContent = `${s.handle} • Seed ${s.seed}`;
+      document.getElementById('modalQuote').textContent = `“${s.quote}”`;
+      document.getElementById('modalArchetype').textContent = s.archetype;
+      document.getElementById('modalEmotion').textContent = s.micro_emotion;
+      document.getElementById('modalSuperlative').textContent = s.superlative || '—';
+      document.getElementById('modalClubs').textContent = (s.clubs || []).join(' • ') || '—';
+      document.getElementById('modalPrompt').textContent = s.prompt;
+      document.getElementById('modal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
