@@ -219,13 +219,14 @@ def build_book_html(story: dict, book_dir: Path, catalog: list[dict]) -> str:
     for ch in story.get("cast", []):
         p_src = cast_rel.get(ch["id"])
         img_tag = f'<img src="{esc(p_src)}" alt="{esc(ch["name"])}">' if p_src else '<div class="cast-ph">?</div>'
+        meta_label = f"{ch['title']} • {ch['style_label']}" if ch.get("title") else ch["style_label"]
         cast_cards_html.append(
             f"""
             <div class="cast-chip">
               <div class="cast-avatar">{img_tag}</div>
               <div class="cast-info">
                 <div class="cast-name">{esc(ch['name'])}</div>
-                <div class="cast-meta">{esc(ch['style_label'])}</div>
+                <div class="cast-meta">{esc(meta_label)}</div>
                 <div class="cast-quote">“{esc(ch.get('quote', ''))}”</div>
               </div>
             </div>"""

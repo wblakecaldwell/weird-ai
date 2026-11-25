@@ -81,6 +81,27 @@
       "portrait_raw": "../meme-yearbook/portraits/raw/06-winston-crumb_v0.png",
       "portrait_final": "../meme-yearbook/portraits/final/06-winston-crumb.webp",
       "portrait_thumb": "../meme-yearbook/portraits/thumb/06-winston-crumb.webp"
+    },
+    {
+      "id": "00-dr-arthur-raster",
+      "name": "Dr. Arthur Raster",
+      "handle": "@principal_raster",
+      "grade": "Faculty",
+      "title": "Principal, Meme Valley High School",
+      "style_id": "uncanny_photo_creature",
+      "style_label": "Photorealistic Absurd",
+      "archetype": "Weary Yet Proud School Administrator",
+      "micro_emotion": "Holding a dignified principal's smile while silently praying nobody trips over the cafeteria server rack during graduation.",
+      "visual_description": "A distinguished, slightly weathered 1990s beige CRT computer monitor head with a warm, kind, slightly tired grandfatherly face displayed in glowing green-tinted scanlines on the curved glass screen, round gold-rimmed reading glasses perched on the monitor bezel, wearing a tailored dark navy tweed blazer, crisp white dress shirt, and burgundy-and-gold striped school tie",
+      "clubs": [
+        "Faculty Senate",
+        "Emergency IT Recovery"
+      ],
+      "superlative": "Most Likely To Remind You To Save Your Work",
+      "quote": "Congratulations, Seniors. Remember to save your work.",
+      "portrait_raw": "../meme-yearbook/portraits/raw/00-dr-arthur-raster_v0.png",
+      "portrait_final": "../meme-yearbook/portraits/final/00-dr-arthur-raster.webp",
+      "portrait_thumb": "../meme-yearbook/portraits/thumb/00-dr-arthur-raster.webp"
     }
   ],
   "sheets": {},
@@ -452,25 +473,27 @@
       "page_number": 14,
       "layout": "full-bleed-caption",
       "cast_ids": [
+        "00-dr-arthur-raster",
         "01-chester-antialiased"
       ],
-      "text": "The Principal walked up to the globe and beamed with pride. He thought the students had organized a surprise donation for the school. \"This shall be the centerpiece of our new Global Initiative!\" said the Principal. Chester nodded politely, though he was currently trying to remember if the world was actually round or just a very large pancake.",
-      "beat": "The Principal mistakes the giant globe for a surprise educational donation and declares it the new centerpiece of the school's 'Global Initiative'.",
+      "text": "Principal Dr. Arthur Raster walked up to the globe and beamed with pride. He thought the students had organized a surprise donation for the school. \"This shall be the centerpiece of our new Global Initiative!\" said the Principal. Chester nodded politely, though he was currently trying to remember if the world was actually round or just a very large pancake.",
+      "beat": "Principal Dr. Arthur Raster mistakes the giant globe for a surprise educational donation and declares it the new centerpiece of the school's 'Global Initiative'.",
       "connector": "BUT",
       "camera_angle": "Medium shot",
-      "scene_description": "A portly Principal in a brown suit is beaming with pride, gesturing toward the giant globe. Chester Antialiased stands beside him, looking confused, with a thought bubble showing a large, flat pancake with syrup on it.",
+      "scene_description": "Inside the sunlit 1950s classroom, Principal Dr. Arthur Raster stands clearly in the center, fully visible and unobstructed, wearing his dark navy tweed blazer, white shirt, and burgundy-and-gold striped tie. Exactly as in Image 1, he has NO human head \u2014 his head IS a square beige 1990s CRT computer monitor resting directly on his shoulders and collar, with his warm smiling grandfatherly face, white mustache, and round gold-rimmed glasses glowing on the green-striped CRT screen. He beams proudly and gestures warmly with one hand toward the colossal globe wedged in the classroom window on the left. Beside him on the right stands Chester Antialiased, the green 16-bit pixel-art goblin-boy, nodding politely with a confused expression, while a small comic thought bubble above Chester's head shows a flat golden pixelated breakfast pancake with melting butter and syrup. No computer monitors appear anywhere else in the room.",
       "lighting_mood": "Warm, celebratory glow",
-      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 1 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Medium shot. Scene action: A portly Principal in a brown suit is beaming with pride, gesturing toward the giant globe. Chester Antialiased stands beside him, looking confused, with a thought bubble showing a large, flat pancake with syrup on it. Lighting and mood: Warm, celebratory glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
-      "seed": 336629,
+      "prompt": "1950s Little Golden Book mid-century children's storybook illustration background, lush hand-painted matte gouache and tempera brushwork, warm nostalgic mid-century color palette (mustard gold, dusty teal, coral red, sage green, warm cream), subtle vintage printed picture-book paper grain, charmingly earnest 1950s suburban and high-school Americana environment, mixed-media Gumball-style visual contrast where the bizarre multi-medium characters physically inhabit and cast natural shadows inside the painted 1950s storybook world, crisp storytelling composition, zero text, zero speech bubbles, zero watermarks. Image 1 is Dr. Arthur Raster (Photorealistic Absurd), who MUST keep their exact CRT computer-monitor head, face on screen, silhouette, colors, and navy tweed suit with burgundy-and-gold striped tie from Image 1 and remains a startlingly photorealistic real-world object/creature with lifelike studio textures and real tailored fabric clothing. Image 2 is Chester Antialiased (16-Bit Pixel Sprite), who MUST keep their exact face, silhouette, colors, and outfit from Image 2 and remains a crisp 16-bit retro pixel-art video game sprite with chunky visible square pixels and dark pixel outlines, composited right into the painted world. Camera angle and framing: Medium shot. Scene action: Inside the sunlit 1950s classroom, Principal Dr. Arthur Raster stands clearly in the center, fully visible and unobstructed, wearing his dark navy tweed blazer, white shirt, and burgundy-and-gold striped tie. Exactly as in Image 1, he has NO human head \u2014 his head IS a square beige 1990s CRT computer monitor resting directly on his shoulders and collar, with his warm smiling grandfatherly face, white mustache, and round gold-rimmed glasses glowing on the green-striped CRT screen. He beams proudly and gestures warmly with one hand toward the colossal globe wedged in the classroom window on the left. Beside him on the right stands Chester Antialiased, the green 16-bit pixel-art goblin-boy, nodding politely with a confused expression, while a small comic thought bubble above Chester's head shows a flat golden pixelated breakfast pancake with melting butter and syrup. No computer monitors appear anywhere else in the room. Lighting and mood: Warm, celebratory glow. Every character from the reference images appears clearly recognizable, full of expressive body language, interacting naturally with the painted 1950s environment. No text, no words, no captions.",
+      "seed": 336630,
       "image": "art/page_14.png",
       "render_meta": {
         "model": "flux2-klein-4b",
-        "seed": 336629,
+        "seed": 336630,
         "steps": 4,
         "refs": [
+          "00-dr-arthur-raster_v0.png",
           "01-chester-antialiased_v0.png"
         ],
-        "elapsed_s": 10.9
+        "elapsed_s": 16.1
       }
     },
     {

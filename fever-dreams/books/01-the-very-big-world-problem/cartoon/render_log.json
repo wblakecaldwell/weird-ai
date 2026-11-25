@@ -399,6 +399,361 @@
         "subtitles": "01-the-very-big-world-problem.srt",
         "duration_s": 525.1
       }
+    },
+    {
+      "step": "voices",
+      "started_at": "2026-11-25T19:16:39+00:00",
+      "finished_at": "2026-11-25T19:16:42+00:00",
+      "argv": [
+        "render_voices.py",
+        "books/01-the-very-big-world-problem/cartoon/script.json"
+      ],
+      "python": "3.12.14",
+      "settings": {
+        "voice_design_model": "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-8bit",
+        "clone_model": "mlx-community/Qwen3-TTS-12Hz-1.7B-Base-8bit",
+        "kokoro_model": "mlx-community/Kokoro-82M-bf16",
+        "narrator_engine": "kokoro",
+        "roles": {
+          "chester": {
+            "engine": "qwen_clone",
+            "seed": 1601,
+            "ffmpeg_fx": "aresample=22050,acrusher=bits=11:mode=log:mix=0.28,aresample=24000,highpass=f=120,acompressor=threshold=-18dB:ratio=2.5"
+          },
+          "marisol": {
+            "engine": "qwen_clone",
+            "seed": 3003,
+            "ffmpeg_fx": "asetrate=24000*1.05,atempo=1/1.05,aresample=24000,highpass=f=140,equalizer=f=3200:width_type=q:width=1.4:g=3.0"
+          },
+          "narrator": {
+            "engine": "kokoro",
+            "kokoro_voice": "bm_george",
+            "speed": 0.96,
+            "seed": 1955,
+            "ffmpeg_fx": "highpass=f=90,lowpass=f=7500,equalizer=f=2400:width_type=q:width=1.2:g=2.5,acompressor=threshold=-18dB:ratio=2.5"
+          },
+          "principal": {
+            "engine": "qwen_clone",
+            "seed": 5005,
+            "ffmpeg_fx": "highpass=f=240,lowpass=f=4200,equalizer=f=1600:width_type=q:width=1.1:g=3.5,acompressor=threshold=-16dB:ratio=3.0"
+          },
+          "teacher": {
+            "engine": "qwen_clone",
+            "seed": 4004,
+            "ffmpeg_fx": "highpass=f=110,lowpass=f=7200"
+          },
+          "winston": {
+            "engine": "qwen_clone",
+            "seed": 6006,
+            "ffmpeg_fx": "asetrate=24000*1.07,atempo=1/1.07,aresample=24000,lowpass=f=5200,equalizer=f=350:width_type=q:width=1.0:g=2.0"
+          }
+        },
+        "voice_refs": {
+          "chester": "cartoon/voice_refs/chester_ref.wav",
+          "marisol": "cartoon/voice_refs/marisol_ref.wav",
+          "principal": "cartoon/voice_refs/principal_ref.wav",
+          "teacher": "cartoon/voice_refs/teacher_ref.wav",
+          "winston": "cartoon/voice_refs/winston_ref.wav"
+        },
+        "overwrite": false
+      },
+      "items": [
+        {
+          "page_number": 14,
+          "segment": 0,
+          "speaker": "narrator",
+          "engine": "kokoro",
+          "attempts": 1,
+          "ok": true,
+          "check": "5.65s rms=0.156",
+          "audio": "voices/fx/p14_s00_narrator.wav",
+          "at": "2026-11-25T19:16:42+00:00"
+        }
+      ],
+      "summary": {
+        "lines_rendered": 1,
+        "warnings": 0
+      }
+    },
+    {
+      "step": "animate",
+      "started_at": "2026-11-25T19:16:43+00:00",
+      "finished_at": "2026-11-25T19:19:39+00:00",
+      "argv": [
+        "animate_book.py",
+        "books/01-the-very-big-world-problem/cartoon/script.json",
+        "--only-pages",
+        "14",
+        "--frames",
+        "121",
+        "--overwrite"
+      ],
+      "python": "3.12.14",
+      "settings": {
+        "pipeline": "ltx_pipelines_mlx.DistilledPipeline",
+        "model": "ltx-2.5-q8",
+        "width": 896,
+        "height": 768,
+        "frames": 121,
+        "fps": 24.0,
+        "base_seed": 1955,
+        "seed_rule": "base_seed + page_number * 37",
+        "low_ram": false,
+        "only_pages": [
+          14
+        ],
+        "overwrite": true
+      },
+      "items": [
+        {
+          "page_number": 14,
+          "kind": "page",
+          "clip": "clips/clip_14.mp4",
+          "source_image": "art/page_14.png",
+          "seed": 2473,
+          "prompt": "Principal Dr. Arthur Raster gestures broadly toward the giant globe as his photorealistic beige CRT monitor head tilts slightly and his warm smiling grandfatherly face flickers softly with glowing green scanlines behind his round glasses. Chester, a 16-bit pixel sprite, performs a stiff, frame-by-frame nod while the pancake thought bubble gently pulses against the hand-painted 1950s gouache classroom background. Ambient audio: soft orchestral swell, subtle CRT hum, pixelated blink.",
+          "elapsed_s": 176.2,
+          "at": "2026-11-25T19:19:39+00:00"
+        }
+      ],
+      "summary": {
+        "clips_rendered": 1
+      }
+    },
+    {
+      "step": "assemble",
+      "started_at": "2026-11-25T19:20:11+00:00",
+      "finished_at": "2026-11-25T19:21:26+00:00",
+      "argv": [
+        "assemble_cartoon.py",
+        "books/01-the-very-big-world-problem/cartoon/script_voiced.json"
+      ],
+      "python": "3.12.14",
+      "settings": {
+        "fps": 24,
+        "width": 896,
+        "height": 768,
+        "subtitles": true,
+        "video_codec": "libx264 crf 16",
+        "audio": "aac 192k, LTX ambient ducked to 0.08"
+      },
+      "items": [
+        {
+          "page_number": 0,
+          "kind": "cover",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 8.75,
+          "shot_s": 8.75,
+          "captions": 1,
+          "at": "2026-11-25T19:20:13+00:00"
+        },
+        {
+          "page_number": 1,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 30.12,
+          "shot_s": 30.12,
+          "captions": 5,
+          "at": "2026-11-25T19:20:17+00:00"
+        },
+        {
+          "page_number": 2,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 28.41,
+          "shot_s": 28.42,
+          "captions": 5,
+          "at": "2026-11-25T19:20:20+00:00"
+        },
+        {
+          "page_number": 3,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 27.99,
+          "shot_s": 28.0,
+          "captions": 4,
+          "at": "2026-11-25T19:20:24+00:00"
+        },
+        {
+          "page_number": 4,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 27.91,
+          "shot_s": 27.92,
+          "captions": 5,
+          "at": "2026-11-25T19:20:28+00:00"
+        },
+        {
+          "page_number": 5,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 26.59,
+          "shot_s": 26.62,
+          "captions": 4,
+          "at": "2026-11-25T19:20:31+00:00"
+        },
+        {
+          "page_number": 6,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 26.39,
+          "shot_s": 26.42,
+          "captions": 5,
+          "at": "2026-11-25T19:20:35+00:00"
+        },
+        {
+          "page_number": 7,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 25.87,
+          "shot_s": 25.88,
+          "captions": 5,
+          "at": "2026-11-25T19:20:39+00:00"
+        },
+        {
+          "page_number": 8,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.11,
+          "shot_s": 24.12,
+          "captions": 4,
+          "at": "2026-11-25T19:20:42+00:00"
+        },
+        {
+          "page_number": 9,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.72,
+          "shot_s": 24.75,
+          "captions": 4,
+          "at": "2026-11-25T19:20:45+00:00"
+        },
+        {
+          "page_number": 10,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 27.45,
+          "shot_s": 27.46,
+          "captions": 5,
+          "at": "2026-11-25T19:20:49+00:00"
+        },
+        {
+          "page_number": 11,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 23.6,
+          "shot_s": 23.62,
+          "captions": 4,
+          "at": "2026-11-25T19:20:53+00:00"
+        },
+        {
+          "page_number": 12,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.54,
+          "shot_s": 24.58,
+          "captions": 5,
+          "at": "2026-11-25T19:20:56+00:00"
+        },
+        {
+          "page_number": 13,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.05,
+          "shot_s": 24.08,
+          "captions": 5,
+          "at": "2026-11-25T19:21:00+00:00"
+        },
+        {
+          "page_number": 14,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 25.93,
+          "shot_s": 25.96,
+          "captions": 4,
+          "at": "2026-11-25T19:21:04+00:00"
+        },
+        {
+          "page_number": 15,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 25.29,
+          "shot_s": 25.33,
+          "captions": 4,
+          "at": "2026-11-25T19:21:08+00:00"
+        },
+        {
+          "page_number": 16,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 23.28,
+          "shot_s": 23.29,
+          "captions": 4,
+          "at": "2026-11-25T19:21:11+00:00"
+        },
+        {
+          "page_number": 17,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 22.05,
+          "shot_s": 22.08,
+          "captions": 3,
+          "at": "2026-11-25T19:21:15+00:00"
+        },
+        {
+          "page_number": 18,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 26.57,
+          "shot_s": 26.58,
+          "captions": 4,
+          "at": "2026-11-25T19:21:18+00:00"
+        },
+        {
+          "page_number": 19,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 23.87,
+          "shot_s": 23.88,
+          "captions": 4,
+          "at": "2026-11-25T19:21:22+00:00"
+        },
+        {
+          "page_number": 20,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.1,
+          "shot_s": 24.12,
+          "captions": 3,
+          "at": "2026-11-25T19:21:26+00:00"
+        }
+      ],
+      "summary": {
+        "output": "01-the-very-big-world-problem.mp4",
+        "subtitles": "01-the-very-big-world-problem.srt",
+        "duration_s": 526.5
+      }
     }
   ]
 }

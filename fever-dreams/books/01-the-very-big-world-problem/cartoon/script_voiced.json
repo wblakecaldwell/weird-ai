@@ -27,6 +27,14 @@
       "style_id": "felt_puppet",
       "style_label": "Fuzzy Felt Puppet",
       "archetype": "Mildly Alarmed By Everyday Noises"
+    },
+    {
+      "id": "00-dr-arthur-raster",
+      "speaker_id": "principal",
+      "name": "Dr. Arthur Raster",
+      "style_id": "uncanny_photo_creature",
+      "style_label": "Photorealistic Absurd",
+      "archetype": "Weary Yet Proud School Administrator"
     }
   ],
   "shots": [
@@ -600,14 +608,14 @@
       "page_number": 14,
       "kind": "page",
       "image": "art/page_14.png",
-      "original_text": "The Principal walked up to the globe and beamed with pride. He thought the students had organized a surprise donation for the school. \"This shall be the centerpiece of our new Global Initiative!\" said the Principal. Chester nodded politely, though he was currently trying to remember if the world was actually round or just a very large pancake.",
+      "original_text": "Principal Dr. Arthur Raster walked up to the globe and beamed with pride. He thought the students had organized a surprise donation for the school. \"This shall be the centerpiece of our new Global Initiative!\" said the Principal. Chester nodded politely, though he was currently trying to remember if the world was actually round or just a very large pancake.",
       "segments": [
         {
           "speaker": "narrator",
-          "text": "The Principal walked up to the globe and beamed with pride.",
+          "text": "Principal Dr. Arthur Raster walked up to the globe and beamed with pride.",
           "delivery": "warm, storybook cadence",
           "audio_path": "voices/fx/p14_s00_narrator.wav",
-          "duration_s": 4.25
+          "duration_s": 5.65
         },
         {
           "speaker": "narrator",
@@ -631,8 +639,8 @@
           "duration_s": 9.05
         }
       ],
-      "motion_prompt": "The Principal gestures broadly toward the globe with a proud smile. Chester, a 16-bit pixel sprite, performs a stiff, frame-by-frame nod while the pancake thought bubble gently pulses against the hand-painted gouache background.",
-      "sfx_cue": "soft orchestral swell, pixelated blink"
+      "motion_prompt": "Principal Dr. Arthur Raster gestures broadly toward the giant globe as his photorealistic beige CRT monitor head tilts slightly and his warm smiling grandfatherly face flickers softly with glowing green scanlines behind his round glasses. Chester, a 16-bit pixel sprite, performs a stiff, frame-by-frame nod while the pancake thought bubble gently pulses against the hand-painted 1950s gouache classroom background.",
+      "sfx_cue": "soft orchestral swell, subtle CRT hum, pixelated blink"
     },
     {
       "page_number": 15,
