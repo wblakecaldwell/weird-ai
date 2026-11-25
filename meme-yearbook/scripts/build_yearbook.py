@@ -863,8 +863,21 @@ def build_html(roster: dict) -> str:
     }}
     .modal-kv {{ font-size: 13px; line-height: 1.45; }}
     .modal-kv strong {{ color: var(--navy); }}
-    .modal-prompt {{
+    .modal-prompt-wrap {{
       margin-top: auto;
+      padding-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }}
+    .modal-prompt-label {{
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }}
+    .modal-prompt {{
       background: #ece7db;
       border: 1px solid #d7cfbe;
       padding: 10px;
@@ -1061,7 +1074,10 @@ def build_html(roster: dict) -> str:
         <div class="modal-kv"><strong>The Vibe:</strong> <span id="modalEmotion"></span></div>
         <div class="modal-kv"><strong>Superlative:</strong> <span id="modalSuperlative"></span></div>
         <div class="modal-kv"><strong>Activities:</strong> <span id="modalClubs"></span></div>
-        <div class="modal-prompt" id="modalPrompt"></div>
+        <div class="modal-prompt-wrap">
+          <div class="modal-prompt-label">AI Portrait Prompt</div>
+          <div class="modal-prompt" id="modalPrompt"></div>
+        </div>
       </div>
     </div>
   </div>
