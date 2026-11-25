@@ -6,6 +6,23 @@
     "motto": "Ctrl + Alt + Graduate",
     "edition": "Vol. 42 — Demo Edition (20 Seniors)"
   },
+  "principal": {
+    "id": "00-dr-arthur-raster",
+    "name": "Dr. Arthur Raster",
+    "title": "Principal, Meme Valley High School",
+    "handle": "@principal_raster",
+    "grade": "Faculty",
+    "style_id": "uncanny_photo_creature",
+    "style_label": "Photorealistic Absurd",
+    "archetype": "Weary Yet Proud School Administrator",
+    "micro_emotion": "Holding a dignified principal's smile while silently praying nobody trips over the cafeteria server rack during graduation.",
+    "visual_description": "A distinguished, slightly weathered 1990s beige CRT computer monitor head with a warm, kind, slightly tired grandfatherly face displayed in glowing green-tinted scanlines on the curved glass screen, round gold-rimmed reading glasses perched on the monitor bezel, wearing a tailored dark navy tweed blazer, crisp white dress shirt, and burgundy-and-gold striped school tie",
+    "clubs": ["Faculty Senate", "Emergency IT Recovery"],
+    "superlative": "Most Likely To Remind You To Save Your Work",
+    "quote": "Congratulations, Seniors. Remember to save your work.",
+    "seed": 202500,
+    "selected_variant": 0
+  },
   "generated_by": "starter-seed (re-run scripts/generate_roster.py with LM Studio to regenerate)",
   "students": [
     {

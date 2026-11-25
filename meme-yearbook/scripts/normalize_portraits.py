@@ -90,9 +90,12 @@ def main() -> None:
         sys.exit(1)
 
     roster = json.loads(args.roster.read_text(encoding="utf-8"))
+    subjects = list(roster["students"])
+    if roster.get("principal"):
+        subjects.insert(0, roster["principal"])
     count = 0
 
-    for student in roster["students"]:
+    for student in subjects:
         variant = int(student.get("selected_variant", 0))
         raw_path = RAW_DIR / f"{student['id']}_v{variant}.png"
         if not raw_path.exists():

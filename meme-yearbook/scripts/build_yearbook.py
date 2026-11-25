@@ -153,6 +153,29 @@ def build_html(roster: dict) -> str:
     )
 
     generated_count = sum(1 for st in students if portrait_rel_src(st["id"]) is not None)
+    principal = roster.get("principal")
+    principal_src = portrait_rel_src(principal["id"]) if principal else None
+    principal_name = principal["name"] if principal else "Dr. Arthur Raster"
+    principal_title = principal.get("title") if principal else f"Principal, {school['name']}"
+    principal_photo_html = (
+        f'<div class="principal-portrait" onclick="openModal(\'principal\')" title="Click to inspect Principal portrait">'
+        f'<img src="{esc(principal_src)}" alt="{esc(principal_name)}">'
+        f"</div>"
+        if principal_src
+        else ""
+    )
+    principal_json = (
+        json.dumps(
+            {
+                **principal,
+                "prompt": principal.get("prompt")
+                or build_image_prompt(principal["style_id"], principal["visual_description"]),
+                "portrait_src": principal_src,
+            }
+        ).replace("</", "<\\/")
+        if principal
+        else "null"
+    )
     students_json = json.dumps(
         [
             {
@@ -610,8 +633,35 @@ def build_html(roster: dict) -> str:
       color: #262b36;
     }}
     .letter-body p {{ margin: 0 0 12px; }}
-    .signature {{
+    .signature-row {{
       margin-top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }}
+    .principal-portrait {{
+      width: 92px;
+      flex: 0 0 92px;
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(160deg, #5d7491 0%, #3d5169 100%);
+      border: 3px solid #ffffff;
+      box-shadow:
+        0 0 0 1px rgba(20, 33, 61, 0.22),
+        0 4px 10px rgba(20, 24, 34, 0.16);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.14s ease;
+    }}
+    .principal-portrait:hover {{
+      transform: translateY(-2px);
+    }}
+    .principal-portrait img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }}
+    .signature {{
       font-family: "Playfair Display", Georgia, serif;
       font-style: italic;
       font-size: 20px;
@@ -738,6 +788,24 @@ def build_html(roster: dict) -> str:
       margin: 0;
       font-size: 11.5px;
       color: var(--muted);
+    }}
+    .colophon-note {{
+      margin: 18px 0 0;
+      text-align: center;
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: var(--muted);
+    }}
+    .colophon-note a {{
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(201, 162, 39, 0.75);
+      text-underline-offset: 2px;
+    }}
+    .colophon-note a:hover {{
+      color: var(--navy-deep);
+      text-decoration-color: var(--gold);
     }}
 
     /* Flat Gallery View Mode */
@@ -968,9 +1036,12 @@ def build_html(roster: dict) -> str:
             at 96×120 resolution, never forget who you were on Picture Day.
           </p>
           <p>Congratulations, Seniors. Remember to save your work.</p>
-          <div class="signature">
-            Dr. Arthur Raster
-            <small>Principal, {esc(school['name'])}</small>
+          <div class="signature-row">
+            {principal_photo_html}
+            <div class="signature">
+              {esc(principal_name)}
+              <small>{esc(principal_title)}</small>
+            </div>
           </div>
         </div>
         <footer class="page-footer">
@@ -1014,6 +1085,10 @@ def build_html(roster: dict) -> str:
           <h4>Click Any Senior Portrait</h4>
           <p>Inspect their full meme archetype, relatable micro-emotion, clubs, superlative, and generation prompt.</p>
         </div>
+        <p class="colophon-note">
+          Printed locally with open-weights AI. Want to enroll your own class?<br />
+          <a href="https://github.com/wblakecaldwell/weird-ai/tree/main/meme-yearbook" target="_blank" rel="noopener noreferrer">Build your own meme yearbook on GitHub &rarr;</a>
+        </p>
         <footer class="page-footer">
           <span class="school-foot">{esc(school['name'].upper())}</span>
           <span class="page-number">03</span>
@@ -1084,6 +1159,7 @@ def build_html(roster: dict) -> str:
 
   <script>
     const STUDENTS = {students_json};
+    const PRINCIPAL = {principal_json};
 
     function setView(mode) {{
       document.body.classList.toggle('view-gallery', mode === 'gallery');
@@ -1097,7 +1173,7 @@ def build_html(roster: dict) -> str:
     }}
 
     function openModal(idx) {{
-      const s = STUDENTS[idx];
+      const s = idx === 'principal' ? PRINCIPAL : STUDENTS[idx];
       if (!s) return;
       const photoEl = document.getElementById('modalPhoto');
       if (s.portrait_src) {{

@@ -120,7 +120,9 @@ def main() -> None:
         sys.exit(1)
 
     roster = json.loads(args.roster.read_text(encoding="utf-8"))
-    students = roster["students"]
+    students = list(roster["students"])
+    if roster.get("principal"):
+        students.insert(0, roster["principal"])
 
     if args.only:
         needle = args.only.lower()
