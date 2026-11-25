@@ -55,6 +55,6 @@ uv run python scripts/normalize_portraits.py
 ### 4. Build the Class of 2025 HTML Yearbook
 ```bash
 uv run python scripts/build_yearbook.py
-open site/index.html
+open index.html
 ```
 Use **Print / Save PDF** in the top toolbar to export a clean multi-page PDF.

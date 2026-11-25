@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ROSTER = ROOT / "data" / "roster.json"
 FINAL_DIR = ROOT / "portraits" / "final"
 RAW_DIR = ROOT / "portraits" / "raw"
-SITE_OUT = ROOT / "site" / "index.html"
+SITE_OUT = ROOT / "index.html"
 
 
 def esc(val: str) -> str:
@@ -28,10 +28,10 @@ def esc(val: str) -> str:
 def portrait_rel_src(student_id: str) -> str | None:
     final_path = FINAL_DIR / f"{student_id}.png"
     if final_path.exists():
-        return f"../portraits/final/{student_id}.png"
+        return f"portraits/final/{student_id}.png"
     raw_path = RAW_DIR / f"{student_id}_v0.png"
     if raw_path.exists():
-        return f"../portraits/raw/{student_id}_v0.png"
+        return f"portraits/raw/{student_id}_v0.png"
     return None
 
 
