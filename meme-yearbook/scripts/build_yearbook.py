@@ -26,7 +26,14 @@ def esc(val: str) -> str:
     return html.escape(str(val or ""), quote=True)
 
 
-def portrait_rel_src(student_id: str) -> str | None:
+def portrait_rel_src(student: dict) -> str | None:
+    portraits = student.get("portraits")
+    if isinstance(portraits, dict):
+        for key in ("final", "raw"):
+            rel = portraits.get(key)
+            if rel and (ROOT / rel).exists():
+                return rel
+    student_id = student["id"]
     final_webp = FINAL_DIR / f"{student_id}.webp"
     if final_webp.exists():
         return f"portraits/final/{student_id}.webp"
@@ -39,15 +46,21 @@ def portrait_rel_src(student_id: str) -> str | None:
     return None
 
 
-def portrait_thumb_src(student_id: str) -> str | None:
+def portrait_thumb_src(student: dict) -> str | None:
+    portraits = student.get("portraits")
+    if isinstance(portraits, dict):
+        rel = portraits.get("thumb")
+        if rel and (ROOT / rel).exists():
+            return rel
+    student_id = student["id"]
     thumb_path = THUMB_DIR / f"{student_id}.webp"
     if thumb_path.exists():
         return f"portraits/thumb/{student_id}.webp"
-    return portrait_rel_src(student_id)
+    return portrait_rel_src(student)
 
 
 def render_portrait_card(student: dict, index: int) -> str:
-    src = portrait_thumb_src(student["id"])
+    src = portrait_thumb_src(student)
     clubs_str = " • ".join(student.get("clubs", []))
     if src:
         media_html = f'<img src="{esc(src)}" alt="{esc(student["name"])}" loading="lazy">'
@@ -137,11 +150,11 @@ def build_html(roster: dict) -> str:
     # Build Superlatives showcase (pick up to 6 students with portraits first)
     sup_candidates = sorted(
         indexed,
-        key=lambda pair: (portrait_rel_src(pair[1]["id"]) is None, pair[0]),
+        key=lambda pair: (portrait_rel_src(pair[1]) is None, pair[0]),
     )[:6]
     sup_cards = []
     for idx, st in sup_candidates:
-        src = portrait_thumb_src(st["id"])
+        src = portrait_thumb_src(st)
         img_tag = (
             f'<img src="{esc(src)}" alt="{esc(st["name"])}" loading="lazy">'
             if src
@@ -263,12 +276,12 @@ def build_html(roster: dict) -> str:
     </div>"""
             )
 
-    generated_count = sum(1 for st in students if portrait_rel_src(st["id"]) is not None)
+    generated_count = sum(1 for st in students if portrait_rel_src(st) is not None)
     style_count = len({st["style_id"] for st in students})
     pixel_count = sum(1 for st in students if st["style_id"] == "pixel_16bit")
     principal = roster.get("principal")
-    principal_full_src = portrait_rel_src(principal["id"]) if principal else None
-    principal_thumb = portrait_thumb_src(principal["id"]) if principal else None
+    principal_full_src = portrait_rel_src(principal) if principal else None
+    principal_thumb = portrait_thumb_src(principal) if principal else None
     principal_name = principal["name"] if principal else "Dr. Arthur Raster"
     principal_title = principal.get("title") if principal else f"Principal, {school['name']}"
     principal_photo_html = (
@@ -295,7 +308,7 @@ def build_html(roster: dict) -> str:
             {
                 **st,
                 "prompt": st.get("prompt") or build_image_prompt(st["style_id"], st["visual_description"]),
-                "portrait_src": portrait_rel_src(st["id"]),
+                "portrait_src": portrait_rel_src(st),
             }
             for st in students
         ]

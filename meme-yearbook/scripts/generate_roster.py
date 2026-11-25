@@ -403,6 +403,11 @@ def main() -> None:
                 "quote": item.get("quote", "").strip(),
                 "seed": 202500 + slot_num * 17,
                 "selected_variant": 0,
+                "portraits": {
+                    "raw": None,
+                    "final": None,
+                    "thumb": None,
+                },
             }
             all_students.append(record)
             existing_names.append(record["name"])

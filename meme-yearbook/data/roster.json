@@ -24,7 +24,12 @@
     "superlative": "Most Likely To Remind You To Save Your Work",
     "quote": "Congratulations, Seniors. Remember to save your work.",
     "seed": 202500,
-    "selected_variant": 0
+    "selected_variant": 0,
+    "portraits": {
+      "raw": "portraits/raw/00-dr-arthur-raster_v0.png",
+      "final": "portraits/final/00-dr-arthur-raster.webp",
+      "thumb": "portraits/thumb/00-dr-arthur-raster.webp"
+    }
   },
   "generated_by": "qwen3-vl-30b-a3b-instruct-mlx",
   "students": [
@@ -46,7 +51,12 @@
       "superlative": "Most Likely To Nod Along In Silence",
       "quote": "Haha yeah totally (I did not hear a single syllable).",
       "seed": 202517,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/01-chester-antialiased_v0.png",
+        "final": "portraits/final/01-chester-antialiased.webp",
+        "thumb": "portraits/thumb/01-chester-antialiased.webp"
+      }
     },
     {
       "id": "02-gavin-bloatware",
@@ -66,7 +76,12 @@
       "superlative": "Most Likely To Break Your Wi-Fi",
       "quote": "Have you tried deleting System32? Worked on my cousin's Dell.",
       "seed": 202534,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/02-gavin-bloatware_v0.png",
+        "final": "portraits/final/02-gavin-bloatware.webp",
+        "thumb": "portraits/thumb/02-gavin-bloatware.webp"
+      }
     },
     {
       "id": "23-zephyr-bolt",
@@ -87,7 +102,12 @@
       "superlative": "Most Likely To Ask Why the Hallway Lights Are Always On",
       "quote": "Never trust a smile that doesn\u2019t have a reason.",
       "seed": 202891,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/23-zephyr-bolt_v0.png",
+        "final": "portraits/final/23-zephyr-bolt.webp",
+        "thumb": "portraits/thumb/23-zephyr-bolt.webp"
+      }
     },
     {
       "id": "03-marisol-brittle",
@@ -107,7 +127,12 @@
       "superlative": "Most Likely To Start A Hobby At 2 AM",
       "quote": "Sleep is temporary, color-coded Google Docs are forever.",
       "seed": 202551,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/03-marisol-brittle_v0.png",
+        "final": "portraits/final/03-marisol-brittle.webp",
+        "thumb": "portraits/thumb/03-marisol-brittle.webp"
+      }
     },
     {
       "id": "67-cassius-bumble",
@@ -128,7 +153,12 @@
       "superlative": "Most Likely To Mispronounce Your Name With Confidence",
       "quote": "Effective immediately, I am no longer responsible for remembering names. My toaster brain has reached capacity.",
       "seed": 203639,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/67-cassius-bumble_v0.png",
+        "final": "portraits/final/67-cassius-bumble.webp",
+        "thumb": "portraits/thumb/67-cassius-bumble.webp"
+      }
     },
     {
       "id": "97-finn-bumble",
@@ -149,7 +179,12 @@
       "superlative": "Most Likely To Give Unasked Advice on How to Fold a Napkin",
       "quote": "Warning: Do not attempt to use the overhead projector without first aligning the lens.",
       "seed": 204149,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/97-finn-bumble_v0.png",
+        "final": "portraits/final/97-finn-bumble.webp",
+        "thumb": "portraits/thumb/97-finn-bumble.webp"
+      }
     },
     {
       "id": "52-mira-bumble",
@@ -170,7 +205,12 @@
       "superlative": "Most Likely To Present a 3-Page Essay on Stapler Etiquette",
       "quote": "Whoever left the blue pen in my locker for three years\u2014still owe me a refund.",
       "seed": 203384,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/52-mira-bumble_v0.png",
+        "final": "portraits/final/52-mira-bumble.webp",
+        "thumb": "portraits/thumb/52-mira-bumble.webp"
+      }
     },
     {
       "id": "82-remy-bumble",
@@ -191,7 +231,12 @@
       "superlative": "Most Likely To Hold a Door Open for Someone Who Never Comes",
       "quote": "To the person who forgot their lunch\u2014still waiting.",
       "seed": 203894,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/82-remy-bumble_v0.png",
+        "final": "portraits/final/82-remy-bumble.webp",
+        "thumb": "portraits/thumb/82-remy-bumble.webp"
+      }
     },
     {
       "id": "112-ulysses-bumble",
@@ -212,7 +257,12 @@
       "superlative": "Most Likely To Believe He\u2019s the Project Lead",
       "quote": "Whoever left their half-finished poster in my locker still owes me a grade for emotional labor.",
       "seed": 204404,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/112-ulysses-bumble_v0.png",
+        "final": "portraits/final/112-ulysses-bumble.webp",
+        "thumb": "portraits/thumb/112-ulysses-bumble.webp"
+      }
     },
     {
       "id": "37-zane-bumble",
@@ -233,7 +283,12 @@
       "superlative": "Most Likely To Give Bad Advice with Confidence",
       "quote": "Warning: Do not follow the red path. It leads to a broken vending machine.",
       "seed": 203129,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/37-zane-bumble_v0.png",
+        "final": "portraits/final/37-zane-bumble.webp",
+        "thumb": "portraits/thumb/37-zane-bumble.webp"
+      }
     },
     {
       "id": "49-cassie-clink",
@@ -254,7 +309,12 @@
       "superlative": "Most Likely To Argue That Sporks Are Healthy",
       "quote": "Warning: Do not eat the green Jell-O unless it\u2019s been approved by a spoon.",
       "seed": 203333,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/49-cassie-clink_v0.png",
+        "final": "portraits/final/49-cassie-clink.webp",
+        "thumb": "portraits/thumb/49-cassie-clink.webp"
+      }
     },
     {
       "id": "79-finn-clink",
@@ -275,7 +335,12 @@
       "superlative": "Most Likely To Nod Through a 10-Minute Monologue",
       "quote": "Effective immediately, I resign from all conversations after 30 seconds.",
       "seed": 203843,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/79-finn-clink_v0.png",
+        "final": "portraits/final/79-finn-clink.webp",
+        "thumb": "portraits/thumb/79-finn-clink.webp"
+      }
     },
     {
       "id": "109-juno-clink",
@@ -296,7 +361,12 @@
       "superlative": "Most Likely To Defend the Cheese Stick\u2019s Right to Exist",
       "quote": "Warning: Do not attempt to eat a cheese stick without first performing the sacred fork ritual.",
       "seed": 204353,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/109-juno-clink_v0.png",
+        "final": "portraits/final/109-juno-clink.webp",
+        "thumb": "portraits/thumb/109-juno-clink.webp"
+      }
     },
     {
       "id": "34-milo-clink",
@@ -317,7 +387,12 @@
       "superlative": "Most Likely To Freeze Mid-Dialogue",
       "quote": "To the person who accidentally made eye contact with me in the hallway \u2014 I\u2019m still processing.",
       "seed": 203078,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/34-milo-clink_v0.png",
+        "final": "portraits/final/34-milo-clink.webp",
+        "thumb": "portraits/thumb/34-milo-clink.webp"
+      }
     },
     {
       "id": "94-ulysses-clink",
@@ -338,7 +413,12 @@
       "superlative": "Most Likely To Freeze Mid-Stride When You Look Up",
       "quote": "To the person who saw me staring\u2014my eyes were just... adjusting.",
       "seed": 204098,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/94-ulysses-clink_v0.png",
+        "final": "portraits/final/94-ulysses-clink.webp",
+        "thumb": "portraits/thumb/94-ulysses-clink.webp"
+      }
     },
     {
       "id": "04-chloe-clipping",
@@ -358,7 +438,12 @@
       "superlative": "Most Likely To Submit At 11:59 PM",
       "quote": "Nobody touch slide 7, it is load-bearing.",
       "seed": 202568,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/04-chloe-clipping_v0.png",
+        "final": "portraits/final/04-chloe-clipping.webp",
+        "thumb": "portraits/thumb/04-chloe-clipping.webp"
+      }
     },
     {
       "id": "05-braxton-crinkle",
@@ -378,7 +463,12 @@
       "superlative": "Most Likely To Cite A Loophole",
       "quote": "Read paragraph 4 subsection B of the handbook and weep.",
       "seed": 202585,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/05-braxton-crinkle_v0.png",
+        "final": "portraits/final/05-braxton-crinkle.webp",
+        "thumb": "portraits/thumb/05-braxton-crinkle.webp"
+      }
     },
     {
       "id": "64-remy-crumb",
@@ -399,7 +489,12 @@
       "superlative": "Most Likely To Carry Everything At Once",
       "quote": "Whoever left the stapler in the supply closet for 3 years gets a gold star.",
       "seed": 203588,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/64-remy-crumb_v0.png",
+        "final": "portraits/final/64-remy-crumb.webp",
+        "thumb": "portraits/thumb/64-remy-crumb.webp"
+      }
     },
     {
       "id": "06-winston-crumb",
@@ -419,7 +514,12 @@
       "superlative": "Most Likely To Jump At The Bell",
       "quote": "I was promised this hallway would be quieter.",
       "seed": 202602,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/06-winston-crumb_v0.png",
+        "final": "portraits/final/06-winston-crumb.webp",
+        "thumb": "portraits/thumb/06-winston-crumb.webp"
+      }
     },
     {
       "id": "21-felix-crust",
@@ -440,7 +540,12 @@
       "superlative": "Most Likely To Win a National Pastry Geometry Contest",
       "quote": "Ask me about my 37th perfect spiral croissant.",
       "seed": 202857,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/21-felix-crust_v0.png",
+        "final": "portraits/final/21-felix-crust.webp",
+        "thumb": "portraits/thumb/21-felix-crust.webp"
+      }
     },
     {
       "id": "07-nadia-dither",
@@ -460,7 +565,12 @@
       "superlative": "Best Side-Eye",
       "quote": "Three stars. The tater tots carried this entire semester.",
       "seed": 202619,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/07-nadia-dither_v0.png",
+        "final": "portraits/final/07-nadia-dither.webp",
+        "thumb": "portraits/thumb/07-nadia-dither.webp"
+      }
     },
     {
       "id": "51-dax-ecto",
@@ -481,7 +591,12 @@
       "superlative": "Most Likely To Overthink a Paperclip",
       "quote": "3.5/5 stars: High school is like a poorly organized library where half the books are missing and no one knows how to shelve them.",
       "seed": 203367,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/51-dax-ecto_v0.png",
+        "final": "portraits/final/51-dax-ecto.webp",
+        "thumb": "portraits/thumb/51-dax-ecto.webp"
+      }
     },
     {
       "id": "81-gideon-ecto",
@@ -502,7 +617,12 @@
       "superlative": "Most Likely To Win a Local Bread Fair Without Actually Baking",
       "quote": "Ask me about my 37th fermentation cycle\u2014still going strong.",
       "seed": 203877,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/81-gideon-ecto_v0.png",
+        "final": "portraits/final/81-gideon-ecto.webp",
+        "thumb": "portraits/thumb/81-gideon-ecto.webp"
+      }
     },
     {
       "id": "111-kael-ecto",
@@ -523,7 +643,12 @@
       "superlative": "Most Likely To Hyperfixate On a Non-Event",
       "quote": "3.5/5 stars: High school was mostly just a series of uneventful transitions between better and worse versions of the same hallway.",
       "seed": 204387,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/111-kael-ecto_v0.png",
+        "final": "portraits/final/111-kael-ecto.webp",
+        "thumb": "portraits/thumb/111-kael-ecto.webp"
+      }
     },
     {
       "id": "36-nathan-ecto",
@@ -544,7 +669,12 @@
       "superlative": "Most Likely To Enforce the 30-Second Hallway Silence Rule",
       "quote": "Officially, I\u2019ve maintained 30 seconds of silence in the hallway for 1,247 consecutive days.",
       "seed": 203112,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/36-nathan-ecto_v0.png",
+        "final": "portraits/final/36-nathan-ecto.webp",
+        "thumb": "portraits/thumb/36-nathan-ecto.webp"
+      }
     },
     {
       "id": "66-soren-ecto",
@@ -565,7 +695,12 @@
       "superlative": "Most Likely To Recover From a Faceplant With Confidence",
       "quote": "Pro tip: If you trip, just pretend it was a choreographed step. No one will question the rhythm.",
       "seed": 203622,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/66-soren-ecto_v0.png",
+        "final": "portraits/final/66-soren-ecto.webp",
+        "thumb": "portraits/thumb/66-soren-ecto.webp"
+      }
     },
     {
       "id": "96-vernon-ecto",
@@ -586,7 +721,12 @@
       "superlative": "Most Likely To Recite the 2023-24 Hall Pass Policy Verbatim",
       "quote": "Officially, I\u2019ve maintained a 100% compliance rate with Rule 7.3 since September.",
       "seed": 204132,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/96-vernon-ecto_v0.png",
+        "final": "portraits/final/96-vernon-ecto.webp",
+        "thumb": "portraits/thumb/96-vernon-ecto.webp"
+      }
     },
     {
       "id": "08-kevin-esophagus",
@@ -606,7 +746,12 @@
       "superlative": "Most Likely To Still Need A Hall Map",
       "quote": "Wait, there's a second floor?!",
       "seed": 202636,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/08-kevin-esophagus_v0.png",
+        "final": "portraits/final/08-kevin-esophagus.webp",
+        "thumb": "portraits/thumb/08-kevin-esophagus.webp"
+      }
     },
     {
       "id": "108-avery-flicker",
@@ -627,7 +772,12 @@
       "superlative": "Most Likely To Fix a Printer With a Rubber Band",
       "quote": "Officially certified to fix any device with a power button.",
       "seed": 204336,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/108-avery-flicker_v0.png",
+        "final": "portraits/final/108-avery-flicker.webp",
+        "thumb": "portraits/thumb/108-avery-flicker.webp"
+      }
     },
     {
       "id": "78-vivian-flicker",
@@ -648,7 +798,12 @@
       "superlative": "Most Likely To Say 'Wait, What\u2019s Your Name Again?'",
       "quote": "Pro tip: If you say someone's name three times, they\u2019ll forget it too.",
       "seed": 203826,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/78-vivian-flicker_v0.png",
+        "final": "portraits/final/78-vivian-flicker.webp",
+        "thumb": "portraits/thumb/78-vivian-flicker.webp"
+      }
     },
     {
       "id": "33-daisy-fritter",
@@ -669,7 +824,12 @@
       "superlative": "Most Likely To Hold the Door for No One",
       "quote": "Ask me about how I once held a door open for 47 seconds. It was worth it.",
       "seed": 203061,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/33-daisy-fritter_v0.png",
+        "final": "portraits/final/33-daisy-fritter.webp",
+        "thumb": "portraits/thumb/33-daisy-fritter.webp"
+      }
     },
     {
       "id": "63-greta-fritter",
@@ -690,7 +850,12 @@
       "superlative": "Most Likely To Believe She Wrote the Entire Group Project",
       "quote": "3.5/5 stars: High school is just a series of group projects where someone else does the work.",
       "seed": 203571,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/63-greta-fritter_v0.png",
+        "final": "portraits/final/63-greta-fritter.webp",
+        "thumb": "portraits/thumb/63-greta-fritter.webp"
+      }
     },
     {
       "id": "93-kira-fritter",
@@ -711,7 +876,12 @@
       "superlative": "Most Likely To Hold the Door Until You\u2019re 50 Feet Away",
       "quote": "Ask me about how I held the door for 37 seconds straight.",
       "seed": 204081,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/93-kira-fritter_v0.png",
+        "final": "portraits/final/93-kira-fritter.webp",
+        "thumb": "portraits/thumb/93-kira-fritter.webp"
+      }
     },
     {
       "id": "48-sylvia-fritter",
@@ -732,7 +902,12 @@
       "superlative": "Most Likely To Offer Unhelpful Tech Advice",
       "quote": "Officially certified to fix any device with a power button.",
       "seed": 203316,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/48-sylvia-fritter_v0.png",
+        "final": "portraits/final/48-sylvia-fritter.webp",
+        "thumb": "portraits/thumb/48-sylvia-fritter.webp"
+      }
     },
     {
       "id": "90-ava-gears",
@@ -753,7 +928,12 @@
       "superlative": "Most Likely To Nod Through a 10-Minute Monologue",
       "quote": "Pro tip: If you don\u2019t know what someone\u2019s saying, just nod and say \u2018That makes sense.\u2019",
       "seed": 204030,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/90-ava-gears_v0.png",
+        "final": "portraits/final/90-ava-gears.webp",
+        "thumb": "portraits/thumb/90-ava-gears.webp"
+      }
     },
     {
       "id": "120-dax-gears",
@@ -774,7 +954,12 @@
       "superlative": "Most Likely To Defend the Mysterious 'Squishy Snack'",
       "quote": "Officially certified as a snack-agnostic food critic.",
       "seed": 204540,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/120-dax-gears_v0.png",
+        "final": "portraits/final/120-dax-gears.webp",
+        "thumb": "portraits/thumb/120-dax-gears.webp"
+      }
     },
     {
       "id": "45-gwen-gears",
@@ -795,7 +980,12 @@
       "superlative": "Most Likely To Apologize for a Glance",
       "quote": "Ask me about the time I made eye contact with three people in a row.",
       "seed": 203265,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/45-gwen-gears_v0.png",
+        "final": "portraits/final/45-gwen-gears.webp",
+        "thumb": "portraits/thumb/45-gwen-gears.webp"
+      }
     },
     {
       "id": "24-piper-gears",
@@ -816,7 +1006,12 @@
       "superlative": "Most Likely To Fix a Non-Existent Problem",
       "quote": "Officially still trying to fix the pencil.",
       "seed": 202908,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/24-piper-gears_v0.png",
+        "final": "portraits/final/24-piper-gears.webp",
+        "thumb": "portraits/thumb/24-piper-gears.webp"
+      }
     },
     {
       "id": "30-spike-gears",
@@ -837,7 +1032,12 @@
       "superlative": "Most Likely To Nod Through a Lie",
       "quote": "Pro tip: If you don\u2019t know what someone\u2019s saying, just nod and say \u2018That makes sense.\u2019",
       "seed": 203010,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/30-spike-gears_v0.png",
+        "final": "portraits/final/30-spike-gears.webp",
+        "thumb": "portraits/thumb/30-spike-gears.webp"
+      }
     },
     {
       "id": "60-vernon-gears",
@@ -858,7 +1058,12 @@
       "superlative": "Most Likely To Argue That Cereal Is a Protein Source",
       "quote": "Officially certified as the only person who still believes in lunchbox sandwiches.",
       "seed": 203520,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/60-vernon-gears_v0.png",
+        "final": "portraits/final/60-vernon-gears.webp",
+        "thumb": "portraits/thumb/60-vernon-gears.webp"
+      }
     },
     {
       "id": "75-kira-gloop",
@@ -879,7 +1084,12 @@
       "superlative": "Most Likely To Carry Everything But the Kitchen Sink",
       "quote": "3.5/5 stars: High school is just a series of trips to the locker with too much stuff.",
       "seed": 203775,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/75-kira-gloop_v0.png",
+        "final": "portraits/final/75-kira-gloop.webp",
+        "thumb": "portraits/thumb/75-kira-gloop.webp"
+      }
     },
     {
       "id": "105-nina-gloop",
@@ -900,7 +1110,12 @@
       "superlative": "Most Likely To Apologize for Eye Contact",
       "quote": "Ask me about the time I blinked three times in a row during small talk. It was a milestone.",
       "seed": 204285,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/105-nina-gloop_v0.png",
+        "final": "portraits/final/105-nina-gloop.webp",
+        "thumb": "portraits/thumb/105-nina-gloop.webp"
+      }
     },
     {
       "id": "09-beverly-glorp",
@@ -920,7 +1135,12 @@
       "superlative": "Most Likely To Run For Mayor",
       "quote": "Do not ask where the prom budget went. Just enjoy the breadcrumbs.",
       "seed": 202653,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/09-beverly-glorp_v0.png",
+        "final": "portraits/final/09-beverly-glorp.webp",
+        "thumb": "portraits/thumb/09-beverly-glorp.webp"
+      }
     },
     {
       "id": "10-derek-hoverstate",
@@ -940,7 +1160,12 @@
       "superlative": "Most Memorable Picture Day",
       "quote": "He said 'one, two' and took it on 'two.'",
       "seed": 202670,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/10-derek-hoverstate_v0.png",
+        "final": "portraits/final/10-derek-hoverstate.webp",
+        "thumb": "portraits/thumb/10-derek-hoverstate.webp"
+      }
     },
     {
       "id": "11-skyler-jagged",
@@ -960,7 +1185,12 @@
       "superlative": "Most Likely To Stare Into The Void",
       "quote": "Everything is fine (it is 2019 in my head forever).",
       "seed": 202687,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/11-skyler-jagged_v0.png",
+        "final": "portraits/final/11-skyler-jagged.webp",
+        "thumb": "portraits/thumb/11-skyler-jagged.webp"
+      }
     },
     {
       "id": "92-briar-jangle",
@@ -981,7 +1211,12 @@
       "superlative": "Most Likely To Start a Club About Nothing",
       "quote": "Still thinking about the time I won Best Shavings at Regionals.",
       "seed": 204064,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/92-briar-jangle_v0.png",
+        "final": "portraits/final/92-briar-jangle.webp",
+        "thumb": "portraits/thumb/92-briar-jangle.webp"
+      }
     },
     {
       "id": "47-hank-jangle",
@@ -1002,7 +1237,12 @@
       "superlative": "Most Likely To Enforce the 3-Step Hallway Rule",
       "quote": "Never trust a person who doesn\u2019t double-check the lock on their locker.",
       "seed": 203299,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/47-hank-jangle_v0.png",
+        "final": "portraits/final/47-hank-jangle.webp",
+        "thumb": "portraits/thumb/47-hank-jangle.webp"
+      }
     },
     {
       "id": "77-lena-jangle",
@@ -1023,7 +1263,12 @@
       "superlative": "Most Likely To Apologize for a Non-Event",
       "quote": "Dear Mr. Chair, I\u2019m sorry you had to be my favorite seat for four years.",
       "seed": 203809,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/77-lena-jangle_v0.png",
+        "final": "portraits/final/77-lena-jangle.webp",
+        "thumb": "portraits/thumb/77-lena-jangle.webp"
+      }
     },
     {
       "id": "107-piper-jangle",
@@ -1044,7 +1289,12 @@
       "superlative": "Most Likely To Enforce the 37th Rule of Hallway Etiquette",
       "quote": "Never trust a person who doesn\u2019t double-check the number of pencils in their desk.",
       "seed": 204319,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/107-piper-jangle_v0.png",
+        "final": "portraits/final/107-piper-jangle.webp",
+        "thumb": "portraits/thumb/107-piper-jangle.webp"
+      }
     },
     {
       "id": "32-trent-jangle",
@@ -1065,7 +1315,12 @@
       "superlative": "Most Likely To Talk About Ferret Crafts",
       "quote": "Still thinking about the time I taught my ferret to knit a sock. It was mostly just pulling yarn.",
       "seed": 203044,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/32-trent-jangle_v0.png",
+        "final": "portraits/final/32-trent-jangle.webp",
+        "thumb": "portraits/thumb/32-trent-jangle.webp"
+      }
     },
     {
       "id": "62-wendy-jangle",
@@ -1086,7 +1341,12 @@
       "superlative": "Most Likely To Hyperfixate On a Single Paperclip",
       "quote": "Shoutout to the fluorescent light above Room 214 for never flickering during my final exam.",
       "seed": 203554,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/62-wendy-jangle_v0.png",
+        "final": "portraits/final/62-wendy-jangle.webp",
+        "thumb": "portraits/thumb/62-wendy-jangle.webp"
+      }
     },
     {
       "id": "74-briar-kelp",
@@ -1107,7 +1367,12 @@
       "superlative": "Most Likely To Believe He\u2019s the Project Lead",
       "quote": "Shoutout to the ceiling tile that held up my presentation for 12 minutes.",
       "seed": 203758,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/74-briar-kelp_v0.png",
+        "final": "portraits/final/74-briar-kelp.webp",
+        "thumb": "portraits/thumb/74-briar-kelp.webp"
+      }
     },
     {
       "id": "104-elias-kelp",
@@ -1128,7 +1393,12 @@
       "superlative": "Most Likely To Hold the Door Until You\u2019re 30 Feet Away",
       "quote": "Still thinking about how you didn\u2019t say thank you when I held the door open for 47 seconds.",
       "seed": 204268,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/104-elias-kelp_v0.png",
+        "final": "portraits/final/104-elias-kelp.webp",
+        "thumb": "portraits/thumb/104-elias-kelp.webp"
+      }
     },
     {
       "id": "29-hank-kelp",
@@ -1149,7 +1419,12 @@
       "superlative": "Most Likely To Forget a Name",
       "quote": "Dear Mr. 307: You were my favorite parking spot until you got painted over.",
       "seed": 202993,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/29-hank-kelp_v0.png",
+        "final": "portraits/final/29-hank-kelp.webp",
+        "thumb": "portraits/thumb/29-hank-kelp.webp"
+      }
     },
     {
       "id": "59-lena-kelp",
@@ -1170,7 +1445,12 @@
       "superlative": "Most Likely To Give Life Advice After One Coffee",
       "quote": "Never trust a person who doesn\u2019t believe in the power of naptime.",
       "seed": 203503,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/59-lena-kelp_v0.png",
+        "final": "portraits/final/59-lena-kelp.webp",
+        "thumb": "portraits/thumb/59-lena-kelp.webp"
+      }
     },
     {
       "id": "89-piper-kelp",
@@ -1191,7 +1471,12 @@
       "superlative": "Most Likely To Forget a Friend\u2019s Name",
       "quote": "Dear Mr. 307 \u2014 you were my favorite parking spot until I realized it was just a bench.",
       "seed": 204013,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/89-piper-kelp_v0.png",
+        "final": "portraits/final/89-piper-kelp.webp",
+        "thumb": "portraits/thumb/89-piper-kelp.webp"
+      }
     },
     {
       "id": "119-tessa-kelp",
@@ -1212,7 +1497,12 @@
       "superlative": "Most Likely To Give Life Advice After One Coffee",
       "quote": "Never trust a person who says 'I\u2019m just being honest' unless they\u2019ve read the dictionary.",
       "seed": 204523,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/119-tessa-kelp_v0.png",
+        "final": "portraits/final/119-tessa-kelp.webp",
+        "thumb": "portraits/thumb/119-tessa-kelp.webp"
+      }
     },
     {
       "id": "44-wendell-kelp",
@@ -1233,7 +1523,12 @@
       "superlative": "Most Likely To Hold the Door for a Ghost",
       "quote": "Still thinking about that time I held it open for you in 10th grade.",
       "seed": 203248,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/44-wendell-kelp_v0.png",
+        "final": "portraits/final/44-wendell-kelp.webp",
+        "thumb": "portraits/thumb/44-wendell-kelp.webp"
+      }
     },
     {
       "id": "12-oscar-kilobyte",
@@ -1253,7 +1548,12 @@
       "superlative": "Most Likely To Still Be Awake",
       "quote": "My brain has 47 tabs open and three of them are playing music.",
       "seed": 202704,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/12-oscar-kilobyte_v0.png",
+        "final": "portraits/final/12-oscar-kilobyte.webp",
+        "thumb": "portraits/thumb/12-oscar-kilobyte.webp"
+      }
     },
     {
       "id": "13-penelope-lint",
@@ -1274,7 +1574,12 @@
       "superlative": "Most Likely To Brighten A Monday",
       "quote": "I brought extra pencils AND emotional support brownies!!",
       "seed": 202721,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/13-penelope-lint_v0.png",
+        "final": "portraits/final/13-penelope-lint.webp",
+        "thumb": "portraits/thumb/13-penelope-lint.webp"
+      }
     },
     {
       "id": "14-trent-marshmallow",
@@ -1294,7 +1599,12 @@
       "superlative": "Most Likely To Nap Through Fire Drills",
       "quote": "Due tomorrow? Sounds like a tomorrow problem.",
       "seed": 202738,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/14-trent-marshmallow_v0.png",
+        "final": "portraits/final/14-trent-marshmallow.webp",
+        "thumb": "portraits/thumb/14-trent-marshmallow.webp"
+      }
     },
     {
       "id": "76-cassius-muddle",
@@ -1315,7 +1625,12 @@
       "superlative": "Most Likely To Defend a Single Mashed Potato",
       "quote": "Whoever took my last cheese puff better hope I don\u2019t find out it was you.",
       "seed": 203792,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/76-cassius-muddle_v0.png",
+        "final": "portraits/final/76-cassius-muddle.webp",
+        "thumb": "portraits/thumb/76-cassius-muddle.webp"
+      }
     },
     {
       "id": "106-felix-muddle",
@@ -1336,7 +1651,12 @@
       "superlative": "Most Likely To Misunderstand a Conversation",
       "quote": "To the person who left the calculator in homeroom \u2014 you\u2019re not a thief, you\u2019re just emotionally illiterate.",
       "seed": 204302,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/106-felix-muddle_v0.png",
+        "final": "portraits/final/106-felix-muddle.webp",
+        "thumb": "portraits/thumb/106-felix-muddle.webp"
+      }
     },
     {
       "id": "31-jasper-muddle",
@@ -1357,7 +1677,12 @@
       "superlative": "Most Likely To Carry Too Much",
       "quote": "Effective immediately, I resign from the responsibility of carrying more than one item at a time.",
       "seed": 203027,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/31-jasper-muddle_v0.png",
+        "final": "portraits/final/31-jasper-muddle.webp",
+        "thumb": "portraits/thumb/31-jasper-muddle.webp"
+      }
     },
     {
       "id": "61-milo-muddle",
@@ -1378,7 +1703,12 @@
       "superlative": "Most Likely To Misinterpret Eye Contact As A Challenge",
       "quote": "Do not make eye contact with the aluminum can in the recycling bin.",
       "seed": 203537,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/61-milo-muddle_v0.png",
+        "final": "portraits/final/61-milo-muddle.webp",
+        "thumb": "portraits/thumb/61-milo-muddle.webp"
+      }
     },
     {
       "id": "91-remy-muddle",
@@ -1399,7 +1729,12 @@
       "superlative": "Most Likely To Carry Everything At Once",
       "quote": "Effective immediately, I resign from the burden of carrying less.",
       "seed": 204047,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/91-remy-muddle_v0.png",
+        "final": "portraits/final/91-remy-muddle.webp",
+        "thumb": "portraits/thumb/91-remy-muddle.webp"
+      }
     },
     {
       "id": "46-zane-muddle",
@@ -1420,7 +1755,12 @@
       "superlative": "Most Likely To Misunderstand a Simple Question",
       "quote": "To the person who said 'no' to my idea \u2014 I still think it's valid.",
       "seed": 203282,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/46-zane-muddle_v0.png",
+        "final": "portraits/final/46-zane-muddle.webp",
+        "thumb": "portraits/thumb/46-zane-muddle.webp"
+      }
     },
     {
       "id": "58-cassius-noodle",
@@ -1441,7 +1781,12 @@
       "superlative": "Most Likely To Enforce the 3-Step Rule for Hallway Passing",
       "quote": "To the person who left a pencil on the floor\u2014your soul is now in detention.",
       "seed": 203486,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/58-cassius-noodle_v0.png",
+        "final": "portraits/final/58-cassius-noodle.webp",
+        "thumb": "portraits/thumb/58-cassius-noodle.webp"
+      }
     },
     {
       "id": "88-finn-noodle",
@@ -1462,7 +1807,12 @@
       "superlative": "Most Likely To Recover From a Faceplant",
       "quote": "Whoever left the red pen in my locker \u2014 it\u2019s been 4 years. I still haven\u2019t forgiven you.",
       "seed": 203996,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/88-finn-noodle_v0.png",
+        "final": "portraits/final/88-finn-noodle.webp",
+        "thumb": "portraits/thumb/88-finn-noodle.webp"
+      }
     },
     {
       "id": "118-jax-noodle",
@@ -1483,7 +1833,12 @@
       "superlative": "Most Likely To Enforce the 3-Second Rule",
       "quote": "To the person who left a pencil on the floor\u2014your soul is now in detention.",
       "seed": 204506,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/118-jax-noodle_v0.png",
+        "final": "portraits/final/118-jax-noodle.webp",
+        "thumb": "portraits/thumb/118-jax-noodle.webp"
+      }
     },
     {
       "id": "43-milo-noodle",
@@ -1504,7 +1859,12 @@
       "superlative": "Most Likely To Submit a USB Drive as an Art Project",
       "quote": "Effective immediately, I resign from all extracurriculars except my own.",
       "seed": 203231,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/43-milo-noodle_v0.png",
+        "final": "portraits/final/43-milo-noodle.webp",
+        "thumb": "portraits/thumb/43-milo-noodle.webp"
+      }
     },
     {
       "id": "73-remy-noodle",
@@ -1525,7 +1885,12 @@
       "superlative": "Most Likely To Hyperfixate on a Forgotten Lunch Item",
       "quote": "Warning: Do not ask me about the shelf life of uncooked pasta. I will cry.",
       "seed": 203741,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/73-remy-noodle_v0.png",
+        "final": "portraits/final/73-remy-noodle.webp",
+        "thumb": "portraits/thumb/73-remy-noodle.webp"
+      }
     },
     {
       "id": "103-ursa-noodle",
@@ -1546,7 +1911,12 @@
       "superlative": "Most Likely To Resign From Life",
       "quote": "Effective immediately, I am stepping down as president of the Spaghetti Enthusiasts Society. My time here has been... al dente.",
       "seed": 204251,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/103-ursa-noodle_v0.png",
+        "final": "portraits/final/103-ursa-noodle.webp",
+        "thumb": "portraits/thumb/103-ursa-noodle.webp"
+      }
     },
     {
       "id": "28-zane-noodle",
@@ -1567,7 +1937,12 @@
       "superlative": "Most Likely To Recover From a Trip",
       "quote": "Whoever left the red pen in my locker for four years\u2014still not over it.",
       "seed": 202976,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/28-zane-noodle_v0.png",
+        "final": "portraits/final/28-zane-noodle.webp",
+        "thumb": "portraits/thumb/28-zane-noodle.webp"
+      }
     },
     {
       "id": "15-zoe-nonexistent",
@@ -1587,7 +1962,12 @@
       "superlative": "Most Likely To Know Before The Principal",
       "quote": "Not naming names, just citing primary sources.",
       "seed": 202755,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/15-zoe-nonexistent_v0.png",
+        "final": "portraits/final/15-zoe-nonexistent.webp",
+        "thumb": "portraits/thumb/15-zoe-nonexistent.webp"
+      }
     },
     {
       "id": "40-cassie-pencil",
@@ -1608,7 +1988,12 @@
       "superlative": "Most Likely To Remember Your Name After 4 Years",
       "quote": "Whoever left the red pen in my locker better not be me.",
       "seed": 203180,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/40-cassie-pencil_v0.png",
+        "final": "portraits/final/40-cassie-pencil.webp",
+        "thumb": "portraits/thumb/40-cassie-pencil.webp"
+      }
     },
     {
       "id": "70-finn-pencil",
@@ -1629,7 +2014,12 @@
       "superlative": "Most Likely To Give Wrong Directions With Conviction",
       "quote": "To the person who asked for directions to the gym: just follow your nose. It\u2019s a metaphor.",
       "seed": 203690,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/70-finn-pencil_v0.png",
+        "final": "portraits/final/70-finn-pencil.webp",
+        "thumb": "portraits/thumb/70-finn-pencil.webp"
+      }
     },
     {
       "id": "100-jasper-pencil",
@@ -1650,7 +2040,12 @@
       "superlative": "Most Likely To Say 'Oh, right\u2014your name starts with a J?'",
       "quote": "Whoever left the red pen in my locker better not have used it.",
       "seed": 204200,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/100-jasper-pencil_v0.png",
+        "final": "portraits/final/100-jasper-pencil.webp",
+        "thumb": "portraits/thumb/100-jasper-pencil.webp"
+      }
     },
     {
       "id": "55-remy-pencil",
@@ -1671,7 +2066,12 @@
       "superlative": "Most Likely To Resign From Holding Doors",
       "quote": "Effective immediately, I am no longer responsible for door-holding duties. My soul is too fragile.",
       "seed": 203435,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/55-remy-pencil_v0.png",
+        "final": "portraits/final/55-remy-pencil.webp",
+        "thumb": "portraits/thumb/55-remy-pencil.webp"
+      }
     },
     {
       "id": "85-ulysses-pencil",
@@ -1692,7 +2092,12 @@
       "superlative": "Most Likely To Present a 10-Page Essay on a 2-Minute Assignment",
       "quote": "Do not ask about the outline\u2014already written.",
       "seed": 203945,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/85-ulysses-pencil_v0.png",
+        "final": "portraits/final/85-ulysses-pencil.webp",
+        "thumb": "portraits/thumb/85-ulysses-pencil.webp"
+      }
     },
     {
       "id": "115-zane-pencil",
@@ -1713,7 +2118,12 @@
       "superlative": "Most Likely To Hold the Door Until It Breaks",
       "quote": "Effective immediately, I resign from all social obligations except door-holding.",
       "seed": 204455,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/115-zane-pencil_v0.png",
+        "final": "portraits/final/115-zane-pencil.webp",
+        "thumb": "portraits/thumb/115-zane-pencil.webp"
+      }
     },
     {
       "id": "16-barry-polygon",
@@ -1733,7 +2143,12 @@
       "superlative": "Most Intense During PE",
       "quote": "If you aren't diving onto hardwood for a foam ball, why show up?",
       "seed": 202772,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/16-barry-polygon_v0.png",
+        "final": "portraits/final/16-barry-polygon.webp",
+        "thumb": "portraits/thumb/16-barry-polygon.webp"
+      }
     },
     {
       "id": "25-remy-pot",
@@ -1754,7 +2169,12 @@
       "superlative": "Most Likely To Present a Pot as a Life-Sized Model",
       "quote": "Warning: Do not ask about the presentation.",
       "seed": 202925,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/25-remy-pot_v0.png",
+        "final": "portraits/final/25-remy-pot.webp",
+        "thumb": "portraits/thumb/25-remy-pot.webp"
+      }
     },
     {
       "id": "17-harold-soggy",
@@ -1774,7 +2194,12 @@
       "superlative": "Most Likely To Become A CEO",
       "quote": "Keep your roots deep and your GPA above a 3.2.",
       "seed": 202789,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/17-harold-soggy_v0.png",
+        "final": "portraits/final/17-harold-soggy.webp",
+        "thumb": "portraits/thumb/17-harold-soggy.webp"
+      }
     },
     {
       "id": "18-riley-sprite",
@@ -1794,7 +2219,12 @@
       "superlative": "Most Likely To Have A Theme Song",
       "quote": "You wouldn't understand my lore (it's a 14-minute YouTube essay).",
       "seed": 202806,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/18-riley-sprite_v0.png",
+        "final": "portraits/final/18-riley-sprite.webp",
+        "thumb": "portraits/thumb/18-riley-sprite.webp"
+      }
     },
     {
       "id": "72-greta-sprocket",
@@ -1815,7 +2245,12 @@
       "superlative": "Most Likely To Apologize for Making Eye Contact",
       "quote": "Officially: I have a 3.2-second habit of staring at people who don\u2019t exist.",
       "seed": 203724,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/72-greta-sprocket_v0.png",
+        "final": "portraits/final/72-greta-sprocket.webp",
+        "thumb": "portraits/thumb/72-greta-sprocket.webp"
+      }
     },
     {
       "id": "102-kael-sprocket",
@@ -1836,7 +2271,12 @@
       "superlative": "Most Likely To Carry Everything Twice",
       "quote": "Pro tip: If you\u2019re holding more than three things, just walk backward. It\u2019s a physics thing.",
       "seed": 204234,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/102-kael-sprocket_v0.png",
+        "final": "portraits/final/102-kael-sprocket.webp",
+        "thumb": "portraits/thumb/102-kael-sprocket.webp"
+      }
     },
     {
       "id": "117-ava-sprout",
@@ -1857,7 +2297,12 @@
       "superlative": "Most Likely To Nod Through a 10-Minute Monologue",
       "quote": "Ask me about the time I successfully folded a paper airplane that flew exactly 3 feet.",
       "seed": 204489,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/117-ava-sprout_v0.png",
+        "final": "portraits/final/117-ava-sprout.webp",
+        "thumb": "portraits/thumb/117-ava-sprout.webp"
+      }
     },
     {
       "id": "42-derek-sprout",
@@ -1878,7 +2323,12 @@
       "superlative": "Most Likely To Carry a Lawnmower to the Library",
       "quote": "Pro tip: If you can\u2019t carry it, don\u2019t try to walk with it.",
       "seed": 203214,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/42-derek-sprout_v0.png",
+        "final": "portraits/final/42-derek-sprout.webp",
+        "thumb": "portraits/thumb/42-derek-sprout.webp"
+      }
     },
     {
       "id": "27-nina-sprout",
@@ -1899,7 +2349,12 @@
       "superlative": "Most Likely To Defend a Bad Snack",
       "quote": "3.5/5 stars: The cafeteria\u2019s \u2018meatball\u2019 is just a sad ball of regret and expired cheese.",
       "seed": 202959,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/27-nina-sprout_v0.png",
+        "final": "portraits/final/27-nina-sprout.webp",
+        "thumb": "portraits/thumb/27-nina-sprout.webp"
+      }
     },
     {
       "id": "57-sunny-spud",
@@ -1920,7 +2375,12 @@
       "superlative": "Most Likely To Nod Through a 10-Minute Monologue",
       "quote": "Ask me about the time I memorized the entire periodic table in 30 seconds.",
       "seed": 203469,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/57-sunny-spud_v0.png",
+        "final": "portraits/final/57-sunny-spud.webp",
+        "thumb": "portraits/thumb/57-sunny-spud.webp"
+      }
     },
     {
       "id": "87-vera-spud",
@@ -1941,7 +2401,12 @@
       "superlative": "Most Likely To Defend a Moldy Snack",
       "quote": "3.5/5 stars: The cafeteria\u2019s most reliable source of emotional support.",
       "seed": 203979,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/87-vera-spud_v0.png",
+        "final": "portraits/final/87-vera-spud.webp",
+        "thumb": "portraits/thumb/87-vera-spud.webp"
+      }
     },
     {
       "id": "19-milo-squiggle",
@@ -1961,7 +2426,12 @@
       "superlative": "Most Likely To Ruin A Quiet Room",
       "quote": "Do NOT look at me during the SAT or we are both getting voided.",
       "seed": 202823,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/19-milo-squiggle_v0.png",
+        "final": "portraits/final/19-milo-squiggle.webp",
+        "thumb": "portraits/thumb/19-milo-squiggle.webp"
+      }
     },
     {
       "id": "99-ava-tangle",
@@ -1982,7 +2452,12 @@
       "superlative": "Most Likely To Recover From a Faceplant With a Poem",
       "quote": "3.5/5 stars: High school is mostly awkward silence, but the cafeteria pizza has potential.",
       "seed": 204183,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/99-ava-tangle_v0.png",
+        "final": "portraits/final/99-ava-tangle.webp",
+        "thumb": "portraits/thumb/99-ava-tangle.webp"
+      }
     },
     {
       "id": "54-gus-tangle",
@@ -2003,7 +2478,12 @@
       "superlative": "Most Likely To Host a Silent Concert in the Library",
       "quote": "Pro tip: If you\u2019re late, just say you were debugging your life.",
       "seed": 203418,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/54-gus-tangle_v0.png",
+        "final": "portraits/final/54-gus-tangle.webp",
+        "thumb": "portraits/thumb/54-gus-tangle.webp"
+      }
     },
     {
       "id": "84-kira-tangle",
@@ -2024,7 +2504,12 @@
       "superlative": "Most Likely To Fixate on a Stapler\u2019s Alignment",
       "quote": "Officially obsessed with the symmetry of my paperclip.",
       "seed": 203928,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/84-kira-tangle_v0.png",
+        "final": "portraits/final/84-kira-tangle.webp",
+        "thumb": "portraits/thumb/84-kira-tangle.webp"
+      }
     },
     {
       "id": "114-nina-tangle",
@@ -2045,7 +2530,12 @@
       "superlative": "Most Likely To Defend Obscure Hobbies",
       "quote": "Pro tip: If you can\u2019t find a use for your old Walkman, it\u2019s not broken\u2014it\u2019s just waiting to be recontextualized.",
       "seed": 204438,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/114-nina-tangle_v0.png",
+        "final": "portraits/final/114-nina-tangle.webp",
+        "thumb": "portraits/thumb/114-nina-tangle.webp"
+      }
     },
     {
       "id": "39-sylvia-tangle",
@@ -2066,7 +2556,12 @@
       "superlative": "Most Likely To Act Normal After Tripping",
       "quote": "3.5/5 stars: High school is mostly awkward silence and bad lighting.",
       "seed": 203163,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/39-sylvia-tangle_v0.png",
+        "final": "portraits/final/39-sylvia-tangle.webp",
+        "thumb": "portraits/thumb/39-sylvia-tangle.webp"
+      }
     },
     {
       "id": "69-vera-tangle",
@@ -2087,7 +2582,12 @@
       "superlative": "Most Likely To Enforce the 30-Second Quiet Zone With Unwavering Focus",
       "quote": "Ask me about the time I enforced silent walking in the cafeteria for 17 minutes.",
       "seed": 203673,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/69-vera-tangle_v0.png",
+        "final": "portraits/final/69-vera-tangle.webp",
+        "thumb": "portraits/thumb/69-vera-tangle.webp"
+      }
     },
     {
       "id": "20-tessa-vector",
@@ -2107,7 +2607,12 @@
       "superlative": "Most Artistic",
       "quote": "Idk I threw it together during homeroom.",
       "seed": 202840,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/20-tessa-vector_v0.png",
+        "final": "portraits/final/20-tessa-vector.webp",
+        "thumb": "portraits/thumb/20-tessa-vector.webp"
+      }
     },
     {
       "id": "101-brendan-vortex",
@@ -2128,7 +2633,12 @@
       "superlative": "Most Likely To Believe He Built the Project",
       "quote": "Dear, you were my favorite chair. I\u2019ll miss your cushiony back and how you never judged me for leaving notes on your seat.",
       "seed": 204217,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/101-brendan-vortex_v0.png",
+        "final": "portraits/final/101-brendan-vortex.webp",
+        "thumb": "portraits/thumb/101-brendan-vortex.webp"
+      }
     },
     {
       "id": "71-wendell-vortex",
@@ -2149,7 +2659,12 @@
       "superlative": "Most Likely To Hold the Door Until You\u2019re 10 Feet Past It",
       "quote": "Never trust a door that opens too easily\u2014it\u2019s probably just waiting to close on your hopes.",
       "seed": 203707,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/71-wendell-vortex_v0.png",
+        "final": "portraits/final/71-wendell-vortex.webp",
+        "thumb": "portraits/thumb/71-wendell-vortex.webp"
+      }
     },
     {
       "id": "26-ezra-vulture",
@@ -2170,7 +2685,12 @@
       "superlative": "Most Likely To Give Bad Advice",
       "quote": "Shoutout to the broken ceiling light in the third-floor hallway\u2014my life\u2019s been better since it stopped working.",
       "seed": 202942,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/26-ezra-vulture_v0.png",
+        "final": "portraits/final/26-ezra-vulture.webp",
+        "thumb": "portraits/thumb/26-ezra-vulture.webp"
+      }
     },
     {
       "id": "56-hank-vulture",
@@ -2191,7 +2711,12 @@
       "superlative": "Most Likely To Forget a Name Mid-Introduction",
       "quote": "Still thinking about the time you said 'I'm not a fan of pickles' in 10th grade.",
       "seed": 203452,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/56-hank-vulture_v0.png",
+        "final": "portraits/final/56-hank-vulture.webp",
+        "thumb": "portraits/thumb/56-hank-vulture.webp"
+      }
     },
     {
       "id": "86-liam-vulture",
@@ -2212,7 +2737,12 @@
       "superlative": "Most Likely To Give Bad Directions",
       "quote": "Shoutout to the ceiling tile above Room 214 \u2014 you\u2019ve been my GPS since freshman year.",
       "seed": 203962,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/86-liam-vulture_v0.png",
+        "final": "portraits/final/86-liam-vulture.webp",
+        "thumb": "portraits/thumb/86-liam-vulture.webp"
+      }
     },
     {
       "id": "116-pax-vulture",
@@ -2233,7 +2763,12 @@
       "superlative": "Most Likely To Mispronounce Your Name",
       "quote": "Still thinking about the time you said 'I like your shoes' and I thought you meant my socks.",
       "seed": 204472,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/116-pax-vulture_v0.png",
+        "final": "portraits/final/116-pax-vulture.webp",
+        "thumb": "portraits/thumb/116-pax-vulture.webp"
+      }
     },
     {
       "id": "41-trent-vulture",
@@ -2254,7 +2789,12 @@
       "superlative": "Most Likely To Present a 30-Second Video of His Notes as a Thesis",
       "quote": "Dear, I\u2019ll miss you more than the time I spent writing your name in my notebook.",
       "seed": 203197,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/41-trent-vulture_v0.png",
+        "final": "portraits/final/41-trent-vulture.webp",
+        "thumb": "portraits/thumb/41-trent-vulture.webp"
+      }
     },
     {
       "id": "38-hank-waddle",
@@ -2275,7 +2815,12 @@
       "superlative": "Most Likely To Defend the Leftover Cheese Cracker",
       "quote": "Shoutout to the fluorescent light above the trash can that never flickers.",
       "seed": 203146,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/38-hank-waddle_v0.png",
+        "final": "portraits/final/38-hank-waddle.webp",
+        "thumb": "portraits/thumb/38-hank-waddle.webp"
+      }
     },
     {
       "id": "68-liam-waddle",
@@ -2296,7 +2841,12 @@
       "superlative": "Most Likely To Nod Through a 10-Minute Lecture on Avian Mating Habits",
       "quote": "Still thinking about that time I thought 'photosynthesis' was a type of dance move.",
       "seed": 203656,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/68-liam-waddle_v0.png",
+        "final": "portraits/final/68-liam-waddle.webp",
+        "thumb": "portraits/thumb/68-liam-waddle.webp"
+      }
     },
     {
       "id": "98-piper-waddle",
@@ -2317,7 +2867,12 @@
       "superlative": "Most Likely To Stand Between You and the Last Slice of Moldy Pizza",
       "quote": "Shoutout to the fluorescent lights above the salad bar\u2014my lunch was saved by your flicker.",
       "seed": 204166,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/98-piper-waddle_v0.png",
+        "final": "portraits/final/98-piper-waddle.webp",
+        "thumb": "portraits/thumb/98-piper-waddle.webp"
+      }
     },
     {
       "id": "53-wendy-waddle",
@@ -2338,7 +2893,12 @@
       "superlative": "Most Likely To Win a Contest for Most Unusual Lunchbox",
       "quote": "Dear Mr. Chair, I\u2019ve loved you since freshman year. You\u2019ll be missed.",
       "seed": 203401,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/53-wendy-waddle_v0.png",
+        "final": "portraits/final/53-wendy-waddle.webp",
+        "thumb": "portraits/thumb/53-wendy-waddle.webp"
+      }
     },
     {
       "id": "83-brenda-wobble",
@@ -2359,7 +2919,12 @@
       "superlative": "Most Likely To Stare Until Someone Blushes",
       "quote": "Never trust a smile that doesn\u2019t blink.",
       "seed": 203911,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/83-brenda-wobble_v0.png",
+        "final": "portraits/final/83-brenda-wobble.webp",
+        "thumb": "portraits/thumb/83-brenda-wobble.webp"
+      }
     },
     {
       "id": "113-elias-wobble",
@@ -2380,7 +2945,12 @@
       "superlative": "Most Likely To Carry Too Much",
       "quote": "Dear 3rd Period Study Carrel: You were my favorite. I\u2019ll miss your soft cushions and lack of judgment.",
       "seed": 204421,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/113-elias-wobble_v0.png",
+        "final": "portraits/final/113-elias-wobble.webp",
+        "thumb": "portraits/thumb/113-elias-wobble.webp"
+      }
     },
     {
       "id": "22-dexter-wrench",
@@ -2401,7 +2971,12 @@
       "superlative": "Most Likely To Accidentally Fix a Problem You Didn\u2019t Know Existed",
       "quote": "To the person who didn't need the door, I still saved you.",
       "seed": 202874,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/22-dexter-wrench_v0.png",
+        "final": "portraits/final/22-dexter-wrench.webp",
+        "thumb": "portraits/thumb/22-dexter-wrench.webp"
+      }
     },
     {
       "id": "65-briar-zink",
@@ -2422,7 +2997,12 @@
       "superlative": "Most Likely To Wear a Badge for His Obscure Hobby",
       "quote": "Dear Mr. Henderson\u2019s favorite vending machine, I\u2019ll miss you.",
       "seed": 203605,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/65-briar-zink_v0.png",
+        "final": "portraits/final/65-briar-zink.webp",
+        "thumb": "portraits/thumb/65-briar-zink.webp"
+      }
     },
     {
       "id": "95-ezra-zink",
@@ -2443,7 +3023,12 @@
       "superlative": "Most Likely To Fixate on a Sock\u2019s Hue at 2 AM",
       "quote": "Never trust a person who can\u2019t organize their own socks.",
       "seed": 204115,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/95-ezra-zink_v0.png",
+        "final": "portraits/final/95-ezra-zink.webp",
+        "thumb": "portraits/thumb/95-ezra-zink.webp"
+      }
     },
     {
       "id": "50-liam-zink",
@@ -2464,7 +3049,12 @@
       "superlative": "Most Likely To Recover From a Fall With No Explanation",
       "quote": "Shoutout to the ceiling tile that saved my life.",
       "seed": 203350,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/50-liam-zink_v0.png",
+        "final": "portraits/final/50-liam-zink.webp",
+        "thumb": "portraits/thumb/50-liam-zink.webp"
+      }
     },
     {
       "id": "80-piper-zink",
@@ -2485,7 +3075,12 @@
       "superlative": "Most Likely To Enforce a Rule No One Knew Existed",
       "quote": "Still thinking about that time you walked backward in the hallway.",
       "seed": 203860,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/80-piper-zink_v0.png",
+        "final": "portraits/final/80-piper-zink.webp",
+        "thumb": "portraits/thumb/80-piper-zink.webp"
+      }
     },
     {
       "id": "110-trent-zink",
@@ -2506,7 +3101,12 @@
       "superlative": "Most Likely To Recover From a Tripping Incident With Grace",
       "quote": "Shoutout to the ceiling tile that saved my life \u2014 and also my dignity.",
       "seed": 204370,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/110-trent-zink_v0.png",
+        "final": "portraits/final/110-trent-zink.webp",
+        "thumb": "portraits/thumb/110-trent-zink.webp"
+      }
     },
     {
       "id": "35-wendell-zink",
@@ -2527,7 +3127,12 @@
       "superlative": "Most Likely To Fixate on a Single Sentence",
       "quote": "Never trust a person who says 'I\u2019ll just check one more thing' \u2014 they\u2019re already gone.",
       "seed": 203095,
-      "selected_variant": 0
+      "selected_variant": 0,
+      "portraits": {
+        "raw": "portraits/raw/35-wendell-zink_v0.png",
+        "final": "portraits/final/35-wendell-zink.webp",
+        "thumb": "portraits/thumb/35-wendell-zink.webp"
+      }
     }
   ]
 }

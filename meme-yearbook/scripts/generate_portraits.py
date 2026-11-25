@@ -77,6 +77,20 @@ def load_generator(model_key: str, lora_path: str | None = None, lora_scale: flo
     raise ValueError(f"Unsupported model key: {model_key}")
 
 
+def ensure_portraits(character: dict) -> dict[str, str | None]:
+    portraits = character.get("portraits")
+    if not isinstance(portraits, dict):
+        portraits = {}
+        character["portraits"] = portraits
+    for key in ("raw", "final", "thumb"):
+        portraits.setdefault(key, None)
+    return portraits
+
+
+def save_roster(path: Path, roster: dict) -> None:
+    path.write_text(json.dumps(roster, indent=2) + "\n", encoding="utf-8")
+
+
 def generate_one(model, model_key: str, prompt: str, seed: int, width: int, height: int, steps: int, guidance: float):
     kwargs = {
         "seed": seed,
@@ -152,17 +166,26 @@ def main() -> None:
     total_jobs = len(students) * args.variants
     done = 0
     t0 = time.time()
+    roster_dirty = False
 
     for lora_path, group_students in groups:
         # Skip loading the model if every image in this group already exists
         pending = []
         for student in group_students:
+            portraits = ensure_portraits(student)
+            selected_variant = int(student.get("selected_variant", 0))
             for v in range(args.variants):
                 out_path = RAW_DIR / f"{student['id']}_v{v}.png"
                 if args.overwrite or not out_path.exists():
                     pending.append((student, v, out_path))
                 else:
                     done += 1
+                    rel_raw = out_path.relative_to(ROOT).as_posix()
+                    cur_raw = portraits.get("raw")
+                    if (v == selected_variant or cur_raw is None) and (not cur_raw or not (ROOT / cur_raw).exists()):
+                        if cur_raw != rel_raw:
+                            portraits["raw"] = rel_raw
+                            roster_dirty = True
 
         if not pending:
             continue
@@ -195,12 +218,23 @@ def main() -> None:
                 guidance=guidance,
             )
             img.save(path=str(out_path))
-            print(f"    -> saved {out_path.relative_to(ROOT)} ({time.time() - start_t:.1f}s)")
+            rel_raw = out_path.relative_to(ROOT).as_posix()
+            portraits = ensure_portraits(student)
+            selected_variant = int(student.get("selected_variant", 0))
+            if v == selected_variant or portraits.get("raw") is None:
+                if portraits.get("raw") != rel_raw:
+                    portraits["raw"] = rel_raw
+                    save_roster(args.roster, roster)
+                    roster_dirty = False
+            print(f"    -> saved {rel_raw} ({time.time() - start_t:.1f}s)")
             mx.clear_cache()
 
         # Explicitly release model reference before loading a different LoRA group
         del model
         mx.clear_cache()
+
+    if roster_dirty:
+        save_roster(args.roster, roster)
 
     print(f"\nDone in {time.time() - t0:.1f}s.")
 

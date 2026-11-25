@@ -101,6 +101,38 @@ def process_portrait(
         thumb.save(thumb_path, format="WEBP", quality=88, method=6)
 
 
+def ensure_portraits(character: dict) -> dict[str, str | None]:
+    portraits = character.get("portraits")
+    if not isinstance(portraits, dict):
+        portraits = {}
+        character["portraits"] = portraits
+    for key in ("raw", "final", "thumb"):
+        portraits.setdefault(key, None)
+    return portraits
+
+
+def resolve_raw_path(student: dict, portraits: dict[str, str | None]) -> Path | None:
+    variant = int(student.get("selected_variant", 0))
+    variant_path = RAW_DIR / f"{student['id']}_v{variant}.png"
+    existing_raw = portraits.get("raw")
+
+    # Respect custom raw paths outside the default variant naming convention
+    if existing_raw:
+        custom_path = ROOT / existing_raw
+        is_default_variant = custom_path.parent == RAW_DIR and custom_path.name.startswith(f"{student['id']}_v")
+        if custom_path.exists() and not is_default_variant:
+            return custom_path
+
+    if variant_path.exists():
+        return variant_path
+
+    if existing_raw and (ROOT / existing_raw).exists():
+        return ROOT / existing_raw
+
+    fallback = RAW_DIR / f"{student['id']}_v0.png"
+    return fallback if fallback.exists() else None
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Normalize raw portraits for the Class of 2025 yearbook.")
     parser.add_argument("--roster", type=Path, default=DEFAULT_ROSTER)
@@ -121,44 +153,59 @@ def main() -> None:
         subjects.insert(0, roster["principal"])
     count = 0
     skipped = 0
+    roster_dirty = False
 
     for student in subjects:
-        variant = int(student.get("selected_variant", 0))
-        raw_path = RAW_DIR / f"{student['id']}_v{variant}.png"
-        if not raw_path.exists():
-            # Fallback to v0 if selected_variant doesn't exist yet
-            fallback = RAW_DIR / f"{student['id']}_v0.png"
-            if fallback.exists():
-                raw_path = fallback
-            else:
-                continue
+        had_portraits = isinstance(student.get("portraits"), dict)
+        portraits = ensure_portraits(student)
+        if not had_portraits:
+            roster_dirty = True
+
+        raw_path = resolve_raw_path(student, portraits)
+        if raw_path is None:
+            continue
 
         out_path = FINAL_DIR / f"{student['id']}.webp"
         thumb_path = THUMB_DIR / f"{student['id']}.webp"
         raw_mtime = raw_path.stat().st_mtime
-        if (
-            not args.overwrite
-            and out_path.exists()
-            and thumb_path.exists()
-            and out_path.stat().st_mtime >= raw_mtime
-            and thumb_path.stat().st_mtime >= raw_mtime
-        ):
-            skipped += 1
-            continue
-
-        process_portrait(
-            raw_path=raw_path,
-            out_path=out_path,
-            thumb_path=thumb_path,
-            style_id=student["style_id"],
-            seed=int(student.get("seed", 2025)),
-            width=args.width,
-            height=args.height,
-            thumb_width=args.thumb_width,
-            thumb_height=args.thumb_height,
+        needs_render = (
+            args.overwrite
+            or not out_path.exists()
+            or not thumb_path.exists()
+            or out_path.stat().st_mtime < raw_mtime
+            or thumb_path.stat().st_mtime < raw_mtime
         )
-        count += 1
-        print(f"Normalized {student['name']} -> {out_path.relative_to(ROOT)} + {thumb_path.relative_to(ROOT)}")
+
+        if needs_render:
+            process_portrait(
+                raw_path=raw_path,
+                out_path=out_path,
+                thumb_path=thumb_path,
+                style_id=student["style_id"],
+                seed=int(student.get("seed", 2025)),
+                width=args.width,
+                height=args.height,
+                thumb_width=args.thumb_width,
+                thumb_height=args.thumb_height,
+            )
+            count += 1
+            print(f"Normalized {student['name']} -> {out_path.relative_to(ROOT)} + {thumb_path.relative_to(ROOT)}")
+        else:
+            skipped += 1
+
+        desired = {
+            "raw": raw_path.relative_to(ROOT).as_posix(),
+            "final": out_path.relative_to(ROOT).as_posix(),
+            "thumb": thumb_path.relative_to(ROOT).as_posix(),
+        }
+        for key, rel in desired.items():
+            if portraits.get(key) != rel:
+                portraits[key] = rel
+                roster_dirty = True
+
+    if roster_dirty:
+        args.roster.write_text(json.dumps(roster, indent=2) + "\n", encoding="utf-8")
+        print(f"Updated portrait paths in {args.roster.relative_to(ROOT) if args.roster.is_relative_to(ROOT) else args.roster}")
 
     print(f"\nNormalized {count} portrait(s) ({skipped} already up to date).")
 
