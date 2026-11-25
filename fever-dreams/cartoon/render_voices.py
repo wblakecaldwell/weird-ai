@@ -3,7 +3,7 @@ VoiceDesign -> reference clips -> Qwen3-TTS Base ICL cloning, plus Kokoro fallba
 and apply per-character ffmpeg DSP filters, loudness normalization, and audio verification.
 
 Usage:
-    cartoon/.venv/bin/python cartoon/render_voices.py books/03-the-very-big-world-problem/cartoon/script.json
+    cartoon/.venv/bin/python cartoon/render_voices.py books/01-the-very-big-world-problem/cartoon/script.json
 """
 
 from __future__ import annotations

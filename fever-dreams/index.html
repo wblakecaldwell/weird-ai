@@ -26,6 +26,12 @@
     padding: 5px 14px;
     border-radius: 999px;
     margin-bottom: 12px;
+    text-decoration: none;
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+  .badge:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
   }
   h1 { margin: 0; font-size: clamp(32px, 5vw, 48px); color: #fff8e7; }
   header p { margin: 10px 0 0; font-size: 16px; color: #d8c6a6; font-style: italic; }
@@ -111,48 +117,22 @@
 </head>
 <body>
   <header>
-    <div class="badge">MEME VALLEY HIGH SCHOOL &bull; CLASS OF 2025</div>
+    <a class="badge" href="../meme-yearbook/index.html">MEME VALLEY HIGH SCHOOL &bull; CLASS OF 2025</a>
     <h1>Little Fever Dream Books</h1>
     <p>Thin hardboard classics with gold-foil spines, deadpan 1950s narration, and deeply questionable decisions.</p>
   </header>
   <main class="shelf-grid">
     
-            <a class="shelf-book" href="books/01-the-water-tower-fiasco/index.html"
-               style="--book-bg: #c9533c; --book-accent: #f3d37a;">
+            <a class="shelf-book" href="books/01-the-very-big-world-problem/index.html"
+               style="--book-bg: #c89027; --book-accent: #fff4d6;">
               <div class="mini-spine"></div>
               <div class="mini-cover">
                 <div class="mini-top">
                   <span>No. 01</span>
                   <span>25¢</span>
                 </div>
-                <div class="mini-title">The Water Tower Fiasco</div>
-                <div class="mini-art"><img src="books/01-the-water-tower-fiasco/art/cover.png" alt="The Water Tower Fiasco"></div>
-                <div class="mini-cast">Chester Antialiased • Marisol Brittle • Winston Crumb</div>
-              </div>
-            </a>
-            <a class="shelf-book" href="books/02-the-cracked-globe-caper/index.html"
-               style="--book-bg: #2b6d77; --book-accent: #f4d06f;">
-              <div class="mini-spine"></div>
-              <div class="mini-cover">
-                <div class="mini-top">
-                  <span>No. 02</span>
-                  <span>25¢</span>
-                </div>
-                <div class="mini-title">The Cracked Globe Caper</div>
-                <div class="mini-art"><div class="shelf-ph">Artwork Pending</div></div>
-                <div class="mini-cast">Chester Antialiased • Marisol Brittle • Winston Crumb</div>
-              </div>
-            </a>
-            <a class="shelf-book" href="books/03-the-very-big-world-problem/index.html"
-               style="--book-bg: #c89027; --book-accent: #fff4d6;">
-              <div class="mini-spine"></div>
-              <div class="mini-cover">
-                <div class="mini-top">
-                  <span>No. 03</span>
-                  <span>25¢</span>
-                </div>
                 <div class="mini-title">The Very Big World Problem</div>
-                <div class="mini-art"><img src="books/03-the-very-big-world-problem/art/cover.png" alt="The Very Big World Problem"></div>
+                <div class="mini-art"><img src="books/01-the-very-big-world-problem/art/cover.png" alt="The Very Big World Problem"></div>
                 <div class="mini-cast">Chester Antialiased • Marisol Brittle • Winston Crumb</div>
               </div>
             </a>

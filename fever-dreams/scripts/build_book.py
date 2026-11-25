@@ -1305,6 +1305,12 @@ def build_bookshelf_html(catalog: list[dict]) -> str:
     padding: 5px 14px;
     border-radius: 999px;
     margin-bottom: 12px;
+    text-decoration: none;
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }}
+  .badge:hover {{
+    transform: translateY(-1px);
+    filter: brightness(1.08);
   }}
   h1 {{ margin: 0; font-size: clamp(32px, 5vw, 48px); color: #fff8e7; }}
   header p {{ margin: 10px 0 0; font-size: 16px; color: #d8c6a6; font-style: italic; }}
@@ -1390,7 +1396,7 @@ def build_bookshelf_html(catalog: list[dict]) -> str:
 </head>
 <body>
   <header>
-    <div class="badge">MEME VALLEY HIGH SCHOOL &bull; CLASS OF 2025</div>
+    <a class="badge" href="../meme-yearbook/index.html">MEME VALLEY HIGH SCHOOL &bull; CLASS OF 2025</a>
     <h1>Little Fever Dream Books</h1>
     <p>Thin hardboard classics with gold-foil spines, deadpan 1950s narration, and deeply questionable decisions.</p>
   </header>

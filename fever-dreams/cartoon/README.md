@@ -12,7 +12,7 @@ Turns a finished Little Fever Dream Book (`books/<slug>/story.json` + `art/`) in
 Steps 2–4 append a run to `books/<slug>/cartoon/render_log.json` (via `render_log.py`) recording models, settings, seeds, per-line / per-clip / per-shot results, and timings. It is saved after every item, so interrupted runs are recorded too.
 
 > [!NOTE]
-> Book 03's cartoon was rendered before logging existed, so its `render_log.json` only covers runs made after this change. Its `script.json`, `script_voiced.json`, and `.srt` are the record of that render.
+> Book 01's cartoon was rendered before logging existed, so its `render_log.json` only covers runs made after this change. Its `script.json`, `script_voiced.json`, and `.srt` are the record of that render.
 
 ## Setup
 
@@ -39,8 +39,8 @@ brew install ffmpeg
 ## Usage (from `fever-dreams/`)
 
 ```bash
-uv run python cartoon/prepare_script.py books/03-the-very-big-world-problem/story.json
-cartoon/.venv/bin/python cartoon/render_voices.py books/03-the-very-big-world-problem/cartoon/script.json
-cartoon/.venv/bin/python cartoon/animate_book.py books/03-the-very-big-world-problem/cartoon/script.json --frames 121
-cartoon/.venv/bin/python cartoon/assemble_cartoon.py books/03-the-very-big-world-problem/cartoon/script_voiced.json
+uv run python cartoon/prepare_script.py books/01-the-very-big-world-problem/story.json
+cartoon/.venv/bin/python cartoon/render_voices.py books/01-the-very-big-world-problem/cartoon/script.json
+cartoon/.venv/bin/python cartoon/animate_book.py books/01-the-very-big-world-problem/cartoon/script.json --frames 121
+cartoon/.venv/bin/python cartoon/assemble_cartoon.py books/01-the-very-big-world-problem/cartoon/script_voiced.json
 ```

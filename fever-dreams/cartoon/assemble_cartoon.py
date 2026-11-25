@@ -3,7 +3,7 @@ extensions on original illustrations, character voices, 1950s read-along page-tu
 chimes, subtitles, and end credits into a final 24fps MP4 cartoon.
 
 Usage:
-    cartoon/.venv/bin/python cartoon/assemble_cartoon.py books/03-the-very-big-world-problem/cartoon/script_voiced.json
+    cartoon/.venv/bin/python cartoon/assemble_cartoon.py books/01-the-very-big-world-problem/cartoon/script_voiced.json
 """
 
 from __future__ import annotations

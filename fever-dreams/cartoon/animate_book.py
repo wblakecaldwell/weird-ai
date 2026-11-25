@@ -2,8 +2,8 @@
 (DistilledPipeline) using Image-to-Video conditioning.
 
 Usage:
-    cartoon/.venv/bin/python cartoon/animate_book.py books/03-the-very-big-world-problem/cartoon/script.json
-    cartoon/.venv/bin/python cartoon/animate_book.py books/03-the-very-big-world-problem/cartoon/script.json --only-pages 1 2 4 --frames 121
+    cartoon/.venv/bin/python cartoon/animate_book.py books/01-the-very-big-world-problem/cartoon/script.json
+    cartoon/.venv/bin/python cartoon/animate_book.py books/01-the-very-big-world-problem/cartoon/script.json --only-pages 1 2 4 --frames 121
 """
 
 from __future__ import annotations

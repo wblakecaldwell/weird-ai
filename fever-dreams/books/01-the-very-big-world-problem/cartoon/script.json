@@ -1,7 +1,7 @@
 {
   "title": "The Very Big World Problem",
   "subtitle": "A Helpful Guide to Classroom Geography",
-  "slug": "03-the-very-big-world-problem",
+  "slug": "01-the-very-big-world-problem",
   "llm_model": "gemma-4-31b-it",
   "cast": [
     {
@@ -38,9 +38,7 @@
         {
           "speaker": "narrator",
           "text": "A Little Fever Dream Book. The Very Big World Problem. A Helpful Guide to Classroom Geography.",
-          "delivery": "warm cheerful 1950s filmstrip announcer",
-          "audio_path": "voices/fx/p00_s00_narrator.wav",
-          "duration_s": 7.4
+          "delivery": "warm cheerful 1950s filmstrip announcer"
         }
       ],
       "motion_prompt": "Gentle slow zoom-in on a 1950s children's storybook cover featuring Chester Antialiased (16-Bit Pixel Sprite), Marisol Brittle (Stop-Motion Clay), Winston Crumb (Fuzzy Felt Puppet). Chester blinks awkwardly, Marisol raises her tiny ruler slightly, Winston blinks his googly eyes, preserving crisp 16-bit pixel art, lumpy stop-motion clay, fuzzy felt textures, and painted gouache background.",
@@ -55,37 +53,27 @@
         {
           "speaker": "narrator",
           "text": "Chester Antialiased liked to look at things very closely.",
-          "delivery": "dry, storybook cadence",
-          "audio_path": "voices/fx/p01_s00_narrator.wav",
-          "duration_s": 4.625
+          "delivery": "dry, storybook cadence"
         },
         {
           "speaker": "narrator",
           "text": "He leaned in to see if the world was rendered in 16-bit, but his blocky chin made a very analog impact.",
-          "delivery": "deadpan, slight pause for effect",
-          "audio_path": "voices/fx/p01_s01_narrator.wav",
-          "duration_s": 8.4
+          "delivery": "deadpan, slight pause for effect"
         },
         {
           "speaker": "narrator",
           "text": "A tiny crack appeared right in the middle of the Atlantic Ocean.",
-          "delivery": "matter-of-fact, understated",
-          "audio_path": "voices/fx/p01_s02_narrator.wav",
-          "duration_s": 4.85
+          "delivery": "matter-of-fact, understated"
         },
         {
           "speaker": "narrator",
           "text": "It was a very budget-friendly globe, which meant the continents were mostly suggestions.",
-          "delivery": "judgmental, slow pace",
-          "audio_path": "voices/fx/p01_s03_narrator.wav",
-          "duration_s": 6.325
+          "delivery": "judgmental, slow pace"
         },
         {
           "speaker": "narrator",
           "text": "It also smelled faintly of old pennies.",
-          "delivery": "whispered, observational",
-          "audio_path": "voices/fx/p01_s04_narrator.wav",
-          "duration_s": 3.675
+          "delivery": "whispered, observational"
         }
       ],
       "motion_prompt": "The 16-bit pixel sprite Chester remains rigid, his blocky chin slightly vibrating against the glossy globe. A subtle camera zoom tightens on the jagged crack in the hand-painted gouache background.",
@@ -100,37 +88,27 @@
         {
           "speaker": "narrator",
           "text": "Marisol and Winston saw the crack too.",
-          "delivery": "flat, storybook monotone",
-          "audio_path": "voices/fx/p02_s00_narrator.wav",
-          "duration_s": 3.625
+          "delivery": "flat, storybook monotone"
         },
         {
           "speaker": "narrator",
           "text": "They decided to be seen cooperating, as it was the most socially acceptable way to spend a Tuesday.",
-          "delivery": "dry, slightly judgmental",
-          "audio_path": "voices/fx/p02_s01_narrator.wav",
-          "duration_s": 7.575
+          "delivery": "dry, slightly judgmental"
         },
         {
           "speaker": "marisol",
           "text": "We must replace it before the next bell rings!",
-          "delivery": "manic, high-energy urgency",
-          "audio_path": "voices/fx/p02_s02_marisol.wav",
-          "duration_s": 3.078
+          "delivery": "manic, high-energy urgency"
         },
         {
           "speaker": "narrator",
           "text": "They decided to work together, as it is the most efficient way to ensure no one person takes all the blame.",
-          "delivery": "deadpan, clinical observation",
-          "audio_path": "voices/fx/p02_s03_narrator.wav",
-          "duration_s": 8.025
+          "delivery": "deadpan, clinical observation"
         },
         {
           "speaker": "narrator",
           "text": "They were very happy to be seen together.",
-          "delivery": "unconvincing, overly sweet",
-          "audio_path": "voices/fx/p02_s04_narrator.wav",
-          "duration_s": 3.35
+          "delivery": "unconvincing, overly sweet"
         }
       ],
       "motion_prompt": "The lumpy plasticine Marisol gives a sharp, jerky nod while the fuzzy felt Winston blinks his skewed googly eyes. Subtle camera drift over a static, hand-painted gouache classroom background.",
@@ -145,30 +123,22 @@
         {
           "speaker": "narrator",
           "text": "Marisol decided that since she was the only one with a ruler, she should be in charge of the vision.",
-          "delivery": "dry, matter-of-fact tone",
-          "audio_path": "voices/fx/p03_s00_narrator.wav",
-          "duration_s": 7.2
+          "delivery": "dry, matter-of-fact tone"
         },
         {
           "speaker": "narrator",
           "text": "She spent an hour making a list of requirements for a new globe.",
-          "delivery": "slightly exhausted pacing",
-          "audio_path": "voices/fx/p03_s01_narrator.wav",
-          "duration_s": 4.975
+          "delivery": "slightly exhausted pacing"
         },
         {
           "speaker": "marisol",
           "text": "Winston, I have found a task suited to your particular temperament: alphabetizing these footnotes.",
-          "delivery": "condescendingly helpful, precise",
-          "audio_path": "voices/fx/p03_s02_marisol.wav",
-          "duration_s": 6.131
+          "delivery": "condescendingly helpful, precise"
         },
         {
           "speaker": "narrator",
           "text": "The list included three separate categories for the specific shade of beige used in the Sahara.",
-          "delivery": "deadpan, emphasizing absurdity",
-          "audio_path": "voices/fx/p03_s03_narrator.wav",
-          "duration_s": 7.175
+          "delivery": "deadpan, emphasizing absurdity"
         }
       ],
       "motion_prompt": "Marisol's lumpy clay arm gestures with the ruler, while Winston's fuzzy felt hands twitch as he slides a slip of paper. Subtle camera drift over the hand-painted gouache background.",
@@ -183,37 +153,27 @@
         {
           "speaker": "narrator",
           "text": "The local hobby shop was filled with many wonderful things.",
-          "delivery": "warm, nostalgic storybook tone",
-          "audio_path": "voices/fx/p04_s00_narrator.wav",
-          "duration_s": 4.725
+          "delivery": "warm, nostalgic storybook tone"
         },
         {
           "speaker": "narrator",
           "text": "However, a small wind-chime by the door made a very loud tinkling sound.",
-          "delivery": "slightly concerned, rhythmic",
-          "audio_path": "voices/fx/p04_s01_narrator.wav",
-          "duration_s": 5.675
+          "delivery": "slightly concerned, rhythmic"
         },
         {
           "speaker": "winston",
           "text": "Goodness, it is positively deafening in here!",
-          "delivery": "high-pitched, genuine panic",
-          "audio_path": "voices/fx/p04_s02_winston.wav",
-          "duration_s": 3.98
+          "delivery": "high-pitched, genuine panic"
         },
         {
           "speaker": "narrator",
           "text": "He found the noise quite intrusive.",
-          "delivery": "dry, matter-of-fact",
-          "audio_path": "voices/fx/p04_s03_narrator.wav",
-          "duration_s": 3.175
+          "delivery": "dry, matter-of-fact"
         },
         {
           "speaker": "narrator",
           "text": "He wondered if the shop offered a silent-shopping experience, or perhaps a small, soundproof box to sit in.",
-          "delivery": "deadpan, contemplative",
-          "audio_path": "voices/fx/p04_s04_narrator.wav",
-          "duration_s": 7.6
+          "delivery": "deadpan, contemplative"
         }
       ],
       "motion_prompt": "The fuzzy felt puppet Winston trembles slightly, his fabric hands pressing into his plastic eyes. The silver wind-chime vibrates rapidly against the hand-painted gouache background, with a slow camera drift upward.",
@@ -228,30 +188,22 @@
         {
           "speaker": "narrator",
           "text": "Marisol decided a store-bought globe was too common.",
-          "delivery": "dry, matter-of-fact tone",
-          "audio_path": "voices/fx/p05_s00_narrator.wav",
-          "duration_s": 4.225
+          "delivery": "dry, matter-of-fact tone"
         },
         {
           "speaker": "narrator",
           "text": "She suggested they contact the professional cartography guild for a custom model.",
-          "delivery": "slightly judgmental cadence",
-          "audio_path": "voices/fx/p05_s01_narrator.wav",
-          "duration_s": 6.125
+          "delivery": "slightly judgmental cadence"
         },
         {
           "speaker": "marisol",
           "text": "The guild's office is in a quiet basement, which will prevent Winston from making those distressing little noises.",
-          "delivery": "clipped, overly precise",
-          "audio_path": "voices/fx/p05_s02_marisol.wav",
-          "duration_s": 6.452
+          "delivery": "clipped, overly precise"
         },
         {
           "speaker": "narrator",
           "text": "Winston agreed, as he found Marisol's insistence on total control to be very comforting.",
-          "delivery": "deadpan, psychological observation",
-          "audio_path": "voices/fx/p05_s03_narrator.wav",
-          "duration_s": 7.275
+          "delivery": "deadpan, psychological observation"
         }
       ],
       "motion_prompt": "Marisol's lumpy clay form marches forward with stiff, jerky stop-motion steps. Winston, a fuzzy felt puppet, follows with slight rhythmic bobbing and a slow blink against the hand-painted gouache basement background.",
@@ -266,37 +218,27 @@
         {
           "speaker": "narrator",
           "text": "Marisol spent ten minutes explaining the exact scale and longitude requirements to Chester.",
-          "delivery": "dry, matter-of-fact tone",
-          "audio_path": "voices/fx/p06_s00_narrator.wav",
-          "duration_s": 6.925
+          "delivery": "dry, matter-of-fact tone"
         },
         {
           "speaker": "narrator",
           "text": "She used many big words and a very complex chart.",
-          "delivery": "slightly judgmental cadence",
-          "audio_path": "voices/fx/p06_s01_narrator.wav",
-          "duration_s": 4.45
+          "delivery": "slightly judgmental cadence"
         },
         {
           "speaker": "marisol",
           "text": "Do you understand the importance of the ratio, Chester?",
-          "delivery": "intense, overly academic",
-          "audio_path": "voices/fx/p06_s02_marisol.wav",
-          "duration_s": 3.257
+          "delivery": "intense, overly academic"
         },
         {
           "speaker": "narrator",
           "text": "Chester nodded politely.",
-          "delivery": "flat, unimpressed",
-          "audio_path": "voices/fx/p06_s03_narrator.wav",
-          "duration_s": 2.6
+          "delivery": "flat, unimpressed"
         },
         {
           "speaker": "narrator",
           "text": "He was currently wondering if he could fit a whole slice of pizza into his inventory slot.",
-          "delivery": "whispered, internal monologue style",
-          "audio_path": "voices/fx/p06_s04_narrator.wav",
-          "duration_s": 6.6
+          "delivery": "whispered, internal monologue style"
         }
       ],
       "motion_prompt": "Marisol's lumpy clay hand gestures toward the chart with slight jitter. Chester, a 16-bit pixel sprite, performs a simple two-frame vertical nod while the pizza in his thought bubble gently bobs up and down against the gouache background.",
@@ -311,37 +253,27 @@
         {
           "speaker": "narrator",
           "text": "Chester visited the guild to place the order.",
-          "delivery": "dry, storybook cadence",
-          "audio_path": "voices/fx/p07_s00_narrator.wav",
-          "duration_s": 3.625
+          "delivery": "dry, storybook cadence"
         },
         {
           "speaker": "narrator",
           "text": "He tried to repeat Marisol's complex ratio, but he forgot the word for globe halfway through.",
-          "delivery": "slightly judgmental tone",
-          "audio_path": "voices/fx/p07_s01_narrator.wav",
-          "duration_s": 7.025
+          "delivery": "slightly judgmental tone"
         },
         {
           "speaker": "chester",
           "text": "I suppose 'The Big One' will do.",
-          "delivery": "uncertain, soft-spoken",
-          "audio_path": "voices/fx/p07_s02_chester.wav",
-          "duration_s": 2.56
+          "delivery": "uncertain, soft-spoken"
         },
         {
           "speaker": "narrator",
           "text": "The guild members admired his bold minimalism.",
-          "delivery": "deadpan, ironic",
-          "audio_path": "voices/fx/p07_s03_narrator.wav",
-          "duration_s": 4.275
+          "delivery": "deadpan, ironic"
         },
         {
           "speaker": "narrator",
           "text": "They had never been asked to build a map that required its own zoning permit.",
-          "delivery": "slow, emphasizing the absurdity",
-          "audio_path": "voices/fx/p07_s04_narrator.wav",
-          "duration_s": 5.55
+          "delivery": "slow, emphasizing the absurdity"
         }
       ],
       "motion_prompt": "Chester, a 16-bit pixel sprite, gestures vaguely with jerky, frame-by-frame arm movements. The tweed-vested map-makers blink slowly against the hand-painted gouache background, with a subtle camera drift enhancing the Dutch angle.",
@@ -356,30 +288,22 @@
         {
           "speaker": "narrator",
           "text": "While the globe was being built, Winston found a new hobby.",
-          "delivery": "dry, storybook cadence",
-          "audio_path": "voices/fx/p08_s00_narrator.wav",
-          "duration_s": 4.35
+          "delivery": "dry, storybook cadence"
         },
         {
           "speaker": "narrator",
           "text": "He mapped the quietest zones of the school for their collective safety.",
-          "delivery": "matter-of-fact, slightly clinical",
-          "audio_path": "voices/fx/p08_s01_narrator.wav",
-          "duration_s": 4.8
+          "delivery": "matter-of-fact, slightly clinical"
         },
         {
           "speaker": "winston",
           "text": "The library is quite peaceful, provided one ignores the sound of people breathing.",
-          "delivery": "whispered, neurotic precision",
-          "audio_path": "voices/fx/p08_s02_winston.wav",
-          "duration_s": 5.171
+          "delivery": "whispered, neurotic precision"
         },
         {
           "speaker": "narrator",
           "text": "He found that the most peaceful place was wherever Chester happened to be standing, as Chester rarely spoke.",
-          "delivery": "deadpan observation",
-          "audio_path": "voices/fx/p08_s03_narrator.wav",
-          "duration_s": 7.25
+          "delivery": "deadpan observation"
         }
       ],
       "motion_prompt": "Winston, a fuzzy felt puppet, peeks cautiously from behind the pillar with a slight jitter. Chester remains a static 16-bit pixel sprite, blinking once in a choppy animation style against the hand-painted gouache hallway.",
@@ -394,30 +318,22 @@
         {
           "speaker": "narrator",
           "text": "Marisol decided the geography section of the classroom needed a complete makeover.",
-          "delivery": "dry, matter-of-fact tone",
-          "audio_path": "voices/fx/p09_s00_narrator.wav",
-          "duration_s": 6.525
+          "delivery": "dry, matter-of-fact tone"
         },
         {
           "speaker": "narrator",
           "text": "She spent her evening color-coding textbooks to match the prestige of their upcoming globe.",
-          "delivery": "slightly judgmental cadence",
-          "audio_path": "voices/fx/p09_s01_narrator.wav",
-          "duration_s": 6.725
+          "delivery": "slightly judgmental cadence"
         },
         {
           "speaker": "marisol",
           "text": "Everything must be in its proper place.",
-          "delivery": "whispered, intense precision",
-          "audio_path": "voices/fx/p09_s02_marisol.wav",
-          "duration_s": 2.531
+          "delivery": "whispered, intense precision"
         },
         {
           "speaker": "narrator",
           "text": "It is amazing how much one can achieve when one views sleep as a personal failure.",
-          "delivery": "deadpan, philosophical observation",
-          "audio_path": "voices/fx/p09_s03_narrator.wav",
-          "duration_s": 6.425
+          "delivery": "deadpan, philosophical observation"
         }
       ],
       "motion_prompt": "The lumpy plasticine clay of Marisol's face twitches slightly as her wide, mismatched eyes blink rapidly. She carefully presses a colored dot onto a book spine against the static gouache background, with a subtle camera zoom toward her manic expression.",
@@ -432,37 +348,27 @@
         {
           "speaker": "narrator",
           "text": "The delivery day finally arrived.",
-          "delivery": "dry, matter-of-fact tone",
-          "audio_path": "voices/fx/p10_s00_narrator.wav",
-          "duration_s": 3.325
+          "delivery": "dry, matter-of-fact tone"
         },
         {
           "speaker": "narrator",
           "text": "A very large truck pulled up to the school, followed by a heavy-duty crane.",
-          "delivery": "slow, rhythmic pacing",
-          "audio_path": "voices/fx/p10_s01_narrator.wav",
-          "duration_s": 5.6
+          "delivery": "slow, rhythmic pacing"
         },
         {
           "speaker": "narrator",
           "text": "The globe was so large it had its own weather system.",
-          "delivery": "deadpan, slight pause for effect",
-          "audio_path": "voices/fx/p10_s02_narrator.wav",
-          "duration_s": 4.15
+          "delivery": "deadpan, slight pause for effect"
         },
         {
           "speaker": "narrator",
           "text": "It was a very impressive piece of geography, though the South Pacific was currently experiencing a mild drizzle.",
-          "delivery": "clinical and observational",
-          "audio_path": "voices/fx/p10_s03_narrator.wav",
-          "duration_s": 8.1
+          "delivery": "clinical and observational"
         },
         {
           "speaker": "winston",
           "text": "My, it is a bit larger than I imagined.",
-          "delivery": "polite, understated shock",
-          "audio_path": "voices/fx/p10_s04_winston.wav",
-          "duration_s": 3.648
+          "delivery": "polite, understated shock"
         }
       ],
       "motion_prompt": "The colossal globe slowly descends via the crane, swaying slightly. A tiny, fluffy rain cloud drifts over the South Pacific area of the globe, releasing a gentle sprinkle of water, while Winston, a fuzzy felt puppet, blinks slowly from the bottom of the frame against the gouache background.",
@@ -477,30 +383,22 @@
         {
           "speaker": "narrator",
           "text": "The trio tried to sneak the globe through a side window.",
-          "delivery": "dry, storybook cadence",
-          "audio_path": "voices/fx/p11_s00_narrator.wav",
-          "duration_s": 4.45
+          "delivery": "dry, storybook cadence"
         },
         {
           "speaker": "marisol",
           "text": "Winston, your unique proportions make you the perfect tool for this task!",
-          "delivery": "manic, overly enthusiastic",
-          "audio_path": "voices/fx/p11_s01_marisol.wav",
-          "duration_s": 4.917
+          "delivery": "manic, overly enthusiastic"
         },
         {
           "speaker": "narrator",
           "text": "She admired how Winston's small frame made him an excellent human wedge.",
-          "delivery": "clinical, slightly detached",
-          "audio_path": "voices/fx/p11_s02_narrator.wav",
-          "duration_s": 5.5
+          "delivery": "clinical, slightly detached"
         },
         {
           "speaker": "narrator",
           "text": "She gave him a very firm push, as she enjoyed seeing how much pressure the glass could take.",
-          "delivery": "deadpan, unsettlingly calm",
-          "audio_path": "voices/fx/p11_s03_narrator.wav",
-          "duration_s": 6.225
+          "delivery": "deadpan, unsettlingly calm"
         }
       ],
       "motion_prompt": "Marisol's lumpy clay hands press firmly into Winston's fuzzy felt body, causing him to compress like a sponge. The hand-painted gouache background remains static while Winston's googly eyes wobble violently.",
@@ -515,37 +413,27 @@
         {
           "speaker": "narrator",
           "text": "The crane driver started his engine to help push the globe.",
-          "delivery": "matter-of-fact, storybook tone",
-          "audio_path": "voices/fx/p12_s00_narrator.wav",
-          "duration_s": 4.675
+          "delivery": "matter-of-fact, storybook tone"
         },
         {
           "speaker": "narrator",
           "text": "The roar of the motor sounded like a thunderstorm to Winston.",
-          "delivery": "slightly dramatic, deadpan",
-          "audio_path": "voices/fx/p12_s01_narrator.wav",
-          "duration_s": 4.75
+          "delivery": "slightly dramatic, deadpan"
         },
         {
           "speaker": "narrator",
           "text": "In his fright, he accidentally triggered the school-wide lockdown alarm.",
-          "delivery": "dry, observational",
-          "audio_path": "voices/fx/p12_s02_narrator.wav",
-          "duration_s": 5.175
+          "delivery": "dry, observational"
         },
         {
           "speaker": "winston",
           "text": "Mercy!",
-          "delivery": "high-pitched, genuine panic",
-          "audio_path": "voices/fx/p12_s03_winston.wav",
-          "duration_s": 1.157
+          "delivery": "high-pitched, genuine panic"
         },
         {
           "speaker": "narrator",
           "text": "He found the alarm to be a very loud way of reminding him that he was still alive.",
-          "delivery": "philosophical, understated",
-          "audio_path": "voices/fx/p12_s04_narrator.wav",
-          "duration_s": 6.025
+          "delivery": "philosophical, understated"
         }
       ],
       "motion_prompt": "Winston, a fuzzy felt puppet, vibrates intensely in mid-air with his yarn hair twitching. The red alarm bell shakes violently against the hand-painted gouache wall while black smoke puffs from the crane engine in the background.",
@@ -560,37 +448,27 @@
         {
           "speaker": "narrator",
           "text": "The alarm rang loudly through the whole school.",
-          "delivery": "flat, matter-of-fact tone",
-          "audio_path": "voices/fx/p13_s00_narrator.wav",
-          "duration_s": 3.85
+          "delivery": "flat, matter-of-fact tone"
         },
         {
           "speaker": "narrator",
           "text": "All the students and teachers stood in a circle, staring up at the giant globe stuck in the window.",
-          "delivery": "slow, observational pace",
-          "audio_path": "voices/fx/p13_s01_narrator.wav",
-          "duration_s": 7.2
+          "delivery": "slow, observational pace"
         },
         {
           "speaker": "teacher",
           "text": "What a curious decoration.",
-          "delivery": "polite, mildly confused",
-          "audio_path": "voices/fx/p13_s02_teacher.wav",
-          "duration_s": 2.0
+          "delivery": "polite, mildly confused"
         },
         {
           "speaker": "narrator",
           "text": "It was a very public mistake, which is the most expensive kind of mistake.",
-          "delivery": "dry, cynical wisdom",
-          "audio_path": "voices/fx/p13_s03_narrator.wav",
-          "duration_s": 5.55
+          "delivery": "dry, cynical wisdom"
         },
         {
           "speaker": "teacher",
           "text": "The globe's placement really opened up the room.",
-          "delivery": "trying to be positive",
-          "audio_path": "voices/fx/p13_s04_teacher.wav",
-          "duration_s": 2.56
+          "delivery": "trying to be positive"
         }
       ],
       "motion_prompt": "The 16-bit pixel Chester and clay Marisol blink slowly while staring upward. The teacher's hand on her chin shifts slightly, set against a static, hand-painted gouache classroom background.",
@@ -605,30 +483,22 @@
         {
           "speaker": "narrator",
           "text": "The Principal walked up to the globe and beamed with pride.",
-          "delivery": "warm, storybook cadence",
-          "audio_path": "voices/fx/p14_s00_narrator.wav",
-          "duration_s": 4.25
+          "delivery": "warm, storybook cadence"
         },
         {
           "speaker": "narrator",
           "text": "He thought the students had organized a surprise donation for the school.",
-          "delivery": "slightly naive tone",
-          "audio_path": "voices/fx/p14_s01_narrator.wav",
-          "duration_s": 5.275
+          "delivery": "slightly naive tone"
         },
         {
           "speaker": "principal",
           "text": "This shall be the centerpiece of our new Global Initiative!",
-          "delivery": "boisterous, overly proud",
-          "audio_path": "voices/fx/p14_s02_principal.wav",
-          "duration_s": 3.44
+          "delivery": "boisterous, overly proud"
         },
         {
           "speaker": "narrator",
           "text": "Chester nodded politely, though he was currently trying to remember if the world was actually round or just a very large pancake.",
-          "delivery": "dry, deadpan observation",
-          "audio_path": "voices/fx/p14_s03_narrator.wav",
-          "duration_s": 9.075
+          "delivery": "dry, deadpan observation"
         }
       ],
       "motion_prompt": "The Principal gestures broadly toward the globe with a proud smile. Chester, a 16-bit pixel sprite, performs a stiff, frame-by-frame nod while the pancake thought bubble gently pulses against the hand-painted gouache background.",
@@ -643,30 +513,22 @@
         {
           "speaker": "narrator",
           "text": "Marisol did not want anyone to know she had not planned this.",
-          "delivery": "dry, slightly judgmental tone",
-          "audio_path": "voices/fx/p15_s00_narrator.wav",
-          "duration_s": 4.625
+          "delivery": "dry, slightly judgmental tone"
         },
         {
           "speaker": "narrator",
           "text": "She quickly volunteered to lead a neighborhood association committee for urban planning.",
-          "delivery": "matter-of-fact, rhythmic pacing",
-          "audio_path": "voices/fx/p15_s01_narrator.wav",
-          "duration_s": 6.25
+          "delivery": "matter-of-fact, rhythmic pacing"
         },
         {
           "speaker": "marisol",
           "text": "I shall redraw the street layout, as it lacks a certain direction.",
-          "delivery": "overconfident, manic energy",
-          "audio_path": "voices/fx/p15_s02_marisol.wav",
-          "duration_s": 4.06
+          "delivery": "overconfident, manic energy"
         },
         {
           "speaker": "narrator",
           "text": "Several residents now believed their driveways were actually public parks, but the maps looked very tidy.",
-          "delivery": "deadpan, understated irony",
-          "audio_path": "voices/fx/p15_s03_narrator.wav",
-          "duration_s": 7.85
+          "delivery": "deadpan, understated irony"
         }
       ],
       "motion_prompt": "The lumpy plasticine clay Marisol aggressively scribbles on the map with a red marker, her arm moving in jerky stop-motion increments. The camera slowly zooms in on the hand-painted gouache background as red ink loops appear on the paper.",
@@ -681,30 +543,22 @@
         {
           "speaker": "narrator",
           "text": "Winston suggested the globe be moved to the town square.",
-          "delivery": "dry, storybook cadence",
-          "audio_path": "voices/fx/p16_s00_narrator.wav",
-          "duration_s": 4.575
+          "delivery": "dry, storybook cadence"
         },
         {
           "speaker": "narrator",
           "text": "He felt this was the maximum distance he could possibly be from Marisol while still being seen to participate.",
-          "delivery": "deadpan, slightly judgmental",
-          "audio_path": "voices/fx/p16_s01_narrator.wav",
-          "duration_s": 8.225
+          "delivery": "deadpan, slightly judgmental"
         },
         {
           "speaker": "winston",
           "text": "It will be a sanctuary of peace.",
-          "delivery": "hopeful, quiet whisper",
-          "audio_path": "voices/fx/p16_s02_winston.wav",
-          "duration_s": 2.597
+          "delivery": "hopeful, quiet whisper"
         },
         {
           "speaker": "narrator",
           "text": "Marisol agreed, as long as she could choose the color of the pedestal.",
-          "delivery": "matter-of-fact, abrupt",
-          "audio_path": "voices/fx/p16_s03_narrator.wav",
-          "duration_s": 5.375
+          "delivery": "matter-of-fact, abrupt"
         }
       ],
       "motion_prompt": "Winston's fuzzy felt head tilts slightly, while Marisol's clay fingers twitch near the sketch. A slow, subtle camera zoom-out emphasizes the vast distance between them against the gouache background.",
@@ -719,23 +573,17 @@
         {
           "speaker": "narrator",
           "text": "The town held a grand parade to move the globe.",
-          "delivery": "Cheerful, mid-century announcer tone",
-          "audio_path": "voices/fx/p17_s00_narrator.wav",
-          "duration_s": 3.925
+          "delivery": "Cheerful, mid-century announcer tone"
         },
         {
           "speaker": "narrator",
           "text": "They were a most compatible group, in the way that three different types of mismatched luggage are all compatible with the same overhead bin.",
-          "delivery": "Dry, deadpan observation",
-          "audio_path": "voices/fx/p17_s01_narrator.wav",
-          "duration_s": 9.3
+          "delivery": "Dry, deadpan observation"
         },
         {
           "speaker": "narrator",
           "text": "They walked in a very orderly line, with exactly three feet of safety between each person.",
-          "delivery": "Strict, rhythmic cadence",
-          "audio_path": "voices/fx/p17_s02_narrator.wav",
-          "duration_s": 6.825
+          "delivery": "Strict, rhythmic cadence"
         }
       ],
       "motion_prompt": "The pixel sprite, clay figure, and felt puppet march in a rigid, synchronized loop against the gouache street background. Subtle bobbing of their heads and rhythmic arm swings, maintaining a static distance between them.",
@@ -750,30 +598,22 @@
         {
           "speaker": "narrator",
           "text": "At the unveiling, Chester noticed a small smudge on the map.",
-          "delivery": "dry, matter-of-fact observation",
-          "audio_path": "voices/fx/p18_s00_narrator.wav",
-          "duration_s": 4.5
+          "delivery": "dry, matter-of-fact observation"
         },
         {
           "speaker": "narrator",
           "text": "He leaned in too close to inspect it and accidentally pushed a precarious support beam with his blocky chin.",
-          "delivery": "slow build, deadpan timing",
-          "audio_path": "voices/fx/p18_s01_narrator.wav",
-          "duration_s": 7.85
+          "delivery": "slow build, deadpan timing"
         },
         {
           "speaker": "narrator",
           "text": "Chester tried to resize the smudge, but he found himself completely off-axis.",
-          "delivery": "clinical, slightly confused tone",
-          "audio_path": "voices/fx/p18_s02_narrator.wav",
-          "duration_s": 5.9
+          "delivery": "clinical, slightly confused tone"
         },
         {
           "speaker": "narrator",
           "text": "The structure groaned and rolled away, flattening the mayor's podium and a cheese stall.",
-          "delivery": "utterly unimpressed by the chaos",
-          "audio_path": "voices/fx/p18_s03_narrator.wav",
-          "duration_s": 6.05
+          "delivery": "utterly unimpressed by the chaos"
         }
       ],
       "motion_prompt": "The 16-bit pixel sprite Chester leans forward, his blocky chin making contact with the wooden beam. The beam snaps with a slight jitter, causing the massive globe to tilt and roll slowly across the hand-painted gouache background.",
@@ -788,30 +628,22 @@
         {
           "speaker": "narrator",
           "text": "The giant globe rolled down the main street and crashed through the school gates, smashing into the classroom wall.",
-          "delivery": "flat, matter-of-fact storytelling",
-          "audio_path": "voices/fx/p19_s00_narrator.wav",
-          "duration_s": 7.5
+          "delivery": "flat, matter-of-fact storytelling"
         },
         {
           "speaker": "narrator",
           "text": "This created a brand new window that revealed the original broken globe.",
-          "delivery": "dry, observational tone",
-          "audio_path": "voices/fx/p19_s01_narrator.wav",
-          "duration_s": 5.95
+          "delivery": "dry, observational tone"
         },
         {
           "speaker": "narrator",
           "text": "It had only one tiny crack, which was now the most accurate part of the map.",
-          "delivery": "deadpan irony",
-          "audio_path": "voices/fx/p19_s02_narrator.wav",
-          "duration_s": 5.6
+          "delivery": "deadpan irony"
         },
         {
           "speaker": "winston",
           "text": "Look! It is still here.",
-          "delivery": "breathless, genuine surprise",
-          "audio_path": "voices/fx/p19_s03_winston.wav",
-          "duration_s": 2.442
+          "delivery": "breathless, genuine surprise"
         }
       ],
       "motion_prompt": "Dust particles drift through the sunlight in a hand-painted gouache classroom. Winston, a fuzzy felt puppet, slowly raises his arm to point toward the small globe while blinking his bead eyes.",
@@ -826,23 +658,17 @@
         {
           "speaker": "narrator",
           "text": "The teacher smiled and asked them to put a piece of tape over the crack.",
-          "delivery": "warm, storybook cadence",
-          "audio_path": "voices/fx/p20_s00_narrator.wav",
-          "duration_s": 5.025
+          "delivery": "warm, storybook cadence"
         },
         {
           "speaker": "narrator",
           "text": "The three friends walked away together, each cherishing the wonderful silence that comes when one has finally run out of things to say to another person.",
-          "delivery": "dry, slightly cynical",
-          "audio_path": "voices/fx/p20_s01_narrator.wav",
-          "duration_s": 10.55
+          "delivery": "dry, slightly cynical"
         },
         {
           "speaker": "narrator",
           "text": "They were perfectly aligned, much like two tectonic plates just before a catastrophic shift.",
-          "delivery": "deadpan, ominous undertone",
-          "audio_path": "voices/fx/p20_s02_narrator.wav",
-          "duration_s": 6.525
+          "delivery": "deadpan, ominous undertone"
         }
       ],
       "motion_prompt": "The pixel sprite, clay figure, and felt puppet walk away in a synchronized row toward the sunset. Subtle bobbing motions preserve their distinct textures against the static gouache background, with a slow camera pull-back.",

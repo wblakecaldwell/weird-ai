@@ -2,7 +2,7 @@
 into a per-page voice & animation script (cartoon/script.json), then unload LM Studio.
 
 Usage:
-    uv run python cartoon/prepare_script.py books/03-the-very-big-world-problem/story.json
+    uv run python cartoon/prepare_script.py books/01-the-very-big-world-problem/story.json
 """
 
 from __future__ import annotations
