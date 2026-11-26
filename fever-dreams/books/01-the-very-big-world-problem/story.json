@@ -118,16 +118,29 @@
     "seed": 335271,
     "image": "art/cover.png",
     "render_meta": {
-      "model": "flux2-klein-4b",
-      "seed": 335271,
-      "steps": 4,
+      "model": "qwen-image-2.1-turbo",
+      "seed": 598828,
+      "steps": 8,
       "refs": [
+        "original.png",
         "01-chester-antialiased_v0.png",
-        "03-marisol-brittle_v0.png",
-        "06-winston-crumb_v0.png"
+        "p20_chester_fullbody_ref.png"
       ],
-      "elapsed_s": 24.3
-    }
+      "elapsed_s": 47.0,
+      "mode": "edit",
+      "edit_instruction": "Replace the smooth clay horned boy in glasses on the left with the crisp 16-bit retro pixel-art goblin-boy Chester Antialiased from Image 2 and Image 3: NO glasses, NO horns, chunky visible square pixels and bold black pixel outlines, spiky dark-teal pixel hair, pointed green goblin ears, wide square eyes with one raised eyebrow, awkward braces grin, burgundy short-sleeve polo shirt with crooked yellow pixel lanyard, blue jeans, and dark shoes, standing on the sunlit wooden classroom floor in front of the giant globe and casting a natural shadow.",
+      "mask": "mask: chester_cover_mask.png"
+    },
+    "edit_history": [
+      {
+        "at": "2026-11-26T05:56:22+00:00",
+        "mode": "edit",
+        "model": "qwen-image-2.1-turbo",
+        "seed": 598828,
+        "mask": "mask: chester_cover_mask.png",
+        "instruction": "Replace the smooth clay horned boy in glasses on the left with the crisp 16-bit retro pixel-art goblin-boy Chester Antialiased from Image 2 and Image 3: NO glasses, NO horns, chunky visible square pixels and bold black pixel outlines, spiky dark-teal pixel hair, pointed green goblin ears, wide square eyes with one raised eyebrow, awkward braces grin, burgundy short-sleeve polo shirt with crooked yellow pixel lanyard, blue jeans, and dark shoes, standing on the sunlit wooden classroom floor in front of the giant globe and casting a natural shadow."
+      }
+    ]
   },
   "pages": [
     {
