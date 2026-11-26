@@ -239,13 +239,25 @@
       "image": "art/page_04.png",
       "render_meta": {
         "model": "flux2-klein-4b",
-        "seed": 335659,
+        "seed": 404303,
         "steps": 4,
         "refs": [
           "06-winston-crumb_v0.png"
         ],
-        "elapsed_s": 10.7
-      }
+        "elapsed_s": 10.6,
+        "mode": "reroll",
+        "edit_instruction": "Inside a cozy cluttered 1950s hobby shop with shelves of model trains, paint jars, and miniature globes, the glass-paned wooden front shop door stands slightly open on the left. Hanging directly from the top of the shop doorframe right by the door is a classic cluster of silver metal tube wind-chimes swinging and tinkling with small motion lines (NOT a ceiling light fixture). On the right, Winston Crumb cringes back in comic alarm with wide asymmetrical plastic googly eyes and both fuzzy chartreuse felt hands pressed against the sides of his head to block the noise."
+      },
+      "edit_history": [
+        {
+          "at": "2026-11-26T04:39:50+00:00",
+          "mode": "reroll",
+          "model": "flux2-klein-4b",
+          "seed": 404303,
+          "mask": null,
+          "instruction": "Inside a cozy cluttered 1950s hobby shop with shelves of model trains, paint jars, and miniature globes, the glass-paned wooden front shop door stands slightly open on the left. Hanging directly from the top of the shop doorframe right by the door is a classic cluster of silver metal tube wind-chimes swinging and tinkling with small motion lines (NOT a ceiling light fixture). On the right, Winston Crumb cringes back in comic alarm with wide asymmetrical plastic googly eyes and both fuzzy chartreuse felt hands pressed against the sides of his head to block the noise."
+        }
+      ]
     },
     {
       "page_number": 5,
@@ -420,15 +432,27 @@
       "seed": 336338,
       "image": "art/page_11.png",
       "render_meta": {
-        "model": "flux2-klein-4b",
-        "seed": 336338,
-        "steps": 4,
+        "model": "qwen-image-2.1-turbo",
+        "seed": 386216,
+        "steps": 8,
         "refs": [
-          "03-marisol-brittle_v0.png",
-          "06-winston-crumb_v0.png"
+          "original.png"
         ],
-        "elapsed_s": 17.9
-      }
+        "elapsed_s": 28.8,
+        "mode": "edit",
+        "edit_instruction": "Remove the extra raised third leg and green shoe sticking out of the yellow puppet's side. Instead, have the owl's lower yellow knit arm and clay hand reach slightly forward to push directly against the side of the puppet's navy fuzzy vest, with clean sunlit cream wall, brown wooden baseboard, and wooden floor visible in the gap beneath their arms. Keep the puppet's two green feet on the floor.",
+        "mask": "bbox: 385,438,560,592"
+      },
+      "edit_history": [
+        {
+          "at": "2026-11-26T03:07:39+00:00",
+          "mode": "edit",
+          "model": "qwen-image-2.1-turbo",
+          "seed": 386216,
+          "mask": "bbox: 385,438,560,592",
+          "instruction": "Remove the extra raised third leg and green shoe sticking out of the yellow puppet's side. Instead, have the owl's lower yellow knit arm and clay hand reach slightly forward to push directly against the side of the puppet's navy fuzzy vest, with clean sunlit cream wall, brown wooden baseboard, and wooden floor visible in the gap beneath their arms. Keep the puppet's two green feet on the floor."
+        }
+      ]
     },
     {
       "page_number": 12,
@@ -446,14 +470,28 @@
       "seed": 336435,
       "image": "art/page_12.png",
       "render_meta": {
-        "model": "flux2-klein-4b",
-        "seed": 336435,
-        "steps": 4,
+        "model": "qwen-image-2.1-turbo",
+        "seed": 788971,
+        "steps": 8,
         "refs": [
-          "06-winston-crumb_v0.png"
+          "original.png",
+          "page_10_crane_ref.png"
         ],
-        "elapsed_s": 11.0
-      }
+        "elapsed_s": 34.9,
+        "mode": "edit",
+        "edit_instruction": "Replace the green steam-train contraption on the road with the yellow wheeled mobile construction truck crane from Image 2: heavy black rubber tires on the asphalt street, yellow crane cab with glass windshield, tall angled yellow telescopic boom rising into the upper-right sky, and thick billowing black diesel exhaust smoke roaring upward from its engine exhaust stack into the dark smoke cloud above.",
+        "mask": "mask: crane_poly_mask.png"
+      },
+      "edit_history": [
+        {
+          "at": "2026-11-26T05:01:26+00:00",
+          "mode": "edit",
+          "model": "qwen-image-2.1-turbo",
+          "seed": 788971,
+          "mask": "mask: crane_poly_mask.png",
+          "instruction": "Replace the green steam-train contraption on the road with the yellow wheeled mobile construction truck crane from Image 2: heavy black rubber tires on the asphalt street, yellow crane cab with glass windshield, tall angled yellow telescopic boom rising into the upper-right sky, and thick billowing black diesel exhaust smoke roaring upward from its engine exhaust stack into the dark smoke cloud above."
+        }
+      ]
     },
     {
       "page_number": 13,
@@ -579,16 +617,27 @@
       "seed": 336920,
       "image": "art/page_17.png",
       "render_meta": {
-        "model": "flux2-klein-4b",
-        "seed": 336920,
-        "steps": 4,
+        "model": "qwen-image-2.1-turbo",
+        "seed": 578787,
+        "steps": 8,
         "refs": [
-          "01-chester-antialiased_v0.png",
-          "03-marisol-brittle_v0.png",
-          "06-winston-crumb_v0.png"
+          "r01_scrubbed.png"
         ],
-        "elapsed_s": 24.7
-      }
+        "elapsed_s": 26.8,
+        "mode": "edit",
+        "edit_instruction": "Remove the hollow half-glasses loop hanging off the left side of the green boy's temple/cheek; show only his clean continuous black cheek outline against the straight vertical terracotta-salmon building wall column behind him.",
+        "mask": "bbox: 96,326,133,377 + scrub"
+      },
+      "edit_history": [
+        {
+          "at": "2026-11-26T05:20:10+00:00",
+          "mode": "edit",
+          "model": "qwen-image-2.1-turbo",
+          "seed": 578787,
+          "mask": "bbox: 96,326,133,377 + scrub",
+          "instruction": "Remove the hollow half-glasses loop hanging off the left side of the green boy's temple/cheek; show only his clean continuous black cheek outline against the straight vertical terracotta-salmon building wall column behind him."
+        }
+      ]
     },
     {
       "page_number": 18,
@@ -606,14 +655,27 @@
       "seed": 337017,
       "image": "art/page_18.png",
       "render_meta": {
-        "model": "flux2-klein-4b",
-        "seed": 337017,
-        "steps": 4,
+        "model": "qwen-image-2.1-turbo",
+        "seed": 718101,
+        "steps": 8,
         "refs": [
+          "original.png",
           "01-chester-antialiased_v0.png"
         ],
-        "elapsed_s": 11.0
-      }
+        "elapsed_s": 35.1,
+        "mode": "edit",
+        "edit_instruction": "Separate the green 16-bit pixel goblin boy completely from the wooden beam so his arm does NOT merge into the wood. Instead, show him reacting in horrified shock with wide terrified square eyes, an open gasping scared mouth, and BOTH green pixel hands raised up to his cheeks in panic! Behind him on the left, the wooden support beam snaps cleanly in half on its own as the giant globe tilts above the cheese table. Keep his crisp 16-bit pixel outlines, spiky teal hair, pointed ears, burgundy polo shirt, and yellow pixel lanyard."
+      },
+      "edit_history": [
+        {
+          "at": "2026-11-26T03:31:54+00:00",
+          "mode": "edit",
+          "model": "qwen-image-2.1-turbo",
+          "seed": 718101,
+          "mask": null,
+          "instruction": "Separate the green 16-bit pixel goblin boy completely from the wooden beam so his arm does NOT merge into the wood. Instead, show him reacting in horrified shock with wide terrified square eyes, an open gasping scared mouth, and BOTH green pixel hands raised up to his cheeks in panic! Behind him on the left, the wooden support beam snaps cleanly in half on its own as the giant globe tilts above the cheese table. Keep his crisp 16-bit pixel outlines, spiky teal hair, pointed ears, burgundy polo shirt, and yellow pixel lanyard."
+        }
+      ]
     },
     {
       "page_number": 19,

@@ -630,6 +630,13 @@ def main() -> None:
         help="Pre-scrub the masked artifact from the conditioning input so edit models don't copy remnants of it",
     )
     parser.add_argument(
+        "--extra-ref",
+        type=Path,
+        nargs="+",
+        default=None,
+        help="Additional reference image(s) for visual continuity (e.g. a prop/vehicle from an earlier page)",
+    )
+    parser.add_argument(
         "--no-cast-refs",
         action="store_true",
         help="In edit mode, pass only the current illustration without character reference portraits",
@@ -862,7 +869,8 @@ def main() -> None:
                         cond_first = scrub_masked_region(current_source, resolved_mask, scrub_png)
                         mask_desc += " + scrub"
                     print(f"  Mask resolved ({mask_desc}) -> {overlay_png.name}")
-                image_paths = [cond_first] + ([] if args.no_cast_refs else cast_refs)
+                extra_refs = [p.resolve() for p in (args.extra_ref or [])]
+                image_paths = [cond_first] + ([] if args.no_cast_refs else cast_refs) + extra_refs
             else:
                 full_prompt = build_reroll_prompt(
                     instruction,
@@ -871,7 +879,8 @@ def main() -> None:
                     is_cover=args.cover,
                     append_scene=args.append_scene and not args.replace_scene,
                 )
-                image_paths = list(cast_refs)
+                extra_refs = [p.resolve() for p in (args.extra_ref or [])]
+                image_paths = list(cast_refs) + extra_refs
 
             print(
                 f"\n=== Round {round_num} ({target_label} | mode={mode} | model={spec.key} | "
