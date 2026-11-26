@@ -70,6 +70,9 @@ uv run python scripts/generate_illustrations.py books/01-*/story.json --model qw
 
 # Re-roll just one page with a new seed:
 uv run python scripts/generate_illustrations.py books/01-*/story.json --only-page 4 --seed-offset 1 --overwrite
+
+# Interactively retouch or re-roll a page (side-by-side HTML candidate picker + optional cartoon refresh):
+uv run python scripts/edit_page.py books/01-the-very-big-world-problem --page 1 "Add darker cracks on the globe" --count 4 --cartoon
 ```
 
 Supported `--model` options:

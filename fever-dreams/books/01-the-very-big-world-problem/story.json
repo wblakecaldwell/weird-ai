@@ -147,13 +147,26 @@
       "image": "art/page_01.png",
       "render_meta": {
         "model": "flux2-klein-4b",
-        "seed": 335368,
+        "seed": 311233,
         "steps": 4,
         "refs": [
+          "r01_cand_08_s310942.png",
           "01-chester-antialiased_v0.png"
         ],
-        "elapsed_s": 10.5
-      }
+        "elapsed_s": 18.3,
+        "mode": "edit",
+        "edit_instruction": "black cracks on the globe"
+      },
+      "edit_history": [
+        {
+          "at": "2026-11-26T02:39:52+00:00",
+          "mode": "edit",
+          "model": "flux2-klein-4b",
+          "seed": 311233,
+          "mask": null,
+          "instruction": "black cracks on the globe"
+        }
+      ]
     },
     {
       "page_number": 2,

@@ -4,6 +4,8 @@ __pycache__/
 .DS_Store
 .env
 bakeoff_out/
+books/*/.retouch/
+books/*/art/.history/
 
 # Cartoon pipeline: local venv, vendored repos, and model weights
 cartoon/.venv/
