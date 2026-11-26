@@ -1,0 +1,68 @@
+{
+  "suite": "adjacent_cuts",
+  "cases": [
+    {
+      "id": "pass_classroom_p01_p02",
+      "shot_prev": "p01.png",
+      "shot_next": "p02.png",
+      "same_set_expected": true,
+      "scene_context": "Consecutive shots inside the sunlit 1950s classroom around the giant globe.",
+      "expected": "PASS",
+      "description": "Consistent sunlit classroom lighting and character styles across p01 -> p02."
+    },
+    {
+      "id": "fail_classroom_lighting_flip",
+      "shot_prev": "p01.png",
+      "shot_next": "p02_night_flip.png",
+      "same_set_expected": true,
+      "scene_context": "Consecutive shots inside the sunlit 1950s classroom moments apart.",
+      "expected": "FAIL",
+      "description": "Sudden shift from warm sunlit daylight to dark cold blue night lighting in the same scene."
+    },
+    {
+      "id": "pass_crane_p10_p12",
+      "shot_prev": "p10.png",
+      "shot_next": "p12_good.png",
+      "same_set_expected": true,
+      "scene_context": "Consecutive street shots featuring the yellow wheeled construction crane truck.",
+      "expected": "PASS",
+      "description": "Consistent yellow wheeled crane truck and daytime street lighting."
+    },
+    {
+      "id": "fail_crane_mutated_p10_p12",
+      "shot_prev": "p10.png",
+      "shot_next": "p12_bad_crane.png",
+      "same_set_expected": true,
+      "scene_context": "Consecutive street shots featuring the same construction crane truck.",
+      "expected": "FAIL",
+      "description": "Yellow wheeled construction crane truck mutates into a green steam-train contraption."
+    },
+    {
+      "id": "pass_street_p16_p17",
+      "shot_prev": "p16.png",
+      "shot_next": "p17_good.png",
+      "same_set_expected": true,
+      "scene_context": "Consecutive daytime street shots following Chester Antialiased.",
+      "expected": "PASS",
+      "description": "Consistent daytime street scene and 16-bit pixel-art Chester."
+    },
+    {
+      "id": "fail_chester_style_jump_p16_p17",
+      "shot_prev": "p16.png",
+      "shot_next": "p17_bad_3d.png",
+      "same_set_expected": true,
+      "scene_context": "Consecutive daytime street shots following pixel-art Chester Antialiased.",
+      "expected": "FAIL",
+      "description": "Chester jumps from flat 16-bit pixel art to a smooth 3D clay/shaded character."
+    },
+    {
+      "id": "fail_set_swap_classroom_to_street",
+      "shot_prev": "p01.png",
+      "shot_next": "p17_good.png",
+      "same_set_expected": true,
+      "scene_context": "Tagged as consecutive shots inside the same indoor classroom set.",
+      "expected": "FAIL",
+      "description": "Location abruptly changes from indoor classroom to outdoor city street despite same_set_expected=True."
+    }
+  ]
+}

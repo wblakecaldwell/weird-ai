@@ -1,0 +1,73 @@
+{
+  "created_at": "2026-11-26T07:40:45.085925+00:00",
+  "models": [
+    {
+      "model": "flux2-klein-4b",
+      "timings": {
+        "char_sheet_s": 14.31,
+        "prop_sheet_s": 19.93,
+        "set_plate_s": 15.58
+      },
+      "char_sheet": "flux2-klein-4b/ref_char_winston.png",
+      "prop_sheet": "flux2-klein-4b/ref_prop_toolbox.png",
+      "set_plate": "flux2-klein-4b/ref_set_hallway_wide.png",
+      "contact_sheet_set": "flux2-klein-4b/contact_sheet_set_reuse.png",
+      "contact_sheet_char": "flux2-klein-4b/contact_sheet_char.png",
+      "shots": [
+        {
+          "shot_id": "shot_01_locked_enter",
+          "locked_camera": true,
+          "image": "flux2-klein-4b/shot_01_locked_enter.png",
+          "elapsed_s": 45.01
+        },
+        {
+          "shot_id": "shot_02_locked_drop",
+          "locked_camera": true,
+          "image": "flux2-klein-4b/shot_02_locked_drop.png",
+          "elapsed_s": 45.96
+        },
+        {
+          "shot_id": "shot_03_angle_medium",
+          "locked_camera": false,
+          "image": "flux2-klein-4b/shot_03_angle_medium.png",
+          "elapsed_s": 51.0
+        }
+      ],
+      "critic_scores": null
+    },
+    {
+      "model": "qwen-image-2.1-turbo",
+      "timings": {
+        "char_sheet_s": 62.46,
+        "prop_sheet_s": 64.68,
+        "set_plate_s": 27.83
+      },
+      "char_sheet": "qwen-image-2.1-turbo/ref_char_winston.png",
+      "prop_sheet": "qwen-image-2.1-turbo/ref_prop_toolbox.png",
+      "set_plate": "qwen-image-2.1-turbo/ref_set_hallway_wide.png",
+      "contact_sheet_set": "qwen-image-2.1-turbo/contact_sheet_set_reuse.png",
+      "contact_sheet_char": "qwen-image-2.1-turbo/contact_sheet_char.png",
+      "shots": [
+        {
+          "shot_id": "shot_01_locked_enter",
+          "locked_camera": true,
+          "image": "qwen-image-2.1-turbo/shot_01_locked_enter.png",
+          "elapsed_s": 79.03
+        },
+        {
+          "shot_id": "shot_02_locked_drop",
+          "locked_camera": true,
+          "image": "qwen-image-2.1-turbo/shot_02_locked_drop.png",
+          "elapsed_s": 69.87
+        },
+        {
+          "shot_id": "shot_03_angle_medium",
+          "locked_camera": false,
+          "image": "qwen-image-2.1-turbo/shot_03_angle_medium.png",
+          "elapsed_s": 60.81
+        }
+      ],
+      "critic_scores": null
+    }
+  ]
+}

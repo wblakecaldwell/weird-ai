@@ -1,0 +1,1186 @@
+[
+  {
+    "suite": "defects_probed",
+    "model": "gemma-4-31b-it",
+    "metrics": {
+      "total": 15,
+      "tp": 3,
+      "fn": 4,
+      "tn": 7,
+      "fp": 1,
+      "defect_recall": 0.4286,
+      "fpr": 0.125,
+      "accuracy": 0.6667,
+      "avg_s": 30.55,
+      "meets_bar": false
+    },
+    "cases": [
+      {
+        "id": "fail_half_glasses_crop",
+        "expected": "FAIL",
+        "predicted": "FAIL",
+        "correct": true,
+        "hits": [
+          "half_glasses"
+        ],
+        "elapsed_s": 26.28,
+        "probes": {
+          "half_glasses": {
+            "observation": "On the left side of the character's face, near the temple and ear, there is a floating, semi-circular black line that resembles a partial glasses frame or lens rim. There is no corresponding frame or lens on the right side of the face.",
+            "defect_detected": true,
+            "confidence": "high",
+            "location": "left cheek/temple area of the character's face.",
+            "fix_instruction": "Remove the floating black curved line on the left side of the character's face."
+          },
+          "chin_blob": {
+            "observation": "The character's mouth is a simple closed line, and the chin is a smooth, rounded green surface. There are no red/brown rocky lumps or foreign artifacts protruding from the chin or mouth area.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "chin/mouth area",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "The image shows a single green character from the waist up. No legs, feet, or shoes are visible in the frame.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "The image shows a character from the chest up. There are no wooden beams, poles, or large props present in the scene that a character's hand or arm would be touching.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "n/a"
+          }
+        }
+      },
+      {
+        "id": "fail_p17_half_glasses_full",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 30.33,
+        "probes": {
+          "half_glasses": {
+            "observation": "I am inspecting the edges of the faces, cheeks, and temples for all three characters. The character on the left is wearing a complete pair of glasses covering both eyes. The character in the center is wearing a complete pair of glasses covering both eyes. The character on the right has no glasses or partial glass frames on either side of their face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I have inspected the chins, lower jaws, and mouths of all three characters. The green character has a smooth chin; the owl character has a rounded beak/chin area; the orange-haired character has a smooth, pointed chin. There are no jagged red/brown rocky lumps or foreign AI artifacts protruding from any of their chins or mouths.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I am examining the three characters from left to right. The green character on the left has two legs and two black shoes. The owl-like character in the center has two legs and two light-colored feet. The orange-haired character on the right has two legs and two black shoes. I do not see any extra legs, raised limbs, or green shoes protruding from the torso or hip of any character.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "I have inspected the hands and arms of all three characters. None of them are touching or interacting with any wooden beams, poles, or large props; they are walking in an open street.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "no fix needed"
+          }
+        }
+      },
+      {
+        "id": "fail_p01_chin_rock",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 35.24,
+        "probes": {
+          "half_glasses": {
+            "observation": "I have inspected the faces, cheeks, and temples of all characters in the image. The main character has no glasses. The background characters (teacher, student on left, students on right) have no visible glasses or partial glass frames/loops on either side of their faces.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "The character's mouth is closed and touching a red tool (which looks like a marker or pen) that is being used to draw on the globe. There is no rocky lump, blob, or foreign AI artifact protruding from the chin or mouth; the red object is a tool being held/used, not an anatomical growth or artifact attached to the jaw.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "mouth/chin area of the main character touching the globe",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I am examining the standing characters in the image. The character on the far right (girl) has two legs and two shoes visible. The characters in the background posters are simplified drawings with standard leg counts. The central puppet character is seated/leaning and only the upper body and arms are visible; no legs or feet are shown for this character. There is no evidence of a third leg, extra raised leg, or green shoe sticking out of any character's torso or hip.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "I am examining the hands and arms of all characters in relation to wooden surfaces. The boy in the foreground has his left hand resting on a wooden desk; there is a clear boundary between his skin and the wood. The boy in the green shirt has his arms resting on a wooden desk; there is no merging of skin into wood. The other characters' hands are either not touching wooden beams/poles or are gripping them normally without any fusion or morphing.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "fail_p01_chin_rock_crop",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 26.58,
+        "probes": {
+          "half_glasses": {
+            "observation": "I have inspected the left and right edges of the character's face, cheeks, and temples. There are no glasses or partial glass frames present on either side of the face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "The character's mouth is closed and pressed against a red tool (a drill bit) that is piercing the globe. There is no rocky lump, blob, or foreign AI artifact protruding from the chin or mouth; the red object is a tool being held/used by the character.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "mouth/chin area where it meets the globe tool",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I have examined the image and there are no standing characters visible. The only character present is a close-up of a face and upper torso; no legs, feet, or shoes are visible in the frame.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "N/A"
+          },
+          "hand_merge": {
+            "observation": "The character's hand is gripping a red and black object (which appears to be a tool or part of the globe) that is piercing the globe. The hand is distinct from the object it is holding, and there are no wooden beams or poles present in the image for a limb to fuse with.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "fail_p11_three_legs",
+        "expected": "FAIL",
+        "predicted": "FAIL",
+        "correct": true,
+        "hits": [
+          "extra_leg"
+        ],
+        "elapsed_s": 31.31,
+        "probes": {
+          "half_glasses": {
+            "observation": "The character on the left is wearing a complete pair of round glasses that cover both eyes symmetrically. The character on the right has no glasses or partial glass frames on either side of its face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I am inspecting the chins and mouths of both characters. The owl character's chin is smooth and rounded, resting against its yellow sweater. The yellow creature's chin is a simple curved line typical of a cartoon style. There are no jagged red/brown rocky lumps, blobs, or foreign artifacts protruding from either character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "Looking at the yellow-green puppet character on the right, there are two green feet resting on the floor. Additionally, there is a third green shoe/leg structure protruding horizontally from the character's right hip area, extending toward the left of the frame.",
+            "defect_detected": true,
+            "confidence": "high",
+            "location": "right character's hip/waist area, extending leftward.",
+            "fix_instruction": "Remove the extra green leg/shoe protruding from the character's hip."
+          },
+          "hand_merge": {
+            "observation": "I am examining the points where characters' hands and arms touch props. The owl character is touching a globe (metal/plastic stand) and the other character; neither hand is fused into wood. The second character's arms are not touching any wooden beams or poles; they are interacting with the other character and resting against a wall/window sill. There is no evidence of limbs morphing into wooden structures.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "fail_p11_three_legs_crop",
+        "expected": "FAIL",
+        "predicted": "FAIL",
+        "correct": true,
+        "hits": [
+          "extra_leg"
+        ],
+        "elapsed_s": 29.75,
+        "probes": {
+          "half_glasses": {
+            "observation": "I am inspecting the edges of both characters' faces. The character on the left is wearing a complete pair of glasses that covers both eyes evenly. The character on the right has no glasses or partial glass frames on either side of its face, cheeks, or temples.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I am inspecting the chins, lower jaws, and mouths of both characters. The character on the left has a smooth white chin area. The character on the right has a yellow, textured fabric chin and mouth line. There are no jagged red/brown rocky lumps or foreign AI artifacts protruding from either character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "Looking at the yellow-green puppet character, there are two green feet resting on the floor. Additionally, there is a third green shoe/leg structure extending horizontally from the character's right hip area, which is being held by the other character.",
+            "defect_detected": true,
+            "confidence": "high",
+            "location": "right hip of the yellow-green puppet character",
+            "fix_instruction": "Remove the extra third leg/shoe extending from the hip."
+          },
+          "hand_merge": {
+            "observation": "The character on the left has its hand resting on the arm of the character on the right. The character on the right is leaning against a wooden window frame; its back and arm are touching the wood, but there is no evidence of the limb merging or morphing into the wooden structure. The contact points are distinct.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "fail_p18_hand_beam_merge",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 31.35,
+        "probes": {
+          "half_glasses": {
+            "observation": "I have inspected the faces, cheeks, and temples of all characters in the image. No broken or half-pairs of glasses, single hollow lenses, or one-sided frames are visible on any character.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I have inspected the chins, lower jaws, and mouths of all characters in the image. The green character's mouth is open showing teeth; the other background characters have standard cartoon facial features. There are no jagged red/brown rocky lumps, blobs, or foreign AI artifacts protruding from any character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I am examining the standing characters in the image. The green puppet character has two legs and two shoes on the floor. The boy in blue shorts behind him has two legs and two shoes on the floor. Other standing characters (the boy in red, the girl, the men in the background) all have two legs/feet visible or implied by their posture. There are no characters with three legs, nor is there an extra raised leg or green shoe sticking out of any character's torso or hip.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "I am examining the points of contact between characters and wooden structures. The green character's hand is gripping a wooden beam; there is white impact/shatter effect around the point of contact, but the hand remains a distinct entity from the wood. Other characters in the background are not touching wooden beams or poles.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "pass_p02_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 28.01,
+        "probes": {
+          "half_glasses": {
+            "observation": "The owl character on the left is wearing a complete pair of eyeglasses that symmetrically cover both eyes. The yellow character on the right has no glasses or partial glass frames on either side of its face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I am inspecting the chins and mouths of both characters. The owl's chin is smooth and rounded, resting above the table surface. The yellow character's chin is a standard pointed cartoon shape; there are no jagged red/brown rocky lumps or foreign blobs protruding from its jaw or mouth where it interacts with the globe.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "The owl character has two feet resting on the table. The yellow-green puppet character is sitting; it has two visible hands/paws resting on the table. There are no legs or shoes protruding from its torso, hips, or sides.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "yellow-green puppet character torso/hip area",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "The owl character's left hand is resting on the wooden table surface, and the yellow creature's hands are resting on the wooden table surface. In both cases, there is a clear boundary between the characters' limbs and the wood; no limb is fused or morphed into the wooden material.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "hands/arms touching wooden table surface",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "pass_p03_clean",
+        "expected": "PASS",
+        "predicted": "FAIL",
+        "correct": false,
+        "hits": [
+          "extra_leg"
+        ],
+        "elapsed_s": 31.65,
+        "probes": {
+          "half_glasses": {
+            "observation": "I am inspecting the faces of the owl and the creature. The owl is wearing a complete pair of round glasses that symmetrically cover both eyes. The creature on the right has no glasses or partial glass frames on its face, cheeks, or temples.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I am inspecting the chins and mouths of the owl character and the yellow creature. The owl's chin is smooth and rounded; its mouth is a simple line. The yellow creature has a defined cartoon jawline and a smiling mouth. There are no jagged red/brown rocky lumps, blobs, or foreign artifacts protruding from either character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "Looking at the yellow-green puppet character on the right, there are two feet resting on the floor/surface. However, extending from the character's right hip area (viewer's left), there is a third limb/foot-like structure protruding sideways, separate from the two legs supporting the body.",
+            "defect_detected": true,
+            "confidence": "high",
+            "location": "right side of image, hip area of the yellow-green puppet character.",
+            "fix_instruction": "Remove the extra limb/foot protruding from the right hip of the yellow-green puppet character."
+          },
+          "hand_merge": {
+            "observation": "The owl character is holding a pencil; the hand and fingers are distinct from the pencil. The puppet-like character's left hand is resting on a piece of paper, and the right hand is gripping the edge of the parchment; both hands are clearly separated from the wooden table and chair surfaces they are touching.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "pass_p05_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 31.29,
+        "probes": {
+          "half_glasses": {
+            "observation": "The character on the left is wearing a complete pair of round eyeglasses that cover both eyes symmetrically. The character on the right has no glasses or partial glass frames on either side of its face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I have inspected the chins, lower jaws, and mouths of both characters. The character on the left has a smooth, rounded chin area. The character on the right has a pointed, yellow fabric chin. There are no jagged red/brown rocky lumps or foreign AI artifacts protruding from either character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I am examining the yellow-green puppet character on the left. I see two legs: one extended forward and one positioned back, both ending in small brown shoes. There are no additional legs or shoes protruding from the torso or hip area. I am examining the blue-clothed puppet character on the right. I see two legs: one bent and one straight, both ending in brown shoes. There are no additional legs or shoes protruding from the torso or hip area.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "The character on the left has their right arm extended toward a metal railing/pole. The hand is positioned near the pole but does not merge, melt, or fuse into it; there is a clear separation between the fabric of the hand and the surface of the pole. The character on the right is not touching any beams or poles.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "left character's right hand/arm area near the pole",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "pass_p08_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 28.94,
+        "probes": {
+          "half_glasses": {
+            "observation": "I have inspected the left and right edges of both characters' faces, cheeks, and temples. The yellow character on the left has no glasses or partial frames. The green character on the right has no glasses or partial frames.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I have inspected the chins, lower jaws, and mouths of both characters. The yellow character has a smooth cartoon chin and mouth; the green character has a defined jawline and an open mouth showing teeth. There are no jagged red/brown rocky lumps, blobs, or foreign AI artifacts protruding from either character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I am examining the yellow-green puppet character on the left. He has two legs wearing blue jeans and brown shoes, both resting on the floor. I am examining the green character on the right. He has two legs wearing blue jeans and brown shoes, both resting on the floor. There are no extra legs or shoes protruding from the torsos or hips of either character.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "The character on the left is leaning against a wall and holding a piece of paper. The character on the right is standing with arms at their sides. Neither character is touching a wooden beam or pole, and no limbs are fused or morphed into any such structures.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "pass_p10_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 35.2,
+        "probes": {
+          "half_glasses": {
+            "observation": "I have inspected the faces, cheeks, and temples of all characters in the image: the woman on the left, the small yellow creature in the center, and the three people on the right. None of them are wearing glasses, nor is there any floating lens or partial frame loop on any side of their faces.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I have inspected the chins, lower jaws, and mouths of all characters in the image: the woman on the left, the small yellow creature in the center, and the three people on the right. None of them are touching a globe or object with their faces, and there are no jagged red/brown rocky lumps or foreign AI artifacts protruding from any of their chins or mouths.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I am examining the standing characters: 1. The woman on the left has two legs and two shoes on the ground. 2. The yellow-green puppet character in the center has two legs and two shoes on the ground; there are no extra limbs or shoes protruding from its torso or hips. 3. The man on the right has two legs and two shoes on the ground. 4. The woman on the far right has two legs and two shoes on the ground.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "I have inspected the hands and arms of all characters. The person on the left is standing near the crane; their hands are not touching any wooden beams or poles. The person on the right is holding a scooter handle; their hands are gripping the handle normally without merging into it. The person sitting on the bench has their arms resting, not fused to any wood. The character in the center is standing independently. No limbs are melted or morphed into wooden structures.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "pass_p11_fixed",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 28.82,
+        "probes": {
+          "half_glasses": {
+            "observation": "The character on the left is wearing a complete pair of round glasses that cover both eyes symmetrically. The character on the right has no glasses or partial glass frames on either side of its face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I am inspecting the chins and mouths of both characters. The owl character's chin is smooth and rounded, resting against its yellow sweater. The yellow creature's chin is a simple curved line leading to its neck, with no protrusions. There are no jagged red/brown rocky lumps or foreign blobs attached to either character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "The yellow-green puppet character on the right has two green shoes resting on the floor. There are no additional legs or shoes protruding from its torso, hip, or sides.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "yellow-green puppet character's lower body/hip area",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "The characters are interacting with each other; the owl-like character is holding hands with the yellow-haired character. Neither character's hand or arm is touching a wooden beam, pole, or large prop in a way that shows fusion or melting into the material. The owl-like character is standing near a globe, but there is no physical merging between its limbs and the globe's stand or any wooden structures.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      },
+      {
+        "id": "pass_p17_fixed",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 32.49,
+        "probes": {
+          "half_glasses": {
+            "observation": "I have inspected the left and right edges of every character's face, cheeks, and temples. The green character on the left has no glasses. The owl character in the center is wearing a complete, symmetrical pair of eyeglasses that covers both eyes evenly. The orange-haired character on the right has no glasses. There are no broken, half, or one-sided floating glasses loops on any character's face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I am inspecting the chins, lower jaws, and mouths of the three characters. The green character has a simple black line for a mouth and a smooth chin. The owl character has a small, rounded beak/mouth area with no protrusions. The orange-haired character has a simple stitched mouth and a smooth chin. There are no red/brown rocky lumps, blobs, or foreign artifacts protruding from any of their chins or mouths.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I am examining the three characters from left to right. The green pixelated character has two legs and two black shoes. The owl-like puppet in the center has two legs and two grey feet. The orange-haired puppet on the right has two legs and two black shoes. I do not see any extra legs, raised limbs, or green shoes protruding from the torso or hips of any character.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "I have inspected the hands and arms of all three characters. None of them are touching or interacting with any wooden beams, poles, or large props; they are all walking in an open street.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "no fix needed"
+          }
+        }
+      },
+      {
+        "id": "pass_p18_fixed",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 30.95,
+        "probes": {
+          "half_glasses": {
+            "observation": "I have inspected the faces, cheeks, and temples of all characters in the image. The children on the left, the green character in the foreground, and the adults/children on the right show no signs of partial or one-sided glasses frames, hollow lenses, or floating rim loops on only one side of their faces.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "chin_blob": {
+            "observation": "I have inspected the chins, lower jaws, and mouths of all characters in the image. The green character's mouth is open in a scream, and other characters have standard cartoon facial features. There are no jagged red/brown rocky lumps or foreign AI artifacts protruding from any character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "extra_leg": {
+            "observation": "I have examined every standing character in the image. The children on the left and the adults/children on the right all have two legs and two feet. The green puppet character in the foreground has two legs visible below his waist, with no extra limbs or shoes protruding from his torso or hips.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          },
+          "hand_merge": {
+            "observation": "I am inspecting the points of contact between characters and wooden structures. The character on the left is touching a table, but their hand is distinct from the wood. The characters in the background are standing near wooden furniture and beams, but no limbs are merging into the wood. The central support beam for the globe is not being touched by any character's hand or arm in a way that shows fusion or melting.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none",
+            "fix_instruction": "none"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "suite": "defects_probed",
+    "model": "qwen3-vl-8b-instruct",
+    "metrics": {
+      "total": 15,
+      "tp": 0,
+      "fn": 7,
+      "tn": 8,
+      "fp": 0,
+      "defect_recall": 0.0,
+      "fpr": 0.0,
+      "accuracy": 0.5333,
+      "avg_s": 11.61,
+      "meets_bar": false
+    },
+    "cases": [
+      {
+        "id": "fail_half_glasses_crop",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 10.65,
+        "probes": {
+          "half_glasses": {
+            "observation": "The character wears eyeglasses with both lenses visible and frames covering both eyes evenly. No single lens, frame loop, or rim is seen protruding from only one side of the face without a matching lens on the other side.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "face/cheeks/temples (left and right edges) - no broken or half glasses detected.",
+            "fix_instruction": "None needed. The character's eyeglasses are complete and symmetrical."
+          },
+          "chin_blob": {
+            "observation": "The character's mouth is closed in a neutral expression, and the chin area appears smooth with no jagged red/brown rocky lump or blob attached. The mouth is simply a cartoon line without any foreign object protruding from it.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "chin/mouth area of the character in the foreground.",
+            "fix_instruction": "No fix needed. The image does not contain a strange jagged red/brown rocky lump or blob attached to the character's chin or mouth."
+          },
+          "extra_leg": {
+            "observation": "The image shows a single cartoon character, an elf-like boy with green skin and spiky hair. He is standing upright. His body is fully visible from the waist up, and his lower body (legs and feet) are not clearly depicted in the frame. The character is wearing a brown shirt, and there is no visible footwear or legs extending below the waist. The background shows buildings and a street, but no other standing characters are visible.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image analyzed for standing characters and leg count, including near the waist/hip of the visible character.",
+            "fix_instruction": "None required. The image does not contain any standing character with three legs or an extra raised leg/shoe."
+          },
+          "hand_merge": {
+            "observation": "The character in the image has no visible hands or arms touching any wooden beams, poles, or large props. The character's arms are not visible at all in the frame, and there is no interaction with any wooden object.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image - no hands or arms touching wood visible.",
+            "fix_instruction": "None needed. No defect found as no hands or arms are touching wood."
+          }
+        }
+      },
+      {
+        "id": "fail_p17_half_glasses_full",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 13.78,
+        "probes": {
+          "half_glasses": {
+            "observation": "On the owl character's face, the eyeglasses have two complete lenses and frames covering both eyes. The glasses are symmetrical and fully present on both sides of the face, with no single hollow lens or floating frame loop visible. The same applies to the other characters: the green-skinned character has full glasses covering both eyes, and the yellow character has no visible eyewear. No partial or one-sided glass loops are present.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected per instruction (left and right edges of faces/cheeks/temples) for broken or half glasses.",
+            "fix_instruction": "None needed; no defect found as per instruction to look for broken/half glasses."
+          },
+          "chin_blob": {
+            "observation": "Examining each character's chin, lower jaw, and mouth:\n\n- Left green-skinned character: Has a defined chin and mouth with normal cartoon shading. No foreign object attached.\n- Center owl character: Has a defined beak-like mouth and chin. No rocky or jagged protrusion.\n- Right yellow character: Has a defined mouth and chin. No foreign object attached.\n\nNone of the characters have any strange jagged red/brown rocky lumps or blobs protruding from their chins or mouths.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none of the characters have a foreign rocky artifact attached to their chin or mouth.",
+            "fix_instruction": "No fix needed. The image does not contain the described AI artifact."
+          },
+          "extra_leg": {
+            "observation": "The image shows three cartoon-style characters walking on a street. The character on the left is green-skinned with spiky hair, wearing jeans and shoes; he has two legs and two feet on the ground. The middle character is an owl-like puppet wearing glasses, a sweater, and shorts; he has two legs and two feet on the ground. The character on the right is yellow with orange hair, wearing a blue shirt and brown pants; he has two legs and two feet on the ground. All characters have a normal bipedal stance with no extra limbs or shoes protruding from their torsos. The fuzzy yellow-green puppet (the owl) has no extra legs or shoes sticking out sideways from the waist/hip area.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none - no character has three legs or an extra raised leg/shoe",
+            "fix_instruction": "None needed - image is correct"
+          },
+          "hand_merge": {
+            "observation": "None of the characters are touching wooden beams, poles, or large props. The green-skinned character is near a curb and sidewalk, the owl-like character is on pavement, and the yellow-skinned character is also on pavement. No wooden structures are in direct contact with any of their hands or arms.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none of the characters are touching any wooden beams, poles, or large props.",
+            "fix_instruction": "No fix needed as no defect was found. The characters are not touching any wooden structures."
+          }
+        }
+      },
+      {
+        "id": "fail_p01_chin_rock",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 13.11,
+        "probes": {
+          "half_glasses": {
+            "observation": "The girl in the background on the right side of the image is wearing eyeglasses. The frames cover both eyes evenly and there are no visible broken or half glasses, single lenses, or floating frame loops. The glasses appear complete and symmetrical on both eyes.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "background girl's face (right side of image) - no broken or half glasses visible.",
+            "fix_instruction": "No fix needed. The girl's eyeglasses are complete and symmetrical, with no broken or half pair visible."
+          },
+          "chin_blob": {
+            "observation": "The main character's mouth is open, and there is no jagged red/brown rocky lump or blob protruding from the chin or mouth. The character's face is touching a globe, but the object being held (a red tool) is not attached to or protruding from the chin. The mouth and jawline are drawn normally for a cartoon character.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "main character's chin/mouth area (no artifact present)\"}**Note: This is a literal pixel inspection. The defect does not exist in the image as described.** The character's mouth is open, but there is no ",
+            "fix_instruction": "Do not flag this as a defect. The image does not contain the described artifact."
+          },
+          "extra_leg": {
+            "observation": "The image contains several standing characters:\n- The main character (the elf-like boy) has two feet on the floor, visible under his red shirt and pants. No extra legs or shoes are sticking out of his torso.\n- In the background, a boy in a green shirt has two feet on the floor.\n- A girl with glasses has both feet visible on her chair or desk surface.\n- Other background figures (teachers, students) are either seated or have legs obscured by furniture. \n\nNo character has three legs, an extra raised leg, or a green shoe sticking sideways out of their torso/hip.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected as per instruction, especially near the main character's waist/hip/side.",
+            "fix_instruction": "None needed. No such defect exists in the image as described."
+          },
+          "hand_merge": {
+            "observation": "The main character's right hand is gripping the globe, not a wooden beam. The left arm rests on the desk surface. Other characters (teacher, students) are shown with normal hands and arms; none are fused or melted into wooden beams or poles. The globe is a large prop, but the hand is gripping it, not merging into its surface.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected for hand/arm fusion with wood props, none found.",
+            "fix_instruction": "None needed; no fused limbs detected."
+          }
+        }
+      },
+      {
+        "id": "fail_p01_chin_rock_crop",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 10.69,
+        "probes": {
+          "half_glasses": {
+            "observation": "The character has no eyeglasses at all. Both eyes are fully visible and unobstructed by any frames or lenses. There is no partial frame, lens, or rim visible on either side of the face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire face (left and right edges of cheeks/temples) - no glasses present at all.",
+            "fix_instruction": "No fix needed. The character is not wearing any glasses, so there is no broken or half pair to correct."
+          },
+          "chin_blob": {
+            "observation": "The character's mouth is open, showing teeth and tongue. There is no jagged red/brown rocky lump or blob protruding from the chin or mouth. The character is holding a tool (a red and black drill-like object) that is inserted into the globe, not attached to the character's face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "character's chin/mouth area (none found) - no foreign object attached to face.",
+            "fix_instruction": "None needed. The image does not contain the described artifact."
+          },
+          "extra_leg": {
+            "observation": "The image shows a cartoon-style boy with green eyes and dark hair, wearing an orange shirt. He is holding a red tool that appears to be drilling into a globe. The boy has two legs visible, both attached normally at the waist/hip area and extending downward. There are no other standing characters in the image. The boy's posture does not show any extra raised leg or green shoe sticking sideways out of his torso/hip. The character is not a 'fuzzy yellow-green puppet' as described, but rather has a yellowish skin tone. No character has three legs or an extra raised leg with a green shoe.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected for standing characters and leg count, especially near waist/hip area of the visible character.",
+            "fix_instruction": "None needed; no defect found as per request."
+          },
+          "hand_merge": {
+            "observation": "The character's right hand is gripping a red and black tool (appears to be a drill or screwdriver) that is inserted into the globe prop. The hand and tool are clearly separate from the wooden beams or poles in the background. There is no visible fusion, melting, or morphing of the hand/arm into any wooden structure.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "Right hand gripping tool near globe prop.",
+            "fix_instruction": "None needed. The hand is clearly gripping a tool and not fused to any wooden structure."
+          }
+        }
+      },
+      {
+        "id": "fail_p11_three_legs",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 11.51,
+        "probes": {
+          "half_glasses": {
+            "observation": "The owl character on the left wears full eyeglasses with two complete lenses and symmetrical frames covering both eyes. The yellow character on the right has no glasses. No partial, broken, or floating frame loops are visible on either character's face/cheeks/temples.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected per instruction (left and right edges of faces/cheeks/temples) - no single hollow lens, triangular frame loop, or asymmetric rim found.",
+            "fix_instruction": "None needed; no defect detected as per instructions."
+          },
+          "chin_blob": {
+            "observation": "The owl character's mouth is open in a smile, and the yellow dinosaur-like character has an open mouth with visible teeth. Neither has any jagged red/brown rocky lump or blob protruding from their chin or mouth. The owl's beak is clearly defined and does not have any foreign object attached to it.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none detected in chin or mouth area of either character.",
+            "fix_instruction": "No fix needed. The image does not contain the described AI artifact."
+          },
+          "extra_leg": {
+            "observation": "The fuzzy yellow-green puppet character (on the right) has two feet on the floor: one green foot is visible near its left hip, and another green foot is visible near its right hip. There are no extra raised legs or shoes sticking sideways out of the torso/hip area. The character has a total of two feet/shoes visible, both on the floor.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "waist/hip/side of fuzzy yellow-green puppet character (right side of image) - no third leg or extra shoe visible.",
+            "fix_instruction": "None needed. The character has only two feet/shoes on the floor as expected."
+          },
+          "hand_merge": {
+            "observation": "The owl character's right hand is gripping the wooden windowsill. The yellow dinosaur-like character's left arm and hand are touching the same windowsill. Neither hand nor any part of an arm is fused, melted, or morphed into the wood; both are clearly touching it with distinct shapes. The wooden beam/window frame is separate from the characters' limbs.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "window sill contact points for both characters' hands/arms.",
+            "fix_instruction": "None needed. The image correctly depicts normal contact without fusion or melting into the wood."
+          }
+        }
+      },
+      {
+        "id": "fail_p11_three_legs_crop",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 9.38,
+        "probes": {
+          "half_glasses": {
+            "observation": "The character on the left wears full eyeglasses with two complete lenses and frames covering both eyes. The glasses are symmetrical, with no single lens or frame loop floating on one side without a matching counterpart. The character on the right has no glasses at all.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "left character's face (glasses are complete and symmetrical) / right character has no glasses.",
+            "fix_instruction": "None needed; the image shows complete, symmetrical glasses on one character and no glasses on the other."
+          },
+          "chin_blob": {
+            "observation": "The character on the left (owl-like) has a normal cartoon chin and mouth, no foreign object. The character on the right (yellow dinosaur-like) has a stitched smile and chin, no rocky lump. No object is touching the chins or mouths of either character.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none detected in either chin/mouth area.",
+            "fix_instruction": "No fix needed; no artifact found."
+          },
+          "extra_leg": {
+            "observation": "The fuzzy yellow-green puppet character (on the right) is sitting on the floor. It has two green feet visible, both planted on the floor. There are no raised legs or extra shoes sticking sideways out of its torso/hip. It has two legs, each with a foot on the floor.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "waist/hip/side of fuzzy yellow-green puppet character (right side) - no third leg or extra shoe visible.",
+            "fix_instruction": "None needed. The character has two legs and feet on the floor as expected for a sitting puppet."
+          },
+          "hand_merge": {
+            "observation": "The owl-like character's right hand is gripping the wooden beam, with clear separation between skin and wood. The yellow dinosaur-like character's left hand is touching the wooden beam, with fingers clearly defined and not fused to it. Neither limb appears melted or seamlessly morphed into the wood.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "both characters' hands touching wooden beams but not fused to them.",
+            "fix_instruction": "None needed; no fusion or melting observed."
+          }
+        }
+      },
+      {
+        "id": "fail_p18_hand_beam_merge",
+        "expected": "FAIL",
+        "predicted": "PASS",
+        "correct": false,
+        "hits": [],
+        "elapsed_s": 12.21,
+        "probes": {
+          "half_glasses": {
+            "observation": "The green-skinned character in the foreground has large, round eyes with full lenses visible on both sides. There are no partial or floating glasses frames; the character's eyes are fully intact and symmetrical without any visible broken or half-glasses. The surrounding characters also have no such artifacts.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected for one-sided glasses loops, none found on any character's face/cheeks/temples.",
+            "fix_instruction": "None needed; no broken or half-glasses detected as per the query."
+          },
+          "chin_blob": {
+            "observation": "The green-skinned character in the foreground has an open mouth with visible teeth and a defined chin. There is no jagged red/brown rocky lump or blob protruding from the mouth or chin. The character's face is touching a wooden beam, not a globe, and there are no foreign artifacts attached to the chin or mouth area.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "chin/mouth area of the green character in foreground.",
+            "fix_instruction": "No fix needed. The image does not contain the described AI artifact."
+          },
+          "extra_leg": {
+            "observation": "I counted the legs, feet, and shoes on every standing character in the image. The green puppet-like character (the main subject) has two feet on the floor: one visible on his left side, and another partially obscured behind his right leg. No character has three legs or an extra raised leg/green shoe sticking sideways out of their torso/hip. All other standing characters have two feet on the floor.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected as requested, especially near the waist/hip/side of the green puppet character.",
+            "fix_instruction": "None needed. The image does not contain any character with three legs or an extra raised leg/green shoe."
+          },
+          "hand_merge": {
+            "observation": "The green-skinned character in the foreground is holding a wooden beam with both hands. The hands are clearly gripping the wood, and there's visible spark-like detail at the point of contact. The character's arms are separate from the beam, ending in hands that are touching but not fused or morphed into the wood. Other characters (e.g., children at the table, people in the background) are not touching any wooden beams or poles. No limb is physically fused, melted, or seamlessly morphed into wood.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected for hand/arm fusion with wood, but none found.",
+            "fix_instruction": "None needed; no defect detected as per the criteria."
+          }
+        }
+      },
+      {
+        "id": "pass_p02_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 10.52,
+        "probes": {
+          "half_glasses": {
+            "observation": "On the owl's face, the eyeglasses have two complete lenses and frames covering both eyes symmetrically. There are no single hollow lenses, triangular/rectangular frame loops, or floating rims on only one side of the face. The glasses are fully intact and cover both eyes evenly.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "owl's face (left and right edges of cheeks/temples) - no broken or half glasses visible.",
+            "fix_instruction": "None needed. The glasses are fully intact and symmetrical on both eyes."
+          },
+          "chin_blob": {
+            "observation": "The owl's mouth is closed, and its chin is smooth with no foreign object attached. The yellow character's mouth is open in a smile, and its chin is also smooth with no rocky lump or blob. Neither character has any jagged red/brown object protruding from their chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none detected in chin or mouth area of either character.",
+            "fix_instruction": "No fix needed; no artifact detected as described in the query."
+          },
+          "extra_leg": {
+            "observation": "The owl-like character has two feet (toes) visible, standing on the table. The fuzzy yellow-green puppet-like character has two feet (paw pads) visible, also standing on the table. No character has three legs or an extra raised leg or green shoe sticking sideways out of their torso/hip.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none - no such defect is visible in the image.",
+            "fix_instruction": "None needed. The image does not contain any character with three legs or an extra raised leg/green shoe."
+          },
+          "hand_merge": {
+            "observation": "The owl's left wing is touching the table edge, but its hand remains distinct. The yellow character's right arm rests on the table; the hand is clearly separate from the wood, with visible fingers and fur texture. Neither character's limb appears fused or melted into the wooden surface.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none visible in this frame.",
+            "fix_instruction": "None needed. No fusion or melting observed."
+          }
+        }
+      },
+      {
+        "id": "pass_p03_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 11.1,
+        "probes": {
+          "half_glasses": {
+            "observation": "The owl character on the left wears full eyeglasses with two complete lenses, symmetrically positioned over both eyes. The glasses frame is continuous and fully enclosed on both sides of the face, with no single lens or floating rim visible on only one side. The other character (yellow creature) has no glasses at all.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "owl's face (left side of image) and yellow creature's face (right side of image) - no broken or half glasses visible on either.",
+            "fix_instruction": "None needed. No defect found as per the criteria."
+          },
+          "chin_blob": {
+            "observation": "The owl character has a normal cartoonish beak and chin, with no jagged red/brown rocky lump. The yellow creature has a cartoon mouth and chin, also without any such artifact. No foreign rocky object is attached to or protruding from either character's chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none detected in chin/mouth area of either character.",
+            "fix_instruction": "No fix needed; no artifact found."
+          },
+          "extra_leg": {
+            "observation": "The owl-like character standing on the books has two feet visible, both planted on the stack of books. The fuzzy yellow-green puppet character sitting at the desk has two feet visible, both on the floor or desk surface. No character has three legs or an extra raised leg/green shoe sticking sideways out of their torso/hip.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected as requested.",
+            "fix_instruction": "None needed; no defect found per the query."
+          },
+          "hand_merge": {
+            "observation": "The owl's right arm is extended, holding a pointer, and its hand is gripping the edge of the large open book. The owl's left arm is not visible. The orange-haired creature has both hands on the desk surface, which is covered by books and paper; it does not appear to be gripping a wooden beam or pole. Neither character's hand or arm is fused, melted, or seamlessly morphed into any wooden beam, pole, or large prop. All interactions are clean and distinct.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none visible in the image.",
+            "fix_instruction": "None required. The hands and arms are clearly separate from any wooden structure."
+          }
+        }
+      },
+      {
+        "id": "pass_p05_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 10.3,
+        "probes": {
+          "half_glasses": {
+            "observation": "The owl character on the left wears full eyeglasses with two complete lenses and frames covering both eyes. The yellow character on the right has no glasses. No partial or single-sided glass loops are visible on either character's face, cheeks, or temples.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected per instruction (left and right edges of faces/cheeks/temples) but no defect found.",
+            "fix_instruction": "None needed; image is clean per the specified criteria."
+          },
+          "chin_blob": {
+            "observation": "The owl character has a stitched mouth and chin, with no rocky or jagged protrusion. The yellow-skinned character has a stitched mouth and chin, also with no rocky or jagged protrusion. Neither character shows any foreign AI artifact attached to their chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none detected in chin or mouth area of either character.",
+            "fix_instruction": "No fix needed; no defect found as per the criteria."
+          },
+          "extra_leg": {
+            "observation": "The fuzzy yellow-green puppet (on the right) has two legs and two feet/shoes. One foot is on a step, the other is raised in mid-stride. No third leg or shoe is visible protruding sideways from its torso/hip area.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "waist/hip/side of fuzzy yellow-green puppet character (right side) - no third leg or extra shoe visible.",
+            "fix_instruction": "None needed. The character has two legs and feet as expected for a bipedal puppet."
+          },
+          "hand_merge": {
+            "observation": "The owl character's left hand is gripping the metal railing, and its fingers are clearly distinct from the rail. The yellow character's right hand is touching a wooden beam, but the hand and arm are separate from the wood; there's no fusion or melting. All limbs remain anatomically distinct from props.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none observed in the image.",
+            "fix_instruction": "None needed. No fusion or melting of limbs into props is present."
+          }
+        }
+      },
+      {
+        "id": "pass_p08_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 11.03,
+        "probes": {
+          "half_glasses": {
+            "observation": "On the left side of the image, the yellow character has no glasses. On the right side, the green character also has no glasses. Both characters have full, intact eyes visible without any partial or floating glass frames.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected as per instruction to focus on left and right edges of faces, cheeks, and temples.",
+            "fix_instruction": "No fix needed as no broken or half pair of glasses is present in the image."
+          },
+          "chin_blob": {
+            "observation": "Neither character has any strange jagged red/brown rocky lump or blob protruding from their chin or mouth. The yellow character has a normal cartoonish smile, and the green character has an open-mouthed grin with visible teeth. No foreign objects are attached to either chin.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "both characters' chins/mouths inspected as requested, no artifact found.",
+            "fix_instruction": "None needed; image is clean in this area."
+          },
+          "extra_leg": {
+            "observation": "The fuzzy yellow-green puppet character (on the right) has two legs and two feet with shoes, both planted on the floor. The character on the left (yellow puppet) has two legs and two feet with shoes, also both planted on the floor. No character has three legs or an extra raised leg/shoe sticking sideways from their torso/hip.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected for standing characters near waist/hip/side of fuzzy yellow-green puppet character as requested.",
+            "fix_instruction": "None needed. No defect found per request."
+          },
+          "hand_merge": {
+            "observation": "The yellow character's left hand is gripping the wall, and his right arm is touching a wooden baseboard. The green character's left hand is near the wall, and his right arm is touching a wooden baseboard. Neither character's hands or arms are fused, melted, or seamlessly morphed into the wooden beams or poles. They appear to be touching them normally.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image - hands and arms touching wood are clearly separate from the wooden beams or poles.",
+            "fix_instruction": "None needed. The hands and arms are clearly touching the wood without being fused or morphed into it."
+          }
+        }
+      },
+      {
+        "id": "pass_p10_clean",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 11.6,
+        "probes": {
+          "half_glasses": {
+            "observation": "Examined left and right edges of every character's face, cheeks, and temples. No broken or half pair of glasses is visible. All characters either have no eyewear, full eyeglasses covering both eyes evenly, or are not wearing glasses at all. No single hollow lens, triangular/rectangular frame loop, or rim sticking out on only one side with no matching lens is present.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image - facial edges checked as instructed.",
+            "fix_instruction": "None needed. No defect found per the specified criteria."
+          },
+          "chin_blob": {
+            "observation": "Examining every character's chin, lower jaw, and mouth: The small yellow creature in the foreground has a clearly defined chin and mouth without any jagged red/brown rocky lump or blob. The other characters (adults in the background) have normal cartoon mouths and chins, none of which show any foreign rocky artifact. No character's face touches a globe or object in a way that would obscure or merge with such an artifact. The globe is suspended by chains and does not touch any character's face.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none of the characters show a foreign rocky artifact attached to their chin or mouth.",
+            "fix_instruction": "No fix needed. The image does not contain the described AI artifact."
+          },
+          "extra_leg": {
+            "observation": "The fuzzy yellow-green puppet character (a Muppet-like figure) standing in the foreground has two legs and two feet/shoes. One foot is on the ground, the other is slightly raised as if mid-step. No character has three legs or an extra shoe sticking sideways out of their torso/hip.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "foreground standing puppet character near center of image.",
+            "fix_instruction": "None needed. The character has a normal two-legged posture with no extra limbs or shoes."
+          },
+          "hand_merge": {
+            "observation": "No character's hand or arm is shown touching a wooden beam, pole, or large prop. The only props are the crane (metal), the globe (plastic-like material), and buildings (brick). All characters are shown gripping or touching these props with distinct, separate hands and arms. There is no visual evidence of any limb merging into wood.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected for hand/arm contact with wood.",
+            "fix_instruction": "None needed; no defect found as per criteria."
+          }
+        }
+      },
+      {
+        "id": "pass_p11_fixed",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 11.38,
+        "probes": {
+          "half_glasses": {
+            "observation": "The owl character on the left wears full eyeglasses with two complete lenses and symmetrical frames covering both eyes. The yellow character on the right has no glasses. No partial, broken, or floating frame loops are visible on either character's face/cheeks/temples.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected per instruction (left and right edges of faces/cheeks/temples) - no single hollow lens, triangular frame loop, or asymmetric rim found.",
+            "fix_instruction": "None needed; no defect detected as per instructions."
+          },
+          "chin_blob": {
+            "observation": "The owl character has a defined, cartoon-style chin and mouth. The yellow dinosaur-like character also has a clearly drawn lower jaw and mouth. Neither character has any jagged red/brown rocky lump or blob protruding from their chin or mouth. The owl's beak is clearly defined and does not have any foreign object attached to it.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none detected in either character's chin or mouth area.",
+            "fix_instruction": "No fix needed. The image does not contain the described AI artifact."
+          },
+          "extra_leg": {
+            "observation": "The fuzzy yellow-green puppet character (on the right) has two feet on the floor: one green shoe visible near its left hip, and another green shoe visible near its right hip. No third leg or extra raised leg/shoe is present extending sideways from the torso/hip area.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "waist/hip/side of fuzzy yellow-green puppet character (right side) - no third leg or extra raised shoe visible.",
+            "fix_instruction": "None needed. The character has two feet on the floor as expected."
+          },
+          "hand_merge": {
+            "observation": "The owl character's right hand is touching the wooden floor, not a beam or pole. The yellow dinosaur-like character's left arm is touching the wooden windowsill, but the hand and arm remain distinct from the wood; there's a clear boundary between the character's skin/texure and the wooden surface. No limb is fused, melted, or seamlessly morphed into any wooden beam, pole, or large prop.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none observed in the image.",
+            "fix_instruction": "None needed. The image correctly depicts characters touching wooden surfaces without fusion or melting."
+          }
+        }
+      },
+      {
+        "id": "pass_p17_fixed",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 14.41,
+        "probes": {
+          "half_glasses": {
+            "observation": "The owl character in the center wears eyeglasses with two complete, symmetrical lenses and frames covering both eyes. The glasses are not broken or half; they are fully formed on both sides of the face. No other character has a single lens, frame loop, or floating rim on one side without a matching element on the other. All glasses appear complete and symmetrical.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected per instruction (left and right edges of faces/cheeks/temples) for one-sided glasses defect.",
+            "fix_instruction": "None needed; no broken or half glasses found as per the visual inspection criteria."
+          },
+          "chin_blob": {
+            "observation": "Looking at each character's chin, lower jaw, and mouth:\n- The green-skinned character on the left has a cartoonish open mouth with white teeth and no foreign object attached.\n- The owl character in the center has a cartoonish open mouth with visible teeth and no foreign object attached.\n- The yellow-skinned character on the right has a cartoonish open mouth with visible teeth and no foreign object attached.\nNone of the characters have any jagged red/brown rocky lump, blob, or foreign AI artifact protruding from their chin or mouth.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none of the characters have a foreign rocky artifact attached to their chin or mouth.",
+            "fix_instruction": "No fix needed. The image does not contain the described defect."
+          },
+          "extra_leg": {
+            "observation": "The image contains three standing characters: a green-skinned character on the left, an owl-like character in the center, and a yellow-green puppet-like character on the right. Each has two legs and two feet with shoes. The green-skinned character's left foot is slightly raised, but it has only two feet on the ground. The owl-like character's left foot is slightly raised, but it has only two feet on the ground. The yellow-green puppet character's left foot is slightly raised, but it has only two feet on the ground. No character has three legs or an extra raised leg/green shoe sticking sideways out of their torso/hip while two other feet are already on the floor.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image - all standing characters inspected as requested.",
+            "fix_instruction": "None needed. The image does not contain any character with three legs or an extra raised leg/green shoe sticking sideways out of their torso/hip while two other feet are already on the floor."
+          },
+          "hand_merge": {
+            "observation": "None of the characters' hands or arms are touching wooden beams, poles, or large props. The green-skinned character is touching the ground and a curb; the owl-like character is touching the ground; and the yellow-skinned character is touching the ground. There are no wooden beams or poles in direct contact with any of their limbs.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none of the characters are touching any wooden beams, poles, or large props.",
+            "fix_instruction": "No fix needed as no defect was found. The characters are not touching any wooden beams, poles, or large props."
+          }
+        }
+      },
+      {
+        "id": "pass_p18_fixed",
+        "expected": "PASS",
+        "predicted": "PASS",
+        "correct": true,
+        "hits": [],
+        "elapsed_s": 12.48,
+        "probes": {
+          "half_glasses": {
+            "observation": "Examining the left and right edges of every character's face, cheeks, and temples: The green-skinned goblin in the foreground has no glasses. Other characters (children, adults) have either no eyewear or full eyeglasses that cover both eyes evenly. No single hollow lens, triangular/rectangular frame loop, or glasses rim is seen sticking out on only one side of any character's face with no matching lens on the other eye.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected per instruction (left/right edges of faces/cheeks/temples) for one-sided glasses defect.",
+            "fix_instruction": "None needed; no broken or half pair of glasses is present as per the visual inspection."
+          },
+          "chin_blob": {
+            "observation": "The green-skinned character in the foreground has an open mouth with visible teeth and tongue. There is no jagged red/brown rocky lump or blob protruding from the chin or mouth. The character's face is clearly defined and does not appear to be fused with or have any foreign object attached to the globe or any other surface.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "character's chin/mouth area (no artifact present) - no foreign object attached to face or globe.",
+            "fix_instruction": "None needed. The image does not contain the described AI artifact."
+          },
+          "extra_leg": {
+            "observation": "I counted the legs, feet, and shoes on every standing character in the image. The green puppet-like character (the 'fuzzy yellow-green puppet') has two feet on the floor: one is a brown shoe, and the other is a black shoe. No character has three legs or an extra raised leg/green shoe sticking sideways out of their torso/hip. All other standing characters have two feet on the floor.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "entire image inspected as requested, especially near the waist/hip/side of the green puppet character.",
+            "fix_instruction": "None needed. The image does not contain any character with three legs or an extra raised leg/green shoe."
+          },
+          "hand_merge": {
+            "observation": "The green-skinned character in the foreground has both hands pressed against his own cheeks, not touching any wooden beam or pole. The wooden pole supporting the globe is to his left and has no hands or arms attached to it. Other characters in the background are not touching any wooden beams or poles with their hands or arms, and none show fusion or melting into wood. All interactions appear to be normal gripping or touching.",
+            "defect_detected": false,
+            "confidence": "high",
+            "location": "none visible in the image.",
+            "fix_instruction": "No fix needed as no defect was found."
+          }
+        }
+      }
+    ]
+  }
+]

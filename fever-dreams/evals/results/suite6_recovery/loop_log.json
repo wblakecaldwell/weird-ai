@@ -1,0 +1,738 @@
+{
+  "created_at": "2026-11-26T09:05:13.002988+00:00",
+  "critic_model": "gemma-4-31b-it",
+  "fast_screener_model": null,
+  "edit_model": "qwen-image-2.1-turbo",
+  "max_rounds": 2,
+  "candidates_per_round": 2,
+  "total_items": 5,
+  "initial_detected_bad": 5,
+  "recovered_to_pass": 5,
+  "recovery_rate": 1.0,
+  "avg_score_delta": 7.4,
+  "total_elapsed_s": 832.72,
+  "items": [
+    {
+      "item_id": "recover_half_glasses",
+      "description": "User-supplied half-glasses artifact: green clay boy with a hollow broken half-glasses loop floating on the left side of his face.",
+      "entity_name": "",
+      "ref_images": [],
+      "original_image": "recover_half_glasses/round_00_original.jpg",
+      "final_image": "recover_half_glasses/round_01_cand_01_s78014.png",
+      "initial_passed": false,
+      "final_passed": true,
+      "recovered": true,
+      "score_delta": 6,
+      "rounds_run": 1,
+      "initial_verdict": {
+        "face_and_accessories_check": "The character's right ear (viewer's left) has a strange, floating hollow loop/arc extending from it that looks like a broken accessory or a glitch in the ear's geometry.",
+        "limbs_and_prop_contact_check": "No limb or prop fusion issues detected.",
+        "reference_match_check": "n/a",
+        "defects_found": [
+          "Broken floating accessory loop on the right ear (viewer's left)"
+        ],
+        "passed": false,
+        "score": 4,
+        "defect_type": "accessory",
+        "defect_summary": "A floating, hollow arc/loop is protruding from the character's right ear, resembling a broken pair of glasses or a geometric glitch.",
+        "location": "right ear (viewer's left)",
+        "bbox_norm_1000": [
+          208,
+          473,
+          285,
+          610
+        ],
+        "fix_action": "masked_inpaint",
+        "fix_instruction": "Remove the floating hollow loop/arc extending from the right ear and restore the natural shape of the pointed ear to match the left ear.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 22.65,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "The floating hollow arc/loop previously protruding from the right ear is gone. No other accessories or foreign blobs are present on the face.",
+        "limbs_and_prop_contact_check": "No limb anomalies or fused props detected.",
+        "reference_match_check": "n/a",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 33.93,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "masked_inpaint",
+          "instruction": "Remove the floating hollow loop/arc extending from the right ear and restore the natural shape of the pointed ear to match the left ear.",
+          "mask_overlay": "recover_half_glasses/round_01_mask_overlay.png",
+          "selected_idx": 1,
+          "selected_path": "recover_half_glasses/round_01_cand_01_s78014.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "The floating hollow arc/loop previously protruding from the right ear is gone. No other accessories or foreign blobs are present on the face.",
+            "limbs_and_prop_contact_check": "No limb anomalies or fused props detected.",
+            "reference_match_check": "n/a",
+            "defects_found": [],
+            "passed": true,
+            "score": 10,
+            "defect_type": "none",
+            "defect_summary": "none",
+            "location": "none",
+            "bbox_norm_1000": [],
+            "fix_action": "none",
+            "fix_instruction": "none",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 33.93,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 78014,
+              "path": "recover_half_glasses/round_01_cand_01_s78014.png",
+              "elapsed_s": 19.96,
+              "verdict": {
+                "face_and_accessories_check": "The floating hollow arc/loop previously protruding from the right ear is gone. No other accessories or foreign blobs are present on the face.",
+                "limbs_and_prop_contact_check": "No limb anomalies or fused props detected.",
+                "reference_match_check": "n/a",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 33.93,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 78027,
+              "path": "recover_half_glasses/round_01_cand_02_s78027.png",
+              "elapsed_s": 29.86,
+              "verdict": {
+                "face_and_accessories_check": "The floating hollow arc/loop previously protruding from the right ear is completely gone. No other accessories or foreign blobs are present on the face.",
+                "limbs_and_prop_contact_check": "No limb or prop contact issues detected.",
+                "reference_match_check": "n/a",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 29.23,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "recover_p11_three_legs",
+      "description": "Book 1 p11 original: Winston Crumb has an extra raised third leg sticking out of his side.",
+      "entity_name": "Winston Crumb (chartreuse felt puppet with two legs)",
+      "ref_images": [
+        "evals/fixtures/anchors/ref_winston.webp"
+      ],
+      "original_image": "recover_p11_three_legs/round_00_original.png",
+      "final_image": "recover_p11_three_legs/round_01_cand_01_s78111.png",
+      "initial_passed": false,
+      "final_passed": true,
+      "recovered": true,
+      "score_delta": 7,
+      "rounds_run": 1,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "failed",
+        "reference_match_check": "passed",
+        "defects_found": [
+          "extra leg/shoe on Winston Crumb"
+        ],
+        "passed": false,
+        "score": 3,
+        "defect_type": "anatomy",
+        "defect_summary": "Winston Crumb has an extra leg/shoe protruding from his right side, resulting in three legs total.",
+        "location": "lower right of Winston Crumb",
+        "bbox_norm_1000": [
+          495,
+          638,
+          627,
+          741
+        ],
+        "fix_action": "masked_inpaint",
+        "fix_instruction": "Remove the extra third leg and shoe protruding from Winston Crumb's right side. Ensure he has only two legs, matching the anatomy in Image 1.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 18.38,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 38.3,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "masked_inpaint",
+          "instruction": "Remove the extra third leg and shoe protruding from Winston Crumb's right side. Ensure he has only two legs, matching the anatomy in Image 1.",
+          "mask_overlay": "recover_p11_three_legs/round_01_mask_overlay.png",
+          "selected_idx": 1,
+          "selected_path": "recover_p11_three_legs/round_01_cand_01_s78111.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": true,
+            "score": 10,
+            "defect_type": "none",
+            "defect_summary": "none",
+            "location": "none",
+            "bbox_norm_1000": [],
+            "fix_action": "none",
+            "fix_instruction": "none",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 38.3,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 78111,
+              "path": "recover_p11_three_legs/round_01_cand_01_s78111.png",
+              "elapsed_s": 36.56,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 38.3,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 78124,
+              "path": "recover_p11_three_legs/round_01_cand_02_s78124.png",
+              "elapsed_s": 37.33,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 38.55,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "recover_p12_wrong_crane",
+      "description": "Book 1 p12 original: green steam-train contraption instead of the canonical yellow wheeled construction crane truck.",
+      "entity_name": "yellow wheeled mobile construction crane truck",
+      "ref_images": [
+        "evals/fixtures/anchors/ref_crane.png"
+      ],
+      "original_image": "recover_p12_wrong_crane/round_00_original.png",
+      "final_image": "recover_p12_wrong_crane/round_01_cand_01_s78208.png",
+      "initial_passed": false,
+      "final_passed": true,
+      "recovered": true,
+      "score_delta": 7,
+      "rounds_run": 1,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "The target entity (yellow wheeled mobile construction crane truck) does not appear in the CANONICAL_REFERENCE_1, which depicts a green steam locomotive. Therefore, there is no reference for the crane truck to match against.",
+        "defects_found": [],
+        "passed": false,
+        "score": 3,
+        "defect_type": "prop_drift",
+        "defect_summary": "The yellow wheeled mobile construction crane truck from the TEST_FRAME is completely absent in the CANONICAL_REFERENCE, which instead features a green steam locomotive.",
+        "location": "yellow wheeled mobile construction crane truck",
+        "bbox_norm_1000": [],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Replace the green steam locomotive in the CANONICAL_REFERENCE with the yellow wheeled mobile construction crane truck from the TEST_FRAME.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 24.51,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 38.17,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "targeted_edit",
+          "instruction": "Replace the green steam locomotive in the CANONICAL_REFERENCE with the yellow wheeled mobile construction crane truck from the TEST_FRAME.",
+          "mask_overlay": null,
+          "selected_idx": 1,
+          "selected_path": "recover_p12_wrong_crane/round_01_cand_01_s78208.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": true,
+            "score": 10,
+            "defect_type": "none",
+            "defect_summary": "none",
+            "location": "none",
+            "bbox_norm_1000": [],
+            "fix_action": "none",
+            "fix_instruction": "none",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 38.17,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 78208,
+              "path": "recover_p12_wrong_crane/round_01_cand_01_s78208.png",
+              "elapsed_s": 38.72,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 38.17,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 78221,
+              "path": "recover_p12_wrong_crane/round_01_cand_02_s78221.png",
+              "elapsed_s": 37.12,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "The yellow wheeled mobile construction crane truck in the candidate image matches the design, color, and style of the one in Image 2.",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 38.28,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "recover_cover_chester_drift",
+      "description": "Book 1 cover original: smooth clay horned boy in glasses instead of canonical 16-bit pixel-art Chester (no horns, no glasses).",
+      "entity_name": "Chester Antialiased (16-bit retro pixel-art green goblin boy, NO glasses, NO horns)",
+      "ref_images": [
+        "evals/fixtures/anchors/ref_chester.webp"
+      ],
+      "original_image": "recover_cover_chester_drift/round_00_original.png",
+      "final_image": "recover_cover_chester_drift/round_01_cand_02_s78318.png",
+      "initial_passed": false,
+      "final_passed": true,
+      "recovered": true,
+      "score_delta": 8,
+      "rounds_run": 1,
+      "initial_verdict": {
+        "face_and_accessories_check": "The character has glasses and horns, which are forbidden per the canonical reference.",
+        "limbs_and_prop_contact_check": "No limb or prop fusion defects found.",
+        "reference_match_check": "The character is rendered in a 3D clay style instead of the required 16-bit retro pixel art. He also has added horns and glasses, which contradicts the canonical reference.",
+        "defects_found": [
+          "Wrong rendering style (3D clay instead of 16-bit pixel art)",
+          "Added forbidden accessories (glasses and horns)"
+        ],
+        "passed": false,
+        "score": 2,
+        "defect_type": "set_drift",
+        "defect_summary": "The character fails on both style and design: he is rendered as a 3D clay model instead of 16-bit pixel art, and he has added horns and glasses.",
+        "location": "Chester Antialiased character",
+        "bbox_norm_1000": [
+          104,
+          443,
+          362,
+          859
+        ],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Redraw the character to match Image 1 exactly: use a flat 2D 16-bit retro pixel art style, remove the glasses and horns, and ensure he is a green goblin boy in a red shirt.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 26.5,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 39.16,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "targeted_edit",
+          "instruction": "Redraw the character to match Image 1 exactly: use a flat 2D 16-bit retro pixel art style, remove the glasses and horns, and ensure he is a green goblin boy in a red shirt.",
+          "mask_overlay": null,
+          "selected_idx": 2,
+          "selected_path": "recover_cover_chester_drift/round_01_cand_02_s78318.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": true,
+            "score": 10,
+            "defect_type": "none",
+            "defect_summary": "none",
+            "location": "none",
+            "bbox_norm_1000": [],
+            "fix_action": "none",
+            "fix_instruction": "none",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 39.16,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 78305,
+              "path": "recover_cover_chester_drift/round_01_cand_01_s78305.png",
+              "elapsed_s": 36.95,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "failed",
+                "defects_found": [
+                  "The character Chester (center) is rendered in a smooth, 3D-style digital painting/clay style instead of the required 16-bit retro pixel art style seen in Image 1."
+                ],
+                "passed": false,
+                "score": 3,
+                "defect_type": "set_drift",
+                "defect_summary": "The character Chester fails to match the canonical rendering style; he is rendered as a smooth 3D-style character instead of 16-bit pixel art.",
+                "location": "center character",
+                "bbox_norm_1000": [
+                  382,
+                  447,
+                  654,
+                  898
+                ],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Re-render the center character (Chester) to strictly match the 16-bit retro pixel art style, colors, and flat shading seen in Image 1.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 22.08,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 78318,
+              "path": "recover_cover_chester_drift/round_01_cand_02_s78318.png",
+              "elapsed_s": 36.78,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 39.16,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "recover_p17_chester_style",
+      "description": "Book 1 p17 original: smooth 3D shaded green boy instead of flat 2D 16-bit pixel-art Chester.",
+      "entity_name": "Chester Antialiased (flat 2D 16-bit retro pixel-art green goblin boy)",
+      "ref_images": [
+        "evals/fixtures/anchors/ref_chester.webp"
+      ],
+      "original_image": "recover_p17_chester_style/round_00_original.png",
+      "final_image": "recover_p17_chester_style/round_01_cand_01_s78402.png",
+      "initial_passed": false,
+      "final_passed": true,
+      "recovered": true,
+      "score_delta": 9,
+      "rounds_run": 1,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": false,
+        "score": 1,
+        "defect_type": "character_drift",
+        "defect_summary": "The rendering style has drifted from flat 2D 16-bit retro pixel art to a smooth 3D clay/CGI style.",
+        "location": "Chester Antialiased (flat 2D 16-bit retro pixel-art green goblin boy)",
+        "bbox_norm_1000": [],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Revert the character rendering to a flat 2D 16-bit pixel art style as seen in the canonical reference.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 21.08,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 37.33,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "targeted_edit",
+          "instruction": "Revert the character rendering to a flat 2D 16-bit pixel art style as seen in the canonical reference.",
+          "mask_overlay": null,
+          "selected_idx": 1,
+          "selected_path": "recover_p17_chester_style/round_01_cand_01_s78402.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": true,
+            "score": 10,
+            "defect_type": "none",
+            "defect_summary": "none",
+            "location": "none",
+            "bbox_norm_1000": [],
+            "fix_action": "none",
+            "fix_instruction": "none",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 37.33,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 78402,
+              "path": "recover_p17_chester_style/round_01_cand_01_s78402.png",
+              "elapsed_s": 35.82,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 37.33,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 78415,
+              "path": "recover_p17_chester_style/round_01_cand_02_s78415.png",
+              "elapsed_s": 35.62,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 37.17,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

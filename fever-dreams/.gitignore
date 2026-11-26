@@ -19,3 +19,14 @@ books/*/cartoon/clips/
 books/*/cartoon/cond_frames/
 books/*/cartoon/build/
 books/*/cartoon/voices/
+
+# Generated eval fixture copies & rendered eval media stay local; keep code,
+# labels.json, half-glasses seed image, and summary JSON matrices committed
+evals/fixtures/*/*.png
+evals/fixtures/*/*.webp
+evals/fixtures/anchors/*.jpg
+evals/results/**/*.png
+evals/results/**/*.jpg
+evals/results/**/*.html
+evals/results/*.html
+evals/results/matrix_*.json

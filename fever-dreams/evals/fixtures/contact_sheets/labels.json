@@ -1,0 +1,64 @@
+{
+  "suite": "contact_sheets",
+  "cases": [
+    {
+      "id": "sheet_chester_2x2_halfglasses",
+      "image": "sheet_chester_2x2_halfglasses.png",
+      "entity_name": "Chester Antialiased (16-bit pixel-art green goblin boy, no glasses)",
+      "tile_count": 3,
+      "expected_outliers": [
+        2
+      ],
+      "description": "Tile 2 is a smooth 3D boy with a broken half-glasses loop instead of pixel-art Chester."
+    },
+    {
+      "id": "sheet_crane_2x2_wrong_truck",
+      "image": "sheet_crane_2x2_wrong_truck.png",
+      "entity_name": "yellow wheeled mobile construction crane truck",
+      "tile_count": 3,
+      "expected_outliers": [
+        3
+      ],
+      "description": "Tile 3 has a green steam-train contraption instead of the yellow wheeled construction crane truck."
+    },
+    {
+      "id": "sheet_winston_2x2_three_legs",
+      "image": "sheet_winston_2x2_three_legs.png",
+      "entity_name": "Winston Crumb (chartreuse felt puppet with two legs)",
+      "tile_count": 3,
+      "expected_outliers": [
+        3
+      ],
+      "description": "Tile 3 shows Winston with an extra raised third leg sticking out of his side."
+    },
+    {
+      "id": "sheet_winston_2x2_color_drift",
+      "image": "sheet_winston_2x2_color_drift.png",
+      "entity_name": "Winston Crumb (chartreuse yellow-green felt puppet)",
+      "tile_count": 3,
+      "expected_outliers": [
+        2
+      ],
+      "description": "Tile 2 has drastically wrong hue-shifted colors for Winston."
+    },
+    {
+      "id": "sheet_chester_3x2_two_outliers",
+      "image": "sheet_chester_3x2_two_outliers.png",
+      "entity_name": "Chester Antialiased (16-bit pixel-art green goblin boy, no glasses, no horns)",
+      "tile_count": 5,
+      "expected_outliers": [
+        2,
+        5
+      ],
+      "description": "Tile 2 (horned clay boy with glasses) and Tile 5 (smooth 3D shaded boy) drift from pixel-art Chester."
+    },
+    {
+      "id": "sheet_chester_2x2_all_clean",
+      "image": "sheet_chester_2x2_all_clean.png",
+      "entity_name": "Chester Antialiased (16-bit pixel-art green goblin boy, no glasses, no horns)",
+      "tile_count": 3,
+      "expected_outliers": [],
+      "description": "Clean control: all three tiles show consistent 16-bit pixel-art Chester."
+    }
+  ]
+}

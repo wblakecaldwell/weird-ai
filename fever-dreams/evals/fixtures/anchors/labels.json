@@ -1,0 +1,95 @@
+{
+  "suite": "anchors",
+  "cases": [
+    {
+      "id": "fail_crane_mismatch",
+      "entity_type": "prop",
+      "entity_name": "yellow wheeled mobile construction crane truck",
+      "ref_image": "ref_crane.png",
+      "test_image": "test_p12_wrong_crane.png",
+      "expected": "FAIL",
+      "description": "Test image shows a green steam-train contraption instead of the yellow wheeled construction crane truck."
+    },
+    {
+      "id": "pass_crane_match",
+      "entity_type": "prop",
+      "entity_name": "yellow wheeled mobile construction crane truck",
+      "ref_image": "ref_crane.png",
+      "test_image": "test_p12_good_crane.png",
+      "expected": "PASS",
+      "description": "Test image shows the matching yellow wheeled construction crane truck."
+    },
+    {
+      "id": "fail_cover_chester_drift",
+      "entity_type": "character",
+      "entity_name": "Chester Antialiased (16-bit pixel-art green goblin boy, no glasses, no horns)",
+      "ref_image": "ref_chester.webp",
+      "test_image": "test_cover_wrong_chester.png",
+      "expected": "FAIL",
+      "description": "Cover shows a smooth clay horned boy with glasses instead of pixel-art Chester without glasses or horns."
+    },
+    {
+      "id": "pass_cover_chester_match",
+      "entity_type": "character",
+      "entity_name": "Chester Antialiased (16-bit pixel-art green goblin boy, no glasses, no horns)",
+      "ref_image": "ref_chester.webp",
+      "test_image": "test_cover_good_chester.png",
+      "expected": "PASS",
+      "description": "Cover shows matching 16-bit pixel-art Chester."
+    },
+    {
+      "id": "fail_p17_chester_3d_drift",
+      "entity_type": "character",
+      "entity_name": "Chester Antialiased (flat 2D 16-bit pixel-art green goblin boy)",
+      "ref_image": "ref_chester.webp",
+      "test_image": "test_p17_3d_chester.png",
+      "expected": "FAIL",
+      "description": "Page 17 shows a smooth 3D clay/shaded boy instead of flat 16-bit pixel-art Chester."
+    },
+    {
+      "id": "pass_p17_chester_match",
+      "entity_type": "character",
+      "entity_name": "Chester Antialiased (flat 2D 16-bit pixel-art green goblin boy)",
+      "ref_image": "ref_chester.webp",
+      "test_image": "test_p17_good_chester.png",
+      "expected": "PASS",
+      "description": "Page 17 shows matching 16-bit pixel-art Chester."
+    },
+    {
+      "id": "fail_winston_color_drift",
+      "entity_type": "character",
+      "entity_name": "Winston Crumb (chartreuse yellow-green felt puppet with googly eyes)",
+      "ref_image": "ref_winston.webp",
+      "test_image": "test_p04_recolored_winston.png",
+      "expected": "FAIL",
+      "description": "Winston's fur and colors are drastically hue-shifted away from chartreuse yellow-green."
+    },
+    {
+      "id": "pass_winston_match",
+      "entity_type": "character",
+      "entity_name": "Winston Crumb (chartreuse yellow-green felt puppet with googly eyes)",
+      "ref_image": "ref_winston.webp",
+      "test_image": "test_p04_good_winston.png",
+      "expected": "PASS",
+      "description": "Page 4 shows matching chartreuse felt puppet Winston."
+    },
+    {
+      "id": "pass_marisol_match",
+      "entity_type": "character",
+      "entity_name": "Marisol Brittle (knit/clay owl girl)",
+      "ref_image": "ref_marisol.webp",
+      "test_image": "test_p05_good_marisol.png",
+      "expected": "PASS",
+      "description": "Page 5 shows matching Marisol Brittle."
+    },
+    {
+      "id": "fail_half_glasses_vs_ref",
+      "entity_type": "character",
+      "entity_name": "Chester Antialiased (16-bit pixel-art green goblin boy, no glasses)",
+      "ref_image": "ref_chester.webp",
+      "test_image": "test_half_glasses_chester.jpg",
+      "expected": "FAIL",
+      "description": "Smooth clay boy with a broken half-glasses frame does not match pixel-art Chester reference."
+    }
+  ]
+}

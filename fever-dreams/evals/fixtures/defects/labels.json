@@ -1,0 +1,192 @@
+{
+  "suite": "defects",
+  "cases": [
+    {
+      "id": "fail_half_glasses_crop",
+      "image": "fail_half_glasses_crop.jpg",
+      "expected": "FAIL",
+      "defect_type": "accessory",
+      "expected_keywords": [
+        "glass",
+        "lens",
+        "frame",
+        "half",
+        "cheek",
+        "eye",
+        "face",
+        "spectacle"
+      ],
+      "description": "Green character has a hollow half-glasses frame floating on the left side of his face."
+    },
+    {
+      "id": "fail_p17_half_glasses_full",
+      "image": "fail_p17_half_glasses_full.png",
+      "expected": "FAIL",
+      "defect_type": "accessory",
+      "expected_keywords": [
+        "glass",
+        "lens",
+        "frame",
+        "half",
+        "cheek",
+        "loop",
+        "face",
+        "ear",
+        "green"
+      ],
+      "description": "Full storybook frame where the green boy on the left has a hollow half-glasses loop stuck to his left cheek."
+    },
+    {
+      "id": "fail_p01_chin_rock",
+      "image": "fail_p01_chin_rock.png",
+      "expected": "FAIL",
+      "defect_type": "anatomy",
+      "expected_keywords": [
+        "chin",
+        "mouth",
+        "rock",
+        "red",
+        "blob",
+        "object",
+        "sticking",
+        "artifact",
+        "face",
+        "globe"
+      ],
+      "description": "Weird red rocky object/artifact sticking out of the green boy's chin against the globe."
+    },
+    {
+      "id": "fail_p01_chin_rock_crop",
+      "image": "fail_p01_chin_rock_crop.png",
+      "expected": "FAIL",
+      "defect_type": "anatomy",
+      "expected_keywords": [
+        "chin",
+        "mouth",
+        "rock",
+        "red",
+        "blob",
+        "object",
+        "artifact",
+        "globe"
+      ],
+      "description": "Zoomed crop of red rocky artifact protruding from the green boy's chin/mouth."
+    },
+    {
+      "id": "fail_p11_three_legs",
+      "image": "fail_p11_three_legs.png",
+      "expected": "FAIL",
+      "defect_type": "anatomy",
+      "expected_keywords": [
+        "leg",
+        "foot",
+        "shoe",
+        "extra",
+        "third",
+        "three",
+        "limb",
+        "side",
+        "puppet"
+      ],
+      "description": "Yellow-green felt puppet has an extra third leg and green shoe sticking out of his side."
+    },
+    {
+      "id": "fail_p11_three_legs_crop",
+      "image": "fail_p11_three_legs_crop.png",
+      "expected": "FAIL",
+      "defect_type": "anatomy",
+      "expected_keywords": [
+        "leg",
+        "foot",
+        "shoe",
+        "extra",
+        "third",
+        "three",
+        "limb"
+      ],
+      "description": "Zoomed crop of extra raised third leg and shoe sticking out of the puppet's side."
+    },
+    {
+      "id": "fail_p18_hand_beam_merge",
+      "image": "fail_p18_hand_beam_merge.png",
+      "expected": "FAIL",
+      "defect_type": "anatomy",
+      "expected_keywords": [
+        "hand",
+        "arm",
+        "beam",
+        "wood",
+        "merg",
+        "fus",
+        "stick",
+        "distort",
+        "limb"
+      ],
+      "description": "Green pixel boy's arm/hand merges unnaturally into the wooden support beam."
+    },
+    {
+      "id": "pass_p02_clean",
+      "image": "pass_p02_clean.png",
+      "expected": "PASS",
+      "defect_type": "none",
+      "expected_keywords": [],
+      "description": "Clean approved page 2"
+    },
+    {
+      "id": "pass_p03_clean",
+      "image": "pass_p03_clean.png",
+      "expected": "PASS",
+      "defect_type": "none",
+      "expected_keywords": [],
+      "description": "Clean approved page 3"
+    },
+    {
+      "id": "pass_p05_clean",
+      "image": "pass_p05_clean.png",
+      "expected": "PASS",
+      "defect_type": "none",
+      "expected_keywords": [],
+      "description": "Clean approved page 5"
+    },
+    {
+      "id": "pass_p08_clean",
+      "image": "pass_p08_clean.png",
+      "expected": "PASS",
+      "defect_type": "none",
+      "expected_keywords": [],
+      "description": "Clean approved page 8"
+    },
+    {
+      "id": "pass_p10_clean",
+      "image": "pass_p10_clean.png",
+      "expected": "PASS",
+      "defect_type": "none",
+      "expected_keywords": [],
+      "description": "Clean approved page 10"
+    },
+    {
+      "id": "pass_p11_fixed",
+      "image": "pass_p11_fixed.png",
+      "expected": "PASS",
+      "defect_type": "none",
+      "expected_keywords": [],
+      "description": "Approved fixed page 11 (2 legs only)"
+    },
+    {
+      "id": "pass_p17_fixed",
+      "image": "pass_p17_fixed.png",
+      "expected": "PASS",
+      "defect_type": "none",
+      "expected_keywords": [],
+      "description": "Approved fixed page 17 (clean pixel Chester, no half-glasses)"
+    },
+    {
+      "id": "pass_p18_fixed",
+      "image": "pass_p18_fixed.png",
+      "expected": "PASS",
+      "defect_type": "none",
+      "expected_keywords": [],
+      "description": "Approved fixed page 18 (Chester separated from beam)"
+    }
+  ]
+}
