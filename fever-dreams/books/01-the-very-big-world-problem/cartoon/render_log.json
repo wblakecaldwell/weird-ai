@@ -2994,6 +2994,286 @@
         "subtitles": "01-the-very-big-world-problem.srt",
         "duration_s": 526.5
       }
+    },
+    {
+      "step": "animate",
+      "started_at": "2026-11-26T06:26:44+00:00",
+      "finished_at": "2026-11-26T06:30:08+00:00",
+      "argv": [
+        "animate_book.py",
+        "books/01-the-very-big-world-problem/cartoon/script.json",
+        "--only-pages",
+        "17",
+        "--frames",
+        "121",
+        "--overwrite"
+      ],
+      "python": "3.12.14",
+      "settings": {
+        "pipeline": "ltx_pipelines_mlx.DistilledPipeline",
+        "model": "ltx-2.5-q8",
+        "width": 896,
+        "height": 768,
+        "frames": 121,
+        "fps": 24.0,
+        "base_seed": 1955,
+        "seed_rule": "base_seed + page_number * 37",
+        "low_ram": false,
+        "only_pages": [
+          17
+        ],
+        "overwrite": true
+      },
+      "items": [
+        {
+          "page_number": 17,
+          "kind": "page",
+          "clip": "clips/clip_17.mp4",
+          "source_image": "art/page_17.png",
+          "seed": 2584,
+          "prompt": "The 16-bit pixel sprite Chester, stop-motion clay Marisol, and fuzzy felt puppet Winston march in a rigid, synchronized loop down the gouache street, preserving crisp chunky 16-bit square pixel art and dark pixel outlines on Chester alongside lumpy clay and fuzzy felt textures. Subtle bobbing of their heads and rhythmic arm swings. Ambient audio: Rhythmic marching boots, distant parade brass.",
+          "elapsed_s": 203.4,
+          "at": "2026-11-26T06:30:07+00:00"
+        }
+      ],
+      "summary": {
+        "clips_rendered": 1
+      }
+    },
+    {
+      "step": "assemble",
+      "started_at": "2026-11-26T06:30:08+00:00",
+      "finished_at": "2026-11-26T06:31:34+00:00",
+      "argv": [
+        "assemble_cartoon.py",
+        "books/01-the-very-big-world-problem/cartoon/script_voiced.json"
+      ],
+      "python": "3.12.14",
+      "settings": {
+        "fps": 24,
+        "width": 896,
+        "height": 768,
+        "subtitles": true,
+        "video_codec": "libx264 crf 16",
+        "audio": "aac 192k, LTX ambient ducked to 0.08"
+      },
+      "items": [
+        {
+          "page_number": 0,
+          "kind": "cover",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 8.75,
+          "shot_s": 8.75,
+          "captions": 1,
+          "at": "2026-11-26T06:30:10+00:00"
+        },
+        {
+          "page_number": 1,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 30.12,
+          "shot_s": 30.12,
+          "captions": 5,
+          "at": "2026-11-26T06:30:14+00:00"
+        },
+        {
+          "page_number": 2,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 28.41,
+          "shot_s": 28.42,
+          "captions": 5,
+          "at": "2026-11-26T06:30:18+00:00"
+        },
+        {
+          "page_number": 3,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 27.99,
+          "shot_s": 28.0,
+          "captions": 4,
+          "at": "2026-11-26T06:30:22+00:00"
+        },
+        {
+          "page_number": 4,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 27.91,
+          "shot_s": 27.92,
+          "captions": 5,
+          "at": "2026-11-26T06:30:27+00:00"
+        },
+        {
+          "page_number": 5,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 26.59,
+          "shot_s": 26.62,
+          "captions": 4,
+          "at": "2026-11-26T06:30:31+00:00"
+        },
+        {
+          "page_number": 6,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 26.39,
+          "shot_s": 26.42,
+          "captions": 5,
+          "at": "2026-11-26T06:30:35+00:00"
+        },
+        {
+          "page_number": 7,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 25.87,
+          "shot_s": 25.88,
+          "captions": 5,
+          "at": "2026-11-26T06:30:40+00:00"
+        },
+        {
+          "page_number": 8,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.11,
+          "shot_s": 24.12,
+          "captions": 4,
+          "at": "2026-11-26T06:30:44+00:00"
+        },
+        {
+          "page_number": 9,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.72,
+          "shot_s": 24.75,
+          "captions": 4,
+          "at": "2026-11-26T06:30:48+00:00"
+        },
+        {
+          "page_number": 10,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 27.45,
+          "shot_s": 27.46,
+          "captions": 5,
+          "at": "2026-11-26T06:30:52+00:00"
+        },
+        {
+          "page_number": 11,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 23.6,
+          "shot_s": 23.62,
+          "captions": 4,
+          "at": "2026-11-26T06:30:56+00:00"
+        },
+        {
+          "page_number": 12,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.54,
+          "shot_s": 24.58,
+          "captions": 5,
+          "at": "2026-11-26T06:31:01+00:00"
+        },
+        {
+          "page_number": 13,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.05,
+          "shot_s": 24.08,
+          "captions": 5,
+          "at": "2026-11-26T06:31:05+00:00"
+        },
+        {
+          "page_number": 14,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 25.93,
+          "shot_s": 25.96,
+          "captions": 4,
+          "at": "2026-11-26T06:31:09+00:00"
+        },
+        {
+          "page_number": 15,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 25.29,
+          "shot_s": 25.33,
+          "captions": 4,
+          "at": "2026-11-26T06:31:13+00:00"
+        },
+        {
+          "page_number": 16,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 23.28,
+          "shot_s": 23.29,
+          "captions": 4,
+          "at": "2026-11-26T06:31:17+00:00"
+        },
+        {
+          "page_number": 17,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 22.05,
+          "shot_s": 22.08,
+          "captions": 3,
+          "at": "2026-11-26T06:31:21+00:00"
+        },
+        {
+          "page_number": 18,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 26.57,
+          "shot_s": 26.58,
+          "captions": 4,
+          "at": "2026-11-26T06:31:26+00:00"
+        },
+        {
+          "page_number": 19,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 23.87,
+          "shot_s": 23.88,
+          "captions": 4,
+          "at": "2026-11-26T06:31:30+00:00"
+        },
+        {
+          "page_number": 20,
+          "kind": "page",
+          "mode": "animated+ken_burns",
+          "clip_s": 5.04,
+          "voice_s": 24.1,
+          "shot_s": 24.12,
+          "captions": 3,
+          "at": "2026-11-26T06:31:34+00:00"
+        }
+      ],
+      "summary": {
+        "output": "01-the-very-big-world-problem.mp4",
+        "subtitles": "01-the-very-big-world-problem.srt",
+        "duration_s": 526.5
+      }
     }
   ]
 }
