@@ -6,7 +6,7 @@
 
 ## Build Phases
 
-1. **[Phase 1 — Engine, Subsystems, and Eval Harness](01-engine-and-subsystems.md)**  
+1. **[Phase 1 — Engine, Subsystems, and Eval Harness](01-engine-and-subsystems.md)** *(Complete — see **[Phase 1 Findings](01-phase1-findings.md)**)*  
    Build and test the style-agnostic rendering, continuity, set-reuse, Critic-to-Tooling recovery loop, and eval subsystems first. Prove defect detection, closed-loop repair, and model right-sizing in minutes using real fixtures before running full pipelines.
 2. **[Phase 2 — Agentic Creation Pipeline](02-agentic-creation-pipeline.md)**  
    Upgrade the local Writers' Room with multi-model pitching, adversarial story selection, a Continuity Expert, an Art Direction Critic loop, and Story Trap evals.
