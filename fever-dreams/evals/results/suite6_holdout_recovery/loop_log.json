@@ -1,0 +1,1208 @@
+{
+  "created_at": "2026-11-27T10:25:51.932700+00:00",
+  "critic_model": "gemma-4-31b-it",
+  "fast_screener_model": null,
+  "edit_model": "qwen-image-2.1-turbo",
+  "max_rounds": 2,
+  "candidates_per_round": 2,
+  "total_items": 10,
+  "initial_detected_bad": 5,
+  "recovered_to_pass": 3,
+  "recovery_rate": 0.6,
+  "avg_score_delta": 2.4,
+  "total_elapsed_s": 1284.75,
+  "items": [
+    {
+      "item_id": "rec_c0007_04_drift_char",
+      "description": "[subtle_char_drift | golden_book_mixed_media] Gold failure: Plaid-suit puppet is duplicated twice while overalls cast ref 1 is missing.",
+      "entity_name": "character (20-tessa-vector)",
+      "ref_images": [
+        "evals/mined_data/refs/cast/cast_20-tessa-vector__golden_book_mixed_media.png"
+      ],
+      "original_image": "rec_c0007_04_drift_char/round_00_original.png",
+      "final_image": "rec_c0007_04_drift_char/round_01_cand_01_s89014.png",
+      "initial_passed": false,
+      "final_passed": true,
+      "recovered": true,
+      "score_delta": 8,
+      "rounds_run": 1,
+      "initial_verdict": {
+        "face_and_accessories_check": "The characters in Image 1 are wearing large black-rimmed glasses, which are not present on the character in Image 2.",
+        "limbs_and_prop_contact_check": "No limb or clipping defects found.",
+        "reference_match_check": "The characters in Image 1 fail to match the identity and design of the character in Image 2. They are wearing grey suits instead of black overalls and a white t-shirt, they have glasses which the reference does not, and they are rendered as 3D puppets rather than flat 2D vector art.",
+        "defects_found": [
+          "Wrong character identity/outfit (grey suit instead of black overalls)",
+          "Incorrect accessories (added glasses)",
+          "Wrong rendering medium/style (3D puppet instead of 2D vector art)"
+        ],
+        "passed": false,
+        "score": 2,
+        "defect_type": "set_drift",
+        "defect_summary": "The characters in Image 1 do not match the identity, outfit, or art style of the character provided in the canonical reference Image 2.",
+        "location": "both characters",
+        "bbox_norm_1000": [
+          165,
+          413,
+          438,
+          827
+        ],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Replace the characters in Image 1 with the character from Image 2. They should be rendered as flat 2D vector art, wearing a black beret, white t-shirt, and black overalls with ink stains, and they must not be wearing glasses.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 32.36,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 39.93,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "targeted_edit",
+          "instruction": "Replace the characters in Image 1 with the character from Image 2. They should be rendered as flat 2D vector art, wearing a black beret, white t-shirt, and black overalls with ink stains, and they must not be wearing glasses.",
+          "mask_overlay": null,
+          "selected_idx": 1,
+          "selected_path": "rec_c0007_04_drift_char/round_01_cand_01_s89014.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": true,
+            "score": 10,
+            "defect_type": "none",
+            "defect_summary": "none",
+            "location": "none",
+            "bbox_norm_1000": [],
+            "fix_action": "none",
+            "fix_instruction": "none",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 39.93,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 89014,
+              "path": "rec_c0007_04_drift_char/round_01_cand_01_s89014.png",
+              "elapsed_s": 41.97,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 39.93,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 89027,
+              "path": "rec_c0007_04_drift_char/round_01_cand_02_s89027.png",
+              "elapsed_s": 42.14,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "failed",
+                "reference_match_check": "passed",
+                "defects_found": [
+                  "DUPLICATE / CLONED CHARACTER: The exact same character appears twice in the scene, which is a composition error."
+                ],
+                "passed": false,
+                "score": 3,
+                "defect_type": "set_drift",
+                "defect_summary": "The scene contains two identical clones of the character (20-tessa-vector) standing side-by-side, which is a duplication error.",
+                "location": "center left",
+                "bbox_norm_1000": [
+                  341,
+                  445,
+                  436,
+                  842
+                ],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Remove the second identical character standing to the right of the first one. The scene should only contain one instance of the character (20-tessa-vector) standing next to the vintage computer equipment.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 21.33,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "rec_c0002_04_drift_char",
+      "description": "[subtle_char_drift | stop_motion_miniature] Gold failure: Pie character cloned twice, skeleton missing, trophy fused onto headless cardigan body.",
+      "entity_name": "character (95-ezra-zink)",
+      "ref_images": [
+        "evals/mined_data/refs/cast/cast_95-ezra-zink__stop_motion_miniature.png"
+      ],
+      "original_image": "rec_c0002_04_drift_char/round_00_original.png",
+      "final_image": "rec_c0002_04_drift_char/round_01_cand_02_s89124.png",
+      "initial_passed": false,
+      "final_passed": true,
+      "recovered": true,
+      "score_delta": 9,
+      "rounds_run": 1,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "The character '95-ezra-zink' from Image 2 is completely absent in Image 1. Instead, there are two different orange-faced characters and a character with a trophy for a head.",
+        "defects_found": [
+          "Reference mismatch: The target character (95-ezra-zink) is missing from the scene entirely."
+        ],
+        "passed": false,
+        "score": 1,
+        "defect_type": "set_drift",
+        "defect_summary": "The required character from the canonical reference is missing from the image.",
+        "location": "entire scene",
+        "bbox_norm_1000": [],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Replace the characters in Image 1 with the character '95-ezra-zink' as seen in Image 2, maintaining his specific sketch-like rendering style and outfit.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 20.33,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 38.64,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "targeted_edit",
+          "instruction": "Replace the characters in Image 1 with the character '95-ezra-zink' as seen in Image 2, maintaining his specific sketch-like rendering style and outfit.",
+          "mask_overlay": null,
+          "selected_idx": 2,
+          "selected_path": "rec_c0002_04_drift_char/round_01_cand_02_s89124.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": true,
+            "score": 10,
+            "defect_type": "none",
+            "defect_summary": "none",
+            "location": "none",
+            "bbox_norm_1000": [],
+            "fix_action": "none",
+            "fix_instruction": "none",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 38.64,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 89111,
+              "path": "rec_c0002_04_drift_char/round_01_cand_01_s89111.png",
+              "elapsed_s": 40.26,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "failed",
+                "reference_match_check": "passed",
+                "defects_found": [
+                  "DUPLICATE / CLONED CHARACTER: The same character appears three times in the scene, which is a composition error."
+                ],
+                "passed": false,
+                "score": 3,
+                "defect_type": "set_drift",
+                "defect_summary": "The image contains three identical clones of the character standing in a row, which is an unnatural repetition not present in the reference style.",
+                "location": "center and sides of image",
+                "bbox_norm_1000": [
+                  175,
+                  293,
+                  868,
+                  934
+                ],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Remove the duplicate cloned characters. Keep only one instance of the character (95-ezra-zink) in a natural pose within the laboratory setting, ensuring he is not repeated across the frame.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 21.27,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 89124,
+              "path": "rec_c0002_04_drift_char/round_01_cand_02_s89124.png",
+              "elapsed_s": 39.16,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 38.64,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "rec_c0013_08_style_drift",
+      "description": "[style_medium_drift | golden_book_mixed_media] Gold failure: Flat 2D outlined cartoon character turned into glossy 3D CGI render.",
+      "entity_name": "character (52-mira-bumble)",
+      "ref_images": [
+        "evals/mined_data/refs/cast/cast_52-mira-bumble__golden_book_mixed_media.png"
+      ],
+      "original_image": "rec_c0013_08_style_drift/round_00_original.png",
+      "final_image": "rec_c0013_08_style_drift/round_00_original.png",
+      "initial_passed": true,
+      "final_passed": true,
+      "recovered": false,
+      "score_delta": 0,
+      "rounds_run": 0,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 36.8,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 36.8,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": []
+    },
+    {
+      "item_id": "rec_c0006_08_style_drift",
+      "description": "[style_medium_drift | stop_motion_miniature] Gold failure: Green alien lost 2D outlines vs baseline, missing second eye, hands turned green.",
+      "entity_name": "character (83-brenda-wobble)",
+      "ref_images": [
+        "evals/mined_data/refs/cast/cast_83-brenda-wobble__stop_motion_miniature.png"
+      ],
+      "original_image": "rec_c0006_08_style_drift/round_00_original.png",
+      "final_image": "rec_c0006_08_style_drift/round_00_original.png",
+      "initial_passed": true,
+      "final_passed": true,
+      "recovered": false,
+      "score_delta": 0,
+      "rounds_run": 0,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 36.86,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 36.86,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": []
+    },
+    {
+      "item_id": "rec_c0021_05_drift_prop",
+      "description": "[subtle_prop_drift | golden_book_mixed_media] Gold failure: Green oscilloscope drifted into purple machine with a duplicated robot head fused on top",
+      "entity_name": "prop (retro_oscilloscope)",
+      "ref_images": [
+        "evals/mined_data/refs/props/prop_retro_oscilloscope__golden_book_mixed_media.png"
+      ],
+      "original_image": "rec_c0021_05_drift_prop/round_00_original.png",
+      "final_image": "rec_c0021_05_drift_prop/round_02_cand_01_s90014.png",
+      "initial_passed": false,
+      "final_passed": false,
+      "recovered": false,
+      "score_delta": 1,
+      "rounds_run": 2,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "The retro oscilloscope in Image 1 does not match the design, color, or style of the device seen in Image 2. In Image 2, the oscilloscope is a purple boxy robot body with a small screen and specific dial placements. Image 1 shows three olive-green, rounded retro monitors with large green wave screens and different control layouts.",
+        "defects_found": [
+          "reference_mismatch"
+        ],
+        "passed": false,
+        "score": 2,
+        "defect_type": "set_drift",
+        "defect_summary": "The prop (retro oscilloscope) in Image 1 is a completely different design, color (olive green vs purple), and style than the one established in Image 2.",
+        "location": "entire image",
+        "bbox_norm_1000": [
+          0,
+          0,
+          1000,
+          1000
+        ],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Replace the olive-green retro monitors in Image 1 with the purple, boxy oscilloscope design seen in Image 2, ensuring the color, screen size, and overall aesthetic match the reference.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 24.42,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": false,
+        "score": 3,
+        "defect_type": "character_drift",
+        "defect_summary": "The retro oscilloscope in the TEST_FRAME is olive green, while it should be purple as seen in the CANONICAL_REFERENCE.",
+        "location": "prop (retro_oscilloscope)",
+        "bbox_norm_1000": [],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Change the color of the retro oscilloscope in Image 1 from olive green to purple to match the CANONICAL_REFERENCE.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 23.07,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "targeted_edit",
+          "instruction": "Replace the olive-green retro monitors in Image 1 with the purple, boxy oscilloscope design seen in Image 2, ensuring the color, screen size, and overall aesthetic match the reference.",
+          "mask_overlay": null,
+          "selected_idx": 1,
+          "selected_path": "rec_c0021_05_drift_prop/round_01_cand_01_s89208.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": false,
+            "score": 3,
+            "defect_type": "character_drift",
+            "defect_summary": "The retro oscilloscope in the TEST_FRAME is olive green, whereas the CANONICAL_REFERENCE clearly shows it as purple.",
+            "location": "prop (retro_oscilloscope)",
+            "bbox_norm_1000": [],
+            "fix_action": "targeted_edit",
+            "fix_instruction": "Change the color of the retro oscilloscope's chassis from olive green to purple to match the CANONICAL_REFERENCE.",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 21.52,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 89208,
+              "path": "rec_c0021_05_drift_prop/round_01_cand_01_s89208.png",
+              "elapsed_s": 39.3,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": false,
+                "score": 3,
+                "defect_type": "character_drift",
+                "defect_summary": "The retro oscilloscope in the TEST_FRAME is olive green, whereas the CANONICAL_REFERENCE clearly shows it as purple.",
+                "location": "prop (retro_oscilloscope)",
+                "bbox_norm_1000": [],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Change the color of the retro oscilloscope's chassis from olive green to purple to match the CANONICAL_REFERENCE.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 21.52,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 89221,
+              "path": "rec_c0021_05_drift_prop/round_01_cand_02_s89221.png",
+              "elapsed_s": 42.82,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": false,
+                "score": 3,
+                "defect_type": "character_drift",
+                "defect_summary": "The retro oscilloscope in the TEST_FRAME is olive green, whereas the CANONICAL_REFERENCE clearly shows it as purple.",
+                "location": "prop (retro_oscilloscope)",
+                "bbox_norm_1000": [],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Change the color of the retro oscilloscope in Image 1 from olive green to purple to match the design in Image 2.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 21.48,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "action_used": "targeted_edit",
+          "instruction": "Change the color of the retro oscilloscope's chassis from olive green to purple to match the CANONICAL_REFERENCE.",
+          "mask_overlay": null,
+          "selected_idx": 1,
+          "selected_path": "rec_c0021_05_drift_prop/round_02_cand_01_s90014.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": false,
+            "score": 3,
+            "defect_type": "character_drift",
+            "defect_summary": "The retro oscilloscope in the TEST_FRAME is olive green, while it should be purple as seen in the CANONICAL_REFERENCE.",
+            "location": "prop (retro_oscilloscope)",
+            "bbox_norm_1000": [],
+            "fix_action": "targeted_edit",
+            "fix_instruction": "Change the color of the retro oscilloscope in Image 1 from olive green to purple to match the CANONICAL_REFERENCE.",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 23.07,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 90014,
+              "path": "rec_c0021_05_drift_prop/round_02_cand_01_s90014.png",
+              "elapsed_s": 42.01,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": false,
+                "score": 3,
+                "defect_type": "character_drift",
+                "defect_summary": "The retro oscilloscope in the TEST_FRAME is olive green, while it should be purple as seen in the CANONICAL_REFERENCE.",
+                "location": "prop (retro_oscilloscope)",
+                "bbox_norm_1000": [],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Change the color of the retro oscilloscope in Image 1 from olive green to purple to match the CANONICAL_REFERENCE.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 23.07,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 90027,
+              "path": "rec_c0021_05_drift_prop/round_02_cand_02_s90027.png",
+              "elapsed_s": 45.93,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": false,
+                "score": 3,
+                "defect_type": "character_drift",
+                "defect_summary": "The retro oscilloscope in the TEST_FRAME is olive green, whereas the CANONICAL_REFERENCE clearly shows it as purple.",
+                "location": "prop (retro_oscilloscope)",
+                "bbox_norm_1000": [],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Change the color of the retro oscilloscope in Image 1 from olive green to purple to match the CANONICAL_REFERENCE.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 21.25,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "rec_c0008_05_drift_prop",
+      "description": "[subtle_prop_drift | stop_motion_miniature] Gold failure: Cast 1 duplicated; Cast 2 lost boombox head and pixelated; megaphone turned purple.",
+      "entity_name": "prop (yellow_bullhorn_megaphone)",
+      "ref_images": [
+        "evals/mined_data/refs/props/prop_yellow_bullhorn_megaphone__stop_motion_miniature.png"
+      ],
+      "original_image": "rec_c0008_05_drift_prop/round_00_original.png",
+      "final_image": "rec_c0008_05_drift_prop/round_02_cand_01_s90111.png",
+      "initial_passed": false,
+      "final_passed": false,
+      "recovered": false,
+      "score_delta": 0,
+      "rounds_run": 2,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "The bullhorn in Image 1 is purple and gold, whereas the reference in Image 2 (CANONICAL_REFERENCE_1) is yellow and white.",
+        "defects_found": [
+          "The bullhorn in Image 1 has the wrong colors (purple/gold) compared to the yellow/white bullhorn in Image 2."
+        ],
+        "passed": false,
+        "score": 3,
+        "defect_type": "set_drift",
+        "defect_summary": "The bullhorn prop in Image 1 does not match the color scheme of the reference provided in Image 2.",
+        "location": "bullhorn",
+        "bbox_norm_1000": [
+          566,
+          467,
+          827,
+          613
+        ],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Change the colors of the bullhorn in Image 1 to match the yellow and white color scheme seen in Image 2.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 21.53,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": false,
+        "score": 3,
+        "defect_type": "character_drift",
+        "defect_summary": "The bullhorns in the TEST_FRAME still have white bodies and yellow ends, whereas the CANONICAL_REFERENCE shows a bullhorn with a solid yellow body and white interior.",
+        "location": "prop (yellow_bullhorn_megaphone)",
+        "bbox_norm_1000": [],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Change the color of the bullhorn bodies from white to yellow, and change the interior of the megaphone bell from yellow to white to match the CANONICAL_REFERENCE.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 23.07,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "targeted_edit",
+          "instruction": "Change the colors of the bullhorn in Image 1 to match the yellow and white color scheme seen in Image 2.",
+          "mask_overlay": null,
+          "selected_idx": 1,
+          "selected_path": "rec_c0008_05_drift_prop/round_01_cand_01_s89305.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "The bullhorn in Image 1 matches the yellow and white color scheme of the reference in Image 2, but it is rendered as a smooth 3D object while the character holding it is in a 16-bit pixel art style. However, based on the provided reference image (Image 2), the bullhorn itself is rendered as a smooth 3D object, so this matches.",
+            "defects_found": [],
+            "passed": false,
+            "score": 3,
+            "defect_type": "character_drift",
+            "defect_summary": "The bullhorn in the TEST_FRAME has a white body, whereas the CANONICAL_REFERENCE shows a bullhorn with a yellow body and white interior.",
+            "location": "prop (yellow_bullhorn_megaphone)",
+            "bbox_norm_1000": [],
+            "fix_action": "targeted_edit",
+            "fix_instruction": "Change the main body color of the bullhorn from white to yellow, and change the interior of the megaphone bell from yellow to white to match the CANONICAL_REFERENCE.",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 28.86,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 89305,
+              "path": "rec_c0008_05_drift_prop/round_01_cand_01_s89305.png",
+              "elapsed_s": 38.97,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "The bullhorn in Image 1 matches the yellow and white color scheme of the reference in Image 2, but it is rendered as a smooth 3D object while the character holding it is in a 16-bit pixel art style. However, based on the provided reference image (Image 2), the bullhorn itself is rendered as a smooth 3D object, so this matches.",
+                "defects_found": [],
+                "passed": false,
+                "score": 3,
+                "defect_type": "character_drift",
+                "defect_summary": "The bullhorn in the TEST_FRAME has a white body, whereas the CANONICAL_REFERENCE shows a bullhorn with a yellow body and white interior.",
+                "location": "prop (yellow_bullhorn_megaphone)",
+                "bbox_norm_1000": [],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Change the main body color of the bullhorn from white to yellow, and change the interior of the megaphone bell from yellow to white to match the CANONICAL_REFERENCE.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 28.86,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 89318,
+              "path": "rec_c0008_05_drift_prop/round_01_cand_02_s89318.png",
+              "elapsed_s": 38.84,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": false,
+                "score": 3,
+                "defect_type": "character_drift",
+                "defect_summary": "The bullhorn in the test frame has a white cone, whereas the canonical reference shows a yellow cone.",
+                "location": "prop (yellow_bullhorn_megaphone)",
+                "bbox_norm_1000": [],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Change the color of the bullhorn's cone from white to yellow to match the canonical reference.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 20.8,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "action_used": "targeted_edit",
+          "instruction": "Change the main body color of the bullhorn from white to yellow, and change the interior of the megaphone bell from yellow to white to match the CANONICAL_REFERENCE.",
+          "mask_overlay": null,
+          "selected_idx": 1,
+          "selected_path": "rec_c0008_05_drift_prop/round_02_cand_01_s90111.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": false,
+            "score": 3,
+            "defect_type": "character_drift",
+            "defect_summary": "The bullhorns in the TEST_FRAME still have white bodies and yellow ends, whereas the CANONICAL_REFERENCE shows a bullhorn with a solid yellow body and white interior.",
+            "location": "prop (yellow_bullhorn_megaphone)",
+            "bbox_norm_1000": [],
+            "fix_action": "targeted_edit",
+            "fix_instruction": "Change the color of the bullhorn bodies from white to yellow, and change the interior of the megaphone bell from yellow to white to match the CANONICAL_REFERENCE.",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 23.07,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 90111,
+              "path": "rec_c0008_05_drift_prop/round_02_cand_01_s90111.png",
+              "elapsed_s": 37.46,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": false,
+                "score": 3,
+                "defect_type": "character_drift",
+                "defect_summary": "The bullhorns in the TEST_FRAME still have white bodies and yellow ends, whereas the CANONICAL_REFERENCE shows a bullhorn with a solid yellow body and white interior.",
+                "location": "prop (yellow_bullhorn_megaphone)",
+                "bbox_norm_1000": [],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Change the color of the bullhorn bodies from white to yellow, and change the interior of the megaphone bell from yellow to white to match the CANONICAL_REFERENCE.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 23.07,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 90124,
+              "path": "rec_c0008_05_drift_prop/round_02_cand_02_s90124.png",
+              "elapsed_s": 37.3,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "The bullhorn in Image 1 matches the yellow body and white interior seen in Image 2.",
+                "defects_found": [],
+                "passed": false,
+                "score": 3,
+                "defect_type": "character_drift",
+                "defect_summary": "The bullhorns in the TEST_FRAME still have white bodies and yellow accents, whereas the CANONICAL_REFERENCE shows a bullhorn with a predominantly yellow body and white interior.",
+                "location": "prop (yellow_bullhorn_megaphone)",
+                "bbox_norm_1000": [],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Change the main body color of the bullhorns in Image 1 from white to yellow, and change the interior of the megaphone bell from yellow to white to match Image 2.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 24.5,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "rec_c0023_01_clean_set_a",
+      "description": "[set_reuse_clean | golden_book_mixed_media] Gold failure: Paper-bag-head character is duplicated twice on the right side",
+      "entity_name": "character (100-jasper-pencil)",
+      "ref_images": [
+        "evals/mined_data/refs/cast/cast_100-jasper-pencil__golden_book_mixed_media.png"
+      ],
+      "original_image": "rec_c0023_01_clean_set_a/round_00_original.png",
+      "final_image": "rec_c0023_01_clean_set_a/round_00_original.png",
+      "initial_passed": true,
+      "final_passed": true,
+      "recovered": false,
+      "score_delta": 0,
+      "rounds_run": 0,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "The character (100-jasper-pencil) in Image 1 matches the identity, colors, and design of the character in Image 2. The rendering style is consistent with a stylized cartoon/3D hybrid.",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 42.03,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "The character (100-jasper-pencil) in Image 1 matches the identity, colors, and design of the character in Image 2. The rendering style is consistent with a stylized cartoon/3D hybrid.",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 42.03,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": []
+    },
+    {
+      "item_id": "rec_c0014_02_clean_set_b",
+      "description": "[adjacent_clean | stop_motion_miniature] Gold failure: Pink bowling-ball character from cast ref 1 is duplicated twice in shot.",
+      "entity_name": "character (75-kira-gloop)",
+      "ref_images": [
+        "evals/mined_data/refs/cast/cast_75-kira-gloop__stop_motion_miniature.png"
+      ],
+      "original_image": "rec_c0014_02_clean_set_b/round_00_original.png",
+      "final_image": "rec_c0014_02_clean_set_b/round_00_original.png",
+      "initial_passed": true,
+      "final_passed": true,
+      "recovered": false,
+      "score_delta": 0,
+      "rounds_run": 0,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 36.9,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 36.9,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": []
+    },
+    {
+      "item_id": "rec_c0027_03_stress_crowd",
+      "description": "[stress_crowd_hands | golden_book_mixed_media] Gold failure: Yellow box-head robot is duplicated while pixel character from CAST REF 4 is missing.",
+      "entity_name": "character (42-derek-sprout)",
+      "ref_images": [
+        "evals/mined_data/refs/cast/cast_42-derek-sprout__golden_book_mixed_media.png"
+      ],
+      "original_image": "rec_c0027_03_stress_crowd/round_00_original.png",
+      "final_image": "rec_c0027_03_stress_crowd/round_01_cand_01_s89402.png",
+      "initial_passed": false,
+      "final_passed": true,
+      "recovered": true,
+      "score_delta": 6,
+      "rounds_run": 1,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "The character (42-derek-sprout) in Image 1 is rendered as a smooth, painted digital illustration, whereas the CANONICAL_REFERENCE_1 (Image 2) explicitly defines the character as a 16-bit pixel art style. This is a medium/style mismatch.",
+        "defects_found": [
+          "rendering medium mismatch: smooth digital painting instead of 16-bit pixel art"
+        ],
+        "passed": false,
+        "score": 4,
+        "defect_type": "set_drift",
+        "defect_summary": "The character (42-derek-sprout) does not match the rendering medium of the reference image; it is smooth instead of pixelated.",
+        "location": "character (42-derek-sprout)",
+        "bbox_norm_1000": [
+          354,
+          356,
+          872,
+          861
+        ],
+        "fix_action": "targeted_edit",
+        "fix_instruction": "Change the rendering style of the character (42-derek-sprout) in Image 1 to match the 16-bit pixel art style seen in Image 2, ensuring visible square pixels and a limited color palette.",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 26.45,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 41.62,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "action_used": "targeted_edit",
+          "instruction": "Change the rendering style of the character (42-derek-sprout) in Image 1 to match the 16-bit pixel art style seen in Image 2, ensuring visible square pixels and a limited color palette.",
+          "mask_overlay": null,
+          "selected_idx": 1,
+          "selected_path": "rec_c0027_03_stress_crowd/round_01_cand_01_s89402.png",
+          "selected_verdict": {
+            "face_and_accessories_check": "passed",
+            "limbs_and_prop_contact_check": "passed",
+            "reference_match_check": "passed",
+            "defects_found": [],
+            "passed": true,
+            "score": 10,
+            "defect_type": "none",
+            "defect_summary": "none",
+            "location": "none",
+            "bbox_norm_1000": [],
+            "fix_action": "none",
+            "fix_instruction": "none",
+            "_meta": {
+              "model": "gemma-4-31b-it",
+              "elapsed_s": 41.62,
+              "used_schema": true,
+              "parse_error": null
+            }
+          },
+          "candidates": [
+            {
+              "idx": 1,
+              "seed": 89402,
+              "path": "rec_c0027_03_stress_crowd/round_01_cand_01_s89402.png",
+              "elapsed_s": 41.8,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "passed",
+                "reference_match_check": "passed",
+                "defects_found": [],
+                "passed": true,
+                "score": 10,
+                "defect_type": "none",
+                "defect_summary": "none",
+                "location": "none",
+                "bbox_norm_1000": [],
+                "fix_action": "none",
+                "fix_instruction": "none",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 41.62,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            },
+            {
+              "idx": 2,
+              "seed": 89415,
+              "path": "rec_c0027_03_stress_crowd/round_01_cand_02_s89415.png",
+              "elapsed_s": 38.89,
+              "verdict": {
+                "face_and_accessories_check": "passed",
+                "limbs_and_prop_contact_check": "failed",
+                "reference_match_check": "passed",
+                "defects_found": [
+                  "DUPLICATE / CLONED CHARACTER: The character (42-derek-sprout) appears twice in the scene, standing side-by-side."
+                ],
+                "passed": false,
+                "score": 3,
+                "defect_type": "set_drift",
+                "defect_summary": "The character (42-derek-sprout) is duplicated; there are two identical versions of the character walking together.",
+                "location": "left side of image",
+                "bbox_norm_1000": [
+                  30,
+                  358,
+                  492,
+                  846
+                ],
+                "fix_action": "targeted_edit",
+                "fix_instruction": "Remove the duplicate cloned character (42-derek-sprout) on the far left of Image 1, leaving only one instance of the character walking next to the white figure.",
+                "_meta": {
+                  "model": "gemma-4-31b-it",
+                  "elapsed_s": 21.41,
+                  "used_schema": true,
+                  "parse_error": null
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_id": "rec_c0020_03_stress_crowd",
+      "description": "[stress_crowd_hands | stop_motion_miniature] Gold failure: Cast Ref 2 is duplicated twice and Cast Ref 3 lost his CRT TV head.",
+      "entity_name": "character (55-remy-pencil)",
+      "ref_images": [
+        "evals/mined_data/refs/cast/cast_55-remy-pencil__stop_motion_miniature.png"
+      ],
+      "original_image": "rec_c0020_03_stress_crowd/round_00_original.png",
+      "final_image": "rec_c0020_03_stress_crowd/round_00_original.png",
+      "initial_passed": true,
+      "final_passed": true,
+      "recovered": false,
+      "score_delta": 0,
+      "rounds_run": 0,
+      "initial_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 41.56,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "final_verdict": {
+        "face_and_accessories_check": "passed",
+        "limbs_and_prop_contact_check": "passed",
+        "reference_match_check": "passed",
+        "defects_found": [],
+        "passed": true,
+        "score": 10,
+        "defect_type": "none",
+        "defect_summary": "none",
+        "location": "none",
+        "bbox_norm_1000": [],
+        "fix_action": "none",
+        "fix_instruction": "none",
+        "_meta": {
+          "model": "gemma-4-31b-it",
+          "elapsed_s": 41.56,
+          "used_schema": true,
+          "parse_error": null
+        }
+      },
+      "rounds": []
+    }
+  ]
+}

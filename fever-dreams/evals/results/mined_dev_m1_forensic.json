@@ -1,0 +1,1168 @@
+{
+  "created_at": "2026-11-27T06:33:11.975588+00:00",
+  "split": "dev",
+  "strategy": "forensic",
+  "quad_zoom": false,
+  "max_per_suite": 40,
+  "elapsed_s": 518.8,
+  "models": [
+    {
+      "model": "gemma-4-31b-it",
+      "suites": {
+        "single_frame": {
+          "metrics": {
+            "total": 40,
+            "tp": 11,
+            "fn": 9,
+            "tn": 8,
+            "fp": 12,
+            "recall": 0.55,
+            "precision": 0.4783,
+            "fpr": 0.6,
+            "f1": 0.5117,
+            "accuracy": 0.475,
+            "parse_errors": 0,
+            "avg_s": 10.81
+          },
+          "cases": [
+            {
+              "id": "c0001_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "face_blob",
+                "char_drift",
+                "lighting_break"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 9.61,
+              "defects_found": []
+            },
+            {
+              "id": "c0001_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "face_blob"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 7.41,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 12.5,
+              "defects_found": [
+                "The character on the far left has a hand that is fused/melted into the tuba valves",
+                "The character in the white coat on the right has a hand that is fused into the paper/prop he is holding",
+                "The character on the far left has an anatomically impossible leg structure where the foot merges into the ankle/calf in a melted fashion"
+              ]
+            },
+            {
+              "id": "c0005_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 10.14,
+              "defects_found": [
+                "The character on the left has a hand that is fused/melted into the handle of the red suitcase",
+                "The character on the left has a distorted, melted hand structure where it meets the prop"
+              ]
+            },
+            {
+              "id": "c0009_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 12.49,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 11.66,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 11.57,
+              "defects_found": []
+            },
+            {
+              "id": "c0012_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 11.81,
+              "defects_found": []
+            },
+            {
+              "id": "c0016_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "style_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 10.21,
+              "defects_found": [
+                "The character on the left has a hand/finger that is fused directly into the gold trophy, lacking a proper grip or separation between the digit and the prop."
+              ]
+            },
+            {
+              "id": "c0016_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "style_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 9.56,
+              "defects_found": [
+                "The hand of the doodle character is fused/merged into the trophy's handle, lacking distinct finger separation or a natural grip."
+              ]
+            },
+            {
+              "id": "c0016_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 12.05,
+              "defects_found": []
+            },
+            {
+              "id": "c0017_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 13.73,
+              "defects_found": [
+                "DUPLICATE CHARACTER: Identical green bird cloned twice in scene",
+                "ANATOMY ERROR: Fused/melted hands on the right-most character"
+              ]
+            },
+            {
+              "id": "c0017_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 12.05,
+              "defects_found": [
+                "melted/fused hands holding the gear"
+              ]
+            },
+            {
+              "id": "c0025_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 14.62,
+              "defects_found": [
+                "3D character's hand is fused/clipping through the ladder rail"
+              ]
+            },
+            {
+              "id": "c0025_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 12.76,
+              "defects_found": [
+                "The character in the red jacket on the left has a hand that is fused/melted into the wooden ladder",
+                "The character in the blue shirt behind the ladder has a hand that is floating/detached and merging into the ladder structure",
+                "The character in the red jacket on the right has a hand that is garbled and merging into an unrecognizable object/tool"
+              ]
+            },
+            {
+              "id": "c0029_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 11.97,
+              "defects_found": []
+            },
+            {
+              "id": "c0032_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 14.18,
+              "defects_found": [
+                "Clay character's hand is fused/melted into the tuba prop",
+                "Ink characters have garbled, non-functional finger anatomy"
+              ]
+            },
+            {
+              "id": "c0032_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 10.47,
+              "defects_found": []
+            },
+            {
+              "id": "c0034_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 9.73,
+              "defects_found": [
+                "The middle character's left hand (viewer's right) is a melted, fused blob of fingers that does not match the structure of the other hand."
+              ]
+            },
+            {
+              "id": "c0034_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 16.87,
+              "defects_found": [
+                "Hand fused into metal cart railing (left robot)",
+                "Melted/distorted hand anatomy (right robot)"
+              ]
+            },
+            {
+              "id": "c0003_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.6,
+              "defects_found": [
+                "The green frog character's right hand is fused/melted into a singular blob with no distinct finger definition, appearing as a distorted green mass."
+              ]
+            },
+            {
+              "id": "c0003_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.45,
+              "defects_found": [
+                "The frog character's left hand is fused/melted into the side of the volcano prop, lacking distinct finger definition and anatomical separation."
+              ]
+            },
+            {
+              "id": "c0003_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 10.63,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.32,
+              "defects_found": [
+                "The frog character's left hand is fused into a singular, melted blob of green flesh with no distinct fingers or anatomical structure."
+              ]
+            },
+            {
+              "id": "c0004_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.58,
+              "defects_found": [
+                "The character on the left has a severely distorted right hand (thumb side) that is melted/fused into an unrecognizable blob of pixels."
+              ]
+            },
+            {
+              "id": "c0004_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 11.13,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 7.74,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.63,
+              "defects_found": [
+                "The character on the far right has a hand that is fused/melted into the red toolbox, lacking distinct finger separation and anatomical structure."
+              ]
+            },
+            {
+              "id": "c0005_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 7.78,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 7.77,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 7.74,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.77,
+              "defects_found": [
+                "The character on the left has a hand that is fused/melted into the yellow cart, lacking distinct finger definition and merging with the plastic surface."
+              ]
+            },
+            {
+              "id": "c0010_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 11.5,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.75,
+              "defects_found": [
+                "The yellow character's left hand is fused/melted into the wooden ladder, lacking distinct finger definition and merging with the prop material."
+              ]
+            },
+            {
+              "id": "c0011_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.46,
+              "defects_found": [
+                "The yellow character's left hand is fused/melted into the wooden ladder rail, lacking distinct finger separation and anatomical structure."
+              ]
+            },
+            {
+              "id": "c0011_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 15.09,
+              "defects_found": [
+                "fused/melted hands on box-head and rightmost character",
+                "spatial clipping through ladder/wires",
+                "facial artifacts on rightmost character"
+              ]
+            },
+            {
+              "id": "c0011_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 10.03,
+              "defects_found": [
+                "The character on the left has a hand that is fused/melted into its own face/neck area, with fingers blending unnaturally into the cheek and jawline."
+              ]
+            },
+            {
+              "id": "c0012_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 10.6,
+              "defects_found": []
+            },
+            {
+              "id": "c0015_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 10.66,
+              "defects_found": [
+                "The green character's left arm is a coiled spring that merges directly into the projector body without a hand or distinct connection point, and its right arm is an amorphous black shape fused into the side of the projector."
+              ]
+            },
+            {
+              "id": "c0015_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 0,
+              "elapsed_s": 9.88,
+              "defects_found": [
+                "The green character's left arm is fused into the projector body, and its right hand has an unnatural number of fingers/blobs merging with the device."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "model": "qwen3-vl-30b-a3b-instruct-mlx",
+      "suites": {
+        "single_frame": {
+          "metrics": {
+            "total": 40,
+            "tp": 1,
+            "fn": 19,
+            "tn": 20,
+            "fp": 0,
+            "recall": 0.05,
+            "precision": 1.0,
+            "fpr": 0.0,
+            "f1": 0.0952,
+            "accuracy": 0.525,
+            "parse_errors": 0,
+            "avg_s": 1.8
+          },
+          "cases": [
+            {
+              "id": "c0001_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "face_blob",
+                "char_drift",
+                "lighting_break"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 2.16,
+              "defects_found": []
+            },
+            {
+              "id": "c0001_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "face_blob"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.49,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 5.94,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.47,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 2.96,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.46,
+              "defects_found": []
+            },
+            {
+              "id": "c0012_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 3.46,
+              "defects_found": [
+                "DUPLICATE / CLONED CHARACTER"
+              ]
+            },
+            {
+              "id": "c0016_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "style_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 2.41,
+              "defects_found": []
+            },
+            {
+              "id": "c0016_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "style_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.47,
+              "defects_found": []
+            },
+            {
+              "id": "c0016_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0017_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0017_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.47,
+              "defects_found": []
+            },
+            {
+              "id": "c0025_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0025_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 3.69,
+              "defects_found": []
+            },
+            {
+              "id": "c0029_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0032_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0032_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0034_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0034_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 1.47,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.49,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.49,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.49,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.47,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.49,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.49,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.51,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.53,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 2.38,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.48,
+              "defects_found": []
+            },
+            {
+              "id": "c0012_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.47,
+              "defects_found": []
+            },
+            {
+              "id": "c0015_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.49,
+              "defects_found": []
+            },
+            {
+              "id": "c0015_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 1.49,
+              "defects_found": []
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

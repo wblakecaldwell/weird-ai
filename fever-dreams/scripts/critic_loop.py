@@ -99,25 +99,26 @@ CRITIC_REPAIR_SCHEMA: dict[str, Any] = {
     "additionalProperties": False,
 }
 
-CRITIC_SYSTEM_PROMPT = """You are a strict visual quality-control (QC) and continuity critic connected directly to an automated local image repair pipeline.
+CRITIC_SYSTEM_PROMPT = """You are a strict general-purpose visual quality-control (QC) and continuity critic connected directly to an automated local image repair pipeline.
 
 IMPORTANT STYLE CONTEXT:
-- Stylized cartoon, clay, felt puppet, knit, and 16-bit pixel-art characters inside painted backgrounds are INTENTIONAL. Do NOT flag an intentional art style as a defect unless it mismatches the provided CANONICAL_REFERENCE.
+- Stylized cartoon, clay, felt puppet, knit, paper-cutout, ink-doodle, retro 3D, and 16-bit pixel-art characters inside painted or miniature stop-motion sets are INTENTIONAL. Do NOT flag an intentional art style as a defect unless it mismatches a provided CANONICAL_REFERENCE.
 
 WHAT YOU MUST FAIL (passed = false):
-1. Broken/partial floating accessories (for example, half a pair of glasses stuck to one side of a face).
-2. Anatomy errors: extra limbs (3 legs), missing heads, warped/melted hands, or limbs fused into props/beams.
-3. Foreign blobs, rocks, or glitches protruding from faces, chins, or mouths.
-4. Reference mismatch (when CANONICAL_REFERENCE is provided): wrong prop/vehicle design (e.g. green steam train instead of yellow wheeled crane), wrong character style (e.g. 3D clay instead of 16-bit pixel art), wrong colors, or added horns/glasses.
+1. DUPLICATE / CLONED CHARACTER: The exact same character accidentally appearing twice in the same scene.
+2. ANATOMY & LIMBS: Extra/missing/detached limbs, severely warped hands, or limbs physically fused into solid objects.
+3. SPATIAL CLIPPING / PHYSICS: A character's legs, waist, or body impossibly phasing through a solid table, workbench, or furniture.
+4. BROKEN ACCESSORIES / FACE ARTIFACTS: Half/partial floating glasses, foreign blobs protruding from a face/chin/mouth, or garbled gibberish text.
+5. REFERENCE MISMATCH (when CANONICAL_REFERENCE is provided): Wrong character identity/outfit/colors, wrong rendering medium/style (e.g., 2D pixel art or cutout turned into smooth 3D clay/CGI), or wrong prop shape/color/design.
 
 HOW TO PICK fix_action WHEN passed = false:
-- "masked_inpaint": Best for localized glitches (half-glasses loop, extra third leg, chin artifact, or replacing one specific wrong prop) while preserving the rest of the image. Provide a tight-with-margin bounding box in bbox_norm_1000 as [x1, y1, x2, y2] in 0..1000 normalized coordinates!
-- "targeted_edit": Best when the fix spans a larger interacting area (e.g. separating a hand merged into a wooden beam and changing a character's pose/expression, or editing the whole character) while keeping the overall scene composition.
-- "reroll_seed": Best only when the whole composition is unsalvageable.
+- "masked_inpaint": Best for localized glitches (broken accessory, extra limb, chin blob, small spatial clipping) while preserving the rest of the image. Provide a tight-with-margin bounding box in bbox_norm_1000 as [x1, y1, x2, y2] in 0..1000 normalized coordinates.
+- "targeted_edit": Best when fixing a whole character's identity/medium/style, removing a duplicate cloned character, or replacing a mutated prop while keeping the overall room and composition intact.
+- "reroll_seed": Best only when the entire composition is unsalvageable.
 
 HOW TO WRITE fix_instruction:
-- Be concrete and visual (describe what SHOULD appear in the repaired area, not just "fix it").
-- When CANONICAL_REFERENCE is provided, explicitly reference "Image 2" as the canonical appearance to match.
+- Be concrete and visual: describe what SHOULD appear in the repaired CANDIDATE_IMAGE (never ask to edit CANONICAL_REFERENCE!).
+- When CANONICAL_REFERENCE is provided, refer to it as "Image 2" (the reference to match) and the image being repaired as "Image 1".
 
 Return ONLY valid JSON matching the schema."""
 
@@ -130,9 +131,62 @@ class RepairItem:
     entity_name: str = ""
     ref_images: list[Path] = field(default_factory=list)
     scene_prompt: str = ""
+    expected_cast_count: int = 0
     # Optional hint bbox (x1,y1,x2,y2 in 0..1 or pixels) ONLY if user/metadata provides one; normally None so Critic finds it!
     known_bbox: str | None = None
     extra_meta: dict[str, Any] = field(default_factory=dict)
+
+
+def extract_single_view_ref(ref_path: Path, cache_dir: Path) -> Path:
+    """If a ref image is a wide 3-view turnaround sheet (w/h >= 1.5), crop ONLY the left single pose.
+
+    Prevents multi-reference image generators (like qwen-image-2.1-turbo) from copy-pasting
+    2 or 3 cloned poses of the same character into a scene.
+    """
+    im = Image.open(ref_path).convert("RGB")
+    w, h = im.size
+    if w / max(1, h) < 1.5:
+        return ref_path
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    out = cache_dir / f"{ref_path.stem}_single_view.png"
+    if out.exists():
+        return out
+    # Left third (~34%) holds the clean full-body front view on 3-view turnaround sheets
+    crop_w = int(w * 0.34)
+    im.crop((0, 0, crop_w, h)).save(out, format="PNG")
+    return out
+
+
+def make_quad_zoom(src: Path, cache_dir: Path) -> Path:
+    """Create a 2x2 zoomed quadrant grid (12% overlap) so the Critic sees faces, hands, and clipping clearly."""
+    from PIL import ImageDraw
+
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    out = cache_dir / f"{src.stem}_quad.jpg"
+    if out.exists():
+        return out
+    im = Image.open(src).convert("RGB")
+    w, h = im.size
+    mx, my = int(w * 0.56), int(h * 0.56)
+    ox, oy = int(w * 0.44), int(h * 0.44)
+    quads = [
+        ("TOP-LEFT", im.crop((0, 0, mx, my))),
+        ("TOP-RIGHT", im.crop((ox, 0, w, my))),
+        ("BOTTOM-LEFT", im.crop((0, oy, mx, h))),
+        ("BOTTOM-RIGHT", im.crop((ox, oy, w, h))),
+    ]
+    tw, th, pad = 448, 384, 8
+    canvas = Image.new("RGB", (tw * 2 + pad * 3, th * 2 + pad * 3), (18, 16, 14))
+    draw = ImageDraw.Draw(canvas)
+    for idx, (lbl, q) in enumerate(quads):
+        r, c = divmod(idx, 2)
+        x0, y0 = pad + c * (tw + pad), pad + r * (th + pad)
+        canvas.paste(q.resize((tw, th), Image.Resampling.LANCZOS), (x0, y0))
+        draw.rectangle([x0, y0, x0 + tw - 1, y0 + th - 1], outline=(200, 180, 120), width=2)
+        draw.rectangle([x0 + 4, y0 + 4, x0 + 115, y0 + 24], fill=(18, 16, 14))
+        draw.text((x0 + 10, y0 + 8), lbl, fill=(244, 208, 111))
+    canvas.save(out, format="JPEG", quality=88)
+    return out
 
 
 def _clear_mlx() -> None:
@@ -176,6 +230,7 @@ def audit_single_image(
     image_path: Path,
     ref_images: list[Path] | None = None,
     entity_name: str = "",
+    expected_cast_count: int = 0,
     prior_defect: str = "",
     max_edge: int = 1024,
 ) -> dict[str, Any]:
@@ -203,13 +258,11 @@ def audit_single_image(
 
     user_text = (
         f"Inspect CANDIDATE_IMAGE forensically as a strict QC critic.{ref_note}{prior_note}\n"
-        f"Check these 4 specific failure modes directly from the pixels:\n"
-        f"1. face_and_accessories_check: Look closely at the left and right edges of every character's face/cheek/temple "
-        f"(is there a broken/hollow HALF pair of glasses sticking out on one side only?), and check chins/mouths for weird foreign rocky blobs.\n"
-        f"2. limbs_and_prop_contact_check: Count the legs and shoes on every standing character (does anyone have 3 legs or an extra raised shoe on their side?), "
-        f"and check whether any hand/arm is unnaturally fused/melted into a wooden beam or solid prop.\n"
-        f"3. reference_match_check: If CANONICAL_REFERENCE_1 is shown, does the target entity match its rendering medium/style, colors, silhouette, and vehicle/prop type? (Write 'n/a' if no reference.)\n"
-        f"4. defects_found: List ONLY genuine, clearly visible defects from 1-3 (or [] if clean). Do NOT rationalize a broken half-glasses loop, extra 3rd leg, fused hand, or wrong vehicle as intentional.\n"
+        f"Check these 4 general failure modes directly from the pixels:\n"
+        f"1. face_and_accessories_check: Inspect every character's face, eyes, eyewear, chin, and mouth for broken/partial floating accessories, foreign blobs, or garbled text.\n"
+        f"2. limbs_and_prop_contact_check: Check for duplicate/cloned identical characters, extra/missing/detached limbs, hands fused into solid props, or impossible spatial clipping (body phasing through a solid table/workbench).\n"
+        f"3. reference_match_check: If CANONICAL_REFERENCE_1 is shown, does the target entity in CANDIDATE_IMAGE match CANONICAL_REFERENCE_1 in identity, rendering medium/style, colors, and design? (Write 'n/a' if no reference.)\n"
+        f"4. defects_found: List ONLY genuine, clearly visible defects from 1-3 (or [] if clean). Never suggest modifying CANONICAL_REFERENCE_1 — all repairs target CANDIDATE_IMAGE (Image 1).\n"
         f"5. Set passed=(len(defects_found)==0), score (1-5 if defective, 8-10 if clean), defect_type, defect_summary, location, "
         f"bbox_norm_1000 ([x1,y1,x2,y2] in 0..1000 tightly around the defect, or [] if passed), fix_action, and fix_instruction."
     )
@@ -252,19 +305,19 @@ def audit_single_image(
         ares = query_vlm_json(
             model=model,
             system_prompt=(
-                "You are a visual continuity supervisor checking whether a target character or prop in TEST_FRAME matches CANONICAL_REFERENCE. "
-                "Ignore normal pose/camera/background differences. FAIL (passed=false) if rendering medium/style drifted "
-                "(e.g. flat 2D 16-bit pixel art turned into smooth 3D clay), main colors drifted, wrong vehicle/prop design "
-                "(e.g. yellow wheeled crane replaced by green steam train), or forbidden horns/glasses were added."
+                "You are a visual continuity supervisor checking whether a target character or prop in TEST_FRAME (Image 1 to repair) "
+                "matches CANONICAL_REFERENCE (Image 2, the ground-truth reference). Ignore normal pose/camera/background differences. "
+                "FAIL (passed=false) if rendering medium/style drifted, main colors/outfit/face drifted, or prop shape/design mutated. "
+                "When writing fix_instruction, ALWAYS instruct how to edit TEST_FRAME (Image 1) to match CANONICAL_REFERENCE (Image 2)."
             ),
             user_text=(
                 f"Target entity to verify: {entity_name or 'target entity'}.\n"
                 f"Compare this entity in TEST_FRAME against CANONICAL_REFERENCE.{prior_note}\n"
-                f"Set passed=true ONLY if it faithfully matches CANONICAL_REFERENCE in rendering style, colors, and design."
+                f"Set passed=true ONLY if TEST_FRAME faithfully matches CANONICAL_REFERENCE in rendering style, colors, and design."
             ),
             images=[("CANONICAL_REFERENCE", ref_images[0]), ("TEST_FRAME", image_path)],
             json_schema=anchor_schema,
-            schema_name="loop_anchor_verify",
+            schema_name="loop_anchor_verify_v3",
             max_edge=max_edge,
             max_tokens=480,
         )
@@ -287,9 +340,14 @@ def audit_single_image(
             parsed["fix_action"] = "targeted_edit"
             parsed["fix_instruction"] = str(ap.get("fix_instruction") or f"Match CANONICAL_REFERENCE for {entity_name}.")
 
-    # Secondary check B: Forensic probe pass (Suite 1B proven pattern): if still PASS,
-    # run targeted high-confidence half-glasses & extra-leg probes so subtle artifacts cannot slip through!
+    # Secondary check B: Proven 75%-recall zoomed-in forensic probes (with expected_cast_count + 2x2 quad zoom)
     if parsed["passed"]:
+        quad_path = make_quad_zoom(image_path, image_path.parent / "_quad_cache")
+        count_hint = (
+            f"This scene is supposed to contain {expected_cast_count} distinct character(s). "
+            if expected_cast_count > 0
+            else ""
+        )
         probe_schema = {
             "type": "object",
             "properties": {
@@ -305,23 +363,24 @@ def audit_single_image(
         }
         focused_probes = [
             (
-                "accessory",
-                "Look ONLY at the left and right edges of every character's face, cheeks, and temples in CANDIDATE_IMAGE. "
-                "Ignore complete normal eyeglasses covering BOTH eyes. Is there a BROKEN/HALF glasses frame — a single hollow lens or rim loop "
-                "sticking out on ONLY ONE side of a face/cheek with NO matching lens on the other eye? "
-                "Set defect_detected=true ONLY with high confidence if you literally see a partial one-sided glasses loop, and return its bbox_norm_1000.",
-            ),
-            (
                 "anatomy",
-                "Carefully count the legs, feet, and shoes on EVERY standing character in CANDIDATE_IMAGE. "
-                "Does ANY character have THREE legs or an extra raised leg/shoe sticking sideways out of their torso/hip while two other feet stand on the floor? "
-                "Set defect_detected=true ONLY with high confidence if you literally count 3 legs/shoes on one character, and return its bbox_norm_1000.",
+                f"{count_hint}Inspect CANDIDATE_IMAGE and ZOOMED_QUADRANTS. Count every character visible in CANDIDATE_IMAGE. "
+                f"Is ANY character accidentally DUPLICATED / CLONED (the exact same character appearing twice or three times in the same shot), "
+                f"is the character count clearly wrong, OR does any character have extra/missing/detached limbs? "
+                f"Set defect_detected=true ONLY with high confidence if you literally see a duplicate character, wrong cast count, or clear limb anomaly, and return its bbox_norm_1000.",
             ),
             (
                 "merge_artifact",
-                "Look ONLY at every character's hands and arms where they touch wooden beams or poles in CANDIDATE_IMAGE. "
-                "Is any hand or arm physically fused or melted INTO a wooden beam so the limb turns into the wood? "
-                "Set defect_detected=true ONLY with high confidence if clearly fused, and return its bbox_norm_1000.",
+                "Inspect CANDIDATE_IMAGE and ZOOMED_QUADRANTS for every character's body contact with tables, workbenches, furniture, and props. "
+                "Is any character's waist/legs impossibly clipping straight through a solid tabletop/furniture, OR is any hand/arm physically fused into a solid object? "
+                "Set defect_detected=true ONLY with high confidence if clearly clipping or fused, and return its bbox_norm_1000.",
+            ),
+            (
+                "accessory",
+                "Inspect CANDIDATE_IMAGE and ZOOMED_QUADRANTS closely on every character's face, eyes, eyewear, chin, and mouth. "
+                "Ignore intact normal glasses and intentional cartoon/puppet styles. Is there a broken/partial floating accessory "
+                "(like half a pair of glasses on one side only) or a foreign rocky blob protruding from a face/chin/mouth? "
+                "Set defect_detected=true ONLY with high confidence if clearly visible, and return its bbox_norm_1000.",
             ),
         ]
         for dtype, q in focused_probes:
@@ -329,22 +388,24 @@ def audit_single_image(
                 model=model,
                 system_prompt="You are a literal forensic pixel inspector answering ONE specific artifact check. Never invent defects; only flag high-confidence visible glitches.",
                 user_text=q,
-                images=[("CANDIDATE_IMAGE", image_path)],
+                images=[("CANDIDATE_IMAGE", image_path), ("ZOOMED_QUADRANTS", quad_path)],
                 json_schema=probe_schema,
-                schema_name=f"loop_probe_{dtype}",
+                schema_name=f"loop_probe_{dtype}_v3",
                 max_edge=max_edge,
                 max_tokens=360,
             )
             pp = pres.parsed or {}
             if bool(pp.get("defect_detected")) and str(pp.get("confidence", "")).lower() == "high":
+                obs = str(pp.get("observation") or f"Detected {dtype} defect")
+                is_dup = any(w in obs.lower() for w in ("duplicat", "clone", "twice", "three times", "two copies"))
                 parsed["passed"] = False
                 parsed["score"] = min(int(parsed.get("score") or 4), 4)
                 parsed["defect_type"] = dtype
-                parsed["defect_summary"] = str(pp.get("observation") or f"Detected {dtype} defect")
+                parsed["defect_summary"] = obs
                 parsed["location"] = str(pp.get("location") or "detected region")
                 parsed["bbox_norm_1000"] = pp.get("bbox_norm_1000") or []
-                parsed["fix_action"] = "masked_inpaint" if dtype in {"accessory", "anatomy"} else "targeted_edit"
-                parsed["fix_instruction"] = str(pp.get("fix_instruction") or f"Cleanly remove the {dtype} defect and restore natural appearance.")
+                parsed["fix_action"] = "targeted_edit" if is_dup else ("masked_inpaint" if dtype in {"accessory", "anatomy"} else "targeted_edit")
+                parsed["fix_instruction"] = str(pp.get("fix_instruction") or f"Cleanly fix the {dtype} defect while keeping only ONE copy of each character.")
                 break
 
     parsed.setdefault("score", 5)
@@ -385,7 +446,8 @@ def build_repair_prompt(
     return (
         f"Edit Image 1 to apply this exact repair: {clean}.{ref_clause} "
         f"Keep everything else in Image 1 identical — same composition, camera angle, background, lighting, and other characters — "
-        f"fixing ONLY the described defect cleanly. Zero text, zero speech bubbles, zero watermarks."
+        f"showing ONLY ONE single copy of each character (never duplicate or clone a character) and fixing ONLY the described defect cleanly. "
+        f"Zero text, zero speech bubbles, zero watermarks."
     )
 
 
@@ -457,6 +519,7 @@ def run_closed_loop(
                 image_path=st["current_image"],
                 ref_images=item.ref_images,
                 entity_name=item.entity_name,
+                expected_cast_count=item.expected_cast_count,
             )
             st["initial_verdict"] = v
             st["latest_verdict"] = v
@@ -514,9 +577,16 @@ def run_closed_loop(
                 # Fallback to targeted_edit if Critic didn't return a usable bbox
                 action = "targeted_edit"
 
+            # Crop wide 3-view turnaround sheets down to a single pose BEFORE passing to mflux
+            # so qwen-image-2.1-turbo never copy-pastes 2 or 3 clones of the same character!
+            single_view_refs = [
+                extract_single_view_ref(rp, work_dir / "_single_view_refs")
+                for rp in item.ref_images
+            ]
+
             # Prepare image_paths for mflux
-            if action == "reroll_seed" and item.ref_images:
-                img_paths = list(item.ref_images)
+            if action == "reroll_seed" and single_view_refs:
+                img_paths = list(single_view_refs)
                 prompt = (
                     item.scene_prompt
                     + f" IMPORTANT FIX: {instruction}."
@@ -526,10 +596,10 @@ def run_closed_loop(
                 source_for_blend = None
                 resolved_mask = None
             else:
-                img_paths = [cond_img] + list(item.ref_images)
+                img_paths = [cond_img] + list(single_view_refs)
                 prompt = build_repair_prompt(
                     instruction,
-                    has_refs=bool(item.ref_images),
+                    has_refs=bool(single_view_refs),
                     entity_name=item.entity_name,
                     is_masked=(resolved_mask is not None),
                 )
@@ -589,6 +659,7 @@ def run_closed_loop(
                     image_path=c["path"],
                     ref_images=item.ref_images,
                     entity_name=item.entity_name,
+                    expected_cast_count=item.expected_cast_count,
                     prior_defect=prior_def,
                 )
                 c["verdict"] = v

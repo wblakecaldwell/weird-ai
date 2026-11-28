@@ -30,3 +30,12 @@ evals/results/**/*.jpg
 evals/results/**/*.html
 evals/results/*.html
 evals/results/matrix_*.json
+
+# Mined test dataset media, temp previews, and per-file sidecars stay local;
+# keep the canonical 449-shot human-verified gold_manifest.json committed
+evals/mined_data/_previews/
+evals/mined_data/shots/
+evals/mined_data/refs/
+evals/mined_data/contact_sheets/
+evals/mined_data/index.json
+evals/mined_data/status.json

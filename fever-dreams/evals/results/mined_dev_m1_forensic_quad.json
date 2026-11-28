@@ -1,0 +1,568 @@
+{
+  "created_at": "2026-11-27T06:42:24.505225+00:00",
+  "split": "dev",
+  "strategy": "forensic",
+  "quad_zoom": true,
+  "max_per_suite": 40,
+  "elapsed_s": 551.5,
+  "models": [
+    {
+      "model": "gemma-4-31b-it",
+      "suites": {
+        "single_frame": {
+          "metrics": {
+            "total": 40,
+            "tp": 2,
+            "fn": 18,
+            "tn": 20,
+            "fp": 0,
+            "recall": 0.1,
+            "precision": 1.0,
+            "fpr": 0.0,
+            "f1": 0.1818,
+            "accuracy": 0.55,
+            "parse_errors": 0,
+            "avg_s": 13.57
+          },
+          "cases": [
+            {
+              "id": "c0001_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "face_blob",
+                "char_drift",
+                "lighting_break"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 11.17,
+              "defects_found": []
+            },
+            {
+              "id": "c0001_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "face_blob"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 9.07,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 16.12,
+              "defects_found": [
+                "mangled/fused hand digits on left character",
+                "melted/garbled hand on right white-coat character"
+              ]
+            },
+            {
+              "id": "c0005_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 12.61,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 13.19,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 13.87,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 13.58,
+              "defects_found": []
+            },
+            {
+              "id": "c0012_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 12.93,
+              "defects_found": []
+            },
+            {
+              "id": "c0016_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "style_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 14.45,
+              "defects_found": []
+            },
+            {
+              "id": "c0016_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "style_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 9.06,
+              "defects_found": []
+            },
+            {
+              "id": "c0016_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 12.43,
+              "defects_found": []
+            },
+            {
+              "id": "c0017_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 13.04,
+              "defects_found": []
+            },
+            {
+              "id": "c0017_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 12.59,
+              "defects_found": []
+            },
+            {
+              "id": "c0025_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 15.98,
+              "defects_found": []
+            },
+            {
+              "id": "c0025_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 0,
+              "elapsed_s": 21.35,
+              "defects_found": [
+                "DUPLICATE CHARACTERS",
+                "ANATOMY ERRORS (MELTED HANDS)",
+                "SPATIAL CLIPPING (PHASING THROUGH LADDER)",
+                "FACE ARTIFACTS"
+              ]
+            },
+            {
+              "id": "c0029_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 14.65,
+              "defects_found": []
+            },
+            {
+              "id": "c0032_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 12.71,
+              "defects_found": []
+            },
+            {
+              "id": "c0032_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 12.77,
+              "defects_found": []
+            },
+            {
+              "id": "c0034_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 13.84,
+              "defects_found": []
+            },
+            {
+              "id": "c0034_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 100,
+              "elapsed_s": 14.28,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.97,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.59,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.06,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 14.34,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 12.83,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 12.08,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.68,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 11.96,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 14.07,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 14.86,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 14.73,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.68,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 12.33,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.79,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.81,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.86,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 15.92,
+              "defects_found": []
+            },
+            {
+              "id": "c0012_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 12.19,
+              "defects_found": []
+            },
+            {
+              "id": "c0015_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 14.54,
+              "defects_found": []
+            },
+            {
+              "id": "c0015_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 100,
+              "elapsed_s": 13.68,
+              "defects_found": []
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

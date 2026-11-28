@@ -1,0 +1,591 @@
+{
+  "created_at": "2026-11-27T06:59:02.146154+00:00",
+  "split": "dev",
+  "strategy": "probed_general",
+  "quad_zoom": true,
+  "max_per_suite": 40,
+  "elapsed_s": 996.5,
+  "models": [
+    {
+      "model": "gemma-4-31b-it",
+      "suites": {
+        "single_frame": {
+          "metrics": {
+            "total": 40,
+            "tp": 14,
+            "fn": 6,
+            "tn": 19,
+            "fp": 1,
+            "recall": 0.7,
+            "precision": 0.9333,
+            "fpr": 0.05,
+            "f1": 0.8,
+            "accuracy": 0.825,
+            "parse_errors": 0,
+            "avg_s": 24.67
+          },
+          "cases": [
+            {
+              "id": "c0001_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "face_blob",
+                "char_drift",
+                "lighting_break"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 9,
+              "elapsed_s": 21.73,
+              "defects_found": []
+            },
+            {
+              "id": "c0001_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "face_blob"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 9,
+              "elapsed_s": 22.19,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 25.79,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 6 characters instead of the specified 4."
+              ]
+            },
+            {
+              "id": "c0005_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 24.64,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the specified 2."
+              ]
+            },
+            {
+              "id": "c0009_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 23.77,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the requested 2."
+              ]
+            },
+            {
+              "id": "c0010_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 25.82,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 distinct characters instead of the specified 2."
+              ]
+            },
+            {
+              "id": "c0010_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 22.88,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the specified 2."
+              ]
+            },
+            {
+              "id": "c0012_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 24.63,
+              "defects_found": [
+                "duplicate_or_count: The scene contains three characters instead of the intended two, and specifically features a duplicated/cloned blue-haired character."
+              ]
+            },
+            {
+              "id": "c0016_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "style_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 27.09,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the specified 2."
+              ]
+            },
+            {
+              "id": "c0016_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "style_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 9,
+              "elapsed_s": 29.82,
+              "defects_found": []
+            },
+            {
+              "id": "c0016_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 9,
+              "elapsed_s": 24.64,
+              "defects_found": []
+            },
+            {
+              "id": "c0017_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 25.19,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the intended 2, and two of them are identical clones."
+              ]
+            },
+            {
+              "id": "c0017_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 9,
+              "elapsed_s": 21.92,
+              "defects_found": []
+            },
+            {
+              "id": "c0025_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 21.63,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the intended 2."
+              ]
+            },
+            {
+              "id": "c0025_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 26.4,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 7 characters instead of the intended 4, with multiple cloned/duplicated character models (the white figures and the men in blue shirts).",
+                "anatomy_and_clipping: The character on the far right has a leg that is physically fused/melted into the floor, and another character's arm in the center blends indistinctly into the background."
+              ]
+            },
+            {
+              "id": "c0029_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 24.37,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the specified 2."
+              ]
+            },
+            {
+              "id": "c0032_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 27.11,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the intended 2, and two of them are identical character clones."
+              ]
+            },
+            {
+              "id": "c0032_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 31.1,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 5 characters instead of the specified 4."
+              ]
+            },
+            {
+              "id": "c0034_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy"
+              ],
+              "expected": "FAIL",
+              "predicted": "FAIL",
+              "correct": true,
+              "score": 3,
+              "elapsed_s": 25.14,
+              "defects_found": [
+                "duplicate_or_count: The scene contains 3 characters instead of the specified 2."
+              ]
+            },
+            {
+              "id": "c0034_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [
+                "anatomy",
+                "char_drift"
+              ],
+              "expected": "FAIL",
+              "predicted": "PASS",
+              "correct": false,
+              "score": 9,
+              "elapsed_s": 27.09,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 20.2,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 19.75,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 27.03,
+              "defects_found": []
+            },
+            {
+              "id": "c0003_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 26.86,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 22.35,
+              "defects_found": []
+            },
+            {
+              "id": "c0004_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 23.62,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 20.55,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 26.31,
+              "defects_found": []
+            },
+            {
+              "id": "c0005_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 26.13,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 19.31,
+              "defects_found": []
+            },
+            {
+              "id": "c0009_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 27.41,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 26.95,
+              "defects_found": []
+            },
+            {
+              "id": "c0010_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 27.6,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 20.08,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 22.67,
+              "defects_found": []
+            },
+            {
+              "id": "c0011_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "FAIL",
+              "correct": false,
+              "score": 3,
+              "elapsed_s": 29.91,
+              "defects_found": [
+                "anatomy_and_clipping: The character with the cardboard box head has a floating leg, and there is significant spatial clipping/fusion where wires pass through the characters' legs."
+              ]
+            },
+            {
+              "id": "c0011_07_closeup_stress",
+              "category": "stress_closeup_face",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 26.6,
+              "defects_found": []
+            },
+            {
+              "id": "c0012_03_stress_crowd",
+              "category": "stress_crowd_hands",
+              "style": "stop_motion_miniature",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 23.66,
+              "defects_found": []
+            },
+            {
+              "id": "c0015_01_clean_set_a",
+              "category": "set_reuse_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 24.26,
+              "defects_found": []
+            },
+            {
+              "id": "c0015_02_clean_set_b",
+              "category": "adjacent_clean",
+              "style": "golden_book_mixed_media",
+              "defect_types": [],
+              "expected": "PASS",
+              "predicted": "PASS",
+              "correct": true,
+              "score": 9,
+              "elapsed_s": 22.69,
+              "defects_found": []
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

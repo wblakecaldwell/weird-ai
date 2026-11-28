@@ -140,6 +140,22 @@ def build_set_reuse_shot_prompt(
     )
 
 
+def _crop_single_view(sheet_path: Path, cache_dir: Path) -> Path:
+    """Crop the left single-pose view (~34% width) from a wide 3-view sheet before mflux conditioning.
+
+    Prevents qwen-image-2.1-turbo from copy-pasting 2 or 3 clones of the same character/prop into a scene.
+    """
+    im = Image.open(sheet_path).convert("RGB")
+    w, h = im.size
+    if w / max(1, h) < 1.5:
+        return sheet_path
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    out = cache_dir / f"{sheet_path.stem}_single.png"
+    if not out.exists():
+        im.crop((0, 0, int(w * 0.34), h)).save(out, format="PNG")
+    return out
+
+
 def _blank_canvas(path: Path, width: int, height: int, color: tuple[int, int, int] = (238, 230, 214)) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     if not path.exists():
@@ -260,15 +276,16 @@ def generate_bible_and_shots(
             cast_refs: list[tuple[int, dict[str, Any]]] = []
             prop_refs: list[tuple[int, str, str]] = []
 
+            single_cache = refs_dir / "_single_views"
             for cid in shot.get("cast_ids") or []:
-                cpath = Path(manifest["refs"]["cast"][cid]["path"])
+                cpath = _crop_single_view(Path(manifest["refs"]["cast"][cid]["path"]), single_cache)
                 image_paths.append(cpath)
                 cast_refs.append((len(image_paths), cast_by_id[cid]))
 
             for pitem in shot.get("prop_ids") or []:
                 pid = pitem["id"] if isinstance(pitem, dict) else pitem
                 pstate = pitem.get("state", "") if isinstance(pitem, dict) else ""
-                ppath = Path(manifest["refs"]["props"][pid]["path"])
+                ppath = _crop_single_view(Path(manifest["refs"]["props"][pid]["path"]), single_cache)
                 image_paths.append(ppath)
                 prop_refs.append((len(image_paths), props_by_id[pid]["name"], pstate))
 
