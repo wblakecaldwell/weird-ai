@@ -76,16 +76,20 @@ def select_holdout_recovery_items() -> list[RepairItem]:
         cat = sc.get("category", "")
         crefs = sc.get("canonical_refs") or {}
         refs: list[Path] = []
-        ename = ""
-        if cat in {"subtle_char_drift", "style_medium_drift"} and (crefs.get("cast") or []):
-            refs = [resolve_img(crefs["cast"][0])]
-            ename = f"character ({(sc.get('cast_ids') or ['target'])[0]})"
-        elif cat == "subtle_prop_drift" and crefs.get("prop"):
-            refs = [resolve_img(crefs["prop"])]
-            ename = f"prop ({(sc.get('prop_ids') or ['target'])[0]})"
-        elif (crefs.get("cast") or []):
-            refs = [resolve_img(crefs["cast"][0])]
-            ename = f"character ({(sc.get('cast_ids') or ['target'])[0]})"
+        rlabels: list[str] = []
+        cast_ids = sc.get("cast_ids") or []
+        prop_ids = sc.get("prop_ids") or []
+        if cat == "subtle_prop_drift" and crefs.get("prop"):
+            refs.append(resolve_img(crefs["prop"]))
+            rlabels.append(f"prop ({prop_ids[0] if prop_ids else 'target'})")
+        for ci, cp in enumerate(crefs.get("cast") or []):
+            refs.append(resolve_img(cp))
+            cid = cast_ids[ci] if ci < len(cast_ids) else f"cast_{ci + 1}"
+            rlabels.append(f"character ({cid})")
+        if cat != "subtle_prop_drift" and crefs.get("prop"):
+            refs.append(resolve_img(crefs["prop"]))
+            rlabels.append(f"prop ({prop_ids[0] if prop_ids else 'target'})")
+        ename = rlabels[0] if rlabels else ""
 
         items.append(
             RepairItem(
@@ -94,8 +98,9 @@ def select_holdout_recovery_items() -> list[RepairItem]:
                 description=f"[{cat} | {sc.get('style')}] Gold failure: {s.get('reason', '')}",
                 entity_name=ename,
                 ref_images=refs,
+                ref_labels=rlabels,
                 scene_prompt=(s.get("generation") or {}).get("prompt") or "",
-                expected_cast_count=len(sc.get("cast_ids") or []),
+                expected_cast_count=len(cast_ids),
                 extra_meta={
                     "gold_defect_types": s.get("defect_types") or [],
                     "gold_reason": s.get("reason", ""),
@@ -154,9 +159,12 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(description="Run Suite 6 Holdout Closed-Loop Recovery.")
     parser.add_argument("--work-dir", type=Path, default=RESULTS_DIR)
+    parser.add_argument("--only", default="", help="Optional substring filter to run a single item")
     args = parser.parse_args()
 
     items = select_holdout_recovery_items()
+    if args.only:
+        items = [it for it in items if args.only in it.item_id]
     print(f"[suite6_holdout] Selected {len(items)} diverse unseen Holdout failures -> {args.work_dir}:", flush=True)
     for it in items:
         print(f"  - {it.item_id:34s} (cast={it.expected_cast_count}) | {it.description[:80]}", flush=True)

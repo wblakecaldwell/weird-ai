@@ -130,6 +130,8 @@ class RepairItem:
     description: str = ""
     entity_name: str = ""
     ref_images: list[Path] = field(default_factory=list)
+    # Optional per-reference labels matching ref_images 1-to-1 (e.g. ["character (A)", "character (B)", "prop (X)"])
+    ref_labels: list[str] = field(default_factory=list)
     scene_prompt: str = ""
     expected_cast_count: int = 0
     # Optional hint bbox (x1,y1,x2,y2 in 0..1 or pixels) ONLY if user/metadata provides one; normally None so Critic finds it!
@@ -229,8 +231,10 @@ def audit_single_image(
     model: str,
     image_path: Path,
     ref_images: list[Path] | None = None,
+    ref_labels: list[str] | None = None,
     entity_name: str = "",
     expected_cast_count: int = 0,
+    before_image: Path | None = None,
     prior_defect: str = "",
     max_edge: int = 1024,
 ) -> dict[str, Any]:
@@ -284,8 +288,8 @@ def audit_single_image(
     ]
     parsed["passed"] = bool(parsed.get("passed", False)) and (len(defects_list) == 0)
 
-    # Secondary check A: If canonical reference exists and primary pass said PASS, run the
-    # dedicated Suite-2 Anchor check (proven 100% accuracy / 0% FPR on gemma-4-31b-it & qwen3-vl-4b).
+    # Secondary check A: Check EVERY canonical reference (all cast + recurring props) one by one so
+    # a missing character or prop mutation in a multi-character scene can never slip past!
     if parsed["passed"] and ref_images:
         anchor_schema = {
             "type": "object",
@@ -294,7 +298,7 @@ def audit_single_image(
                 "score": {"type": "integer"},
                 "mismatch_type": {
                     "type": "string",
-                    "enum": ["none", "style_drift", "color_drift", "prop_drift", "accessory_drift", "anatomy"],
+                    "enum": ["none", "missing_entity", "duplicate_entity", "style_drift", "color_drift", "prop_drift", "accessory_drift", "anatomy"],
                 },
                 "mismatch_summary": {"type": "string"},
                 "fix_instruction": {"type": "string"},
@@ -302,43 +306,51 @@ def audit_single_image(
             "required": ["passed", "score", "mismatch_type", "mismatch_summary", "fix_instruction"],
             "additionalProperties": False,
         }
-        ares = query_vlm_json(
-            model=model,
-            system_prompt=(
-                "You are a visual continuity supervisor checking whether a target character or prop in TEST_FRAME (Image 1 to repair) "
-                "matches CANONICAL_REFERENCE (Image 2, the ground-truth reference). Ignore normal pose/camera/background differences. "
-                "FAIL (passed=false) if rendering medium/style drifted, main colors/outfit/face drifted, or prop shape/design mutated. "
-                "When writing fix_instruction, ALWAYS instruct how to edit TEST_FRAME (Image 1) to match CANONICAL_REFERENCE (Image 2)."
-            ),
-            user_text=(
-                f"Target entity to verify: {entity_name or 'target entity'}.\n"
-                f"Compare this entity in TEST_FRAME against CANONICAL_REFERENCE.{prior_note}\n"
-                f"Set passed=true ONLY if TEST_FRAME faithfully matches CANONICAL_REFERENCE in rendering style, colors, and design."
-            ),
-            images=[("CANONICAL_REFERENCE", ref_images[0]), ("TEST_FRAME", image_path)],
-            json_schema=anchor_schema,
-            schema_name="loop_anchor_verify_v3",
-            max_edge=max_edge,
-            max_tokens=480,
-        )
-        ap = ares.parsed or {}
-        if not bool(ap.get("passed", True)):
-            mtype = str(ap.get("mismatch_type") or "character_drift")
-            dtype_map = {
-                "style_drift": "character_drift",
-                "color_drift": "character_drift",
-                "prop_drift": "prop_drift",
-                "accessory_drift": "accessory",
-                "anatomy": "anatomy",
-            }
-            parsed["passed"] = False
-            parsed["score"] = min(int(ap.get("score") or 3), 4)
-            parsed["defect_type"] = dtype_map.get(mtype, "character_drift")
-            parsed["defect_summary"] = str(ap.get("mismatch_summary") or "Reference mismatch")
-            parsed["location"] = entity_name or "target entity"
-            parsed["bbox_norm_1000"] = []
-            parsed["fix_action"] = "targeted_edit"
-            parsed["fix_instruction"] = str(ap.get("fix_instruction") or f"Match CANONICAL_REFERENCE for {entity_name}.")
+        labels_list = list(ref_labels or [])
+        for r_idx, r_path in enumerate(ref_images):
+            r_label = labels_list[r_idx] if r_idx < len(labels_list) else (entity_name if r_idx == 0 and entity_name else f"entity #{r_idx + 1}")
+            ares = query_vlm_json(
+                model=model,
+                system_prompt=(
+                    "You are a visual continuity supervisor checking whether a target character or prop in TEST_FRAME (Image 1 to repair) "
+                    "is present and matches CANONICAL_REFERENCE (Image 2, the ground-truth reference). Ignore normal pose/camera/background differences. "
+                    "FAIL (passed=false) if the entity is MISSING from TEST_FRAME, DUPLICATED twice, rendering medium/style drifted, "
+                    "main colors/outfit/face drifted, or prop shape/design mutated. "
+                    "When writing fix_instruction, ALWAYS instruct how to edit TEST_FRAME (Image 1) to match CANONICAL_REFERENCE (Image 2)."
+                ),
+                user_text=(
+                    f"Target entity to verify: {r_label}.\n"
+                    f"Verify that this entity appears ONCE in TEST_FRAME and faithfully matches CANONICAL_REFERENCE.{prior_note}\n"
+                    f"Set passed=true ONLY if it is present once and matches CANONICAL_REFERENCE in rendering style, colors, and design."
+                ),
+                images=[("CANONICAL_REFERENCE", r_path), ("TEST_FRAME", image_path)],
+                json_schema=anchor_schema,
+                schema_name="loop_anchor_verify_v4",
+                max_edge=max_edge,
+                max_tokens=480,
+            )
+            ap = ares.parsed or {}
+            if not bool(ap.get("passed", True)):
+                mtype = str(ap.get("mismatch_type") or "character_drift")
+                dtype_map = {
+                    "missing_entity": "character_drift",
+                    "duplicate_entity": "anatomy",
+                    "style_drift": "character_drift",
+                    "color_drift": "character_drift",
+                    "prop_drift": "prop_drift",
+                    "accessory_drift": "accessory",
+                    "anatomy": "anatomy",
+                }
+                parsed["passed"] = False
+                parsed["score"] = min(int(ap.get("score") or 3), 4)
+                parsed["defect_type"] = dtype_map.get(mtype, "character_drift")
+                parsed["defect_summary"] = str(ap.get("mismatch_summary") or f"Reference mismatch on {r_label}")
+                parsed["location"] = r_label
+                parsed["bbox_norm_1000"] = []
+                parsed["fix_action"] = "targeted_edit"
+                parsed["fix_instruction"] = str(ap.get("fix_instruction") or f"Match CANONICAL_REFERENCE for {r_label}.")
+                parsed["failed_ref_index"] = r_idx
+                break
 
     # Secondary check B: Proven 75%-recall zoomed-in forensic probes (with expected_cast_count + 2x2 quad zoom)
     if parsed["passed"]:
@@ -407,6 +419,52 @@ def audit_single_image(
                 parsed["fix_action"] = "targeted_edit" if is_dup else ("masked_inpaint" if dtype in {"accessory", "anatomy"} else "targeted_edit")
                 parsed["fix_instruction"] = str(pp.get("fix_instruction") or f"Cleanly fix the {dtype} defect while keeping only ONE copy of each character.")
                 break
+
+    # Secondary check C: BEFORE vs. AFTER Regression Guard (only during repair re-audit!)
+    # Ensures an auto-fix didn't accidentally break, erase, duplicate, or restyle another character/prop.
+    if parsed["passed"] and before_image is not None and before_image.exists():
+        reg_schema = {
+            "type": "object",
+            "properties": {
+                "observation": {"type": "string"},
+                "regression_detected": {"type": "boolean"},
+                "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+                "regression_summary": {"type": "string"},
+            },
+            "required": ["observation", "regression_detected", "confidence", "regression_summary"],
+            "additionalProperties": False,
+        }
+        rres = query_vlm_json(
+            model=model,
+            system_prompt=(
+                "You are a strict regression inspector comparing BEFORE_IMAGE against AFTER_IMAGE (a targeted repair of BEFORE_IMAGE). "
+                "The intended fix is EXPECTED to change. Check ONLY for UNINTENDED collateral damage: did any OTHER character get "
+                "erased, duplicated/cloned, or accidentally switched art style (e.g., smooth cartoon turned pixelated), or did the "
+                "background/props badly warp? Flag regression_detected=true with confidence='high' ONLY for clear collateral damage."
+            ),
+            user_text=(
+                f"Intended repair was: '{prior_defect or 'fix visual defect'}'.\n"
+                f"Compare BEFORE_IMAGE and AFTER_IMAGE. Did AFTER_IMAGE introduce clear unintended collateral damage "
+                f"(erasing a valid character, cloning a character, changing an unrelated character's art style, or warping the set)?"
+            ),
+            images=[("BEFORE_IMAGE", before_image), ("AFTER_IMAGE", image_path)],
+            json_schema=reg_schema,
+            schema_name="loop_regression_guard_v1",
+            max_edge=max_edge,
+            max_tokens=360,
+        )
+        rp = rres.parsed or {}
+        if bool(rp.get("regression_detected")) and str(rp.get("confidence", "")).lower() == "high":
+            parsed["passed"] = False
+            parsed["score"] = min(int(parsed.get("score") or 4), 4)
+            parsed["defect_type"] = "other"
+            parsed["defect_summary"] = f"Repair regression: {rp.get('regression_summary') or rp.get('observation', '')}"
+            parsed["location"] = "collateral damage from edit"
+            parsed["bbox_norm_1000"] = []
+            parsed["fix_action"] = "targeted_edit"
+            parsed["fix_instruction"] = (
+                f"Revert unintended collateral damage ({rp.get('regression_summary', '')}) while cleanly applying the original fix: {prior_defect}."
+            )
 
     parsed.setdefault("score", 5)
     parsed.setdefault("defect_type", "other" if not parsed["passed"] else "none")
@@ -518,6 +576,7 @@ def run_closed_loop(
                 model=critic_model,
                 image_path=st["current_image"],
                 ref_images=item.ref_images,
+                ref_labels=item.ref_labels,
                 entity_name=item.entity_name,
                 expected_cast_count=item.expected_cast_count,
             )
@@ -658,8 +717,10 @@ def run_closed_loop(
                     model=critic_model,
                     image_path=c["path"],
                     ref_images=item.ref_images,
+                    ref_labels=item.ref_labels,
                     entity_name=item.entity_name,
                     expected_cast_count=item.expected_cast_count,
+                    before_image=st["current_image"],
                     prior_defect=prior_def,
                 )
                 c["verdict"] = v
@@ -780,10 +841,19 @@ def run_closed_loop(
 def write_recovery_html(summary: dict[str, Any], work_dir: Path, out_path: Path) -> None:
     blocks = []
     for it in summary["items"]:
-        status_cls = "ok" if it["final_passed"] else "warn"
-        status_txt = "RECOVERED -> PASS" if it["recovered"] else ("PASSED" if it["final_passed"] else "NEEDS HUMAN REVIEW")
         iv = it["initial_verdict"]
         fv = it["final_verdict"]
+        init_passed = bool(it.get("initial_passed", iv.get("passed", False)))
+        if it["recovered"]:
+            status_cls, status_txt = "ok", "RECOVERED -> PASS"
+        elif init_passed:
+            status_cls, status_txt = "warn", "PASSED ON R0 (0 ROUNDS — CHECK IF MISSED)"
+        elif it["final_passed"]:
+            status_cls, status_txt = "ok", "PASSED"
+        else:
+            status_cls, status_txt = "bad", "NEEDS HUMAN REVIEW"
+        before_cls = "ok" if init_passed else "bad"
+        before_lbl = "PASS" if init_passed else "FAIL"
 
         ref_html = ""
         if it["ref_images"]:
@@ -831,9 +901,9 @@ def write_recovery_html(summary: dict[str, Any], work_dir: Path, out_path: Path)
               <div class="strip">
                 {ref_html}
                 <div class="tile orig">
-                  <div class="lbl">BEFORE (Original Bad Output)</div>
+                  <div class="lbl">BEFORE (Original Input)</div>
                   <img src="{html.escape(it['original_image'])}">
-                  <div class="cap"><span class="pill bad">FAIL {iv.get('score','?')}/10</span></div>
+                  <div class="cap"><span class="pill {before_cls}">{before_lbl} {iv.get('score','?')}/10</span></div>
                 </div>
                 <div class="tile final">
                   <div class="lbl">AFTER (Final Selected — {it['rounds_run']} round(s))</div>
